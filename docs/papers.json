@@ -1,0 +1,21 @@
+{
+  "generated_at_utc": "2026-04-16T03:58:03.482318+00:00",
+  "query": "all:\"spiking neural network\"",
+  "total_papers": 0,
+  "categories": {
+    "LLM": [],
+    "Object Detection": [],
+    "Drone": [],
+    "Event-based Vision": [],
+    "Neuromorphic Hardware": [],
+    "Learning Algorithms": [],
+    "Reinforcement Learning": [],
+    "Robotics & Control": [],
+    "Segmentation": [],
+    "Medical & Healthcare": [],
+    "Speech & Audio": [],
+    "NLP": [],
+    "Time Series": [],
+    "Etc": []
+  }
+}
