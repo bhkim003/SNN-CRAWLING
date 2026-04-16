@@ -2,7 +2,7 @@ name: Update SNN Papers
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 09:00 KST
+    - cron: "0 0 * * *" # Daily at 00:00 UTC (09:00 KST)
   workflow_dispatch:
 
 permissions:

@@ -72,9 +72,9 @@ def fetch_arxiv_entries() -> list[dict]:
             title = (entry.findtext("atom:title", default="", namespaces=ns) or "").strip()
             summary = (entry.findtext("atom:summary", default="", namespaces=ns) or "").strip()
             link = ""
-            for l in entry.findall("atom:link", ns):
-                if l.attrib.get("type") == "text/html":
-                    link = l.attrib.get("href", "")
+            for link_elem in entry.findall("atom:link", ns):
+                if link_elem.attrib.get("type") == "text/html":
+                    link = link_elem.attrib.get("href", "")
                     break
             if not link:
                 link = (entry.findtext("atom:id", default="", namespaces=ns) or "").strip()
@@ -111,7 +111,10 @@ def classify_paper(text: str) -> str:
 def sort_key(paper: dict) -> tuple:
     published = paper.get("published", "")
     try:
-        ts = dt.datetime.fromisoformat(published.replace("Z", "+00:00"))
+        if published.endswith("Z"):
+            ts = dt.datetime.fromisoformat(published[:-1] + "+00:00")
+        else:
+            ts = dt.datetime.fromisoformat(published)
     except ValueError:
         ts = dt.datetime(1970, 1, 1, tzinfo=dt.timezone.utc)
     return (ts, paper.get("title", ""))
@@ -128,7 +131,7 @@ def build_dataset(entries: list[dict]) -> dict:
         seen.add(dedup_key)
         combined = f'{paper["title"]} {paper["summary"]}'
         category = classify_paper(combined)
-        categories.setdefault(category, []).append(
+        categories[category].append(
             {
                 "first_author": paper["first_author"],
                 "title": paper["title"],
