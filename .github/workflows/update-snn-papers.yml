@@ -50,6 +50,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
+          fetch-depth: 0
+
+      - name: Sync latest pushed commit
+        run: |
+          BRANCH="${GITHUB_REF#refs/heads/}"
+          git pull --ff-only origin "$BRANCH"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
