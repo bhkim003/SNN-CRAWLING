@@ -19,6 +19,7 @@ Spiking Neural Network(SNN) 관련 논문을 자동 수집/분류하여 GitHub P
 
 - `/docs/index.html`: GitHub Pages에서 보여줄 메인 페이지
 - `/docs/papers.json`: 수집/분류된 데이터
+- 사이트 주소: **https://bhkim003.github.io/SNN-CRAWLING/**
 
 ## 로컬 실행
 
