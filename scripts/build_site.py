@@ -55,7 +55,13 @@ MAX_S2    = int(os.getenv("SNN_MAX_S2",    "10000"))
 MAX_ARXIV = int(os.getenv("SNN_MAX_ARXIV", "500"))
 BATCH     = 100
 S2_API_KEY = os.getenv("S2_API_KEY", "")   # free key → higher rate limits
-ARXIV_SLEEP_SECONDS = float(os.getenv("SNN_ARXIV_SLEEP", "0.1"))
+ARXIV_SLEEP_SECONDS = float(os.getenv("SNN_ARXIV_SLEEP", "1.5"))
+S2_MAX_RETRIES = int(os.getenv("SNN_S2_MAX_RETRIES", "8"))
+S2_BACKOFF_BASE = float(os.getenv("SNN_S2_BACKOFF_BASE", "20"))
+S2_BACKOFF_CAP = float(os.getenv("SNN_S2_BACKOFF_CAP", "300"))
+ARXIV_MAX_RETRIES = int(os.getenv("SNN_ARXIV_MAX_RETRIES", "8"))
+ARXIV_BACKOFF_BASE = float(os.getenv("SNN_ARXIV_BACKOFF_BASE", "15"))
+ARXIV_BACKOFF_CAP = float(os.getenv("SNN_ARXIV_BACKOFF_CAP", "180"))
 
 
 # ---------------------------------------------------------------------------
@@ -199,7 +205,7 @@ def fetch_s2_entries() -> list[dict]:
         data: dict = {}
         request_ok = False
 
-        for attempt in range(4):
+        for attempt in range(S2_MAX_RETRIES):
             try:
                 req = urllib.request.Request(url, headers=headers)
                 with urllib.request.urlopen(req, timeout=40) as resp:
@@ -209,24 +215,24 @@ def fetch_s2_entries() -> list[dict]:
             except urllib.error.HTTPError as exc:
                 if exc.code == 429:
                     retry_after = exc.headers.get("Retry-After")
-                    wait = int(retry_after) if retry_after and retry_after.isdigit() else 0
-                    if wait > 5:
-                        print(f"[WARN] S2 rate limit hit, skipping remaining S2 fetches (Retry-After={wait}s).", file=sys.stderr)
-                        return entries
-                    if wait > 0:
-                        print(f"[WARN] S2 rate limit hit, waiting {wait}s…", file=sys.stderr)
-                        time.sleep(wait)
-                    else:
-                        print("[WARN] S2 rate limit hit, skipping remaining S2 fetches.", file=sys.stderr)
-                        return entries
-                elif attempt == 3:
-                    print(f"[WARN] S2 failed after 4 attempts: {exc}", file=sys.stderr)
+                    wait = (
+                        float(retry_after)
+                        if retry_after and retry_after.isdigit()
+                        else min(S2_BACKOFF_BASE * (2 ** attempt), S2_BACKOFF_CAP)
+                    )
+                    print(
+                        f"[WARN] S2 rate limit hit (attempt {attempt + 1}/{S2_MAX_RETRIES}), waiting {int(wait)}s…",
+                        file=sys.stderr,
+                    )
+                    time.sleep(wait)
+                elif attempt == S2_MAX_RETRIES - 1:
+                    print(f"[WARN] S2 failed after {S2_MAX_RETRIES} attempts: {exc}", file=sys.stderr)
                     return entries
                 else:
                     time.sleep(5)
             except Exception as exc:
-                if attempt == 3:
-                    print(f"[WARN] S2 fetch error: {exc}", file=sys.stderr)
+                if attempt == S2_MAX_RETRIES - 1:
+                    print(f"[WARN] S2 fetch error after {S2_MAX_RETRIES} attempts: {exc}", file=sys.stderr)
                     return entries
                 time.sleep(5)
 
@@ -252,10 +258,10 @@ def fetch_s2_entries() -> list[dict]:
             year = p.get("year")
 
             ext = p.get("externalIds") or {}
-            if ext.get("ArXiv"):
-                link = f"https://arxiv.org/abs/{ext['ArXiv']}"
-            elif ext.get("DOI"):
+            if ext.get("DOI"):
                 link = f"https://doi.org/{ext['DOI']}"
+            elif ext.get("ArXiv"):
+                link = f"https://arxiv.org/abs/{ext['ArXiv']}"
             else:
                 pid = p.get("paperId", "")
                 link = f"https://www.semanticscholar.org/paper/{pid}"
@@ -303,14 +309,32 @@ def fetch_arxiv_entries() -> list[dict]:
         url = f"{ARXIV_API}?{urllib.parse.urlencode(params)}"
         data = None
 
-        for attempt in range(3):
+        for attempt in range(ARXIV_MAX_RETRIES):
             try:
                 with urllib.request.urlopen(url, timeout=30) as resp:
                     data = resp.read()
                 break
+            except urllib.error.HTTPError as exc:
+                if exc.code == 429:
+                    retry_after = exc.headers.get("Retry-After")
+                    wait = (
+                        float(retry_after)
+                        if retry_after and retry_after.isdigit()
+                        else min(ARXIV_BACKOFF_BASE * (2 ** attempt), ARXIV_BACKOFF_CAP)
+                    )
+                    print(
+                        f"[WARN] arXiv rate limit hit (attempt {attempt + 1}/{ARXIV_MAX_RETRIES}), waiting {int(wait)}s…",
+                        file=sys.stderr,
+                    )
+                    time.sleep(wait)
+                elif attempt == ARXIV_MAX_RETRIES - 1:
+                    print(f"[WARN] arXiv error after {ARXIV_MAX_RETRIES} attempts: {exc}", file=sys.stderr)
+                    return entries
+                else:
+                    time.sleep(3)
             except Exception as exc:
-                if attempt == 2:
-                    print(f"[WARN] arXiv error: {exc}", file=sys.stderr)
+                if attempt == ARXIV_MAX_RETRIES - 1:
+                    print(f"[WARN] arXiv error after {ARXIV_MAX_RETRIES} attempts: {exc}", file=sys.stderr)
                     return entries
                 time.sleep(3)
 
@@ -513,12 +537,12 @@ def render_html(dataset: dict) -> str:
             )
             rows.append(
                 f'<tr class="paper-row" data-category="{html.escape(category_name, quote=True)}" data-abstract="{abstract_attr}">'
+                f'<td class="col-date">{html.escape(date_str)}</td>'
                 f'<td class="col-author">{html.escape(p["first_author"])}</td>'
                 f'<td class="col-title"><a class="paper-link" href="{html.escape(p["link"])}" target="_blank" rel="noopener">'
                 f'{html.escape(p["title"])}</a></td>'
                 f'{category_cell}'
                 f'<td class="col-venue">{html.escape(p["venue"])}</td>'
-                f'<td class="col-date">{html.escape(date_str)}</td>'
                 f'</tr>'
             )
         if not rows:
@@ -555,11 +579,11 @@ def render_html(dataset: dict) -> str:
       <div class="table-wrap">
         <table>
           <thead><tr>
+                        <th class="col-date">Date</th>
             <th class="col-author">1st Author</th>
             <th class="col-title">Title</th>
             <th class="col-cat">Category</th>
             <th class="col-venue">Journal / Conference</th>
-            <th class="col-date">Date</th>
           </tr></thead>
           <tbody>{make_rows(total_papers, category_name="TOTAL", include_category=True)}</tbody>
         </table>
@@ -576,10 +600,10 @@ def render_html(dataset: dict) -> str:
       <div class="table-wrap">
         <table>
           <thead><tr>
+                        <th class="col-date">Date</th>
             <th class="col-author">1st Author</th>
             <th class="col-title">Title</th>
             <th class="col-venue">Journal / Conference</th>
-            <th class="col-date">Date</th>
           </tr></thead>
           <tbody>{make_rows(papers, category_name=cat)}</tbody>
         </table>
@@ -718,7 +742,7 @@ def render_html(dataset: dict) -> str:
     .panel {{ display: none; margin-bottom: 28px; }}
     .panel.active {{ display: block; }}
     .panel h2 {{
-      font-size: 1.1rem;
+    font-size: 1.02rem;
       font-weight: 700;
       margin-bottom: 10px;
       padding-bottom: 6px;
