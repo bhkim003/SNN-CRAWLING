@@ -46,4 +46,4 @@ SNN_MAX_RESULTS=500 python3 scripts/build_site.py
 
 ## API Key 관련
 
-현재 구현은 공개 arXiv API만 사용하므로 **필수 API KEY가 없습니다**.
+현재 구현은 공개 arXiv API만 사용하므로 **필수 API key가 없습니다**.

@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS_DIR = ROOT / "docs"
 ARXIV_API = "https://export.arxiv.org/api/query"
 MAX_RESULTS = int(os.getenv("SNN_MAX_RESULTS", "1000"))
+# Maximum number of arXiv results to collect per run.
 BATCH_SIZE = 100
 
 
@@ -59,7 +60,7 @@ def fetch_arxiv_entries() -> list[dict]:
             except (urllib.error.URLError, TimeoutError) as exc:
                 if attempt == 2:
                     raise
-                print(f"[WARN] arXiv fetch retry {attempt + 1}/3 failed: {exc}", file=sys.stderr)
+                print(f"[WARN] arXiv fetch attempt {attempt + 1}/3 failed: {exc}", file=sys.stderr)
                 time.sleep(2)
         if data is None:
             break
@@ -100,6 +101,7 @@ def fetch_arxiv_entries() -> list[dict]:
 
 
 def classify_paper(text: str) -> str:
+    # Single-label classification: first matched category wins, otherwise Etc.
     lower = text.lower()
     for category, patterns in CATEGORY_RULES.items():
         for pattern in patterns:
@@ -125,7 +127,12 @@ def build_dataset(entries: list[dict]) -> dict:
     categories["Etc"] = []
     seen = set()
     for paper in entries:
-        dedup_key = (paper["title"].lower(), paper["first_author"].lower())
+        dedup_key = (
+            paper["title"].lower(),
+            paper["first_author"].lower(),
+            paper.get("published", ""),
+            paper.get("venue", ""),
+        )
         if dedup_key in seen:
             continue
         seen.add(dedup_key)
@@ -220,7 +227,12 @@ def main() -> None:
         entries = fetch_arxiv_entries()
         dataset = build_dataset(entries)
     except (urllib.error.URLError, TimeoutError, ET.ParseError) as exc:
-        print(f"[WARN] Failed to update from arXiv, using fallback data: {exc}", file=sys.stderr)
+        print(
+            "[WARN] Failed to update from arXiv, using fallback data "
+            "(existing papers.json or empty dataset): "
+            f"{exc}",
+            file=sys.stderr,
+        )
         existing_json = DOCS_DIR / "papers.json"
         if existing_json.exists():
             dataset = json.loads(existing_json.read_text(encoding="utf-8"))
