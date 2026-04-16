@@ -1,9 +1,18 @@
-name: Update SNN Papers
+name: pages build and deployment
 
 on:
   schedule:
     - cron: "0 0 * * *"   # 00:00 UTC = 09:00 KST
   workflow_dispatch:
+    inputs:
+      s2_max:
+        description: "Semantic Scholar max fetch"
+        required: false
+        default: "3000"
+      arxiv_max:
+        description: "arXiv max fetch"
+        required: false
+        default: "200"
 
 permissions:
   contents: write
@@ -30,6 +39,8 @@ jobs:
           # Optional: add a free Semantic Scholar API key as a repo secret
           # to get higher rate limits. Leave unset to use the public API.
           S2_API_KEY: ${{ secrets.S2_API_KEY }}
+          SNN_MAX_S2: ${{ github.event.inputs.s2_max || '3000' }}
+          SNN_MAX_ARXIV: ${{ github.event.inputs.arxiv_max || '200' }}
         run: python3 scripts/build_site.py
 
       - name: Commit and push changes
