@@ -6,15 +6,18 @@ import html
 import json
 import os
 import re
+import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
 
-ROOT = Path("/home/runner/work/SNN-CRAWLING/SNN-CRAWLING")
+ROOT = Path(__file__).resolve().parent.parent
 DOCS_DIR = ROOT / "docs"
-ARXIV_API = "http://export.arxiv.org/api/query"
+ARXIV_API = "https://export.arxiv.org/api/query"
 MAX_RESULTS = int(os.getenv("SNN_MAX_RESULTS", "1000"))
 BATCH_SIZE = 100
 
@@ -47,8 +50,19 @@ def fetch_arxiv_entries() -> list[dict]:
             "sortOrder": "descending",
         }
         url = f"{ARXIV_API}?{urllib.parse.urlencode(params)}"
-        with urllib.request.urlopen(url, timeout=30) as response:
-            data = response.read()
+        data = None
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(url, timeout=30) as response:
+                    data = response.read()
+                break
+            except (urllib.error.URLError, TimeoutError) as exc:
+                if attempt == 2:
+                    raise
+                print(f"[WARN] arXiv fetch retry {attempt + 1}/3 failed: {exc}", file=sys.stderr)
+                time.sleep(2)
+        if data is None:
+            break
         root = ET.fromstring(data)
         ns = {"atom": "http://www.w3.org/2005/Atom", "arxiv": "http://arxiv.org/schemas/atom"}
         batch = root.findall("atom:entry", ns)
@@ -199,8 +213,17 @@ def render_html(dataset: dict) -> str:
 
 def main() -> None:
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
-    entries = fetch_arxiv_entries()
-    dataset = build_dataset(entries)
+    try:
+        entries = fetch_arxiv_entries()
+        dataset = build_dataset(entries)
+    except (urllib.error.URLError, TimeoutError, ET.ParseError) as exc:
+        print(f"[WARN] Failed to update from arXiv, using fallback data: {exc}", file=sys.stderr)
+        existing_json = DOCS_DIR / "papers.json"
+        if existing_json.exists():
+            dataset = json.loads(existing_json.read_text(encoding="utf-8"))
+            dataset["generated_at_utc"] = dt.datetime.now(dt.timezone.utc).isoformat()
+        else:
+            dataset = build_dataset([])
     (DOCS_DIR / "papers.json").write_text(json.dumps(dataset, ensure_ascii=False, indent=2), encoding="utf-8")
     (DOCS_DIR / "index.html").write_text(render_html(dataset), encoding="utf-8")
 

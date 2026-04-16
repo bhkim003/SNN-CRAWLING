@@ -23,13 +23,13 @@ Spiking Neural Network(SNN) 관련 논문을 자동 수집/분류하여 GitHub P
 ## 로컬 실행
 
 ```bash
-python3 /home/runner/work/SNN-CRAWLING/SNN-CRAWLING/scripts/build_site.py
+python3 scripts/build_site.py
 ```
 
 필요 시 수집량 조정:
 
 ```bash
-SNN_MAX_RESULTS=500 python3 /home/runner/work/SNN-CRAWLING/SNN-CRAWLING/scripts/build_site.py
+SNN_MAX_RESULTS=500 python3 scripts/build_site.py
 ```
 
 ## GitHub Pages 설정
