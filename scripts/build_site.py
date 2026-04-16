@@ -386,9 +386,11 @@ def infer_dynamic_category(title: str, abstract: str) -> str:
                 phrase_scores[phrase] = phrase_scores.get(phrase, 0) + weight + size
 
     if not phrase_scores:
-        return "General SNN"
+        return "Etc"
 
     top_phrase = sorted(phrase_scores.items(), key=lambda kv: (-kv[1], len(kv[0]), kv[0]))[0][0]
+    if len(top_phrase.split()) < 2:
+        return "Etc"
     top_phrase = re.sub(r"\s+", " ", top_phrase).strip().title()
     return f"Topic: {top_phrase}"
 
@@ -491,25 +493,28 @@ def load_committed_dataset() -> dict | None:
 # ---------------------------------------------------------------------------
 # HTML renderer
 # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# HTML renderer
+# ---------------------------------------------------------------------------
 def render_html(dataset: dict) -> str:
     categories = dataset["categories"]
     generated = dataset["generated_at_utc"][:19].replace("T", " ") + " UTC"
     total = dataset["total_papers"]
-    def make_rows(papers: list[dict], include_category: bool = False) -> str:
+
+    def make_rows(papers: list[dict], category_name: str, include_category: bool = False) -> str:
         rows: list[str] = []
         for p in papers:
             date_str = p["published"][:10] if p["published"] else "-"
             abstract = p.get("abstract", "").strip() or "Abstract unavailable."
-            abstract_title = html.escape(abstract, quote=True)
+            abstract_attr = html.escape(abstract, quote=True)
             category_cell = (
                 f'<td class="col-cat">{html.escape(p.get("category", "Etc"))}</td>'
                 if include_category else ""
             )
             rows.append(
-                f'<tr class="paper-row">'
+                f'<tr class="paper-row" data-category="{html.escape(category_name, quote=True)}" data-abstract="{abstract_attr}">'
                 f'<td class="col-author">{html.escape(p["first_author"])}</td>'
-                f'<td class="col-title">'
-                f'<a href="{html.escape(p["link"])}" target="_blank" rel="noopener" title="{abstract_title}">'
+                f'<td class="col-title"><a class="paper-link" href="{html.escape(p["link"])}" target="_blank" rel="noopener">'
                 f'{html.escape(p["title"])}</a></td>'
                 f'{category_cell}'
                 f'<td class="col-venue">{html.escape(p["venue"])}</td>'
@@ -521,6 +526,7 @@ def render_html(dataset: dict) -> str:
             rows.append(f'<tr><td colspan="{colspan}" class="empty">No papers found.</td></tr>')
         return "".join(rows)
 
+    # Collect total papers for TOTAL tab
     total_papers: list[dict] = []
     for cat, papers in categories.items():
         for p in papers:
@@ -531,14 +537,20 @@ def render_html(dataset: dict) -> str:
                 "link": p["link"],
                 "published": p["published"],
                 "category": cat,
+                "abstract": p.get("abstract", ""),
             })
     total_papers.sort(key=lambda p: _parse_date(p["published"]), reverse=True)
 
-    tab_buttons: list[str] = [
-        f'<button class="tab-btn active" data-tab="tab-total">TOTAL <span class="badge">{total}</span></button>'
-    ]
-    tab_panels: list[str] = [f"""
-    <section class="panel active" id="tab-total">
+    # Build sidebar buttons
+    buttons_html = f'<button class="category-button active" data-tab="tab-total">TOTAL <span class="badge">{total}</span></button>\n'
+    for cat, papers in categories.items():
+        cid = re.sub(r"[^a-zA-Z0-9]+", "-", cat).strip("-").lower() or "etc"
+        tab_id = f"tab-{cid}"
+        count = len(papers)
+        buttons_html += f'<button class="category-button" data-tab="{tab_id}" data-category="{html.escape(cat, quote=True)}">{html.escape(cat)} <span class="badge">{count}</span></button>\n'
+
+    # Build content panels
+    panels_html = f"""<section class="panel active" id="tab-total">
       <h2>Total Papers <span class="count">({total})</span></h2>
       <div class="table-wrap">
         <table>
@@ -549,20 +561,17 @@ def render_html(dataset: dict) -> str:
             <th class="col-venue">Journal / Conference</th>
             <th class="col-date">Date</th>
           </tr></thead>
-          <tbody>{make_rows(total_papers, include_category=True)}</tbody>
+          <tbody>{make_rows(total_papers, category_name="TOTAL", include_category=True)}</tbody>
         </table>
       </div>
-    </section>"""]
+    </section>
+"""
 
     for cat, papers in categories.items():
         cid = re.sub(r"[^a-zA-Z0-9]+", "-", cat).strip("-").lower() or "etc"
         tab_id = f"tab-{cid}"
         count = len(papers)
-        tab_buttons.append(
-            f'<button class="tab-btn" data-tab="{tab_id}">{html.escape(cat)} <span class="badge">{count}</span></button>'
-        )
-        tab_panels.append(f"""
-    <section class="panel" id="{tab_id}">
+        panels_html += f"""<section class="panel" id="{tab_id}">
       <h2>{html.escape(cat)} <span class="count">({count})</span></h2>
       <div class="table-wrap">
         <table>
@@ -572,13 +581,11 @@ def render_html(dataset: dict) -> str:
             <th class="col-venue">Journal / Conference</th>
             <th class="col-date">Date</th>
           </tr></thead>
-          <tbody>{make_rows(papers)}</tbody>
+          <tbody>{make_rows(papers, category_name=cat)}</tbody>
         </table>
       </div>
-    </section>""")
-
-    tabs_html = "\n    ".join(tab_buttons)
-    panels_html = "\n".join(tab_panels)
+    </section>
+"""
 
     return f"""<!doctype html>
 <html lang="en">
@@ -588,182 +595,209 @@ def render_html(dataset: dict) -> str:
   <title>SNN Paper Tracker</title>
   <style>
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-
     :root {{
-            --bg: #05070b;
-            --surface: #0d121b;
-            --surface-2: #111827;
-            --border: #2a364d;
-            --accent: #65d3ff;
-            --accent-2: #6ef7cf;
-            --text: #f2f7ff;
-            --muted: #b7c3d7;
-            --row-hover: #152037;
-            --chip-active: #183250;
-            --shadow: rgba(0, 0, 0, 0.35);
+      --bg: #05070b;
+      --surface: #0d121b;
+      --surface-2: #111827;
+      --border: #2a364d;
+      --accent: #65d3ff;
+      --accent-2: #6ef7cf;
+      --text: #f2f7ff;
+      --muted: #b7c3d7;
+      --row-hover: #152037;
+      --chip-active: #183250;
+      --shadow: rgba(0, 0, 0, 0.35);
     }}
-
     body {{
-            font-family: 'Segoe UI', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
-            background:
-                radial-gradient(1200px 600px at 5% -10%, #163457 0%, transparent 60%),
-                radial-gradient(1000px 500px at 95% 0%, #143a2d 0%, transparent 60%),
-                var(--bg);
+      font-family: 'Segoe UI', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      background: radial-gradient(1200px 600px at 5% -10%, #163457 0%, transparent 60%), radial-gradient(1000px 500px at 95% 0%, #143a2d 0%, transparent 60%), var(--bg);
       color: var(--text);
       line-height: 1.6;
-            min-height: 100vh;
+      min-height: 100vh;
     }}
-
     .hero {{
-            background: linear-gradient(120deg, #0f172a 0%, #111a31 55%, #0f1f2c 100%);
-            color: var(--text);
-            padding: 34px 24px 26px;
-            border-bottom: 1px solid var(--border);
+      background: linear-gradient(120deg, #0f172a 0%, #111a31 55%, #0f1f2c 100%);
+      color: var(--text);
+      padding: 34px 24px 26px;
+      border-bottom: 1px solid var(--border);
     }}
     .hero h1 {{ font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; }}
-        .hero h1 span {{ color: var(--accent); }}
-        .hero .meta {{ font-size: 0.9rem; color: var(--muted); }}
-        .hero .meta b {{ color: var(--accent-2); }}
-
-        .toolbar {{
+    .hero h1 span {{ color: var(--accent); }}
+    .hero .meta {{ font-size: 0.9rem; color: var(--muted); }}
+    .hero .meta b {{ color: var(--accent-2); }}
+    .toolbar {{
       background: var(--surface);
       border-bottom: 1px solid var(--border);
-            padding: 14px 24px;
+      padding: 14px 24px;
       position: sticky;
       top: 0;
       z-index: 100;
-            box-shadow: 0 6px 20px var(--shadow);
+      box-shadow: 0 6px 20px var(--shadow);
     }}
-        .search-wrap {{ max-width: 760px; }}
-        .toolbar input {{
+    .search-wrap {{ max-width: 760px; }}
+    .toolbar input {{
       width: 100%;
-            padding: 10px 14px;
+      padding: 10px 14px;
       border: 1px solid var(--border);
-            border-radius: 10px;
-            font-size: 0.92rem;
+      border-radius: 10px;
+      font-size: 0.92rem;
       outline: none;
-            background: var(--surface-2);
-            color: var(--text);
-    }}
-        .toolbar input::placeholder {{ color: #93a0b7; }}
-        .toolbar input:focus {{
-      border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(101,211,255,.2);
-    }}
-
-        .tab-section {{
-      padding: 14px 24px;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-    }}
-        .tab-list {{
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 8px;
-            overflow-x: auto;
-            padding-bottom: 4px;
-        }}
-        .tab-list::-webkit-scrollbar {{ height: 8px; }}
-        .tab-list::-webkit-scrollbar-thumb {{ background: #263750; border-radius: 999px; }}
-        .tab-btn {{
-      display: inline-flex;
-      align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
+      background: var(--surface-2);
       color: var(--text);
-      font-size: 0.82rem;
-            font-weight: 600;
-            background: var(--surface-2);
-            transition: all .18s;
-            cursor: pointer;
-            white-space: nowrap;
     }}
-        .tab-btn:hover {{
-            background: var(--chip-active);
-            border-color: #406080;
-        }}
-        .tab-btn.active {{
-            background: linear-gradient(120deg, #173454 0%, #1f3f68 100%);
-            color: #eef9ff;
+    .toolbar input::placeholder {{ color: #93a0b7; }}
+    .toolbar input:focus {{
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(101,211,255,.2);
+    }}
+    .layout {{
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      min-height: calc(100vh - 128px);
+      gap: 0;
+    }}
+    .sidebar {{
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      max-height: calc(100vh - 128px);
+      overflow-y: auto;
+      padding: 12px;
+      position: sticky;
+      top: 128px;
+      display: flex;
+      flex-direction: column;
+    }}
+    .sidebar::-webkit-scrollbar {{ width: 10px; }}
+    .sidebar::-webkit-scrollbar-thumb {{ background: #263750; border-radius: 999px; }}
+    .sidebar::-webkit-scrollbar-track {{ background: transparent; }}
+    .category-button {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 0.93rem;
+      font-weight: 600;
+      background: var(--surface-2);
+      transition: all 0.18s;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 8px;
+    }}
+    .category-button:hover {{
+      background: var(--chip-active);
+      border-color: #406080;
+    }}
+    .category-button.active {{
+      background: linear-gradient(120deg, #173454 0%, #1f3f68 100%);
+      color: #eef9ff;
       border-color: var(--accent);
     }}
     .badge {{
-            background: #1f2c43;
-            color: #d3e2f8;
+      background: #1f2c43;
+      color: #d3e2f8;
       border-radius: 10px;
       padding: 1px 7px;
       font-size: 0.75rem;
       font-weight: 600;
     }}
-        .tab-btn.active .badge {{
-            background: rgba(101, 211, 255, 0.22);
-            color: #dff7ff;
-        }}
-
-        .content {{ padding: 24px; max-width: 1460px; margin: 0 auto; }}
-        .panel {{ display: none; margin-bottom: 28px; }}
-        .panel.active {{ display: block; }}
-        .panel h2 {{
+    .category-button.active .badge {{
+      background: rgba(101, 211, 255, 0.22);
+      color: #dff7ff;
+    }}
+    .content {{
+      padding: 24px;
+      min-width: 0;
+      overflow-y: auto;
+      max-height: calc(100vh - 128px);
+    }}
+    .panel {{ display: none; margin-bottom: 28px; }}
+    .panel.active {{ display: block; }}
+    .panel h2 {{
       font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 10px;
       padding-bottom: 6px;
-            border-bottom: 2px solid #2b4668;
+      border-bottom: 2px solid #2b4668;
       display: flex;
       align-items: center;
       gap: 8px;
     }}
     .count {{ font-size: 0.85rem; font-weight: 400; color: var(--muted); }}
-
     .table-wrap {{
       overflow-x: auto;
       border: 1px solid var(--border);
-            border-radius: 12px;
-            background: var(--surface);
-            box-shadow: 0 10px 24px var(--shadow);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: 0 10px 24px var(--shadow);
     }}
     table {{ width: 100%; border-collapse: collapse; font-size: 0.875rem; }}
-        thead {{ background: #101b2f; }}
+    thead {{ background: #101b2f; }}
     th {{
       padding: 10px 12px;
       text-align: left;
       font-weight: 600;
-            color: #c5d5ef;
+      color: #c5d5ef;
       border-bottom: 1px solid var(--border);
       white-space: nowrap;
       font-size: 0.77rem;
       text-transform: uppercase;
-      letter-spacing: .5px;
+      letter-spacing: 0.5px;
     }}
     td {{
       padding: 9px 12px;
-            border-bottom: 1px solid #1b2a3e;
+      border-bottom: 1px solid #1b2a3e;
       vertical-align: top;
-            color: #e2ebf9;
+      color: #e2ebf9;
     }}
     tbody tr:last-child td {{ border-bottom: none; }}
-    tbody tr:hover td {{ background: var(--row-hover); }}
-
+    tbody tr:hover td {{ background: var(--row-hover); cursor: pointer; }}
     .col-author {{
       width: 145px;
       color: var(--muted);
       font-size: 0.82rem;
       white-space: nowrap;
     }}
-        .col-cat {{
-            width: 180px;
-            color: #c8d7ee;
-            font-size: 0.82rem;
-            white-space: nowrap;
-        }}
+    .col-cat {{
+      width: 180px;
+      color: #c8d7ee;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }}
     .col-title a {{
       color: var(--accent);
       text-decoration: none;
-            font-weight: 600;
+      font-weight: 600;
     }}
-        .col-title a:hover {{ text-decoration: underline; color: #9ee6ff; }}
+    .col-title a:hover {{ text-decoration: underline; color: #9ee6ff; }}
+    .tooltip {{
+      position: fixed;
+      z-index: 2000;
+      max-width: 700px;
+      max-height: 500px;
+      padding: 18px 20px;
+      border: 1px solid #4a5f80;
+      border-radius: 14px;
+      background: rgba(10, 15, 28, 0.99);
+      color: #f5faff;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      pointer-events: none;
+      display: none;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-y: auto;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }}
+    .tooltip::-webkit-scrollbar {{ width: 8px; }}
+    .tooltip::-webkit-scrollbar-thumb {{ background: #3a4f6f; border-radius: 999px; }}
+    .tooltip::-webkit-scrollbar-track {{ background: transparent; }}
     .col-venue {{
       width: 200px;
       color: var(--muted);
@@ -777,73 +811,129 @@ def render_html(dataset: dict) -> str:
     }}
     .empty {{ text-align: center; color: var(--muted); padding: 24px; }}
     .hidden {{ display: none !important; }}
-
+    @media (max-width: 1100px) {{
+      .layout {{ grid-template-columns: 220px minmax(0, 1fr); }}
+      .sidebar {{ padding: 8px; }}
+      .category-button {{ font-size: 0.88rem; padding: 8px 10px; }}
+    }}
+    @media (max-width: 900px) {{
+      .layout {{ grid-template-columns: 1fr; }}
+      .sidebar {{
+        position: static;
+        max-height: 240px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 4px;
+      }}
+      .category-button {{
+        width: auto;
+        min-width: max-content;
+        margin-bottom: 0;
+        margin-right: 8px;
+      }}
+      .sidebar::-webkit-scrollbar {{ height: 8px; width: auto; }}
+    }}
     @media (max-width: 700px) {{
-            .col-venue, .col-date, .col-cat {{ display: none; }}
+      .col-venue, .col-date, .col-cat {{ display: none; }}
       .hero h1 {{ font-size: 1.3rem; }}
-            .toolbar, .tab-section, .content, .hero {{ padding-left: 14px; padding-right: 14px; }}
+      .toolbar, .sidebar, .content, .hero {{ padding-left: 14px; padding-right: 14px; }}
+      .tooltip {{
+        max-width: calc(100vw - 20px);
+        font-size: 1rem;
+        max-height: 400px;
+      }}
+      .category-button {{ font-size: 0.82rem; padding: 7px 9px; }}
     }}
   </style>
 </head>
 <body>
-
 <header class="hero">
   <h1>⚡ <span>Spiking Neural Network</span> Papers</h1>
-  <p class="meta">
-    <b>{total:,}</b> papers &nbsp;·&nbsp; Updated <b>{generated}</b>
-    &nbsp;·&nbsp; Sources: Semantic Scholar + arXiv
-  </p>
+  <p class="meta"><b>{total:,}</b> papers · Updated <b>{generated}</b> · Sources: Semantic Scholar + arXiv</p>
 </header>
 
 <div class="toolbar">
-    <div class="search-wrap">
-        <input type="search" id="search"
-                     placeholder="Search within current tab (title, author, venue, category)" autocomplete="off">
-    </div>
+  <div class="search-wrap">
+    <input type="search" id="search" placeholder="Search paper title, author, venue, or category name" autocomplete="off">
+  </div>
 </div>
 
-<nav class="tab-section">
-    <div class="tab-list" id="tab-list">
-        {tabs_html}
-  </div>
-</nav>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+{buttons_html}</aside>
+<main class="content" id="content">
+{panels_html}</main>
+</div>
 
-<main class="content">
-    {panels_html}
-</main>
+<div id="abstract-tooltip" class="tooltip"></div>
 
 <script>
-    const tabButtons = Array.from(document.querySelectorAll('.tab-btn'));
-    const panels = Array.from(document.querySelectorAll('.panel'));
+  const categoryButtons = Array.from(document.querySelectorAll('.category-button'));
+  const panels = Array.from(document.querySelectorAll('.panel'));
   const input = document.getElementById('search');
+  const tooltip = document.getElementById('abstract-tooltip');
 
-    function setActiveTab(tabId) {{
-        tabButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabId));
-        panels.forEach(panel => panel.classList.toggle('active', panel.id === tabId));
-        applySearch();
-    }}
+  function setActiveTab(tabId) {{
+    categoryButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabId));
+    panels.forEach(panel => panel.classList.toggle('active', panel.id === tabId));
+    applySearch();
+  }}
 
-    function applySearch() {{
+  function applySearch() {{
     const q = input.value.toLowerCase().trim();
-        const activePanel = document.querySelector('.panel.active');
-        if (!activePanel) return;
+    categoryButtons.forEach(btn => {{
+      const label = (btn.textContent || '').toLowerCase();
+      const catName = (btn.dataset.category || '').toLowerCase();
+      btn.classList.toggle('hidden', Boolean(q) && !label.includes(q) && !catName.includes(q));
+    }});
+    const activePanel = document.querySelector('.panel.active');
+    if (!activePanel) return;
 
-        activePanel.querySelectorAll('tr.paper-row').forEach(row => {{
-            const text = row.textContent.toLowerCase();
-            row.classList.toggle('hidden', Boolean(q) && !text.includes(q));
+    activePanel.querySelectorAll('tr.paper-row').forEach(row => {{
+      const text = row.textContent.toLowerCase();
+      const cat = (row.dataset.category || '').toLowerCase();
+      row.classList.toggle('hidden', Boolean(q) && !(text.includes(q) || cat.includes(q)));
     }});
 
-        panels.filter(panel => panel !== activePanel).forEach(panel => {{
-            panel.querySelectorAll('tr.paper-row').forEach(row => row.classList.remove('hidden'));
-        }});
-    }}
-
-    tabButtons.forEach(btn => {{
-        btn.addEventListener('click', () => setActiveTab(btn.dataset.tab));
+    panels.filter(panel => panel !== activePanel).forEach(panel => {{
+      panel.querySelectorAll('tr.paper-row').forEach(row => row.classList.remove('hidden'));
     }});
-    input.addEventListener('input', applySearch);
+  }}
+
+  categoryButtons.forEach(btn => {{
+    btn.addEventListener('click', () => setActiveTab(btn.dataset.tab));
+  }});
+
+  function placeTooltip(evt) {{
+    const margin = 16;
+    let x = evt.clientX + 18;
+    let y = evt.clientY + 18;
+    const rect = tooltip.getBoundingClientRect();
+    if (x + rect.width + margin > window.innerWidth) x = evt.clientX - rect.width - 18;
+    if (y + rect.height + margin > window.innerHeight) y = evt.clientY - rect.height - 18;
+    tooltip.style.left = `${{Math.max(margin, x)}}px`;
+    tooltip.style.top = `${{Math.max(margin, y)}}px`;
+  }}
+
+  document.querySelectorAll('tbody tr.paper-row').forEach(row => {{
+    row.addEventListener('mouseenter', (evt) => {{
+      const abs = row.dataset.abstract || 'Abstract unavailable.';
+      tooltip.textContent = abs;
+      tooltip.style.display = 'block';
+      placeTooltip(evt);
+    }});
+    row.addEventListener('mousemove', placeTooltip);
+    row.addEventListener('mouseleave', () => {{
+      tooltip.style.display = 'none';
+    }});
+  }});
+
+  input.addEventListener('input', applySearch);
 </script>
-
 </body>
 </html>
 """

@@ -13,8 +13,8 @@
 | 수집 소스 | Semantic Scholar + arXiv |
 | 검색 키워드 | `spiking neural network`, `SNN`, `spike-based` |
 | 분류 방식 | 제목 + 초록 기반 분류, 새 토픽 자동 생성 |
-| UI | TOTAL 탭 + 주제별 탭, 다크 테마, 고대비 표 |
-| 부가 기능 | 제목에 마우스를 올리면 abstract 미리보기 표시 |
+| UI | 좌측 세로 주제 목록 + 우측 논문 테이블, 다크 테마, 고대비 표 |
+| 부가 기능 | 제목 hover 시 abstract 툴팁(큰 글씨) 표시 |
 | 자동 갱신 | 매일 오전 09:00 KST (GitHub Actions) |
 
 ---
@@ -47,6 +47,12 @@ python3 scripts/build_site.py
 SNN_MAX_S2=100000 SNN_MAX_ARXIV=100000 python3 scripts/build_site.py
 ```
 
+더 큰 재색인(요청 상한):
+
+```bash
+SNN_MAX_S2=500000 SNN_MAX_ARXIV=500000 python3 scripts/build_site.py
+```
+
 > API 제한과 응답 속도에 따라 실제 수집량은 더 적을 수 있습니다. Semantic Scholar API Key를 등록하면 안정성이 올라갑니다.
 
 ---
@@ -55,9 +61,10 @@ SNN_MAX_S2=100000 SNN_MAX_ARXIV=100000 python3 scripts/build_site.py
 
 - Semantic Scholar와 arXiv를 함께 조회합니다.
 - 제목과 초록을 함께 읽어서 분류합니다.
-- 기존 카테고리에 맞지 않으면 새 주제를 자동 생성합니다.
+- 기존 카테고리에 맞지 않으면 새 주제를 자동 생성하고, 생성 신뢰도가 낮으면 `Etc`로 배치합니다.
 - 중복 논문은 제목 기준으로 한 번만 저장합니다.
-- 사이트에서는 각 논문의 제목에 마우스를 올리면 abstract를 볼 수 있습니다.
+- 사이트에서는 각 논문의 제목에 마우스를 올리면 abstract 툴팁을 볼 수 있습니다.
+- 검색창에서 제목/저자/학회뿐 아니라 주제명으로도 필터링할 수 있습니다.
 
 ---
 
