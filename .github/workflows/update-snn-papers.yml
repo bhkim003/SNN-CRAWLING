@@ -27,6 +27,9 @@ jobs:
   update:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    env:
+      SNN_OPENALEX_CONTACT: "bhkim003@snu.ac.kr"
+      SNN_OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
     outputs:
       deploy_sha: ${{ steps.commit_and_push.outputs.sha }}
     steps:

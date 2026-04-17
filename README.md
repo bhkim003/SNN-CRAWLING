@@ -75,6 +75,20 @@ SNN_MAX_S2=500000 SNN_MAX_ARXIV=500000 python3 scripts/build_site.py
 - 키 발급: [semanticscholar.org/product/api](https://www.semanticscholar.org/product/api)
 - 등록 위치: `Settings` → `Secrets and variables` → `Actions` → `S2_API_KEY`
 
+## OpenAlex polite pool / API Key
+
+OpenAlex는 `mailto`와 `api_key`를 함께 사용하면 더 안정적인 처리(우선순위 라우팅)에 도움이 됩니다.
+
+- 워크플로 기본 `mailto`: `bhkim003@snu.ac.kr`
+- 등록 위치: `Settings` → `Secrets and variables` → `Actions` → `OPENALEX_API_KEY`
+- 로컬 실행 시:
+
+```bash
+SNN_OPENALEX_CONTACT=bhkim003@snu.ac.kr \
+SNN_OPENALEX_API_KEY=YOUR_OPENALEX_KEY \
+python3 scripts/build_site.py
+```
+
 ---
 
 ## 파일 구조

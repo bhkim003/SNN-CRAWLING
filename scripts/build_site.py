@@ -45,6 +45,7 @@ OPENALEX_API = "https://api.openalex.org/works"
 CROSSREF_API = "https://api.crossref.org/works"
 
 OPENALEX_CONTACT = os.getenv("SNN_OPENALEX_CONTACT", "bhkim003@gmail.com")
+OPENALEX_API_KEY = os.getenv("SNN_OPENALEX_API_KEY", "").strip()
 OPENALEX_FIELDS  = "id,doi,title,authorships,primary_location,publication_date,abstract_inverted_index"
 CROSSREF_CONTACT = os.getenv("SNN_CROSSREF_CONTACT", "bhkim003@gmail.com")
 
@@ -242,6 +243,8 @@ def fetch_openalex_entries(max_papers: int | None = None) -> list[dict]:
             "cursor": cursor,
             "mailto": OPENALEX_CONTACT,
         }
+        if OPENALEX_API_KEY:
+            params["api_key"] = OPENALEX_API_KEY
         url = f"{OPENALEX_API}?{urllib.parse.urlencode(params)}"
         data: dict = {}
 
@@ -295,6 +298,8 @@ def fetch_openalex_recent(from_date: str, max_papers: int = 200) -> list[dict]:
             "cursor": cursor,
             "mailto": OPENALEX_CONTACT,
         }
+        if OPENALEX_API_KEY:
+            params["api_key"] = OPENALEX_API_KEY
         url = f"{OPENALEX_API}?{urllib.parse.urlencode(params)}"
         data: dict = {}
 
