@@ -77,73 +77,176 @@ MAX_DAILY_ARXIV    = int(os.getenv("SNN_MAX_DAILY_ARXIV",    "1000"))
 # Category rules  (first match wins; Etc is the fallback)
 # ---------------------------------------------------------------------------
 CATEGORY_RULES: dict[str, list[str]] = {
+    # ── Top 3 (mandatory first) ──────────────────────────────────────────
     "LLM": [
-        r"\bllm\b", r"large language model", r"language model",
+        r"\bllm\b", r"\bllms\b", r"large language model", r"language model",
         r"\bgpt[\b\-]", r"\bbert\b", r"\btransformer\b",
-        r"in-context learning", r"\bprompt\b", r"foundation model",
-        r"instruction.tun", r"fine.tun",
+        r"in.context learning", r"foundation model",
+        r"instruction.tun", r"pretrain.*language", r"vision.language model",
     ],
     "Object Detection": [
         r"object detection", r"\byolo\b", r"\br-cnn\b", r"faster r-cnn",
         r"\bssd\b", r"anchor.free detection", r"bounding box",
+        r"object recogni", r"pedestrian detection", r"face detection",
     ],
     "Drone": [
         r"\bdrone\b", r"\buav\b", r"unmanned aerial", r"\bquadcopter\b",
-        r"aerial robot", r"autonomous flight",
+        r"aerial robot", r"autonomous flight", r"aerial vehicle",
+        r"micro aerial", r"fixed.wing",
     ],
+    # ── Neuromorphic & SNN core ──────────────────────────────────────────
     "Event-based Vision": [
         r"event.based", r"event.driven vision", r"\bdvs\b",
         r"dynamic vision sensor", r"neuromorphic vision",
-        r"silicon retina", r"event camera",
+        r"silicon retina", r"event camera", r"asynchronous vision",
+        r"event.driven neural", r"spike.based vision",
     ],
     "Neuromorphic Hardware": [
-        r"neuromorphic hardware", r"neuromorphic chip", r"\bmemristor\b",
-        r"\bfpga\b", r"\bvlsi\b", r"\basic\b",
-        r"\bloihi\b", r"\btruenorth\b", r"\bspinnaker\b",
-        r"hardware accelerat", r"on.chip learning",
+        r"neuromorphic hardware", r"neuromorphic chip", r"neuromorphic comput",
+        r"neuromorphic processor", r"\bmemristor\b", r"\bfpga\b",
+        r"\bvlsi\b", r"\basic\b", r"\bloihi\b", r"\btruenorth\b",
+        r"\bspinnaker\b", r"hardware accelerat", r"on.chip learning",
+        r"resistive switch", r"in.memory comput",
     ],
     "ANN-to-SNN Conversion": [
         r"ann.to.snn", r"ann.snn conversion", r"convert.*ann.*snn",
-        r"rate coding", r"firing rate conversion",
+        r"convert.*artificial.*spiking", r"rate coding",
+        r"firing rate conversion", r"threshold balancing",
     ],
-    "Learning Rules": [
-        r"\bstdp\b", r"surrogate gradient", r"backpropagat.*snn",
-        r"spike.timing.dependent", r"hebbian", r"synaptic plasticity",
-        r"online learning.*spiking",
+    "Surrogate Gradient": [
+        r"surrogate gradient", r"backpropagat.*spiking",
+        r"backpropagat.*snn", r"gradient.*spiking network",
+        r"bptt.*spiking", r"temporal.*backprop",
+        r"spike.*backprop", r"differentiable spiking",
     ],
-    "Reinforcement Learning": [
-        r"reinforcement learning", r"policy gradient", r"\bppo\b",
-        r"\bdqn\b", r"actor.critic", r"reward.based",
+    "Learning Rules & STDP": [
+        r"\bstdp\b", r"spike.timing.dependent",
+        r"\bhebbian\b", r"synaptic plasticity",
+        r"online learning.*spiking", r"local learning rule",
+        r"unsupervised.*spiking", r"biologically plausible",
+    ],
+    "Reservoir Computing": [
+        r"reservoir computing", r"liquid state machine",
+        r"echo state network", r"\blsm\b", r"\besn\b",
+        r"recurrent.*reservoir", r"spiking.*reservoir",
+    ],
+    # ── Applications ────────────────────────────────────────────────────
+    "Medical & BCI": [
+        r"\bmedical imaging\b", r"\bhealthcare\b", r"\becg\b", r"\beeg\b",
+        r"\bbiomedical\b", r"brain.computer interface",
+        r"\bseizure\b", r"\bbci\b", r"neural decod",
+        r"clinical diagnosis", r"\bemg\b", r"electromyograph",
+        r"\bepilepsy\b", r"brain signal", r"neural signal",
     ],
     "Robotics & Control": [
-        r"\brobot", r"robotic", r"manipulation task",
-        r"\bnavigation\b", r"\bslam\b", r"locomotion", r"actuator",
+        r"\brobotics\b", r"robotic manipul", r"robotic arm",
+        r"robot locomotion", r"\bslam\b", r"\bactuator\b",
+        r"robot control", r"legged robot", r"bio.inspired robot",
     ],
-    "Segmentation": [
-        r"segmentation", r"semantic segmentation",
-        r"instance segmentation", r"\bpanoptic\b",
+    "Autonomous Navigation": [
+        r"autonomous navigat", r"autonomous driv", r"self.driving",
+        r"autonomous vehicle", r"path planning", r"obstacle avoidance",
+        r"\bnavigation\b", r"autonomous robot",
     ],
-    "Medical & BCI": [
-        r"\bmedical\b", r"\bhealthcare\b", r"\becg\b", r"\beeg\b",
-        r"\bdiagnosis\b", r"\bbiomedical\b", r"brain.computer interface",
-        r"\bseizure\b", r"\bbci\b", r"neural decod",
+    "Gesture & Action Recognition": [
+        r"gesture recogni", r"action recogni", r"activity recogni",
+        r"pose estimat", r"\bskeleton\b", r"human action",
+        r"hand gesture", r"body pose", r"sign language",
     ],
     "Speech & Audio": [
         r"\bspeech\b", r"\baudio\b", r"keyword spotting",
         r"\bvoice\b", r"sound classif", r"\basr\b", r"automatic speech",
+        r"auditory cortex", r"\bspoken\b", r"audio event",
     ],
+    "Medical Diagnosis": [
+        r"\bmedical\b", r"\bdiagnosis\b", r"\bhealthcare\b",
+        r"\bpathology\b", r"disease detect", r"tumor detect",
+        r"cancer classif", r"retinal", r"chest x.ray",
+        r"medical segmentation",
+    ],
+    # ── Vision & Image tasks ─────────────────────────────────────────────
     "Image Classification": [
         r"image classif", r"\bcifar\b", r"\bimagenet\b",
-        r"\bmnist\b", r"\bn-mnist\b",
+        r"\bmnist\b", r"\bn-mnist\b", r"\bn-caltech\b",
+        r"visual recogni", r"image recogni",
+    ],
+    "Segmentation": [
+        r"segmentation", r"semantic segmentation",
+        r"instance segmentation", r"\bpanoptic\b",
+        r"scene understanding", r"pixel.wise",
+    ],
+    "Point Cloud & 3D": [
+        r"point cloud", r"3d object", r"depth estimation",
+        r"\blidar\b", r"3d detection", r"3d classif",
+        r"\bvoxel\b", r"stereo vision", r"depth.*sensor",
+        r"3d scene", r"range image",
+    ],
+    # ── ML paradigms ────────────────────────────────────────────────────
+    "Reinforcement Learning": [
+        r"reinforcement learning", r"policy gradient", r"\bppo\b",
+        r"\bdqn\b", r"actor.critic", r"reward.based",
+        r"\bmarl\b", r"multi.agent.*reinforcement", r"q.learning",
+    ],
+    "Continual Learning": [
+        r"continual learning", r"lifelong learning",
+        r"catastrophic forgetting", r"incremental learning",
+        r"class.incremental", r"task.incremental",
+        r"few.shot.*continual",
+    ],
+    "Federated Learning": [
+        r"federated learning", r"federated optim",
+        r"privacy.preserv.*learn", r"distributed.*privacy",
+        r"federated.*spiking",
+    ],
+    "Graph Neural Networks": [
+        r"graph neural", r"\bgnn\b", r"graph convolution",
+        r"graph.based learn", r"graph network", r"knowledge graph",
+        r"graph spiking", r"graph attention",
+    ],
+    "Time Series": [
+        r"time.series", r"\bforecast", r"anomaly detection",
+        r"temporal data", r"sequential data", r"temporal pattern",
+        r"time.series classif",
     ],
     "NLP": [
         r"\bnlp\b", r"natural language processing",
         r"text classif", r"sentiment analysis",
-        r"named entity", r"machine translation",
+        r"named entity", r"machine translation", r"question answer",
     ],
-    "Time Series": [
-        r"time.series", r"\bforecast", r"anomaly detection",
-        r"temporal data", r"sequential data",
+    "Multimodal Learning": [
+        r"multimodal", r"multi.modal", r"vision.language",
+        r"image.text", r"cross.modal", r"audio.visual",
+        r"multi.sensory",
+    ],
+    # ── Efficiency & Deployment ──────────────────────────────────────────
+    "Model Compression": [
+        r"model compression", r"\bpruning\b", r"knowledge distillation",
+        r"\bquantization\b", r"\bquantized\b", r"network compression",
+        r"lightweight.*network", r"compact.*network",
+    ],
+    "Edge AI & Embedded": [
+        r"\bedge.ai\b", r"edge computing", r"edge inference",
+        r"embedded system", r"\biot\b", r"internet of things",
+        r"low.power.*neural", r"energy.efficient.*neural",
+        r"on.device", r"microcontroller",
+    ],
+    # ── Security & Other ────────────────────────────────────────────────
+    "Security & Adversarial": [
+        r"adversarial attack", r"adversarial example",
+        r"adversarial robustness", r"intrusion detection",
+        r"backdoor attack", r"fault.*inject",
+        r"\bcybersecur", r"adversarial.*spiking",
+    ],
+    "Optical & Photonic": [
+        r"optical comput", r"photonic neural", r"photonic comput",
+        r"optical neural", r"diffractive neural", r"\boadnn\b",
+        r"all.optical",
+    ],
+    "Datasets & Benchmarks": [
+        r"\bbenchmark\b.*spiking", r"\bbenchmark\b.*snn",
+        r"evaluation.*spiking", r"neuromorphic dataset",
+        r"\bncars\b", r"cifar10.dvs", r"n.mnist",
+        r"dvs.{1,20}dataset", r"spiking.*dataset",
     ],
 }
 
@@ -164,21 +267,17 @@ STOPWORDS = {
 }
 
 DYNAMIC_TOKEN_LABELS = {
-    "gesture": "Gesture Recognition",
-    "navigation": "Autonomous Navigation",
-    "autonomous": "Autonomous Systems",
-    "memristor": "Memristive Devices",
-    "edge": "Edge AI",
-    "dataset": "Datasets & Benchmarks",
-    "federated": "Federated Learning",
-    "quantization": "Quantization",
-    "compression": "Model Compression",
-    "optical": "Optical Computing",
-    "security": "Security & Robustness",
-    "adversarial": "Security & Robustness",
-    "multimodal": "Multimodal Learning",
-    "graph": "Graph Neural Models",
     "attention": "Attention Mechanisms",
+    "recurrent": "Recurrent Networks",
+    "generative": "Generative Models",
+    "diffusion": "Diffusion Models",
+    "contrastive": "Contrastive Learning",
+    "transformer": "Transformer Models",
+    "spikeformer": "Transformer Models",
+    "pruning": "Model Compression",
+    "distillation": "Model Compression",
+    "autonomous": "Autonomous Systems",
+    "locomotion": "Robotics & Control",
 }
 
 DYNAMIC_TOPIC_BLACKLIST = {
@@ -452,9 +551,11 @@ def fetch_arxiv_entries(max_papers: int | None = None, from_date: str | None = A
     if from_date:
         try:
             from_dt = dt.datetime.strptime(from_date, "%Y-%m-%d").replace(tzinfo=dt.timezone.utc)
-            compact = from_dt.strftime("%Y%m%d")
+            start_compact = from_dt.strftime("%Y%m%d")
+            # arXiv date range queries are more reliable with an explicit upper bound.
+            end_compact = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d%H%M")
             # Restrict to recent submissions directly in the arXiv query.
-            arxiv_query = f"({ARXIV_QUERY}) AND submittedDate:[{compact}0000 TO *]"
+            arxiv_query = f"({ARXIV_QUERY}) AND submittedDate:[{start_compact}0000 TO {end_compact}]"
         except ValueError:
             print(f"[WARN] Invalid arXiv from_date '{from_date}', using default window.", file=sys.stderr)
 
@@ -488,6 +589,16 @@ def fetch_arxiv_entries(max_papers: int | None = None, from_date: str | None = A
                     )
                     print(
                         f"[WARN] arXiv rate limit hit (attempt {attempt + 1}/{ARXIV_MAX_RETRIES}), waiting {int(wait)}s…",
+                        file=sys.stderr,
+                    )
+                    time.sleep(wait)
+                elif 500 <= exc.code < 600:
+                    wait = min(3 * (attempt + 1), 30)
+                    if attempt == ARXIV_MAX_RETRIES - 1:
+                        print(f"[WARN] arXiv server error after {ARXIV_MAX_RETRIES} attempts: {exc}", file=sys.stderr)
+                        return entries
+                    print(
+                        f"[WARN] arXiv server error {exc.code} (attempt {attempt + 1}/{ARXIV_MAX_RETRIES}), waiting {int(wait)}s…",
                         file=sys.stderr,
                     )
                     time.sleep(wait)
