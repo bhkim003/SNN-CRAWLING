@@ -5,14 +5,18 @@ on:
     - cron: "0 0 * * *"   # 00:00 UTC = 09:00 KST
   workflow_dispatch:
     inputs:
+      mode:
+        description: "Run mode: 'daily' (fast, incremental) or 'initial' (full fetch ~10k papers)"
+        required: false
+        default: "daily"
       s2_max:
-        description: "Semantic Scholar max fetch"
+        description: "S2 max fetch (initial mode only)"
         required: false
-        default: "3000"
+        default: "10000"
       arxiv_max:
-        description: "arXiv max fetch"
+        description: "arXiv max fetch (initial mode only)"
         required: false
-        default: "200"
+        default: "500"
 
 permissions:
   contents: write
@@ -34,13 +38,22 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Fetch papers and build site
+      - name: Fetch papers and build site (daily)
+        if: github.event_name == 'schedule' || github.event.inputs.mode == 'daily' || github.event.inputs.mode == ''
         env:
-          # Optional: add a free Semantic Scholar API key as a repo secret
-          # to get higher rate limits. Leave unset to use the public API.
           S2_API_KEY: ${{ secrets.S2_API_KEY }}
-          SNN_MAX_S2: ${{ github.event.inputs.s2_max || '3000' }}
-          SNN_MAX_ARXIV: ${{ github.event.inputs.arxiv_max || '200' }}
+          SNN_DAILY_DAYS: "35"
+          SNN_MAX_DAILY_S2: "300"
+          SNN_MAX_DAILY_ARXIV: "100"
+          SNN_MAX_DAILY_CROSSREF: "200"
+        run: python3 scripts/build_site.py --daily
+
+      - name: Fetch papers and build site (initial full fetch)
+        if: github.event.inputs.mode == 'initial'
+        env:
+          S2_API_KEY: ${{ secrets.S2_API_KEY }}
+          SNN_MAX_S2: ${{ github.event.inputs.s2_max || '10000' }}
+          SNN_MAX_ARXIV: ${{ github.event.inputs.arxiv_max || '500' }}
         run: python3 scripts/build_site.py
 
       - name: Commit and push changes

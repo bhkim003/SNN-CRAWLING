@@ -18,6 +18,7 @@ docs/index.html    rendered GitHub Pages site
 """
 from __future__ import annotations
 
+import argparse
 import datetime as dt
 import html
 import json
@@ -39,9 +40,11 @@ from pathlib import Path
 ROOT     = Path(__file__).resolve().parent.parent
 DOCS_DIR = ROOT / "docs"
 
-ARXIV_API = "https://export.arxiv.org/api/query"
-S2_API    = "https://api.semanticscholar.org/graph/v1/paper/search"
-S2_FIELDS = "title,abstract,authors,year,venue,publicationDate,externalIds"
+ARXIV_API    = "https://export.arxiv.org/api/query"
+S2_API       = "https://api.semanticscholar.org/graph/v1/paper/search"
+S2_BULK_API  = "https://api.semanticscholar.org/graph/v1/paper/search/bulk"
+CROSSREF_API = "https://api.crossref.org/works"
+S2_FIELDS    = "title,abstract,authors,year,venue,publicationDate,externalIds"
 
 SEARCH_TERMS = [
     "spiking neural network",
@@ -62,6 +65,13 @@ S2_BACKOFF_CAP = float(os.getenv("SNN_S2_BACKOFF_CAP", "300"))
 ARXIV_MAX_RETRIES = int(os.getenv("SNN_ARXIV_MAX_RETRIES", "8"))
 ARXIV_BACKOFF_BASE = float(os.getenv("SNN_ARXIV_BACKOFF_BASE", "15"))
 ARXIV_BACKOFF_CAP = float(os.getenv("SNN_ARXIV_BACKOFF_CAP", "180"))
+
+# Daily incremental mode settings
+DAILY_DAYS          = int(os.getenv("SNN_DAILY_DAYS",          "35"))
+MAX_DAILY_S2        = int(os.getenv("SNN_MAX_DAILY_S2",        "300"))
+MAX_DAILY_ARXIV     = int(os.getenv("SNN_MAX_DAILY_ARXIV",     "100"))
+MAX_DAILY_CROSSREF  = int(os.getenv("SNN_MAX_DAILY_CROSSREF",  "200"))
+CROSSREF_CONTACT    = os.getenv("SNN_CROSSREF_CONTACT", "bhkim003@gmail.com")
 
 
 # ---------------------------------------------------------------------------
@@ -292,17 +302,210 @@ def fetch_s2_entries() -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# Semantic Scholar bulk fetcher (date-filtered, for daily mode)
+# ---------------------------------------------------------------------------
+def fetch_s2_recent(from_date: str, max_papers: int = 300) -> list[dict]:
+    entries: list[dict] = []
+    headers: dict[str, str] = {
+        "User-Agent": "SNN-Paper-Tracker/2.0 (https://github.com/bhkim003/SNN-CRAWLING)"
+    }
+    if S2_API_KEY:
+        headers["x-api-key"] = S2_API_KEY
+
+    token: str | None = None
+    print(f"[INFO] Fetching recent S2 papers since {from_date} (up to {max_papers})…", file=sys.stderr)
+
+    while len(entries) < max_papers:
+        params: dict[str, str] = {
+            "query": S2_QUERY,
+            "fields": S2_FIELDS,
+            "publicationDateOrYear": f"{from_date}:",
+            "sort": "publicationDate:desc",
+            "limit": str(min(1000, max_papers - len(entries))),
+        }
+        if token:
+            params["token"] = token
+        url = f"{S2_BULK_API}?{urllib.parse.urlencode(params)}"
+        data: dict = {}
+
+        for attempt in range(S2_MAX_RETRIES):
+            try:
+                req = urllib.request.Request(url, headers=headers)
+                with urllib.request.urlopen(req, timeout=40) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                break
+            except urllib.error.HTTPError as exc:
+                if exc.code == 429:
+                    retry_after = exc.headers.get("Retry-After")
+                    wait = (
+                        float(retry_after)
+                        if retry_after and retry_after.isdigit()
+                        else min(S2_BACKOFF_BASE * (2 ** attempt), S2_BACKOFF_CAP)
+                    )
+                    print(f"[WARN] S2 bulk rate limit (attempt {attempt + 1}), waiting {int(wait)}s…", file=sys.stderr)
+                    time.sleep(wait)
+                elif attempt == S2_MAX_RETRIES - 1:
+                    print(f"[WARN] S2 bulk failed: {exc}", file=sys.stderr)
+                    return entries
+                else:
+                    time.sleep(5)
+            except Exception as exc:
+                if attempt == S2_MAX_RETRIES - 1:
+                    print(f"[WARN] S2 bulk error: {exc}", file=sys.stderr)
+                    return entries
+                time.sleep(5)
+
+        papers = data.get("data", [])
+        if not papers:
+            break
+
+        for p in papers:
+            title = (p.get("title") or "").strip()
+            if not title:
+                continue
+            authors = p.get("authors") or []
+            first_author = authors[0].get("name", "Unknown") if authors else "Unknown"
+            venue = (p.get("venue") or "").strip()
+            pub_date = (p.get("publicationDate") or "").strip()
+            abstract = " ".join((p.get("abstract") or "").split())
+            year = p.get("year")
+            ext = p.get("externalIds") or {}
+            if ext.get("DOI"):
+                link = f"https://doi.org/{ext['DOI']}"
+            elif ext.get("ArXiv"):
+                link = f"https://arxiv.org/abs/{ext['ArXiv']}"
+            else:
+                pid = p.get("paperId", "")
+                link = f"https://www.semanticscholar.org/paper/{pid}"
+            if not venue:
+                venue = "arXiv" if ext.get("ArXiv") else (str(year) if year else "")
+            if not pub_date and year:
+                pub_date = f"{year}-01-01"
+            entries.append({
+                "first_author": first_author,
+                "title": " ".join(title.split()),
+                "abstract": abstract,
+                "venue": venue,
+                "link": link,
+                "published": pub_date,
+            })
+
+        token = data.get("token")
+        print(f"[INFO] S2 recent: {len(entries)} fetched", file=sys.stderr)
+        if not token:
+            break
+        time.sleep(1.1 if not S2_API_KEY else 0.3)
+
+    return entries
+
+
+# ---------------------------------------------------------------------------
+# CrossRef fetcher (fast, for journal papers in daily mode)
+# ---------------------------------------------------------------------------
+def fetch_crossref_entries(from_date: str | None = None, max_papers: int = 200) -> list[dict]:
+    entries: list[dict] = []
+    headers = {
+        "User-Agent": f"SNN-Paper-Tracker/2.0 (mailto:{CROSSREF_CONTACT})"
+    }
+    print(f"[INFO] Fetching from CrossRef (up to {max_papers} papers)…", file=sys.stderr)
+
+    offset = 0
+    while len(entries) < max_papers:
+        params: dict[str, str] = {
+            "query": "spiking neural network",
+            "rows": str(min(100, max_papers - len(entries))),
+            "offset": str(offset),
+            "sort": "published",
+            "order": "desc",
+            "mailto": CROSSREF_CONTACT,
+        }
+        if from_date:
+            params["filter"] = f"from-pub-date:{from_date}"
+        url = f"{CROSSREF_API}?{urllib.parse.urlencode(params)}"
+        data: dict = {}
+
+        for attempt in range(4):
+            try:
+                req = urllib.request.Request(url, headers=headers)
+                with urllib.request.urlopen(req, timeout=30) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                break
+            except Exception as exc:
+                if attempt == 3:
+                    print(f"[WARN] CrossRef error: {exc}", file=sys.stderr)
+                    return entries
+                time.sleep(3 * (attempt + 1))
+
+        items = data.get("message", {}).get("items", [])
+        if not items:
+            break
+
+        for item in items:
+            title_list = item.get("title", [])
+            if not title_list:
+                continue
+            title = title_list[0].strip()
+
+            authors = item.get("author", [])
+            first_author = "Unknown"
+            if authors:
+                a = authors[0]
+                first_author = f"{a.get('given', '')} {a.get('family', '')}".strip() or "Unknown"
+
+            doi = item.get("DOI", "")
+            link = f"https://doi.org/{doi}" if doi else ""
+            if not link:
+                continue
+
+            pub_date = ""
+            dp = (item.get("published") or item.get("published-print") or item.get("published-online") or {}).get("date-parts", [[]])
+            if dp and dp[0]:
+                parts = dp[0]
+                if len(parts) >= 3:
+                    pub_date = f"{parts[0]:04d}-{parts[1]:02d}-{parts[2]:02d}"
+                elif len(parts) == 2:
+                    pub_date = f"{parts[0]:04d}-{parts[1]:02d}-01"
+                elif len(parts) == 1:
+                    pub_date = f"{parts[0]:04d}-01-01"
+
+            ct = item.get("container-title", [])
+            venue = ct[0] if ct else ""
+
+            abstract_raw = item.get("abstract", "")
+            abstract = re.sub(r"<[^>]+>", " ", abstract_raw)
+            abstract = " ".join(abstract.split())
+
+            entries.append({
+                "first_author": first_author,
+                "title": " ".join(title.split()),
+                "abstract": abstract,
+                "venue": venue,
+                "link": link,
+                "published": pub_date,
+            })
+
+        offset += len(items)
+        print(f"[INFO] CrossRef: {len(entries)} fetched", file=sys.stderr)
+        if len(items) < 100:
+            break
+        time.sleep(1.0)
+
+    return entries
+
+
+# ---------------------------------------------------------------------------
 # arXiv supplementary fetcher
 # ---------------------------------------------------------------------------
-def fetch_arxiv_entries() -> list[dict]:
+def fetch_arxiv_entries(max_papers: int | None = None) -> list[dict]:
+    limit = max_papers if max_papers is not None else MAX_ARXIV
     entries: list[dict] = []
-    print(f"[INFO] Fetching from arXiv (up to {MAX_ARXIV} recent preprints)…", file=sys.stderr)
+    print(f"[INFO] Fetching from arXiv (up to {limit} recent preprints)…", file=sys.stderr)
 
-    for start in range(0, MAX_ARXIV, BATCH):
+    for start in range(0, limit, BATCH):
         params = {
             "search_query": ARXIV_QUERY,
             "start": str(start),
-            "max_results": str(min(BATCH, MAX_ARXIV - start)),
+            "max_results": str(min(BATCH, limit - start)),
             "sortBy": "submittedDate",
             "sortOrder": "descending",
         }
@@ -808,7 +1011,7 @@ def render_html(dataset: dict) -> str:
       border-radius: 14px;
       background: rgba(10, 15, 28, 0.99);
       color: #f5faff;
-      font-size: 1.1rem;
+            font-size: 0.82rem;
       line-height: 1.6;
       box-shadow: 0 20px 50px rgba(0,0,0,0.6);
       pointer-events: none;
@@ -867,7 +1070,7 @@ def render_html(dataset: dict) -> str:
       .toolbar, .sidebar, .content, .hero {{ padding-left: 14px; padding-right: 14px; }}
       .tooltip {{
         max-width: calc(100vw - 20px);
-        font-size: 1rem;
+        font-size: 0.75rem;
         max-height: 400px;
       }}
       .category-button {{ font-size: 0.82rem; padding: 7px 9px; }}
@@ -966,10 +1169,8 @@ def render_html(dataset: dict) -> str:
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
-def main() -> None:
-    DOCS_DIR.mkdir(parents=True, exist_ok=True)
-    existing_json = DOCS_DIR / "papers.json"
-
+def _run_initial(existing_json: Path) -> dict:
+    """Full fetch: rebuild entire dataset from scratch (one-time or manual)."""
     try:
         s2_entries    = fetch_s2_entries()
         arxiv_entries = fetch_arxiv_entries()
@@ -993,6 +1194,55 @@ def main() -> None:
             dataset["generated_at_utc"] = dt.datetime.now(dt.timezone.utc).isoformat()
         else:
             dataset = build_dataset([], [])
+    return dataset
+
+
+def _run_daily(existing_json: Path) -> dict:
+    """Incremental fetch: only last DAILY_DAYS days, merge with existing dataset."""
+    from_date = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=DAILY_DAYS)).strftime("%Y-%m-%d")
+    print(f"[INFO] Daily mode: fetching papers since {from_date}", file=sys.stderr)
+
+    try:
+        s2_new       = fetch_s2_recent(from_date, MAX_DAILY_S2)
+        arxiv_new    = fetch_arxiv_entries(max_papers=MAX_DAILY_ARXIV)
+        crossref_new = fetch_crossref_entries(from_date, MAX_DAILY_CROSSREF)
+
+        # Load existing papers to merge with
+        existing_entries: list[dict] = []
+        if existing_json.exists():
+            try:
+                cached = json.loads(existing_json.read_text(encoding="utf-8"))
+                existing_entries = flatten_dataset_entries(cached)
+                print(f"[INFO] Loaded {len(existing_entries)} existing papers for merge.", file=sys.stderr)
+            except Exception as exc:
+                print(f"[WARN] Could not load existing papers.json: {exc}", file=sys.stderr)
+
+        # S2+CrossRef new papers take dedup priority; then arXiv new; then existing
+        dataset = build_dataset(s2_new + crossref_new, arxiv_new + existing_entries)
+        dataset["sources"] = ["Semantic Scholar", "CrossRef", "arXiv"]
+    except Exception as exc:
+        print(f"[WARN] Daily fetch failed: {exc}. Falling back to cached data.", file=sys.stderr)
+        if existing_json.exists():
+            dataset = json.loads(existing_json.read_text(encoding="utf-8"))
+            dataset["generated_at_utc"] = dt.datetime.now(dt.timezone.utc).isoformat()
+        else:
+            dataset = build_dataset([], [])
+    return dataset
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="SNN Paper Tracker")
+    parser.add_argument("--daily", action="store_true",
+                        help="Incremental daily update (fetch only recent papers, merge with existing)")
+    args, _ = parser.parse_known_args()
+
+    DOCS_DIR.mkdir(parents=True, exist_ok=True)
+    existing_json = DOCS_DIR / "papers.json"
+
+    if args.daily:
+        dataset = _run_daily(existing_json)
+    else:
+        dataset = _run_initial(existing_json)
 
     existing_json.write_text(
         json.dumps(dataset, ensure_ascii=False, indent=2), encoding="utf-8"
