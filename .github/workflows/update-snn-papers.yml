@@ -41,18 +41,15 @@ jobs:
       - name: Fetch papers and build site (daily)
         if: github.event_name == 'schedule' || github.event.inputs.mode == 'daily' || github.event.inputs.mode == ''
         env:
-          S2_API_KEY: ${{ secrets.S2_API_KEY }}
-          SNN_DAILY_DAYS: "35"
-          SNN_MAX_DAILY_S2: "300"
+          SNN_DAILY_DAYS: "30"
+          SNN_MAX_DAILY_OPENALEX: "200"
           SNN_MAX_DAILY_ARXIV: "100"
-          SNN_MAX_DAILY_CROSSREF: "200"
         run: python3 scripts/build_site.py --daily
 
       - name: Fetch papers and build site (initial full fetch)
         if: github.event.inputs.mode == 'initial'
         env:
-          S2_API_KEY: ${{ secrets.S2_API_KEY }}
-          SNN_MAX_S2: ${{ github.event.inputs.s2_max || '10000' }}
+          SNN_MAX_OPENALEX: ${{ github.event.inputs.s2_max || '10000' }}
           SNN_MAX_ARXIV: ${{ github.event.inputs.arxiv_max || '500' }}
         run: python3 scripts/build_site.py
 
