@@ -57,6 +57,8 @@ ARXIV_QUERY    = 'all:"spiking neural network" OR all:"spike-based" OR all:"snn"
 OPENALEX_QUERY = '"spiking neural network" OR "spike-based" OR snn'
 CRAWL_START_DATE = "2017-01-01"
 CRAWL_START_DT = dt.datetime(2017, 1, 1, tzinfo=dt.timezone.utc)
+ARXIV_START_DATE = "2020-01-01"
+ARXIV_START_DT = dt.datetime(2020, 1, 1, tzinfo=dt.timezone.utc)
 
 MAX_OPENALEX = int(os.getenv("SNN_MAX_OPENALEX", "30000"))
 MAX_ARXIV    = int(os.getenv("SNN_MAX_ARXIV",    "30000"))
@@ -441,11 +443,11 @@ def fetch_crossref_entries(from_date: str | None = None, max_papers: int = 200) 
 # ---------------------------------------------------------------------------
 # arXiv supplementary fetcher
 # ---------------------------------------------------------------------------
-def fetch_arxiv_entries(max_papers: int | None = None, from_date: str | None = None) -> list[dict]:
+def fetch_arxiv_entries(max_papers: int | None = None, from_date: str | None = ARXIV_START_DATE) -> list[dict]:
     limit = max_papers if max_papers is not None else MAX_ARXIV
     entries: list[dict] = []
     stop_crawl = False
-    from_dt = CRAWL_START_DT
+    from_dt = ARXIV_START_DT
     arxiv_query = ARXIV_QUERY
     if from_date:
         try:
@@ -1156,10 +1158,10 @@ def render_html(dataset: dict) -> str:
 # ---------------------------------------------------------------------------
 def _run_initial(existing_json: Path) -> dict:
     """Full fetch: rebuild entire dataset from scratch (one-time or manual)."""
-    print(f"[INFO] Initial mode: fetching papers since {CRAWL_START_DATE}", file=sys.stderr)
+    print(f"[INFO] Initial mode: fetching OpenAlex since {CRAWL_START_DATE} and arXiv since {ARXIV_START_DATE}", file=sys.stderr)
     try:
         oa_entries    = fetch_openalex_entries(from_date=CRAWL_START_DATE)
-        arxiv_entries = fetch_arxiv_entries(from_date=CRAWL_START_DATE)
+        arxiv_entries = fetch_arxiv_entries(from_date=ARXIV_START_DATE)
         if not oa_entries and existing_json.exists():
             print("[WARN] OpenAlex returned 0 items. Reusing cached data for this run.", file=sys.stderr)
             cached = json.loads(existing_json.read_text(encoding="utf-8"))
