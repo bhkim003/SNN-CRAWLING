@@ -3,20 +3,7 @@ name: pages build and deployment
 on:
   schedule:
     - cron: "0 0 * * *"   # 00:00 UTC = 09:00 KST
-  workflow_dispatch:
-    inputs:
-      mode:
-        description: "Run mode: 'daily' (fast, incremental) or 'initial' (full fetch ~10k papers)"
-        required: false
-        default: "daily"
-      s2_max:
-        description: "S2 max fetch (initial mode only)"
-        required: false
-        default: "10000"
-      arxiv_max:
-        description: "arXiv max fetch (initial mode only)"
-        required: false
-        default: "10000"
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -28,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
-      SNN_OPENALEX_CONTACT: ${{ vars.OPENALEX_CONTACT || 'bhkim003@gmail.com' }}
+      SNN_OPENALEX_CONTACT: ${{ vars.OPENALEX_CONTACT || 'bhkim003@snu.ac.kr' }}
       OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
     outputs:
       deploy_sha: ${{ steps.commit_and_push.outputs.sha }}
@@ -42,19 +29,11 @@ jobs:
           python-version: "3.11"
 
       - name: Fetch papers and build site (daily)
-        if: github.event_name == 'schedule' || github.event.inputs.mode == 'daily' || github.event.inputs.mode == ''
         env:
           SNN_DAILY_DAYS: "30"
-          SNN_MAX_DAILY_OPENALEX: "200"
-          SNN_MAX_DAILY_ARXIV: "100"
+          SNN_MAX_DAILY_OPENALEX: "1000"
+          SNN_MAX_DAILY_ARXIV: "1000"
         run: python3 scripts/build_site.py --daily
-
-      - name: Fetch papers and build site (initial full fetch)
-        if: github.event.inputs.mode == 'initial'
-        env:
-          SNN_MAX_OPENALEX: ${{ github.event.inputs.s2_max || '10000' }}
-          SNN_MAX_ARXIV: ${{ github.event.inputs.arxiv_max || '10000' }}
-        run: python3 scripts/build_site.py
 
       - name: Commit and push changes
         id: commit_and_push

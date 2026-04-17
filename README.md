@@ -10,7 +10,7 @@
 
 | 항목 | 내용 |
 |---|---|
-| 수집 소스 | Semantic Scholar + arXiv |
+| 수집 소스 | OpenAlex + arXiv |
 | 검색 키워드 | `spiking neural network`, `SNN`, `spike-based` |
 | 분류 방식 | 제목 + 초록 기반 분류, 새 토픽 자동 생성 |
 | UI | 좌측 세로 주제 목록 + 우측 논문 테이블, 다크 테마, 고대비 표 |
@@ -26,7 +26,9 @@
 1. `Settings` → `Pages` → `Source`를 `GitHub Actions`로 변경
 2. `Actions` 탭 → `pages build and deployment` → `Run workflow`
 
-수동 실행 화면에서는 `s2_max`, `arxiv_max`를 조절할 수 있습니다.
+이 워크플로는 `daily` 갱신 + GitHub Pages 배포만 수행합니다.
+초기 대량 크롤링은 로컬에서 1회 실행한 뒤 결과(`docs/papers.json`, `docs/index.html`)를 반영하세요.
+크롤링 범위는 2017년 이후 논문만 대상으로 하고, 초기 전체 수집 상한은 OpenAlex/arXiv 각각 30,000건입니다.
 
 ---
 
@@ -38,42 +40,43 @@ python3 scripts/build_site.py
 
 기본값은 다음과 같습니다.
 
-- Semantic Scholar: 10,000건
-- arXiv: 500건
+- OpenAlex: 30,000건
+- arXiv: 30,000건
 
 대량 재색인 예시:
 
 ```bash
-SNN_MAX_S2=100000 SNN_MAX_ARXIV=100000 python3 scripts/build_site.py
+SNN_MAX_OPENALEX=30000 SNN_MAX_ARXIV=30000 python3 scripts/build_site.py
 ```
 
-더 큰 재색인(요청 상한):
+필요하면 환경변수로 더 작은 범위로 조절할 수 있습니다.
 
 ```bash
-SNN_MAX_S2=500000 SNN_MAX_ARXIV=500000 python3 scripts/build_site.py
+SNN_MAX_OPENALEX=15000 SNN_MAX_ARXIV=15000 python3 scripts/build_site.py
 ```
 
-> API 제한과 응답 속도에 따라 실제 수집량은 더 적을 수 있습니다. Semantic Scholar API Key를 등록하면 안정성이 올라갑니다.
+일간(daily) 실행 정책:
+
+- 최근 30일 내 신규 논문만 수집
+- OpenAlex 최대 1,000건
+- arXiv 최대 1,000건
+- 2017년 1월 1일 이전 논문은 수집하지 않음
+
+> API 제한과 응답 속도에 따라 실제 수집량은 더 적을 수 있습니다. OpenAlex API Key를 등록하면 안정성이 올라갑니다.
 
 ---
 
 ## 동작 방식
 
-- Semantic Scholar와 arXiv를 함께 조회합니다.
+- OpenAlex와 arXiv를 함께 조회합니다.
 - 제목과 초록을 함께 읽어서 분류합니다.
 - 기존 카테고리에 맞지 않으면 새 주제를 자동 생성하고, 생성 신뢰도가 낮으면 `Etc`로 배치합니다.
 - 중복 논문은 제목 기준으로 한 번만 저장합니다.
 - 사이트에서는 각 논문의 제목에 마우스를 올리면 abstract 툴팁을 볼 수 있습니다.
+- 논문 테이블은 `Published Date`가 `1st Author`보다 왼쪽 열에 고정됩니다.
 - 검색창에서 제목/저자/학회뿐 아니라 주제명으로도 필터링할 수 있습니다.
 
 ---
-
-## Semantic Scholar API Key
-
-키 없이도 동작하지만, 무료 키를 등록하면 rate limit이 완화됩니다.
-
-- 키 발급: [semanticscholar.org/product/api](https://www.semanticscholar.org/product/api)
-- 등록 위치: `Settings` → `Secrets and variables` → `Actions` → `S2_API_KEY`
 
 ## OpenAlex mailto / API Key
 
@@ -107,5 +110,5 @@ docs/papers.json                         # 수집 데이터(JSON)
 ## 참고
 
 - Google Scholar는 공식 API가 없어 CI 환경에서 안정적으로 쓸 수 없습니다.
-- 그래서 Semantic Scholar를 기본 소스로 사용하고, arXiv로 최신 preprint를 보완합니다.
+- 그래서 OpenAlex를 기본 소스로 사용하고, arXiv로 최신 preprint를 보완합니다.
 - 새 논문이 기존 주제에 맞지 않으면 `Topic: ...` 형식의 새 카테고리가 생깁니다.

@@ -44,20 +44,22 @@ ARXIV_API    = "https://export.arxiv.org/api/query"
 OPENALEX_API = "https://api.openalex.org/works"
 CROSSREF_API = "https://api.crossref.org/works"
 
-OPENALEX_CONTACT = os.getenv("SNN_OPENALEX_CONTACT", "bhkim003@gmail.com")
+OPENALEX_CONTACT = os.getenv("SNN_OPENALEX_CONTACT", "bhkim003@snu.ac.kr")
 OPENALEX_API_KEY = (
     os.getenv("OPENALEX_API_KEY")
     or os.getenv("SNN_OPENALEX_API_KEY")
     or ""
 ).strip()
 OPENALEX_FIELDS  = "id,doi,title,authorships,primary_location,publication_date,abstract_inverted_index"
-CROSSREF_CONTACT = os.getenv("SNN_CROSSREF_CONTACT", "bhkim003@gmail.com")
+CROSSREF_CONTACT = os.getenv("SNN_CROSSREF_CONTACT", "bhkim003@snu.ac.kr")
 
 ARXIV_QUERY    = 'all:"spiking neural network" OR all:"spike-based" OR all:"snn"'
 OPENALEX_QUERY = "spiking neural network"
+CRAWL_START_DATE = "2017-01-01"
+CRAWL_START_DT = dt.datetime(2017, 1, 1, tzinfo=dt.timezone.utc)
 
-MAX_OPENALEX = int(os.getenv("SNN_MAX_OPENALEX", "10000"))
-MAX_ARXIV    = int(os.getenv("SNN_MAX_ARXIV",    "500"))
+MAX_OPENALEX = int(os.getenv("SNN_MAX_OPENALEX", "30000"))
+MAX_ARXIV    = int(os.getenv("SNN_MAX_ARXIV",    "30000"))
 BATCH        = 100
 ARXIV_SLEEP_SECONDS = float(os.getenv("SNN_ARXIV_SLEEP",        "1.5"))
 ARXIV_MAX_RETRIES   = int(os.getenv("SNN_ARXIV_MAX_RETRIES",    "8"))
@@ -66,9 +68,8 @@ ARXIV_BACKOFF_CAP   = float(os.getenv("SNN_ARXIV_BACKOFF_CAP",  "180"))
 
 # Daily incremental mode settings
 DAILY_DAYS         = int(os.getenv("SNN_DAILY_DAYS",         "30"))
-MAX_DAILY_OPENALEX = int(os.getenv("SNN_MAX_DAILY_OPENALEX", "200"))
-MAX_DAILY_ARXIV    = int(os.getenv("SNN_MAX_DAILY_ARXIV",    "100"))
-
+MAX_DAILY_OPENALEX = int(os.getenv("SNN_MAX_DAILY_OPENALEX", "1000"))
+MAX_DAILY_ARXIV    = int(os.getenv("SNN_MAX_DAILY_ARXIV",    "1000"))
 
 # ---------------------------------------------------------------------------
 # Category rules  (first match wins; Etc is the fallback)
@@ -232,22 +233,27 @@ def _parse_openalex_work(work: dict) -> dict | None:
 # ---------------------------------------------------------------------------
 # OpenAlex fetcher (initial full mode — up to MAX_OPENALEX papers)
 # ---------------------------------------------------------------------------
-def fetch_openalex_entries(max_papers: int | None = None) -> list[dict]:
+def fetch_openalex_entries(max_papers: int | None = None, from_date: str = CRAWL_START_DATE) -> list[dict]:
     limit = max_papers if max_papers is not None else MAX_OPENALEX
     entries: list[dict] = []
     headers = {"User-Agent": f"SNN-Paper-Tracker/2.0 (mailto:{OPENALEX_CONTACT})"}
     if OPENALEX_API_KEY:
         headers["api-key"] = OPENALEX_API_KEY
     cursor = "*"
-    print(f"[INFO] Fetching from OpenAlex (up to {limit} papers)…", file=sys.stderr)
+    print(
+        f"[INFO] Fetching from OpenAlex since {from_date} (up to {limit} papers)…",
+        file=sys.stderr,
+    )
 
     while len(entries) < limit:
         params: dict[str, str] = {
             "search": OPENALEX_QUERY,
             "per-page": str(min(200, limit - len(entries))),
+            "sort": "publication_date:desc",
             "select": OPENALEX_FIELDS,
             "cursor": cursor,
             "mailto": OPENALEX_CONTACT,
+            "filter": f"from_publication_date:{from_date}",
         }
         url = f"{OPENALEX_API}?{urllib.parse.urlencode(params)}"
         data: dict = {}
@@ -435,14 +441,28 @@ def fetch_crossref_entries(from_date: str | None = None, max_papers: int = 200) 
 # ---------------------------------------------------------------------------
 # arXiv supplementary fetcher
 # ---------------------------------------------------------------------------
-def fetch_arxiv_entries(max_papers: int | None = None) -> list[dict]:
+def fetch_arxiv_entries(max_papers: int | None = None, from_date: str | None = None) -> list[dict]:
     limit = max_papers if max_papers is not None else MAX_ARXIV
     entries: list[dict] = []
+    stop_crawl = False
+    from_dt = CRAWL_START_DT
+    arxiv_query = ARXIV_QUERY
+    if from_date:
+        try:
+            from_dt = dt.datetime.strptime(from_date, "%Y-%m-%d").replace(tzinfo=dt.timezone.utc)
+            compact = from_dt.strftime("%Y%m%d")
+            # Restrict to recent submissions directly in the arXiv query.
+            arxiv_query = f"({ARXIV_QUERY}) AND submittedDate:[{compact}0000 TO *]"
+        except ValueError:
+            print(f"[WARN] Invalid arXiv from_date '{from_date}', using default window.", file=sys.stderr)
+
     print(f"[INFO] Fetching from arXiv (up to {limit} recent preprints)…", file=sys.stderr)
 
     for start in range(0, limit, BATCH):
+        if stop_crawl:
+            break
         params = {
-            "search_query": ARXIV_QUERY,
+            "search_query": arxiv_query,
             "start": str(start),
             "max_results": str(min(BATCH, limit - start)),
             "sortBy": "submittedDate",
@@ -509,6 +529,11 @@ def fetch_arxiv_entries(max_papers: int | None = None) -> list[dict]:
                     break
             if not link:
                 link = (e.findtext("a:id", default="", namespaces=ns) or "").strip()
+
+            if _parse_date(pub) < from_dt:
+                stop_crawl = True
+                break
+
             entries.append({
                 "first_author": first_author,
                 "title": " ".join(title.split()),
@@ -518,8 +543,13 @@ def fetch_arxiv_entries(max_papers: int | None = None) -> list[dict]:
                 "published": pub,
             })
 
+        print(f"[INFO] arXiv: {len(entries)} fetched", file=sys.stderr)
+
         if ARXIV_SLEEP_SECONDS > 0:
             time.sleep(ARXIV_SLEEP_SECONDS)  # arXiv rate limit
+
+        if stop_crawl:
+            break
 
     return entries
 
@@ -1024,7 +1054,7 @@ def render_html(dataset: dict) -> str:
 
 <div class="toolbar">
   <div class="search-wrap">
-    <input type="search" id="search" placeholder="Search paper title, author, venue, or category name" autocomplete="off">
+        <input type="search" id="search" placeholder="Search paper title, abstract, author, venue, or category name" autocomplete="off">
   </div>
 </div>
 
@@ -1061,8 +1091,9 @@ def render_html(dataset: dict) -> str:
 
     activePanel.querySelectorAll('tr.paper-row').forEach(row => {{
       const text = row.textContent.toLowerCase();
+            const abs = (row.dataset.abstract || '').toLowerCase();
       const cat = (row.dataset.category || '').toLowerCase();
-      row.classList.toggle('hidden', Boolean(q) && !(text.includes(q) || cat.includes(q)));
+            row.classList.toggle('hidden', Boolean(q) && !(text.includes(q) || abs.includes(q) || cat.includes(q)));
     }});
 
     panels.filter(panel => panel !== activePanel).forEach(panel => {{
@@ -1085,15 +1116,19 @@ def render_html(dataset: dict) -> str:
     tooltip.style.top = `${{Math.max(margin, y)}}px`;
   }}
 
-  document.querySelectorAll('tbody tr.paper-row').forEach(row => {{
-    row.addEventListener('mouseenter', (evt) => {{
+    document.querySelectorAll('tbody tr.paper-row td.col-title').forEach(cell => {{
+        const row = cell.closest('tr.paper-row');
+        if (!row) return;
+
+        cell.addEventListener('mouseenter', (evt) => {{
       const abs = row.dataset.abstract || 'Abstract unavailable.';
       tooltip.textContent = abs;
       tooltip.style.display = 'block';
       placeTooltip(evt);
     }});
-    row.addEventListener('mousemove', placeTooltip);
-    row.addEventListener('mouseleave', () => {{
+
+        cell.addEventListener('mousemove', placeTooltip);
+        cell.addEventListener('mouseleave', () => {{
       tooltip.style.display = 'none';
     }});
   }});
@@ -1110,9 +1145,10 @@ def render_html(dataset: dict) -> str:
 # ---------------------------------------------------------------------------
 def _run_initial(existing_json: Path) -> dict:
     """Full fetch: rebuild entire dataset from scratch (one-time or manual)."""
+    print(f"[INFO] Initial mode: fetching papers since {CRAWL_START_DATE}", file=sys.stderr)
     try:
-        oa_entries    = fetch_openalex_entries()
-        arxiv_entries = fetch_arxiv_entries()
+        oa_entries    = fetch_openalex_entries(from_date=CRAWL_START_DATE)
+        arxiv_entries = fetch_arxiv_entries(from_date=CRAWL_START_DATE)
         if not oa_entries and existing_json.exists():
             print("[WARN] OpenAlex returned 0 items. Reusing cached data for this run.", file=sys.stderr)
             cached = json.loads(existing_json.read_text(encoding="utf-8"))
@@ -1144,7 +1180,7 @@ def _run_daily(existing_json: Path) -> dict:
 
     try:
         oa_new    = fetch_openalex_recent(from_date, MAX_DAILY_OPENALEX)
-        arxiv_new = fetch_arxiv_entries(max_papers=MAX_DAILY_ARXIV)
+        arxiv_new = fetch_arxiv_entries(max_papers=MAX_DAILY_ARXIV, from_date=from_date)
 
         # Load existing papers to merge with
         existing_entries: list[dict] = []
