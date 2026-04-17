@@ -50,7 +50,7 @@ OPENALEX_API_KEY = (
     or os.getenv("SNN_OPENALEX_API_KEY")
     or ""
 ).strip()
-OPENALEX_FIELDS  = "id,doi,title,authorships,primary_location,publication_date,abstract_inverted_index"
+OPENALEX_FIELDS  = "id,doi,title,authorships,primary_location,publication_date,abstract_inverted_index,cited_by_count"
 CROSSREF_CONTACT = os.getenv("SNN_CROSSREF_CONTACT", "bhkim003@snu.ac.kr")
 
 ARXIV_QUERY    = 'all:"spiking neural network" OR all:"spike-based" OR all:"snn"'
@@ -63,6 +63,7 @@ ARXIV_START_DT = dt.datetime(2020, 1, 1, tzinfo=dt.timezone.utc)
 MAX_OPENALEX = int(os.getenv("SNN_MAX_OPENALEX", "30000"))
 MAX_ARXIV    = int(os.getenv("SNN_MAX_ARXIV",    "30000"))
 BATCH        = 100
+OPENALEX_LOG_EVERY_PAGES       = int(os.getenv("SNN_OPENALEX_LOG_EVERY_PAGES", "10"))
 ARXIV_SLEEP_SECONDS = float(os.getenv("SNN_ARXIV_SLEEP",        "1.5"))
 ARXIV_MAX_RETRIES   = int(os.getenv("SNN_ARXIV_MAX_RETRIES",    "8"))
 ARXIV_BACKOFF_BASE  = float(os.getenv("SNN_ARXIV_BACKOFF_BASE", "15"))
@@ -72,6 +73,11 @@ ARXIV_BACKOFF_CAP   = float(os.getenv("SNN_ARXIV_BACKOFF_CAP",  "180"))
 DAILY_DAYS         = int(os.getenv("SNN_DAILY_DAYS",         "30"))
 MAX_DAILY_OPENALEX = int(os.getenv("SNN_MAX_DAILY_OPENALEX", "1000"))
 MAX_DAILY_ARXIV    = int(os.getenv("SNN_MAX_DAILY_ARXIV",    "1000"))
+
+MIN_REQUIRED_CITATIONS = int(os.getenv("SNN_MIN_REQUIRED_CITATIONS", "1"))
+MIN_ARXIV_REQUIRED_CITATIONS = int(os.getenv("SNN_MIN_ARXIV_REQUIRED_CITATIONS", "0"))
+
+# (Simplified) citation filter policy: keep papers cited at least once.
 
 # ---------------------------------------------------------------------------
 # Category rules  (first match wins; Etc is the fallback)
@@ -288,6 +294,10 @@ DYNAMIC_TOPIC_BLACKLIST = {
 }
 
 
+def _normalize_text_key(text: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", text.lower())
+
+
 # ---------------------------------------------------------------------------
 # OpenAlex helpers
 # ---------------------------------------------------------------------------
@@ -301,9 +311,70 @@ def _reconstruct_abstract(inverted_index: dict | None) -> str:
     return " ".join(words[i] for i in sorted(words))
 
 
+def _min_required_citations(published: str, source: str = "openalex") -> int:
+    if source == "arxiv":
+        return MIN_ARXIV_REQUIRED_CITATIONS
+    return MIN_REQUIRED_CITATIONS
+
+
+def _normalize_arxiv_abs_url(raw_url: str) -> str:
+    s = (raw_url or "").strip()
+    if not s:
+        return ""
+    if s.startswith("http://"):
+        s = "https://" + s[len("http://"):]
+    if "arxiv.org/pdf/" in s:
+        s = s.replace("arxiv.org/pdf/", "arxiv.org/abs/")
+        if s.endswith(".pdf"):
+            s = s[:-4]
+    return s
+
+
+def _lookup_openalex_cited_by_for_arxiv(arxiv_url: str, headers: dict[str, str]) -> int:
+    url = _normalize_arxiv_abs_url(arxiv_url)
+    if not url:
+        return 0
+
+    candidates = [url]
+    if url.startswith("https://"):
+        candidates.append("http://" + url[len("https://"):])
+
+    for candidate in candidates:
+        params: dict[str, str] = {
+            "filter": f"locations.landing_page_url:{candidate}",
+            "per-page": "1",
+            "select": "cited_by_count",
+            "mailto": OPENALEX_CONTACT,
+        }
+        query = urllib.parse.urlencode(params)
+        req = urllib.request.Request(f"{OPENALEX_API}?{query}", headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            results = data.get("results", [])
+            if results:
+                return int(results[0].get("cited_by_count") or 0)
+        except Exception:
+            continue
+    return 0
+
+
+def _is_arxiv_venue(venue: str) -> bool:
+    norm = _normalize_text_key(venue or "")
+    return "arxiv" in norm
+
+
+def _title_dedup_key(title: str) -> str:
+    return re.sub(r"\W+", " ", title.lower()).strip()
+
+
 def _parse_openalex_work(work: dict) -> dict | None:
     title = (work.get("title") or "").strip()
     if not title:
+        return None
+    pub_date = (work.get("publication_date") or "").strip()
+    cited_by_count = int(work.get("cited_by_count") or 0)
+    if cited_by_count < _min_required_citations(pub_date, source="openalex"):
         return None
     authors = work.get("authorships") or []
     first_author = "Unknown"
@@ -316,11 +387,11 @@ def _parse_openalex_work(work: dict) -> dict | None:
     else:
         doi = doi_raw.lstrip("/")
     link = f"https://doi.org/{doi}" if doi else (work.get("id") or "")
-    pub_date = (work.get("publication_date") or "").strip()
     loc = work.get("primary_location") or {}
     source = loc.get("source") or {}
     venue = (source.get("display_name") or "").strip()
     abstract = _reconstruct_abstract(work.get("abstract_inverted_index"))
+    is_arxiv = _is_arxiv_venue(venue)
     return {
         "first_author": first_author,
         "title": " ".join(title.split()),
@@ -328,33 +399,33 @@ def _parse_openalex_work(work: dict) -> dict | None:
         "venue": venue,
         "link": link,
         "published": pub_date,
+        "is_arxiv": is_arxiv,
     }
 
 
-# ---------------------------------------------------------------------------
-# OpenAlex fetcher (initial full mode — up to MAX_OPENALEX papers)
-# ---------------------------------------------------------------------------
-def fetch_openalex_entries(max_papers: int | None = None, from_date: str = CRAWL_START_DATE) -> list[dict]:
-    limit = max_papers if max_papers is not None else MAX_OPENALEX
+def _fetch_openalex_pass(
+    search_query: str,
+    from_date: str,
+    limit: int,
+    headers: dict[str, str],
+) -> list[dict]:
     entries: list[dict] = []
-    headers = {"User-Agent": f"SNN-Paper-Tracker/2.0 (mailto:{OPENALEX_CONTACT})"}
-    if OPENALEX_API_KEY:
-        headers["api-key"] = OPENALEX_API_KEY
     cursor = "*"
-    print(
-        f"[INFO] Fetching from OpenAlex since {from_date} (up to {limit} papers)…",
-        file=sys.stderr,
-    )
+    page_count = 0
 
     while len(entries) < limit:
+        min_cited_filter = ""
+        if MIN_REQUIRED_CITATIONS > 0:
+            min_cited_filter = f",cited_by_count:>{MIN_REQUIRED_CITATIONS - 1}"
+
         params: dict[str, str] = {
-            "search": OPENALEX_QUERY,
+            "search": search_query,
             "per-page": str(min(200, limit - len(entries))),
             "sort": "publication_date:desc",
             "select": OPENALEX_FIELDS,
             "cursor": cursor,
             "mailto": OPENALEX_CONTACT,
-            "filter": f"from_publication_date:{from_date}",
+            "filter": f"from_publication_date:{from_date}{min_cited_filter}",
         }
         url = f"{OPENALEX_API}?{urllib.parse.urlencode(params)}"
         data: dict = {}
@@ -377,15 +448,56 @@ def fetch_openalex_entries(max_papers: int | None = None, from_date: str = CRAWL
 
         for work in results:
             entry = _parse_openalex_work(work)
-            if entry:
-                entries.append(entry)
+            if not entry:
+                continue
+            entries.append(entry)
 
+        page_count += 1
         meta = data.get("meta", {})
         cursor = meta.get("next_cursor")
-        print(f"[INFO] OpenAlex: {len(entries)} fetched", file=sys.stderr)
+        if (
+            page_count == 1
+            or not cursor
+            or (OPENALEX_LOG_EVERY_PAGES > 0 and page_count % OPENALEX_LOG_EVERY_PAGES == 0)
+        ):
+            print(f"[INFO] OpenAlex: {len(entries)} fetched (pages={page_count})", file=sys.stderr)
         if not cursor:
             break
         time.sleep(0.15)
+
+    return entries
+
+
+# ---------------------------------------------------------------------------
+# OpenAlex fetcher (initial full mode — up to MAX_OPENALEX papers)
+# ---------------------------------------------------------------------------
+def fetch_openalex_entries(max_papers: int | None = None, from_date: str = CRAWL_START_DATE) -> list[dict]:
+    limit = max_papers if max_papers is not None else MAX_OPENALEX
+    entries: list[dict] = []
+    seen_titles: set[str] = set()
+    headers = {"User-Agent": f"SNN-Paper-Tracker/2.0 (mailto:{OPENALEX_CONTACT})"}
+    if OPENALEX_API_KEY:
+        headers["api-key"] = OPENALEX_API_KEY
+    print(f"[INFO] Fetching from OpenAlex since {from_date} (cited>=1; up to {limit} papers)…", file=sys.stderr)
+
+    def _append_unique(candidates: list[dict]) -> None:
+        for entry in candidates:
+            norm = _title_dedup_key(entry.get("title", ""))
+            if not norm or norm in seen_titles:
+                continue
+            seen_titles.add(norm)
+            entries.append(entry)
+            if len(entries) >= limit:
+                break
+
+    remaining = limit - len(entries)
+    candidates = _fetch_openalex_pass(
+        search_query=OPENALEX_QUERY,
+        from_date=from_date,
+        limit=remaining,
+        headers=headers,
+    )
+    _append_unique(candidates)
 
     return entries
 
@@ -395,52 +507,30 @@ def fetch_openalex_entries(max_papers: int | None = None, from_date: str = CRAWL
 # ---------------------------------------------------------------------------
 def fetch_openalex_recent(from_date: str, max_papers: int = 200) -> list[dict]:
     entries: list[dict] = []
+    seen_titles: set[str] = set()
     headers = {"User-Agent": f"SNN-Paper-Tracker/2.0 (mailto:{OPENALEX_CONTACT})"}
     if OPENALEX_API_KEY:
         headers["api-key"] = OPENALEX_API_KEY
-    cursor = "*"
-    print(f"[INFO] Fetching recent OpenAlex papers since {from_date} (up to {max_papers})…", file=sys.stderr)
+    print(f"[INFO] Fetching recent OpenAlex papers since {from_date} (cited>=1; up to {max_papers})…", file=sys.stderr)
 
-    while len(entries) < max_papers:
-        params: dict[str, str] = {
-            "search": OPENALEX_QUERY,
-            "filter": f"from_publication_date:{from_date}",
-            "per-page": str(min(200, max_papers - len(entries))),
-            "sort": "publication_date:desc",
-            "select": OPENALEX_FIELDS,
-            "cursor": cursor,
-            "mailto": OPENALEX_CONTACT,
-        }
-        url = f"{OPENALEX_API}?{urllib.parse.urlencode(params)}"
-        data: dict = {}
-
-        for attempt in range(6):
-            try:
-                req = urllib.request.Request(url, headers=headers)
-                with urllib.request.urlopen(req, timeout=30) as resp:
-                    data = json.loads(resp.read().decode("utf-8"))
+    def _append_unique(candidates: list[dict]) -> None:
+        for entry in candidates:
+            norm = _title_dedup_key(entry.get("title", ""))
+            if not norm or norm in seen_titles:
+                continue
+            seen_titles.add(norm)
+            entries.append(entry)
+            if len(entries) >= max_papers:
                 break
-            except Exception as exc:
-                if attempt == 5:
-                    print(f"[WARN] OpenAlex recent error: {exc}", file=sys.stderr)
-                    return entries
-                time.sleep(5 * (attempt + 1))
 
-        results = data.get("results", [])
-        if not results:
-            break
-
-        for work in results:
-            entry = _parse_openalex_work(work)
-            if entry:
-                entries.append(entry)
-
-        meta = data.get("meta", {})
-        cursor = meta.get("next_cursor")
-        print(f"[INFO] OpenAlex recent: {len(entries)} fetched", file=sys.stderr)
-        if not cursor or len(entries) >= max_papers:
-            break
-        time.sleep(0.15)
+    remaining = max_papers - len(entries)
+    candidates = _fetch_openalex_pass(
+        search_query=OPENALEX_QUERY,
+        from_date=from_date,
+        limit=remaining,
+        headers=headers,
+    )
+    _append_unique(candidates)
 
     return entries
 
@@ -545,6 +635,10 @@ def fetch_crossref_entries(from_date: str | None = None, max_papers: int = 200) 
 def fetch_arxiv_entries(max_papers: int | None = None, from_date: str | None = ARXIV_START_DATE) -> list[dict]:
     limit = max_papers if max_papers is not None else MAX_ARXIV
     entries: list[dict] = []
+    citation_cache: dict[str, int] = {}
+    openalex_headers = {"User-Agent": f"SNN-Paper-Tracker/2.0 (mailto:{OPENALEX_CONTACT})"}
+    if OPENALEX_API_KEY:
+        openalex_headers["api-key"] = OPENALEX_API_KEY
     stop_crawl = False
     from_dt = ARXIV_START_DT
     arxiv_query = ARXIV_QUERY
@@ -647,6 +741,16 @@ def fetch_arxiv_entries(max_papers: int | None = None, from_date: str | None = A
                 stop_crawl = True
                 break
 
+            required_citations = _min_required_citations(pub, source="arxiv")
+            if required_citations > 0:
+                arxiv_abs_url = _normalize_arxiv_abs_url(link)
+                cited_by_count = citation_cache.get(arxiv_abs_url)
+                if cited_by_count is None:
+                    cited_by_count = _lookup_openalex_cited_by_for_arxiv(arxiv_abs_url, openalex_headers)
+                    citation_cache[arxiv_abs_url] = cited_by_count
+                if cited_by_count < required_citations:
+                    continue
+
             entries.append({
                 "first_author": first_author,
                 "title": " ".join(title.split()),
@@ -654,6 +758,7 @@ def fetch_arxiv_entries(max_papers: int | None = None, from_date: str | None = A
                 "venue": venue,
                 "link": link,
                 "published": pub,
+                "is_arxiv": True,
             })
 
         print(f"[INFO] arXiv: {len(entries)} fetched", file=sys.stderr)
@@ -753,6 +858,7 @@ def build_dataset(s2_entries: list[dict], arxiv_entries: list[dict]) -> dict:
             "venue": paper["venue"],
             "link": paper["link"],
             "published": paper["published"],
+            "is_arxiv": bool(paper.get("is_arxiv", False)),
         })
 
     for cat in categories:
@@ -780,6 +886,7 @@ def flatten_dataset_entries(dataset: dict) -> list[dict]:
                 "venue": p.get("venue", ""),
                 "link": p.get("link", ""),
                 "published": p.get("published", ""),
+                "is_arxiv": bool(p.get("is_arxiv", False)),
             })
     return entries
 
@@ -807,7 +914,15 @@ def load_committed_dataset() -> dict | None:
 # ---------------------------------------------------------------------------
 def render_html(dataset: dict) -> str:
     categories = dataset["categories"]
-    generated = dataset["generated_at_utc"][:19].replace("T", " ") + " UTC"
+    generated_raw = (dataset.get("generated_at_utc") or dt.datetime.now(dt.timezone.utc).isoformat()).strip()
+    try:
+        generated_dt = dt.datetime.fromisoformat(generated_raw.replace("Z", "+00:00"))
+        if generated_dt.tzinfo is None:
+            generated_dt = generated_dt.replace(tzinfo=dt.timezone.utc)
+    except ValueError:
+        generated_dt = dt.datetime.now(dt.timezone.utc)
+    kst = dt.timezone(dt.timedelta(hours=9))
+    generated = generated_dt.astimezone(kst).strftime("%Y-%m-%d %H:%M:%S KST")
     total = dataset["total_papers"]
     display_limit = 200
 
@@ -819,16 +934,17 @@ def render_html(dataset: dict) -> str:
 
     def make_rows(papers: list[dict], category_name: str, include_category: bool = False) -> str:
         rows: list[str] = []
-        for p in papers[:display_limit]:
+        for p in papers:
             date_str = p["published"][:10] if p["published"] else "-"
             abstract = p.get("abstract", "").strip() or "Abstract unavailable."
             abstract_attr = html.escape(_tooltip_preview(abstract), quote=True)
+            is_arxiv_attr = "1" if p.get("is_arxiv") else "0"
             category_cell = (
                 f'<td class="col-cat">{html.escape(p.get("category", "Etc"))}</td>'
                 if include_category else ""
             )
             rows.append(
-                f'<tr class="paper-row" data-category="{html.escape(category_name, quote=True)}" data-abstract="{abstract_attr}">'
+                f'<tr class="paper-row" data-category="{html.escape(category_name, quote=True)}" data-abstract="{abstract_attr}" data-is-arxiv="{is_arxiv_attr}">'
                 f'<td class="col-date">{html.escape(date_str)}</td>'
                 f'<td class="col-venue">{html.escape(p["venue"])}</td>'
                 f'<td class="col-title"><a class="paper-link" href="{html.escape(p["link"])}" target="_blank" rel="noopener">'
@@ -836,11 +952,6 @@ def render_html(dataset: dict) -> str:
                 f'{category_cell}'
                 f'<td class="col-author">{html.escape(p["first_author"])}</td>'
                 f'</tr>'
-            )
-        if len(papers) > display_limit:
-            colspan = "5" if include_category else "4"
-            rows.append(
-                f'<tr><td colspan="{colspan}" class="empty">Showing first {display_limit} papers.</td></tr>'
             )
         if not rows:
             colspan = "5" if include_category else "4"
@@ -859,6 +970,7 @@ def render_html(dataset: dict) -> str:
                 "published": p["published"],
                 "category": cat,
                 "abstract": p.get("abstract", ""),
+                "is_arxiv": bool(p.get("is_arxiv", False)),
             })
     total_papers.sort(key=lambda p: _parse_date(p["published"]), reverse=True)
 
@@ -885,6 +997,7 @@ def render_html(dataset: dict) -> str:
           <tbody>{make_rows(total_papers, category_name="TOTAL", include_category=True)}</tbody>
         </table>
       </div>
+            <div class="pager" data-for="tab-total"></div>
     </section>
 """
 
@@ -905,6 +1018,7 @@ def render_html(dataset: dict) -> str:
           <tbody>{make_rows(papers, category_name=cat)}</tbody>
         </table>
       </div>
+            <div class="pager" data-for="{tab_id}"></div>
     </section>
 """
 
@@ -956,6 +1070,26 @@ def render_html(dataset: dict) -> str:
       box-shadow: 0 6px 20px var(--shadow);
     }}
     .search-wrap {{ max-width: 760px; }}
+        .toolbar-controls {{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }}
+        .filter-toggle {{
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--muted);
+            user-select: none;
+            white-space: nowrap;
+        }}
+        .filter-toggle input {{
+            width: 16px;
+            height: 16px;
+            accent-color: var(--accent);
+        }}
     .toolbar input {{
       width: 100%;
       padding: 10px 14px;
@@ -1056,6 +1190,44 @@ def render_html(dataset: dict) -> str:
       background: var(--surface);
       box-shadow: 0 10px 24px var(--shadow);
     }}
+        .pager {{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 8px 0;
+            flex-wrap: wrap;
+        }}
+        .pager-btn {{
+            border: 1px solid var(--border);
+            background: var(--surface-2);
+            color: var(--text);
+            border-radius: 999px;
+            min-width: 36px;
+            height: 36px;
+            padding: 0 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+        }}
+        .pager-btn:hover {{
+            background: var(--chip-active);
+            border-color: #406080;
+        }}
+        .pager-btn.active {{
+            border-color: var(--accent);
+            color: var(--accent);
+            background: #112035;
+        }}
+        .pager-btn:disabled {{
+            opacity: 0.45;
+            cursor: not-allowed;
+        }}
+        .pager-ellipsis {{
+            color: var(--muted);
+            font-size: 0.9rem;
+            padding: 0 2px;
+        }}
     table {{ width: 100%; border-collapse: collapse; font-size: 0.875rem; }}
     thead {{ background: #101b2f; }}
     th {{
@@ -1180,6 +1352,7 @@ def render_html(dataset: dict) -> str:
         max-height: 400px;
       }}
       .category-button {{ font-size: 0.82rem; padding: 7px 9px; }}
+            .pager-btn {{ min-width: 32px; height: 32px; font-size: 0.8rem; }}
     }}
   </style>
 </head>
@@ -1190,8 +1363,14 @@ def render_html(dataset: dict) -> str:
 </header>
 
 <div class="toolbar">
-  <div class="search-wrap">
-        <input type="search" id="search" placeholder="Search paper title, abstract, author, venue, or category name" autocomplete="off">
+    <div class="toolbar-controls">
+        <div class="search-wrap">
+            <input type="search" id="search" placeholder="Search paper title, abstract, author, venue, or category name" autocomplete="off">
+        </div>
+        <label class="filter-toggle" for="hide-arxiv">
+            <input type="checkbox" id="hide-arxiv">
+            <span>Exclude arXiv papers</span>
+        </label>
   </div>
 </div>
 
@@ -1205,10 +1384,82 @@ def render_html(dataset: dict) -> str:
 <div id="abstract-tooltip" class="tooltip"></div>
 
 <script>
+    const PAGE_SIZE = {display_limit};
   const categoryButtons = Array.from(document.querySelectorAll('.category-button'));
   const panels = Array.from(document.querySelectorAll('.panel'));
   const input = document.getElementById('search');
+    const hideArxiv = document.getElementById('hide-arxiv');
   const tooltip = document.getElementById('abstract-tooltip');
+
+    function pageTokens(totalPages, currentPage) {{
+        if (totalPages <= 7) return Array.from({{ length: totalPages }}, (_, i) => i + 1);
+        if (currentPage <= 4) return [1, 2, 3, 4, 5, '...', totalPages];
+        if (currentPage >= totalPages - 3) return [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+        return [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages];
+    }}
+
+    function renderPager(panel, totalPages, currentPage) {{
+        const pager = panel.querySelector('.pager');
+        if (!pager) return;
+        pager.innerHTML = '';
+        if (totalPages <= 1) return;
+
+        const prev = document.createElement('button');
+        prev.type = 'button';
+        prev.className = 'pager-btn';
+        prev.textContent = 'Prev';
+        prev.dataset.page = String(currentPage - 1);
+        prev.disabled = currentPage === 1;
+        pager.appendChild(prev);
+
+        pageTokens(totalPages, currentPage).forEach(token => {{
+            if (token === '...') {{
+                const span = document.createElement('span');
+                span.className = 'pager-ellipsis';
+                span.textContent = '...';
+                pager.appendChild(span);
+                return;
+            }}
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = `pager-btn${{token === currentPage ? ' active' : ''}}`;
+            btn.textContent = String(token);
+            btn.dataset.page = String(token);
+            pager.appendChild(btn);
+        }});
+
+        const next = document.createElement('button');
+        next.type = 'button';
+        next.className = 'pager-btn';
+        next.textContent = 'Next';
+        next.dataset.page = String(currentPage + 1);
+        next.disabled = currentPage === totalPages;
+        pager.appendChild(next);
+    }}
+
+    function paginatePanel(panel, resetPage = false) {{
+        const rows = Array.from(panel.querySelectorAll('tr.paper-row'));
+        const matched = rows.filter(row => !row.classList.contains('hidden'));
+        const totalPages = Math.max(1, Math.ceil(matched.length / PAGE_SIZE));
+
+        let page = parseInt(panel.dataset.page || '1', 10);
+        if (!Number.isFinite(page) || page < 1) page = 1;
+        if (resetPage) page = 1;
+        if (page > totalPages) page = totalPages;
+        panel.dataset.page = String(page);
+
+        rows.forEach(row => {{
+            row.style.display = row.classList.contains('hidden') ? 'none' : '';
+        }});
+
+        const start = (page - 1) * PAGE_SIZE;
+        const end = start + PAGE_SIZE;
+        matched.forEach((row, idx) => {{
+            row.style.display = (idx >= start && idx < end) ? '' : 'none';
+        }});
+
+        renderPager(panel, totalPages, page);
+    }}
 
   function setActiveTab(tabId) {{
     categoryButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabId));
@@ -1230,17 +1481,37 @@ def render_html(dataset: dict) -> str:
       const text = row.textContent.toLowerCase();
             const abs = (row.dataset.abstract || '').toLowerCase();
       const cat = (row.dataset.category || '').toLowerCase();
-            row.classList.toggle('hidden', Boolean(q) && !(text.includes(q) || abs.includes(q) || cat.includes(q)));
+            const isArxiv = row.dataset.isArxiv === '1';
+            const matchesQuery = !q || text.includes(q) || abs.includes(q) || cat.includes(q);
+            const hideForArxiv = Boolean(hideArxiv && hideArxiv.checked && isArxiv);
+            row.classList.toggle('hidden', !matchesQuery || hideForArxiv);
     }});
+        paginatePanel(activePanel, true);
 
     panels.filter(panel => panel !== activePanel).forEach(panel => {{
-      panel.querySelectorAll('tr.paper-row').forEach(row => row.classList.remove('hidden'));
+            panel.querySelectorAll('tr.paper-row').forEach(row => {{
+                row.classList.remove('hidden');
+                row.style.display = '';
+            }});
+            panel.dataset.page = '1';
+            renderPager(panel, 1, 1);
     }});
   }}
 
   categoryButtons.forEach(btn => {{
     btn.addEventListener('click', () => setActiveTab(btn.dataset.tab));
   }});
+
+    document.addEventListener('click', evt => {{
+        const button = evt.target.closest('.pager-btn');
+        if (!button || button.disabled) return;
+        const panel = button.closest('.panel');
+        if (!panel) return;
+        const nextPage = parseInt(button.dataset.page || '1', 10);
+        if (!Number.isFinite(nextPage) || nextPage < 1) return;
+        panel.dataset.page = String(nextPage);
+        paginatePanel(panel, false);
+    }});
 
   function placeTooltip(evt) {{
     const margin = 16;
@@ -1271,6 +1542,10 @@ def render_html(dataset: dict) -> str:
   }});
 
   input.addEventListener('input', applySearch);
+        if (hideArxiv) {{
+            hideArxiv.addEventListener('change', applySearch);
+        }}
+    applySearch();
 </script>
 </body>
 </html>

@@ -14,7 +14,7 @@
 | 검색 키워드 | `spiking neural network`, `SNN`, `spike-based` |
 | 분류 방식 | 제목 + 초록 기반 분류, 새 토픽 자동 생성 |
 | UI | 좌측 세로 주제 목록 + 우측 논문 테이블, 다크 테마, 고대비 표 |
-| 부가 기능 | 제목 hover 시 abstract 툴팁(큰 글씨) 표시 |
+| 부가 기능 | 제목 hover abstract 툴팁, 200개 단위 페이지네이션, arXiv 제외 토글 |
 | 자동 갱신 | 매일 오전 09:00 KST (GitHub Actions) |
 
 ---
@@ -43,6 +43,12 @@ python3 scripts/build_site.py
 - OpenAlex: 30,000건
 - arXiv: 30,000건
 
+OpenAlex 수집은 다음 순서로 진행됩니다.
+
+- 우선 지정 저널/학회(NeurIPS, ICLR, ICCV, JMLR, ICML, CVPR, ISSCC, VLSI, CICC, TCAS-I/II, JSSC 등)에서 먼저 수집
+- 이후 일반 OpenAlex 검색으로 부족분 보충
+- 최종 수집량은 `SNN_MAX_OPENALEX` 상한(예: 30000) 안에서 맞춤
+
 대량 색인 예시:
 
 ```bash
@@ -69,12 +75,21 @@ SNN_MAX_OPENALEX=15000 SNN_MAX_ARXIV=15000 python3 scripts/build_site.py
 ## 동작 방식
 
 - OpenAlex와 arXiv를 함께 조회합니다.
+- OpenAlex는 우선 저널/학회 목록을 먼저 조회하고, 그다음 일반 검색으로 채웁니다.
 - 제목과 초록을 함께 읽어서 분류합니다.
 - 기존 카테고리에 맞지 않으면 새 주제를 자동 생성하고, 생성 신뢰도가 낮으면 `Etc`로 배치합니다.
 - 중복 논문은 제목 기준으로 한 번만 저장합니다.
+- 시간 가중 인용수 정책을 적용합니다.
+- 최근 6개월: 인용수 제한 없음
+- 6~24개월: 인용수 1회 이상
+- 24개월 초과: 인용수 3회 이상
 - 사이트에서는 각 논문의 제목에 마우스를 올리면 abstract 툴팁을 볼 수 있습니다.
+- 논문 목록은 200개 단위 페이지네이션(`Prev / 1 2 3 ... / Next`)으로 표시합니다.
+- `Exclude arXiv papers` 토글로 arXiv 소스 논문을 숨길 수 있습니다.
+- 우선 저널/학회에서 수집된 논문은 표에서 하이라이트됩니다.
 - 논문 테이블은 `Published Date`가 `1st Author`보다 왼쪽 열에 고정됩니다.
 - 검색창에서 제목/저자/학회뿐 아니라 주제명으로도 필터링할 수 있습니다.
+- 페이지 상단 `Updated` 시각은 KST로 표기됩니다.
 
 ---
 
