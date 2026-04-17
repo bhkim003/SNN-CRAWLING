@@ -54,7 +54,7 @@ OPENALEX_FIELDS  = "id,doi,title,authorships,primary_location,publication_date,a
 CROSSREF_CONTACT = os.getenv("SNN_CROSSREF_CONTACT", "bhkim003@snu.ac.kr")
 
 ARXIV_QUERY    = 'all:"spiking neural network" OR all:"spike-based" OR all:"snn"'
-OPENALEX_QUERY = "spiking neural network"
+OPENALEX_QUERY = '"spiking neural network" OR "spike-based" OR snn'
 CRAWL_START_DATE = "2017-01-01"
 CRAWL_START_DT = dt.datetime(2017, 1, 1, tzinfo=dt.timezone.utc)
 
@@ -697,12 +697,18 @@ def render_html(dataset: dict) -> str:
     generated = dataset["generated_at_utc"][:19].replace("T", " ") + " UTC"
     total = dataset["total_papers"]
 
+    def _tooltip_preview(abstract: str, max_chars: int = 400) -> str:
+        text = abstract.strip()
+        if len(text) <= max_chars:
+            return text
+        return text[:max_chars].rstrip() + "…"
+
     def make_rows(papers: list[dict], category_name: str, include_category: bool = False) -> str:
         rows: list[str] = []
         for p in papers:
             date_str = p["published"][:10] if p["published"] else "-"
             abstract = p.get("abstract", "").strip() or "Abstract unavailable."
-            abstract_attr = html.escape(abstract, quote=True)
+            abstract_attr = html.escape(_tooltip_preview(abstract), quote=True)
             category_cell = (
                 f'<td class="col-cat">{html.escape(p.get("category", "Etc"))}</td>'
                 if include_category else ""
@@ -710,11 +716,11 @@ def render_html(dataset: dict) -> str:
             rows.append(
                 f'<tr class="paper-row" data-category="{html.escape(category_name, quote=True)}" data-abstract="{abstract_attr}">'
                 f'<td class="col-date">{html.escape(date_str)}</td>'
-                f'<td class="col-author">{html.escape(p["first_author"])}</td>'
+                f'<td class="col-venue">{html.escape(p["venue"])}</td>'
                 f'<td class="col-title"><a class="paper-link" href="{html.escape(p["link"])}" target="_blank" rel="noopener">'
                 f'{html.escape(p["title"])}</a></td>'
                 f'{category_cell}'
-                f'<td class="col-venue">{html.escape(p["venue"])}</td>'
+                f'<td class="col-author">{html.escape(p["first_author"])}</td>'
                 f'</tr>'
             )
         if not rows:
@@ -752,10 +758,10 @@ def render_html(dataset: dict) -> str:
         <table>
           <thead><tr>
                         <th class="col-date">Date</th>
-            <th class="col-author">1st Author</th>
+                        <th class="col-venue">Journal / Conference</th>
             <th class="col-title">Title</th>
             <th class="col-cat">Category</th>
-            <th class="col-venue">Journal / Conference</th>
+                        <th class="col-author">1st Author</th>
           </tr></thead>
           <tbody>{make_rows(total_papers, category_name="TOTAL", include_category=True)}</tbody>
         </table>
@@ -773,9 +779,9 @@ def render_html(dataset: dict) -> str:
         <table>
           <thead><tr>
                         <th class="col-date">Date</th>
-            <th class="col-author">1st Author</th>
+                        <th class="col-venue">Journal / Conference</th>
             <th class="col-title">Title</th>
-            <th class="col-venue">Journal / Conference</th>
+                        <th class="col-author">1st Author</th>
           </tr></thead>
           <tbody>{make_rows(papers, category_name=cat)}</tbody>
         </table>
@@ -953,10 +959,13 @@ def render_html(dataset: dict) -> str:
     tbody tr:last-child td {{ border-bottom: none; }}
     tbody tr:hover td {{ background: var(--row-hover); cursor: pointer; }}
     .col-author {{
-      width: 145px;
+            width: 110px;
+            max-width: 110px;
       color: var(--muted);
       font-size: 0.82rem;
       white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
     }}
     .col-cat {{
       width: 180px;
@@ -995,9 +1004,11 @@ def render_html(dataset: dict) -> str:
     .tooltip::-webkit-scrollbar-thumb {{ background: #3a4f6f; border-radius: 999px; }}
     .tooltip::-webkit-scrollbar-track {{ background: transparent; }}
     .col-venue {{
-      width: 200px;
+            width: 150px;
+            max-width: 150px;
       color: var(--muted);
       font-size: 0.82rem;
+            word-break: break-word;
     }}
     .col-date {{
       width: 95px;

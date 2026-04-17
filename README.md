@@ -43,7 +43,7 @@ python3 scripts/build_site.py
 - OpenAlex: 30,000건
 - arXiv: 30,000건
 
-대량 재색인 예시:
+대량 색인 예시:
 
 ```bash
 SNN_MAX_OPENALEX=30000 SNN_MAX_ARXIV=30000 python3 scripts/build_site.py
