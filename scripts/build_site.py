@@ -947,7 +947,7 @@ def render_html(dataset: dict) -> str:
             )
             rows.append(
                 f'<tr class="paper-row" data-category="{html.escape(category_name, quote=True)}" data-abstract="{abstract_attr}" data-is-arxiv="{is_arxiv_attr}" data-title="{html.escape(p["title"], quote=True)}" data-date="{date_str}" data-author="{html.escape(p["first_author"], quote=True)}" data-id="{title_key_hash}">'
-                f'<td class="col-actions"><button class="btn-delete" title="Delete" data-id="{title_key_hash}">✕</button><span class="rating" data-id="{title_key_hash}" data-rating="0">☆</span></td>'
+              f'<td class="col-actions"><button class="btn-delete" title="Delete" data-id="{title_key_hash}">✕</button></td>'
                 f'<td class="col-date">{html.escape(date_str)}</td>'
                 f'<td class="col-venue">{html.escape(p["venue"])}</td>'
                 f'<td class="col-title"><a class="paper-link" href="{html.escape(p["link"])}" target="_blank" rel="noopener">'
@@ -1090,116 +1090,8 @@ def render_html(dataset: dict) -> str:
     .hero .meta {{ font-size: 0.9rem; color: var(--muted); }}
     .hero .meta b {{ color: var(--accent-2); }}
     .hero-buttons {{
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }}
-    .btn-login {{ 
-      padding: 8px 16px; 
-      border: 1px solid var(--accent); 
-      background: var(--accent);
-      color: var(--bg);
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.2s;
-    }}
-    .btn-login:hover {{ opacity: 0.9; }}
-    .btn-logout {{
-      padding: 8px 16px;
-      border: 1px solid var(--muted);
-      background: transparent;
-      color: var(--text);
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: all 0.2s;
-    }}
-    .btn-logout:hover {{ background: var(--surface-2); }}
-    .user-info {{
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }}
-    .user-info strong {{ color: var(--text); }}
-    .modal {{
       display: none;
-      position: fixed;
-      z-index: 3000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      align-items: center;
-      justify-content: center;
     }}
-    .modal.show {{ display: flex; }}
-    .modal-content {{
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px;
-      max-width: 400px;
-      width: 90%;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-    }}
-    .modal-content h2 {{
-      margin-bottom: 20px;
-      color: var(--accent);
-      font-size: 1.4rem;
-    }}
-    .modal-form {{
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }}
-    .modal-form label {{
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text);
-    }}
-    .modal-form input {{
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--surface-2);
-      color: var(--text);
-      font-size: 0.9rem;
-      outline: none;
-      transition: all 0.2s;
-    }}
-    .modal-form input:focus {{
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(101,211,255,0.2);
-    }}
-    .modal-buttons {{
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-    }}
-    .modal-buttons button {{
-      flex: 1;
-      padding: 10px 16px;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }}
-    .modal-buttons button.btn-submit {{
-      background: var(--accent);
-      color: var(--bg);
-    }}
-    .modal-buttons button.btn-submit:hover {{ opacity: 0.9; }}
-    .modal-buttons button.btn-cancel {{
-      background: var(--surface-2);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }}
-    .modal-buttons button.btn-cancel:hover {{ background: var(--chip-active); }}
     .toolbar {{
       background: var(--surface);
       border-bottom: 1px solid var(--border);
@@ -1447,25 +1339,10 @@ def render_html(dataset: dict) -> str:
       padding: 2px 6px;
       border-radius: 4px;
       transition: all 0.2s;
-      display: none;
-    }}
-    tbody tr.logged-in .btn-delete {{
       display: inline-block;
     }}
     .btn-delete:hover {{
       background: rgba(255, 107, 107, 0.2);
-    }}
-    .rating {{
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: none;
-      user-select: none;
-    }}
-    tbody tr.logged-in .rating {{
-      display: inline;
-    }}
-    .rating:hover {{
-      filter: brightness(1.2);
     }}
     .col-author {{
       width: 110px;
@@ -1527,11 +1404,14 @@ def render_html(dataset: dict) -> str:
     }}
     th.col-date, td.col-date,
     th.col-venue, td.col-venue,
-    th.col-title, td.col-title,
+    th.col-title,
     th.col-cat, td.col-cat,
     th.col-author, td.col-author,
     th.col-actions, td.col-actions {{
       text-align: center;
+    }}
+    td.col-title {{
+      text-align: left;
     }}
     .empty {{ text-align: center; color: var(--muted); padding: 24px; }}
     .hidden {{ display: none !important; }}
@@ -1581,33 +1461,10 @@ def render_html(dataset: dict) -> str:
   </style>
 </head>
 <body>
-<div id="login-modal" class="modal">
-  <div class="modal-content">
-    <h2>Login</h2>
-    <form class="modal-form" onsubmit="handleLogin(event)">
-      <label for="user-id">User ID</label>
-      <input type="text" id="user-id" placeholder="Enter your user ID" required>
-      <label for="user-pass">Password</label>
-      <input type="password" id="user-pass" placeholder="Enter your password" required>
-      <div class="modal-buttons">
-        <button type="submit" class="btn-submit">Login</button>
-        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
-      </div>
-    </form>
-  </div>
-</div>
-
 <header class="hero">
   <div>
     <h1>⚡ <span>Spiking Neural Network</span> Papers</h1>
     <p class="meta"><b>{total:,}</b> papers · Updated <b>{generated}</b> · Sources: OpenAlex + arXiv</p>
-  </div>
-  <div class="hero-buttons">
-    <div class="user-info" id="user-info" style="display:none;">
-      <strong id="current-user"></strong>
-    </div>
-    <button class="btn-login" id="btn-login-header" onclick="openModal()">Login</button>
-    <button class="btn-logout" id="btn-logout-header" onclick="handleLogout()" style="display:none;">Logout</button>
   </div>
 </header>
 
@@ -1661,11 +1518,6 @@ def render_html(dataset: dict) -> str:
   const dateTo = document.getElementById('date-to');
   const sortBy = document.getElementById('sort-by');
   const tooltip = document.getElementById('abstract-tooltip');
-  const loginModal = document.getElementById('login-modal');
-  const userInfo = document.getElementById('user-info');
-  const btnLoginHeader = document.getElementById('btn-login-header');
-  const btnLogoutHeader = document.getElementById('btn-logout-header');
-  const currentUserSpan = document.getElementById('current-user');
 
   // ===== Theme Management =====
   function loadTheme() {{
@@ -1685,72 +1537,7 @@ def render_html(dataset: dict) -> str:
   }}
   loadTheme();
 
-  // ===== User Management =====
-  class UserSession {{
-    constructor() {{
-      this.data = JSON.parse(localStorage.getItem('snn-user-session') || '{{}}');
-    }}
-    isLoggedIn() {{ return !!this.data.userId; }}
-    login(userId, password) {{
-      this.data = {{ userId, password, loginTime: Date.now() }};
-      localStorage.setItem('snn-user-session', JSON.stringify(this.data));
-    }}
-    logout() {{
-      this.data = {{}};
-      localStorage.removeItem('snn-user-session');
-    }}
-    get userId() {{ return this.data.userId || ''; }}
-  }}
-
-  const userSession = new UserSession();
-
-  function updateUserUI() {{
-    if (userSession.isLoggedIn()) {{
-      userInfo.style.display = 'flex';
-      currentUserSpan.textContent = userSession.userId;
-      btnLoginHeader.style.display = 'none';
-      btnLogoutHeader.style.display = 'block';
-      document.querySelectorAll('tbody tr').forEach(row => {{
-        row.classList.add('logged-in');
-      }});
-    }} else {{
-      userInfo.style.display = 'none';
-      btnLoginHeader.style.display = 'inline-block';
-      btnLogoutHeader.style.display = 'none';
-      document.querySelectorAll('tbody tr').forEach(row => {{
-        row.classList.remove('logged-in');
-      }});
-    }}
-  }}
-
-  function openModal() {{ loginModal.classList.add('show'); }}
-  function closeModal() {{ loginModal.classList.remove('show'); }}
-
-  function handleLogin(event) {{
-    event.preventDefault();
-    const userId = document.getElementById('user-id').value.trim();
-    const password = document.getElementById('user-pass').value;
-    if (userId && password) {{
-      userSession.login(userId, password);
-      closeModal();
-      updateUserUI();
-      applySearch();
-      document.getElementById('user-id').value = '';
-      document.getElementById('user-pass').value = '';
-    }}
-  }}
-
-  function handleLogout() {{
-    if (confirm('Are you sure you want to logout?')) {{
-      userSession.logout();
-      updateUserUI();
-      applySearch();
-    }}
-  }}
-
-  updateUserUI();
-
-  // ===== Paper Metadata (Delete/Rating) =====
+  // ===== Paper Metadata =====
   class PaperManager {{
     constructor() {{
       this.data = JSON.parse(localStorage.getItem('snn-papers') || '{{}}');
@@ -1771,14 +1558,6 @@ def render_html(dataset: dict) -> str:
         delete this.data[paperId].deleted;
         this.save();
       }}
-    }}
-    setRating(paperId, rating) {{
-      if (!this.data[paperId]) this.data[paperId] = {{}};
-      this.data[paperId].rating = rating;
-      this.save();
-    }}
-    getRating(paperId) {{
-      return this.data[paperId]?.rating || 0;
     }}
   }}
 
@@ -1941,28 +1720,16 @@ def render_html(dataset: dict) -> str:
     paginatePanel(panel, false);
   }});
 
-  // ===== Delete & Rating Handlers =====
+  // ===== Delete Handler =====
   document.addEventListener('click', evt => {{
     const deleteBtn = evt.target.closest('.btn-delete');
-    if (deleteBtn && userSession.isLoggedIn()) {{
+    if (deleteBtn) {{
       evt.stopPropagation();
       const paperId = deleteBtn.dataset.id;
       paperManager.delete(paperId);
       const row = deleteBtn.closest('tr.paper-row');
       if (row) row.classList.add('hidden');
       applySearch();
-      return;
-    }}
-
-    const rating = evt.target.closest('.rating');
-    if (rating && userSession.isLoggedIn()) {{
-      evt.stopPropagation();
-      const paperId = rating.dataset.id;
-      const currentRating = parseInt(rating.dataset.rating || '0', 10);
-      const newRating = (currentRating + 1) % 6;
-      paperManager.setRating(paperId, newRating);
-      rating.dataset.rating = newRating;
-      rating.textContent = ['☆', '★', '★★', '★★★', '★★★★', '★★★★★'][newRating];
     }}
   }});
 
@@ -2000,13 +1767,11 @@ def render_html(dataset: dict) -> str:
     const papers = [];
     document.querySelectorAll('tbody tr.paper-row').forEach(row => {{
       if (!row.classList.contains('hidden')) {{
-        const paperId = row.dataset.id;
         papers.push({{
           title: row.dataset.title,
           author: row.dataset.author,
           date: row.dataset.date,
           category: row.dataset.category,
-          rating: paperManager.getRating(paperId),
         }});
       }}
     }});
@@ -2022,13 +1787,12 @@ def render_html(dataset: dict) -> str:
 
     let content, filename, type;
     if (format === 'csv') {{
-      const headers = ['Title', 'Author', 'Date', 'Category', 'Rating'].join(',');
+      const headers = ['Title', 'Author', 'Date', 'Category'].join(',');
       const rows = papers.map(p => [
         `"${{(p.title || '').replace(/"/g, '""')}}"`,
         `"${{(p.author || '').replace(/"/g, '""')}}"`,
         p.date,
         `"${{(p.category || '').replace(/"/g, '""')}}"`,
-        p.rating,
       ].join(','));
       content = [headers, ...rows].join('\\n');
       filename = `snn-papers-${{new Date().toISOString().split('T')[0]}}.csv`;
@@ -2058,7 +1822,6 @@ def render_html(dataset: dict) -> str:
   sortBy.addEventListener('change', applySearch);
 
   // Initialize
-  updateUserUI();
   applySearch();
 </script>
 </body>
