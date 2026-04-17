@@ -41,37 +41,28 @@ ROOT     = Path(__file__).resolve().parent.parent
 DOCS_DIR = ROOT / "docs"
 
 ARXIV_API    = "https://export.arxiv.org/api/query"
-S2_API       = "https://api.semanticscholar.org/graph/v1/paper/search"
-S2_BULK_API  = "https://api.semanticscholar.org/graph/v1/paper/search/bulk"
+OPENALEX_API = "https://api.openalex.org/works"
 CROSSREF_API = "https://api.crossref.org/works"
-S2_FIELDS    = "title,abstract,authors,year,venue,publicationDate,externalIds"
 
-SEARCH_TERMS = [
-    "spiking neural network",
-    "SNN",
-    "spike-based",
-]
-S2_QUERY = " OR ".join(SEARCH_TERMS)
-ARXIV_QUERY = 'all:"spiking neural network" OR all:"spike-based" OR all:"snn"'
+OPENALEX_CONTACT = os.getenv("SNN_OPENALEX_CONTACT", "bhkim003@gmail.com")
+OPENALEX_FIELDS  = "id,doi,title,authorships,primary_location,publication_date,abstract_inverted_index"
+CROSSREF_CONTACT = os.getenv("SNN_CROSSREF_CONTACT", "bhkim003@gmail.com")
 
-MAX_S2    = int(os.getenv("SNN_MAX_S2",    "10000"))
-MAX_ARXIV = int(os.getenv("SNN_MAX_ARXIV", "500"))
-BATCH     = 100
-S2_API_KEY = os.getenv("S2_API_KEY", "")   # free key → higher rate limits
-ARXIV_SLEEP_SECONDS = float(os.getenv("SNN_ARXIV_SLEEP", "1.5"))
-S2_MAX_RETRIES = int(os.getenv("SNN_S2_MAX_RETRIES", "8"))
-S2_BACKOFF_BASE = float(os.getenv("SNN_S2_BACKOFF_BASE", "20"))
-S2_BACKOFF_CAP = float(os.getenv("SNN_S2_BACKOFF_CAP", "300"))
-ARXIV_MAX_RETRIES = int(os.getenv("SNN_ARXIV_MAX_RETRIES", "8"))
-ARXIV_BACKOFF_BASE = float(os.getenv("SNN_ARXIV_BACKOFF_BASE", "15"))
-ARXIV_BACKOFF_CAP = float(os.getenv("SNN_ARXIV_BACKOFF_CAP", "180"))
+ARXIV_QUERY    = 'all:"spiking neural network" OR all:"spike-based" OR all:"snn"'
+OPENALEX_QUERY = "spiking neural network"
+
+MAX_OPENALEX = int(os.getenv("SNN_MAX_OPENALEX", "10000"))
+MAX_ARXIV    = int(os.getenv("SNN_MAX_ARXIV",    "500"))
+BATCH        = 100
+ARXIV_SLEEP_SECONDS = float(os.getenv("SNN_ARXIV_SLEEP",        "1.5"))
+ARXIV_MAX_RETRIES   = int(os.getenv("SNN_ARXIV_MAX_RETRIES",    "8"))
+ARXIV_BACKOFF_BASE  = float(os.getenv("SNN_ARXIV_BACKOFF_BASE", "15"))
+ARXIV_BACKOFF_CAP   = float(os.getenv("SNN_ARXIV_BACKOFF_CAP",  "180"))
 
 # Daily incremental mode settings
-DAILY_DAYS          = int(os.getenv("SNN_DAILY_DAYS",          "35"))
-MAX_DAILY_S2        = int(os.getenv("SNN_MAX_DAILY_S2",        "300"))
-MAX_DAILY_ARXIV     = int(os.getenv("SNN_MAX_DAILY_ARXIV",     "100"))
-MAX_DAILY_CROSSREF  = int(os.getenv("SNN_MAX_DAILY_CROSSREF",  "200"))
-CROSSREF_CONTACT    = os.getenv("SNN_CROSSREF_CONTACT", "bhkim003@gmail.com")
+DAILY_DAYS         = int(os.getenv("SNN_DAILY_DAYS",         "30"))
+MAX_DAILY_OPENALEX = int(os.getenv("SNN_MAX_DAILY_OPENALEX", "200"))
+MAX_DAILY_ARXIV    = int(os.getenv("SNN_MAX_DAILY_ARXIV",    "100"))
 
 
 # ---------------------------------------------------------------------------
@@ -191,210 +182,149 @@ DYNAMIC_TOPIC_BLACKLIST = {
 
 
 # ---------------------------------------------------------------------------
-# Semantic Scholar fetcher
+# OpenAlex helpers
 # ---------------------------------------------------------------------------
-def fetch_s2_entries() -> list[dict]:
-    entries: list[dict] = []
-    headers: dict[str, str] = {
-        "User-Agent": "SNN-Paper-Tracker/2.0 (https://github.com/bhkim003/SNN-CRAWLING)"
+def _reconstruct_abstract(inverted_index: dict | None) -> str:
+    if not inverted_index:
+        return ""
+    words: dict[int, str] = {}
+    for word, positions in inverted_index.items():
+        for pos in positions:
+            words[pos] = word
+    return " ".join(words[i] for i in sorted(words))
+
+
+def _parse_openalex_work(work: dict) -> dict | None:
+    title = (work.get("title") or "").strip()
+    if not title:
+        return None
+    authors = work.get("authorships") or []
+    first_author = "Unknown"
+    if authors:
+        author_obj = (authors[0].get("author") or {})
+        first_author = (author_obj.get("display_name") or "Unknown").strip()
+    doi_raw = work.get("doi") or ""
+    if doi_raw.startswith("https://doi.org/"):
+        doi = doi_raw[len("https://doi.org/"):]
+    else:
+        doi = doi_raw.lstrip("/")
+    link = f"https://doi.org/{doi}" if doi else (work.get("id") or "")
+    pub_date = (work.get("publication_date") or "").strip()
+    loc = work.get("primary_location") or {}
+    source = loc.get("source") or {}
+    venue = (source.get("display_name") or "").strip()
+    abstract = _reconstruct_abstract(work.get("abstract_inverted_index"))
+    return {
+        "first_author": first_author,
+        "title": " ".join(title.split()),
+        "abstract": abstract,
+        "venue": venue,
+        "link": link,
+        "published": pub_date,
     }
-    if S2_API_KEY:
-        headers["x-api-key"] = S2_API_KEY
 
-    offset = 0
-    print(f"[INFO] Fetching from Semantic Scholar (up to {MAX_S2} papers)…", file=sys.stderr)
 
-    while len(entries) < MAX_S2:
-        params = {
-            "query": S2_QUERY,
-            "fields": S2_FIELDS,
-            "offset": str(offset),
-            "limit": str(min(BATCH, MAX_S2 - len(entries))),
+# ---------------------------------------------------------------------------
+# OpenAlex fetcher (initial full mode — up to MAX_OPENALEX papers)
+# ---------------------------------------------------------------------------
+def fetch_openalex_entries(max_papers: int | None = None) -> list[dict]:
+    limit = max_papers if max_papers is not None else MAX_OPENALEX
+    entries: list[dict] = []
+    headers = {"User-Agent": f"SNN-Paper-Tracker/2.0 (mailto:{OPENALEX_CONTACT})"}
+    cursor = "*"
+    print(f"[INFO] Fetching from OpenAlex (up to {limit} papers)…", file=sys.stderr)
+
+    while len(entries) < limit:
+        params: dict[str, str] = {
+            "search": OPENALEX_QUERY,
+            "per-page": str(min(200, limit - len(entries))),
+            "select": OPENALEX_FIELDS,
+            "cursor": cursor,
+            "mailto": OPENALEX_CONTACT,
         }
-        url = f"{S2_API}?{urllib.parse.urlencode(params)}"
+        url = f"{OPENALEX_API}?{urllib.parse.urlencode(params)}"
         data: dict = {}
-        request_ok = False
 
-        for attempt in range(S2_MAX_RETRIES):
+        for attempt in range(6):
             try:
                 req = urllib.request.Request(url, headers=headers)
-                with urllib.request.urlopen(req, timeout=40) as resp:
+                with urllib.request.urlopen(req, timeout=30) as resp:
                     data = json.loads(resp.read().decode("utf-8"))
-                request_ok = True
                 break
-            except urllib.error.HTTPError as exc:
-                if exc.code == 429:
-                    retry_after = exc.headers.get("Retry-After")
-                    wait = (
-                        float(retry_after)
-                        if retry_after and retry_after.isdigit()
-                        else min(S2_BACKOFF_BASE * (2 ** attempt), S2_BACKOFF_CAP)
-                    )
-                    print(
-                        f"[WARN] S2 rate limit hit (attempt {attempt + 1}/{S2_MAX_RETRIES}), waiting {int(wait)}s…",
-                        file=sys.stderr,
-                    )
-                    time.sleep(wait)
-                elif attempt == S2_MAX_RETRIES - 1:
-                    print(f"[WARN] S2 failed after {S2_MAX_RETRIES} attempts: {exc}", file=sys.stderr)
-                    return entries
-                else:
-                    time.sleep(5)
             except Exception as exc:
-                if attempt == S2_MAX_RETRIES - 1:
-                    print(f"[WARN] S2 fetch error after {S2_MAX_RETRIES} attempts: {exc}", file=sys.stderr)
+                if attempt == 5:
+                    print(f"[WARN] OpenAlex fetch error: {exc}", file=sys.stderr)
                     return entries
-                time.sleep(5)
+                time.sleep(5 * (attempt + 1))
 
-        if not request_ok:
-            print("[WARN] S2 request failed repeatedly; keeping already-fetched S2 entries.", file=sys.stderr)
-            return entries
-
-        papers = data.get("data", [])
-        if not papers:
+        results = data.get("results", [])
+        if not results:
             break
 
-        total_available = data.get("total", 0)
+        for work in results:
+            entry = _parse_openalex_work(work)
+            if entry:
+                entries.append(entry)
 
-        for p in papers:
-            title = (p.get("title") or "").strip()
-            if not title:
-                continue
-            authors = p.get("authors") or []
-            first_author = authors[0].get("name", "Unknown") if authors else "Unknown"
-            venue = (p.get("venue") or "").strip()
-            pub_date = (p.get("publicationDate") or "").strip()
-            abstract = " ".join((p.get("abstract") or "").split())
-            year = p.get("year")
-
-            ext = p.get("externalIds") or {}
-            if ext.get("DOI"):
-                link = f"https://doi.org/{ext['DOI']}"
-            elif ext.get("ArXiv"):
-                link = f"https://arxiv.org/abs/{ext['ArXiv']}"
-            else:
-                pid = p.get("paperId", "")
-                link = f"https://www.semanticscholar.org/paper/{pid}"
-
-            if not venue:
-                venue = "arXiv" if ext.get("ArXiv") else (str(year) if year else "")
-            if not pub_date and year:
-                pub_date = f"{year}-01-01"
-
-            entries.append({
-                "first_author": first_author,
-                "title": " ".join(title.split()),
-                "abstract": abstract,
-                "venue": venue,
-                "link": link,
-                "published": pub_date,
-            })
-
-        offset += len(papers)
-        print(f"[INFO] S2: {len(entries)}/{min(MAX_S2, total_available)} fetched", file=sys.stderr)
-
-        if len(papers) < BATCH or offset >= total_available:
+        meta = data.get("meta", {})
+        cursor = meta.get("next_cursor")
+        print(f"[INFO] OpenAlex: {len(entries)} fetched", file=sys.stderr)
+        if not cursor:
             break
-
-        time.sleep(1.1 if not S2_API_KEY else 0.3)
+        time.sleep(0.15)
 
     return entries
 
 
 # ---------------------------------------------------------------------------
-# Semantic Scholar bulk fetcher (date-filtered, for daily mode)
+# OpenAlex recent fetcher (daily mode — date-filtered)
 # ---------------------------------------------------------------------------
-def fetch_s2_recent(from_date: str, max_papers: int = 300) -> list[dict]:
+def fetch_openalex_recent(from_date: str, max_papers: int = 200) -> list[dict]:
     entries: list[dict] = []
-    headers: dict[str, str] = {
-        "User-Agent": "SNN-Paper-Tracker/2.0 (https://github.com/bhkim003/SNN-CRAWLING)"
-    }
-    if S2_API_KEY:
-        headers["x-api-key"] = S2_API_KEY
-
-    token: str | None = None
-    print(f"[INFO] Fetching recent S2 papers since {from_date} (up to {max_papers})…", file=sys.stderr)
+    headers = {"User-Agent": f"SNN-Paper-Tracker/2.0 (mailto:{OPENALEX_CONTACT})"}
+    cursor = "*"
+    print(f"[INFO] Fetching recent OpenAlex papers since {from_date} (up to {max_papers})…", file=sys.stderr)
 
     while len(entries) < max_papers:
         params: dict[str, str] = {
-            "query": S2_QUERY,
-            "fields": S2_FIELDS,
-            "publicationDateOrYear": f"{from_date}:",
-            "sort": "publicationDate:desc",
-            "limit": str(min(1000, max_papers - len(entries))),
+            "search": OPENALEX_QUERY,
+            "filter": f"from_publication_date:{from_date}",
+            "per-page": str(min(200, max_papers - len(entries))),
+            "sort": "publication_date:desc",
+            "select": OPENALEX_FIELDS,
+            "cursor": cursor,
+            "mailto": OPENALEX_CONTACT,
         }
-        if token:
-            params["token"] = token
-        url = f"{S2_BULK_API}?{urllib.parse.urlencode(params)}"
+        url = f"{OPENALEX_API}?{urllib.parse.urlencode(params)}"
         data: dict = {}
 
-        for attempt in range(S2_MAX_RETRIES):
+        for attempt in range(6):
             try:
                 req = urllib.request.Request(url, headers=headers)
-                with urllib.request.urlopen(req, timeout=40) as resp:
+                with urllib.request.urlopen(req, timeout=30) as resp:
                     data = json.loads(resp.read().decode("utf-8"))
                 break
-            except urllib.error.HTTPError as exc:
-                if exc.code == 429:
-                    retry_after = exc.headers.get("Retry-After")
-                    wait = (
-                        float(retry_after)
-                        if retry_after and retry_after.isdigit()
-                        else min(S2_BACKOFF_BASE * (2 ** attempt), S2_BACKOFF_CAP)
-                    )
-                    print(f"[WARN] S2 bulk rate limit (attempt {attempt + 1}), waiting {int(wait)}s…", file=sys.stderr)
-                    time.sleep(wait)
-                elif attempt == S2_MAX_RETRIES - 1:
-                    print(f"[WARN] S2 bulk failed: {exc}", file=sys.stderr)
-                    return entries
-                else:
-                    time.sleep(5)
             except Exception as exc:
-                if attempt == S2_MAX_RETRIES - 1:
-                    print(f"[WARN] S2 bulk error: {exc}", file=sys.stderr)
+                if attempt == 5:
+                    print(f"[WARN] OpenAlex recent error: {exc}", file=sys.stderr)
                     return entries
-                time.sleep(5)
+                time.sleep(5 * (attempt + 1))
 
-        papers = data.get("data", [])
-        if not papers:
+        results = data.get("results", [])
+        if not results:
             break
 
-        for p in papers:
-            title = (p.get("title") or "").strip()
-            if not title:
-                continue
-            authors = p.get("authors") or []
-            first_author = authors[0].get("name", "Unknown") if authors else "Unknown"
-            venue = (p.get("venue") or "").strip()
-            pub_date = (p.get("publicationDate") or "").strip()
-            abstract = " ".join((p.get("abstract") or "").split())
-            year = p.get("year")
-            ext = p.get("externalIds") or {}
-            if ext.get("DOI"):
-                link = f"https://doi.org/{ext['DOI']}"
-            elif ext.get("ArXiv"):
-                link = f"https://arxiv.org/abs/{ext['ArXiv']}"
-            else:
-                pid = p.get("paperId", "")
-                link = f"https://www.semanticscholar.org/paper/{pid}"
-            if not venue:
-                venue = "arXiv" if ext.get("ArXiv") else (str(year) if year else "")
-            if not pub_date and year:
-                pub_date = f"{year}-01-01"
-            entries.append({
-                "first_author": first_author,
-                "title": " ".join(title.split()),
-                "abstract": abstract,
-                "venue": venue,
-                "link": link,
-                "published": pub_date,
-            })
+        for work in results:
+            entry = _parse_openalex_work(work)
+            if entry:
+                entries.append(entry)
 
-        token = data.get("token")
-        print(f"[INFO] S2 recent: {len(entries)} fetched", file=sys.stderr)
-        if not token:
+        meta = data.get("meta", {})
+        cursor = meta.get("next_cursor")
+        print(f"[INFO] OpenAlex recent: {len(entries)} fetched", file=sys.stderr)
+        if not cursor or len(entries) >= max_papers:
             break
-        time.sleep(1.1 if not S2_API_KEY else 0.3)
+        time.sleep(0.15)
 
     return entries
 
@@ -1011,7 +941,7 @@ def render_html(dataset: dict) -> str:
       border-radius: 14px;
       background: rgba(10, 15, 28, 0.99);
       color: #f5faff;
-            font-size: 0.82rem;
+            font-size: 0.72rem;
       line-height: 1.6;
       box-shadow: 0 20px 50px rgba(0,0,0,0.6);
       pointer-events: none;
@@ -1080,7 +1010,7 @@ def render_html(dataset: dict) -> str:
 <body>
 <header class="hero">
   <h1>⚡ <span>Spiking Neural Network</span> Papers</h1>
-  <p class="meta"><b>{total:,}</b> papers · Updated <b>{generated}</b> · Sources: Semantic Scholar + arXiv</p>
+  <p class="meta"><b>{total:,}</b> papers · Updated <b>{generated}</b> · Sources: OpenAlex + arXiv</p>
 </header>
 
 <div class="toolbar">
@@ -1172,10 +1102,10 @@ def render_html(dataset: dict) -> str:
 def _run_initial(existing_json: Path) -> dict:
     """Full fetch: rebuild entire dataset from scratch (one-time or manual)."""
     try:
-        s2_entries    = fetch_s2_entries()
+        oa_entries    = fetch_openalex_entries()
         arxiv_entries = fetch_arxiv_entries()
-        if not s2_entries and existing_json.exists():
-            print("[WARN] S2 returned 0 items. Reusing cached S2 data for this run.", file=sys.stderr)
+        if not oa_entries and existing_json.exists():
+            print("[WARN] OpenAlex returned 0 items. Reusing cached data for this run.", file=sys.stderr)
             cached = json.loads(existing_json.read_text(encoding="utf-8"))
             if int(cached.get("total_papers", 0) or 0) < 50:
                 committed = load_committed_dataset()
@@ -1184,9 +1114,10 @@ def _run_initial(existing_json: Path) -> dict:
                     cached = committed
             cached_entries = flatten_dataset_entries(cached)
             dataset = build_dataset(cached_entries, arxiv_entries)
-            dataset["sources"] = ["Semantic Scholar (cached)", "arXiv"]
+            dataset["sources"] = ["OpenAlex (cached)", "arXiv"]
         else:
-            dataset = build_dataset(s2_entries, arxiv_entries)
+            dataset = build_dataset(oa_entries, arxiv_entries)
+            dataset["sources"] = ["OpenAlex", "arXiv"]
     except Exception as exc:
         print(f"[WARN] Fetch failed: {exc}. Falling back to cached data.", file=sys.stderr)
         if existing_json.exists():
@@ -1203,9 +1134,8 @@ def _run_daily(existing_json: Path) -> dict:
     print(f"[INFO] Daily mode: fetching papers since {from_date}", file=sys.stderr)
 
     try:
-        s2_new       = fetch_s2_recent(from_date, MAX_DAILY_S2)
-        arxiv_new    = fetch_arxiv_entries(max_papers=MAX_DAILY_ARXIV)
-        crossref_new = fetch_crossref_entries(from_date, MAX_DAILY_CROSSREF)
+        oa_new    = fetch_openalex_recent(from_date, MAX_DAILY_OPENALEX)
+        arxiv_new = fetch_arxiv_entries(max_papers=MAX_DAILY_ARXIV)
 
         # Load existing papers to merge with
         existing_entries: list[dict] = []
@@ -1217,9 +1147,9 @@ def _run_daily(existing_json: Path) -> dict:
             except Exception as exc:
                 print(f"[WARN] Could not load existing papers.json: {exc}", file=sys.stderr)
 
-        # S2+CrossRef new papers take dedup priority; then arXiv new; then existing
-        dataset = build_dataset(s2_new + crossref_new, arxiv_new + existing_entries)
-        dataset["sources"] = ["Semantic Scholar", "CrossRef", "arXiv"]
+        # OpenAlex takes dedup priority; then arXiv new; then existing
+        dataset = build_dataset(oa_new, arxiv_new + existing_entries)
+        dataset["sources"] = ["OpenAlex", "arXiv"]
     except Exception as exc:
         print(f"[WARN] Daily fetch failed: {exc}. Falling back to cached data.", file=sys.stderr)
         if existing_json.exists():
