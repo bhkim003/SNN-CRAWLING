@@ -939,12 +939,15 @@ def render_html(dataset: dict) -> str:
             abstract = p.get("abstract", "").strip() or "Abstract unavailable."
             abstract_attr = html.escape(_tooltip_preview(abstract), quote=True)
             is_arxiv_attr = "1" if p.get("is_arxiv") else "0"
+            title_key = f"{p['title']}_{date_str}"
+            title_key_hash = str(hash(title_key) & 0x7FFFFFFF)
             category_cell = (
                 f'<td class="col-cat">{html.escape(p.get("category", "Etc"))}</td>'
                 if include_category else ""
             )
             rows.append(
-                f'<tr class="paper-row" data-category="{html.escape(category_name, quote=True)}" data-abstract="{abstract_attr}" data-is-arxiv="{is_arxiv_attr}">'
+                f'<tr class="paper-row" data-category="{html.escape(category_name, quote=True)}" data-abstract="{abstract_attr}" data-is-arxiv="{is_arxiv_attr}" data-title="{html.escape(p["title"], quote=True)}" data-date="{date_str}" data-author="{html.escape(p["first_author"], quote=True)}" data-id="{title_key_hash}">'
+                f'<td class="col-actions"><button class="btn-delete" title="Delete" data-id="{title_key_hash}">✕</button><span class="rating" data-id="{title_key_hash}" data-rating="0">☆</span></td>'
                 f'<td class="col-date">{html.escape(date_str)}</td>'
                 f'<td class="col-venue">{html.escape(p["venue"])}</td>'
                 f'<td class="col-title"><a class="paper-link" href="{html.escape(p["link"])}" target="_blank" rel="noopener">'
@@ -954,7 +957,7 @@ def render_html(dataset: dict) -> str:
                 f'</tr>'
             )
         if not rows:
-            colspan = "5" if include_category else "4"
+            colspan = "6" if include_category else "5"
             rows.append(f'<tr><td colspan="{colspan}" class="empty">No papers found.</td></tr>')
         return "".join(rows)
 
@@ -988,6 +991,7 @@ def render_html(dataset: dict) -> str:
       <div class="table-wrap">
         <table>
           <thead><tr>
+                        <th class="col-actions">Act</th>
                         <th class="col-date">Date</th>
                         <th class="col-venue">Journal / Conference</th>
             <th class="col-title">Title</th>
@@ -1010,6 +1014,7 @@ def render_html(dataset: dict) -> str:
       <div class="table-wrap">
         <table>
           <thead><tr>
+                        <th class="col-actions">Act</th>
                         <th class="col-date">Date</th>
                         <th class="col-venue">Journal / Conference</th>
             <th class="col-title">Title</th>
@@ -1043,23 +1048,158 @@ def render_html(dataset: dict) -> str:
       --chip-active: #183250;
       --shadow: rgba(0, 0, 0, 0.35);
     }}
+    html[data-theme="light"] {{
+      --bg: #f5f7fa;
+      --surface: #ffffff;
+      --surface-2: #f0f3f7;
+      --border: #d4dce8;
+      --accent: #0066cc;
+      --accent-2: #00aa66;
+      --text: #1a1a2e;
+      --muted: #666666;
+      --row-hover: #f0f3f7;
+      --chip-active: #e8efff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }}
     body {{
       font-family: 'Segoe UI', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
       background: radial-gradient(1200px 600px at 5% -10%, #163457 0%, transparent 60%), radial-gradient(1000px 500px at 95% 0%, #143a2d 0%, transparent 60%), var(--bg);
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
+      transition: background 0.3s;
+    }}
+    html[data-theme="light"] body {{
+      background: linear-gradient(135deg, #f8fafc 0%, #f5f7fa 100%);
     }}
     .hero {{
       background: linear-gradient(120deg, #0f172a 0%, #111a31 55%, #0f1f2c 100%);
       color: var(--text);
       padding: 34px 24px 26px;
       border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }}
+    html[data-theme="light"] .hero {{
+      background: linear-gradient(120deg, #ffffff 0%, #f5f7fa 100%);
+      border-bottom: 2px solid #d4dce8;
     }}
     .hero h1 {{ font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; }}
     .hero h1 span {{ color: var(--accent); }}
     .hero .meta {{ font-size: 0.9rem; color: var(--muted); }}
     .hero .meta b {{ color: var(--accent-2); }}
+    .hero-buttons {{
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }}
+    .btn-login {{ 
+      padding: 8px 16px; 
+      border: 1px solid var(--accent); 
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }}
+    .btn-login:hover {{ opacity: 0.9; }}
+    .btn-logout {{
+      padding: 8px 16px;
+      border: 1px solid var(--muted);
+      background: transparent;
+      color: var(--text);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }}
+    .btn-logout:hover {{ background: var(--surface-2); }}
+    .user-info {{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }}
+    .user-info strong {{ color: var(--text); }}
+    .modal {{
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      align-items: center;
+      justify-content: center;
+    }}
+    .modal.show {{ display: flex; }}
+    .modal-content {{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }}
+    .modal-content h2 {{
+      margin-bottom: 20px;
+      color: var(--accent);
+      font-size: 1.4rem;
+    }}
+    .modal-form {{
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }}
+    .modal-form label {{
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+    }}
+    .modal-form input {{
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.2s;
+    }}
+    .modal-form input:focus {{
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(101,211,255,0.2);
+    }}
+    .modal-buttons {{
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }}
+    .modal-buttons button {{
+      flex: 1;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }}
+    .modal-buttons button.btn-submit {{
+      background: var(--accent);
+      color: var(--bg);
+    }}
+    .modal-buttons button.btn-submit:hover {{ opacity: 0.9; }}
+    .modal-buttons button.btn-cancel {{
+      background: var(--surface-2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }}
+    .modal-buttons button.btn-cancel:hover {{ background: var(--chip-active); }}
     .toolbar {{
       background: var(--surface);
       border-bottom: 1px solid var(--border);
@@ -1069,27 +1209,59 @@ def render_html(dataset: dict) -> str:
       z-index: 100;
       box-shadow: 0 6px 20px var(--shadow);
     }}
-    .search-wrap {{ max-width: 760px; }}
-        .toolbar-controls {{
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }}
-        .filter-toggle {{
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            color: var(--muted);
-            user-select: none;
-            white-space: nowrap;
-        }}
-        .filter-toggle input {{
-            width: 16px;
-            height: 16px;
-            accent-color: var(--accent);
-        }}
+    .toolbar-controls {{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }}
+    .search-wrap {{ max-width: 500px; flex: 1; min-width: 200px; }}
+    .toolbar-left {{
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      flex: 1;
+    }}
+    .toolbar-right {{
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }}
+    .filter-toggle {{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      user-select: none;
+      white-space: nowrap;
+    }}
+    .filter-toggle input {{
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+    }}
+    .toolbar select, .toolbar .sort-btn, .toolbar .export-btn, .toolbar .theme-btn {{
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }}
+    .toolbar select:hover, .toolbar .sort-btn:hover, .toolbar .export-btn:hover, .toolbar .theme-btn:hover {{
+      border-color: var(--accent);
+      background: var(--chip-active);
+    }}
+    .toolbar select:focus, .toolbar select:focus-visible {{
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(101,211,255,0.2);
+    }}
     .toolbar input {{
       width: 100%;
       padding: 10px 14px;
@@ -1173,7 +1345,7 @@ def render_html(dataset: dict) -> str:
     .panel {{ display: none; margin-bottom: 28px; }}
     .panel.active {{ display: block; }}
     .panel h2 {{
-    font-size: 1.02rem;
+      font-size: 1.02rem;
       font-weight: 700;
       margin-bottom: 10px;
       padding-bottom: 6px;
@@ -1190,46 +1362,48 @@ def render_html(dataset: dict) -> str:
       background: var(--surface);
       box-shadow: 0 10px 24px var(--shadow);
     }}
-        .pager {{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 8px 0;
-            flex-wrap: wrap;
-        }}
-        .pager-btn {{
-            border: 1px solid var(--border);
-            background: var(--surface-2);
-            color: var(--text);
-            border-radius: 999px;
-            min-width: 36px;
-            height: 36px;
-            padding: 0 10px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-        }}
-        .pager-btn:hover {{
-            background: var(--chip-active);
-            border-color: #406080;
-        }}
-        .pager-btn.active {{
-            border-color: var(--accent);
-            color: var(--accent);
-            background: #112035;
-        }}
-        .pager-btn:disabled {{
-            opacity: 0.45;
-            cursor: not-allowed;
-        }}
-        .pager-ellipsis {{
-            color: var(--muted);
-            font-size: 0.9rem;
-            padding: 0 2px;
-        }}
+    .pager {{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 8px 0;
+      flex-wrap: wrap;
+    }}
+    .pager-btn {{
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      border-radius: 999px;
+      min-width: 36px;
+      height: 36px;
+      padding: 0 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }}
+    .pager-btn:hover {{
+      background: var(--chip-active);
+      border-color: #406080;
+    }}
+    .pager-btn.active {{
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #112035;
+    }}
+    .pager-btn:disabled {{
+      opacity: 0.45;
+      cursor: not-allowed;
+    }}
+    .pager-ellipsis {{
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 0 2px;
+    }}
     table {{ width: 100%; border-collapse: collapse; font-size: 0.875rem; }}
     thead {{ background: #101b2f; }}
+    html[data-theme="light"] thead {{ background: #f0f3f7; }}
     th {{
       padding: 10px 12px;
       text-align: left;
@@ -1241,22 +1415,66 @@ def render_html(dataset: dict) -> str:
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }}
+    html[data-theme="light"] th {{
+      color: #334155;
+    }}
     td {{
       padding: 9px 12px;
       border-bottom: 1px solid #1b2a3e;
-      vertical-align: top;
+      vertical-align: middle;
       color: #e2ebf9;
     }}
+    html[data-theme="light"] td {{
+      border-bottom: 1px solid #e2e8f0;
+      color: #1a1a2e;
+    }}
     tbody tr:last-child td {{ border-bottom: none; }}
-    tbody tr:hover td {{ background: var(--row-hover); cursor: pointer; }}
+    tbody tr:hover td {{ background: var(--row-hover); }}
+    .col-actions {{
+      width: 60px;
+      text-align: center;
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+      align-items: center;
+    }}
+    .btn-delete {{
+      border: none;
+      background: transparent;
+      color: #ff6b6b;
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      transition: all 0.2s;
+      display: none;
+    }}
+    tbody tr.logged-in .btn-delete {{
+      display: inline-block;
+    }}
+    .btn-delete:hover {{
+      background: rgba(255, 107, 107, 0.2);
+    }}
+    .rating {{
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+      user-select: none;
+    }}
+    tbody tr.logged-in .rating {{
+      display: inline;
+    }}
+    .rating:hover {{
+      filter: brightness(1.2);
+    }}
     .col-author {{
-            width: 110px;
-            max-width: 110px;
+      width: 110px;
+      max-width: 110px;
       color: var(--muted);
       font-size: 0.82rem;
       white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }}
     .col-cat {{
       width: 180px;
@@ -1280,7 +1498,7 @@ def render_html(dataset: dict) -> str:
       border-radius: 14px;
       background: rgba(10, 15, 28, 0.99);
       color: #f5faff;
-            font-size: 0.72rem;
+      font-size: 0.72rem;
       line-height: 1.6;
       box-shadow: 0 20px 50px rgba(0,0,0,0.6);
       pointer-events: none;
@@ -1295,11 +1513,11 @@ def render_html(dataset: dict) -> str:
     .tooltip::-webkit-scrollbar-thumb {{ background: #3a4f6f; border-radius: 999px; }}
     .tooltip::-webkit-scrollbar-track {{ background: transparent; }}
     .col-venue {{
-            width: 150px;
-            max-width: 150px;
+      width: 150px;
+      max-width: 150px;
       color: var(--muted);
       font-size: 0.82rem;
-            word-break: break-word;
+      word-break: break-word;
     }}
     .col-date {{
       width: 95px;
@@ -1307,13 +1525,14 @@ def render_html(dataset: dict) -> str:
       font-size: 0.8rem;
       white-space: nowrap;
     }}
-        th.col-date, td.col-date,
-        th.col-venue, td.col-venue,
-        th.col-title, td.col-title,
-        th.col-cat, td.col-cat,
-        th.col-author, td.col-author {{
-            text-align: center;
-        }}
+    th.col-date, td.col-date,
+    th.col-venue, td.col-venue,
+    th.col-title, td.col-title,
+    th.col-cat, td.col-cat,
+    th.col-author, td.col-author,
+    th.col-actions, td.col-actions {{
+      text-align: center;
+    }}
     .empty {{ text-align: center; color: var(--muted); padding: 24px; }}
     .hidden {{ display: none !important; }}
     @media (max-width: 1100px) {{
@@ -1341,6 +1560,10 @@ def render_html(dataset: dict) -> str:
         margin-right: 8px;
       }}
       .sidebar::-webkit-scrollbar {{ height: 8px; width: auto; }}
+      .hero {{ flex-direction: column; gap: 12px; }}
+      .toolbar-controls {{ flex-direction: column; }}
+      .search-wrap {{ width: 100%; }}
+      .toolbar-left {{ width: 100%; }}
     }}
     @media (max-width: 700px) {{
       .col-venue, .col-date, .col-cat {{ display: none; }}
@@ -1352,32 +1575,77 @@ def render_html(dataset: dict) -> str:
         max-height: 400px;
       }}
       .category-button {{ font-size: 0.82rem; padding: 7px 9px; }}
-            .pager-btn {{ min-width: 32px; height: 32px; font-size: 0.8rem; }}
+      .pager-btn {{ min-width: 32px; height: 32px; font-size: 0.8rem; }}
+      .col-actions {{ width: 50px; }}
     }}
   </style>
 </head>
 <body>
+<div id="login-modal" class="modal">
+  <div class="modal-content">
+    <h2>Login</h2>
+    <form class="modal-form" onsubmit="handleLogin(event)">
+      <label for="user-id">User ID</label>
+      <input type="text" id="user-id" placeholder="Enter your user ID" required>
+      <label for="user-pass">Password</label>
+      <input type="password" id="user-pass" placeholder="Enter your password" required>
+      <div class="modal-buttons">
+        <button type="submit" class="btn-submit">Login</button>
+        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <header class="hero">
-  <h1>⚡ <span>Spiking Neural Network</span> Papers</h1>
-  <p class="meta"><b>{total:,}</b> papers · Updated <b>{generated}</b> · Sources: OpenAlex + arXiv</p>
+  <div>
+    <h1>⚡ <span>Spiking Neural Network</span> Papers</h1>
+    <p class="meta"><b>{total:,}</b> papers · Updated <b>{generated}</b> · Sources: OpenAlex + arXiv</p>
+  </div>
+  <div class="hero-buttons">
+    <div class="user-info" id="user-info" style="display:none;">
+      <strong id="current-user"></strong>
+    </div>
+    <button class="btn-login" id="btn-login-header" onclick="openModal()">Login</button>
+    <button class="btn-logout" id="btn-logout-header" onclick="handleLogout()" style="display:none;">Logout</button>
+  </div>
 </header>
 
 <div class="toolbar">
-    <div class="toolbar-controls">
-        <div class="search-wrap">
-            <input type="search" id="search" placeholder="Search paper title, abstract, author, venue, or category name" autocomplete="off">
-        </div>
-        <label class="filter-toggle" for="hide-arxiv">
-            <input type="checkbox" id="hide-arxiv">
-            <span>Exclude arXiv papers</span>
-        </label>
+  <div class="toolbar-controls">
+    <div class="toolbar-left">
+      <div class="search-wrap">
+        <input type="search" id="search" placeholder="Search title, abstract, author, venue..." autocomplete="off">
+      </div>
+      <label class="filter-toggle" for="hide-arxiv">
+        <input type="checkbox" id="hide-arxiv">
+        <span>Exclude arXiv</span>
+      </label>
+      <label class="filter-toggle" for="date-from">
+        From: <input type="date" id="date-from" style="max-width: 120px;">
+      </label>
+      <label class="filter-toggle" for="date-to">
+        To: <input type="date" id="date-to" style="max-width: 120px;">
+      </label>
+      <select id="sort-by">
+        <option value="date-desc">Latest First</option>
+        <option value="date-asc">Oldest First</option>
+        <option value="title-asc">Title (A-Z)</option>
+        <option value="author-asc">Author (A-Z)</option>
+      </select>
+    </div>
+    <div class="toolbar-right">
+      <button class="export-btn" onclick="exportData('csv')">Export CSV</button>
+      <button class="export-btn" onclick="exportData('json')">Export JSON</button>
+      <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
   </div>
 </div>
 
 <div class="layout">
-<aside class="sidebar" id="sidebar">
+  <aside class="sidebar" id="sidebar">
 {buttons_html}</aside>
-<main class="content" id="content">
+  <main class="content" id="content">
 {panels_html}</main>
 </div>
 
@@ -1388,78 +1656,204 @@ def render_html(dataset: dict) -> str:
   const categoryButtons = Array.from(document.querySelectorAll('.category-button'));
   const panels = Array.from(document.querySelectorAll('.panel'));
   const input = document.getElementById('search');
-    const hideArxiv = document.getElementById('hide-arxiv');
+  const hideArxiv = document.getElementById('hide-arxiv');
+  const dateFrom = document.getElementById('date-from');
+  const dateTo = document.getElementById('date-to');
+  const sortBy = document.getElementById('sort-by');
   const tooltip = document.getElementById('abstract-tooltip');
+  const loginModal = document.getElementById('login-modal');
+  const userInfo = document.getElementById('user-info');
+  const btnLoginHeader = document.getElementById('btn-login-header');
+  const btnLogoutHeader = document.getElementById('btn-logout-header');
+  const currentUserSpan = document.getElementById('current-user');
 
-    function pageTokens(totalPages, currentPage) {{
-        if (totalPages <= 7) return Array.from({{ length: totalPages }}, (_, i) => i + 1);
-        if (currentPage <= 4) return [1, 2, 3, 4, 5, '...', totalPages];
-        if (currentPage >= totalPages - 3) return [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
-        return [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages];
+  // ===== Theme Management =====
+  function loadTheme() {{
+    const saved = localStorage.getItem('snn-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', saved);
+    updateThemeBtn(saved);
+  }}
+  function toggleTheme() {{
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('snn-theme', next);
+    updateThemeBtn(next);
+  }}
+  function updateThemeBtn(theme) {{
+    document.getElementById('theme-toggle').textContent = theme === 'dark' ? '☀️' : '🌙';
+  }}
+  loadTheme();
+
+  // ===== User Management =====
+  class UserSession {{
+    constructor() {{
+      this.data = JSON.parse(localStorage.getItem('snn-user-session') || '{{}}');
     }}
-
-    function renderPager(panel, totalPages, currentPage) {{
-        const pager = panel.querySelector('.pager');
-        if (!pager) return;
-        pager.innerHTML = '';
-        if (totalPages <= 1) return;
-
-        const prev = document.createElement('button');
-        prev.type = 'button';
-        prev.className = 'pager-btn';
-        prev.textContent = 'Prev';
-        prev.dataset.page = String(currentPage - 1);
-        prev.disabled = currentPage === 1;
-        pager.appendChild(prev);
-
-        pageTokens(totalPages, currentPage).forEach(token => {{
-            if (token === '...') {{
-                const span = document.createElement('span');
-                span.className = 'pager-ellipsis';
-                span.textContent = '...';
-                pager.appendChild(span);
-                return;
-            }}
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = `pager-btn${{token === currentPage ? ' active' : ''}}`;
-            btn.textContent = String(token);
-            btn.dataset.page = String(token);
-            pager.appendChild(btn);
-        }});
-
-        const next = document.createElement('button');
-        next.type = 'button';
-        next.className = 'pager-btn';
-        next.textContent = 'Next';
-        next.dataset.page = String(currentPage + 1);
-        next.disabled = currentPage === totalPages;
-        pager.appendChild(next);
+    isLoggedIn() {{ return !!this.data.userId; }}
+    login(userId, password) {{
+      this.data = {{ userId, password, loginTime: Date.now() }};
+      localStorage.setItem('snn-user-session', JSON.stringify(this.data));
     }}
-
-    function paginatePanel(panel, resetPage = false) {{
-        const rows = Array.from(panel.querySelectorAll('tr.paper-row'));
-        const matched = rows.filter(row => !row.classList.contains('hidden'));
-        const totalPages = Math.max(1, Math.ceil(matched.length / PAGE_SIZE));
-
-        let page = parseInt(panel.dataset.page || '1', 10);
-        if (!Number.isFinite(page) || page < 1) page = 1;
-        if (resetPage) page = 1;
-        if (page > totalPages) page = totalPages;
-        panel.dataset.page = String(page);
-
-        rows.forEach(row => {{
-            row.style.display = row.classList.contains('hidden') ? 'none' : '';
-        }});
-
-        const start = (page - 1) * PAGE_SIZE;
-        const end = start + PAGE_SIZE;
-        matched.forEach((row, idx) => {{
-            row.style.display = (idx >= start && idx < end) ? '' : 'none';
-        }});
-
-        renderPager(panel, totalPages, page);
+    logout() {{
+      this.data = {{}};
+      localStorage.removeItem('snn-user-session');
     }}
+    get userId() {{ return this.data.userId || ''; }}
+  }}
+
+  const userSession = new UserSession();
+
+  function updateUserUI() {{
+    if (userSession.isLoggedIn()) {{
+      userInfo.style.display = 'flex';
+      currentUserSpan.textContent = userSession.userId;
+      btnLoginHeader.style.display = 'none';
+      btnLogoutHeader.style.display = 'block';
+      document.querySelectorAll('tbody tr').forEach(row => {{
+        row.classList.add('logged-in');
+      }});
+    }} else {{
+      userInfo.style.display = 'none';
+      btnLoginHeader.style.display = 'inline-block';
+      btnLogoutHeader.style.display = 'none';
+      document.querySelectorAll('tbody tr').forEach(row => {{
+        row.classList.remove('logged-in');
+      }});
+    }}
+  }}
+
+  function openModal() {{ loginModal.classList.add('show'); }}
+  function closeModal() {{ loginModal.classList.remove('show'); }}
+
+  function handleLogin(event) {{
+    event.preventDefault();
+    const userId = document.getElementById('user-id').value.trim();
+    const password = document.getElementById('user-pass').value;
+    if (userId && password) {{
+      userSession.login(userId, password);
+      closeModal();
+      updateUserUI();
+      applySearch();
+      document.getElementById('user-id').value = '';
+      document.getElementById('user-pass').value = '';
+    }}
+  }}
+
+  function handleLogout() {{
+    if (confirm('Are you sure you want to logout?')) {{
+      userSession.logout();
+      updateUserUI();
+      applySearch();
+    }}
+  }}
+
+  updateUserUI();
+
+  // ===== Paper Metadata (Delete/Rating) =====
+  class PaperManager {{
+    constructor() {{
+      this.data = JSON.parse(localStorage.getItem('snn-papers') || '{{}}');
+    }}
+    save() {{
+      localStorage.setItem('snn-papers', JSON.stringify(this.data));
+    }}
+    isDeleted(paperId) {{
+      return this.data[paperId]?.deleted === true;
+    }}
+    delete(paperId) {{
+      if (!this.data[paperId]) this.data[paperId] = {{}};
+      this.data[paperId].deleted = true;
+      this.save();
+    }}
+    restore(paperId) {{
+      if (this.data[paperId]) {{
+        delete this.data[paperId].deleted;
+        this.save();
+      }}
+    }}
+    setRating(paperId, rating) {{
+      if (!this.data[paperId]) this.data[paperId] = {{}};
+      this.data[paperId].rating = rating;
+      this.save();
+    }}
+    getRating(paperId) {{
+      return this.data[paperId]?.rating || 0;
+    }}
+  }}
+
+  const paperManager = new PaperManager();
+
+  // ===== Pagination =====
+  function pageTokens(totalPages, currentPage) {{
+    if (totalPages <= 7) return Array.from({{ length: totalPages }}, (_, i) => i + 1);
+    if (currentPage <= 4) return [1, 2, 3, 4, 5, '...', totalPages];
+    if (currentPage >= totalPages - 3) return [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+    return [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages];
+  }}
+
+  function renderPager(panel, totalPages, currentPage) {{
+    const pager = panel.querySelector('.pager');
+    if (!pager) return;
+    pager.innerHTML = '';
+    if (totalPages <= 1) return;
+
+    const prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'pager-btn';
+    prev.textContent = 'Prev';
+    prev.dataset.page = String(currentPage - 1);
+    prev.disabled = currentPage === 1;
+    pager.appendChild(prev);
+
+    pageTokens(totalPages, currentPage).forEach(token => {{
+      if (token === '...') {{
+        const span = document.createElement('span');
+        span.className = 'pager-ellipsis';
+        span.textContent = '...';
+        pager.appendChild(span);
+        return;
+      }}
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = `pager-btn${{token === currentPage ? ' active' : ''}}`;
+      btn.textContent = String(token);
+      btn.dataset.page = String(token);
+      pager.appendChild(btn);
+    }});
+
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'pager-btn';
+    next.textContent = 'Next';
+    next.dataset.page = String(currentPage + 1);
+    next.disabled = currentPage === totalPages;
+    pager.appendChild(next);
+  }}
+
+  function paginatePanel(panel, resetPage = false) {{
+    const rows = Array.from(panel.querySelectorAll('tr.paper-row'));
+    const matched = rows.filter(row => !row.classList.contains('hidden'));
+    const totalPages = Math.max(1, Math.ceil(matched.length / PAGE_SIZE));
+
+    let page = parseInt(panel.dataset.page || '1', 10);
+    if (!Number.isFinite(page) || page < 1) page = 1;
+    if (resetPage) page = 1;
+    if (page > totalPages) page = totalPages;
+    panel.dataset.page = String(page);
+
+    rows.forEach(row => {{
+      row.style.display = row.classList.contains('hidden') ? 'none' : '';
+    }});
+
+    const start = (page - 1) * PAGE_SIZE;
+    const end = start + PAGE_SIZE;
+    matched.forEach((row, idx) => {{
+      row.style.display = (idx >= start && idx < end) ? '' : 'none';
+    }});
+
+    renderPager(panel, totalPages, page);
+  }}
 
   function setActiveTab(tabId) {{
     categoryButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabId));
@@ -1467,34 +1861,68 @@ def render_html(dataset: dict) -> str:
     applySearch();
   }}
 
+  // ===== Sorting & Filtering =====
   function applySearch() {{
     const q = input.value.toLowerCase().trim();
+    const excludeArxiv = hideArxiv.checked;
+    const fromDate = dateFrom.value ? new Date(dateFrom.value) : null;
+    const toDate = dateTo.value ? new Date(dateTo.value) : null;
+    const sortMode = sortBy.value;
+
     categoryButtons.forEach(btn => {{
       const label = (btn.textContent || '').toLowerCase();
       const catName = (btn.dataset.category || '').toLowerCase();
       btn.classList.toggle('hidden', Boolean(q) && !label.includes(q) && !catName.includes(q));
     }});
+
     const activePanel = document.querySelector('.panel.active');
     if (!activePanel) return;
 
     activePanel.querySelectorAll('tr.paper-row').forEach(row => {{
       const text = row.textContent.toLowerCase();
-            const abs = (row.dataset.abstract || '').toLowerCase();
+      const abs = (row.dataset.abstract || '').toLowerCase();
       const cat = (row.dataset.category || '').toLowerCase();
-            const isArxiv = row.dataset.isArxiv === '1';
-            const matchesQuery = !q || text.includes(q) || abs.includes(q) || cat.includes(q);
-            const hideForArxiv = Boolean(hideArxiv && hideArxiv.checked && isArxiv);
-            row.classList.toggle('hidden', !matchesQuery || hideForArxiv);
+      const isArxiv = row.dataset.isArxiv === '1';
+      const paperId = row.dataset.id;
+      const isDeleted = paperManager.isDeleted(paperId);
+
+      const matchesQuery = !q || text.includes(q) || abs.includes(q) || cat.includes(q);
+      const hideForArxiv = Boolean(excludeArxiv && isArxiv);
+      const rowDate = row.dataset.date ? new Date(row.dataset.date) : null;
+      const hideForDate =  (fromDate && rowDate < fromDate) || (toDate && rowDate > toDate);
+      const hidden = !matchesQuery || hideForArxiv || hideForDate || isDeleted;
+
+      row.classList.toggle('hidden', hidden);
     }});
-        paginatePanel(activePanel, true);
+
+    // Sort
+    const allRows = Array.from(activePanel.querySelectorAll('tr.paper-row')).filter(r => !r.classList.contains('hidden'));
+    let sorted = allRows;
+    if (sortMode === 'date-desc') {{
+      sorted.sort((a, b) => (b.dataset.date || '').localeCompare(a.dataset.date || ''));
+    }} else if (sortMode === 'date-asc') {{
+      sorted.sort((a, b) => (a.dataset.date || '').localeCompare(b.dataset.date || ''));
+    }} else if (sortMode === 'title-asc') {{
+      sorted.sort((a, b) => (a.dataset.title || '').localeCompare(b.dataset.title || ''));
+    }} else if (sortMode === 'author-asc') {{
+      sorted.sort((a, b) => (a.dataset.author || '').localeCompare(b.dataset.author || ''));
+    }}
+
+    // Reorder in DOM
+    const tbody = activePanel.querySelector('tbody');
+    if (tbody && sorted.length > 0) {{
+      sorted.forEach(row => {{ tbody.appendChild(row); }});
+    }}
+
+    paginatePanel(activePanel, true);
 
     panels.filter(panel => panel !== activePanel).forEach(panel => {{
-            panel.querySelectorAll('tr.paper-row').forEach(row => {{
-                row.classList.remove('hidden');
-                row.style.display = '';
-            }});
-            panel.dataset.page = '1';
-            renderPager(panel, 1, 1);
+      panel.querySelectorAll('tr.paper-row').forEach(row => {{
+        row.classList.remove('hidden');
+        row.style.display = '';
+      }});
+      panel.dataset.page = '1';
+      renderPager(panel, 1, 1);
     }});
   }}
 
@@ -1502,17 +1930,43 @@ def render_html(dataset: dict) -> str:
     btn.addEventListener('click', () => setActiveTab(btn.dataset.tab));
   }});
 
-    document.addEventListener('click', evt => {{
-        const button = evt.target.closest('.pager-btn');
-        if (!button || button.disabled) return;
-        const panel = button.closest('.panel');
-        if (!panel) return;
-        const nextPage = parseInt(button.dataset.page || '1', 10);
-        if (!Number.isFinite(nextPage) || nextPage < 1) return;
-        panel.dataset.page = String(nextPage);
-        paginatePanel(panel, false);
-    }});
+  document.addEventListener('click', evt => {{
+    const button = evt.target.closest('.pager-btn');
+    if (!button || button.disabled) return;
+    const panel = button.closest('.panel');
+    if (!panel) return;
+    const nextPage = parseInt(button.dataset.page || '1', 10);
+    if (!Number.isFinite(nextPage) || nextPage < 1) return;
+    panel.dataset.page = String(nextPage);
+    paginatePanel(panel, false);
+  }});
 
+  // ===== Delete & Rating Handlers =====
+  document.addEventListener('click', evt => {{
+    const deleteBtn = evt.target.closest('.btn-delete');
+    if (deleteBtn && userSession.isLoggedIn()) {{
+      evt.stopPropagation();
+      const paperId = deleteBtn.dataset.id;
+      paperManager.delete(paperId);
+      const row = deleteBtn.closest('tr.paper-row');
+      if (row) row.classList.add('hidden');
+      applySearch();
+      return;
+    }}
+
+    const rating = evt.target.closest('.rating');
+    if (rating && userSession.isLoggedIn()) {{
+      evt.stopPropagation();
+      const paperId = rating.dataset.id;
+      const currentRating = parseInt(rating.dataset.rating || '0', 10);
+      const newRating = (currentRating + 1) % 6;
+      paperManager.setRating(paperId, newRating);
+      rating.dataset.rating = newRating;
+      rating.textContent = ['☆', '★', '★★', '★★★', '★★★★', '★★★★★'][newRating];
+    }}
+  }});
+
+  // ===== Tooltip =====
   function placeTooltip(evt) {{
     const margin = 16;
     let x = evt.clientX + 18;
@@ -1524,28 +1978,88 @@ def render_html(dataset: dict) -> str:
     tooltip.style.top = `${{Math.max(margin, y)}}px`;
   }}
 
-    document.querySelectorAll('tbody tr.paper-row td.col-title').forEach(cell => {{
-        const row = cell.closest('tr.paper-row');
-        if (!row) return;
+  document.querySelectorAll('tbody tr.paper-row td.col-title').forEach(cell => {{
+    const row = cell.closest('tr.paper-row');
+    if (!row) return;
 
-        cell.addEventListener('mouseenter', (evt) => {{
+    cell.addEventListener('mouseenter', (evt) => {{
       const abs = row.dataset.abstract || 'Abstract unavailable.';
       tooltip.textContent = abs;
       tooltip.style.display = 'block';
       placeTooltip(evt);
     }});
 
-        cell.addEventListener('mousemove', placeTooltip);
-        cell.addEventListener('mouseleave', () => {{
+    cell.addEventListener('mousemove', placeTooltip);
+    cell.addEventListener('mouseleave', () => {{
       tooltip.style.display = 'none';
     }});
   }});
 
+  // ===== Export Functions =====
+  function getAllVisiblePapers() {{
+    const papers = [];
+    document.querySelectorAll('tbody tr.paper-row').forEach(row => {{
+      if (!row.classList.contains('hidden')) {{
+        const paperId = row.dataset.id;
+        papers.push({{
+          title: row.dataset.title,
+          author: row.dataset.author,
+          date: row.dataset.date,
+          category: row.dataset.category,
+          rating: paperManager.getRating(paperId),
+        }});
+      }}
+    }});
+    return papers;
+  }}
+
+  function exportData(format) {{
+    const papers = getAllVisiblePapers();
+    if (papers.length === 0) {{
+      alert('No papers to export.');
+      return;
+    }}
+
+    let content, filename, type;
+    if (format === 'csv') {{
+      const headers = ['Title', 'Author', 'Date', 'Category', 'Rating'].join(',');
+      const rows = papers.map(p => [
+        `"${{(p.title || '').replace(/"/g, '""')}}"`,
+        `"${{(p.author || '').replace(/"/g, '""')}}"`,
+        p.date,
+        `"${{(p.category || '').replace(/"/g, '""')}}"`,
+        p.rating,
+      ].join(','));
+      content = [headers, ...rows].join('\\n');
+      filename = `snn-papers-${{new Date().toISOString().split('T')[0]}}.csv`;
+      type = 'text/csv';
+    }} else {{
+      content = JSON.stringify(papers, null, 2);
+      filename = `snn-papers-${{new Date().toISOString().split('T')[0]}}.json`;
+      type = 'application/json';
+    }}
+
+    const blob = new Blob([content], {{ type }});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }}
+
+  // ===== Event Listeners =====
   input.addEventListener('input', applySearch);
-        if (hideArxiv) {{
-            hideArxiv.addEventListener('change', applySearch);
-        }}
-    applySearch();
+  hideArxiv.addEventListener('change', applySearch);
+  dateFrom.addEventListener('change', applySearch);
+  dateTo.addEventListener('change', applySearch);
+  sortBy.addEventListener('change', applySearch);
+
+  // Initialize
+  updateUserUI();
+  applySearch();
 </script>
 </body>
 </html>
