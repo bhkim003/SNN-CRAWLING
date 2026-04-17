@@ -809,6 +809,7 @@ def render_html(dataset: dict) -> str:
     categories = dataset["categories"]
     generated = dataset["generated_at_utc"][:19].replace("T", " ") + " UTC"
     total = dataset["total_papers"]
+    display_limit = 200
 
     def _tooltip_preview(abstract: str, max_chars: int = 400) -> str:
         text = abstract.strip()
@@ -818,7 +819,7 @@ def render_html(dataset: dict) -> str:
 
     def make_rows(papers: list[dict], category_name: str, include_category: bool = False) -> str:
         rows: list[str] = []
-        for p in papers:
+        for p in papers[:display_limit]:
             date_str = p["published"][:10] if p["published"] else "-"
             abstract = p.get("abstract", "").strip() or "Abstract unavailable."
             abstract_attr = html.escape(_tooltip_preview(abstract), quote=True)
@@ -835,6 +836,11 @@ def render_html(dataset: dict) -> str:
                 f'{category_cell}'
                 f'<td class="col-author">{html.escape(p["first_author"])}</td>'
                 f'</tr>'
+            )
+        if len(papers) > display_limit:
+            colspan = "5" if include_category else "4"
+            rows.append(
+                f'<tr><td colspan="{colspan}" class="empty">Showing first {display_limit} papers.</td></tr>'
             )
         if not rows:
             colspan = "5" if include_category else "4"
@@ -1129,6 +1135,13 @@ def render_html(dataset: dict) -> str:
       font-size: 0.8rem;
       white-space: nowrap;
     }}
+        th.col-date, td.col-date,
+        th.col-venue, td.col-venue,
+        th.col-title, td.col-title,
+        th.col-cat, td.col-cat,
+        th.col-author, td.col-author {{
+            text-align: center;
+        }}
     .empty {{ text-align: center; color: var(--muted); padding: 24px; }}
     .hidden {{ display: none !important; }}
     @media (max-width: 1100px) {{
