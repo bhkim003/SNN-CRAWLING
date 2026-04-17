@@ -1,0 +1,53 @@
+name: Daily SNN Paper Crawl
+
+on:
+  schedule:
+    # 매일 UTC 자정 = KST 오전 9시
+    - cron: '0 0 * * *'
+  workflow_dispatch:  # 수동 실행 옵션
+
+jobs:
+  crawl-and-deploy:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Run crawl script
+        env:
+          SNN_MAX_OPENALEX: '30000'
+          SNN_MAX_ARXIV: '30000'
+          SNN_MIN_REQUIRED_CITATIONS: '1'
+          SNN_MIN_ARXIV_REQUIRED_CITATIONS: '0'
+          # CrossRef 연락처 (선택)
+          SNN_CROSSREF_CONTACT: ${{ secrets.CROSSREF_CONTACT || 'bhkim003@snu.ac.kr' }}
+        run: |
+          cd scripts
+          python3 build_site.py
+
+      - name: Commit and push if changes exist
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          if git diff --quiet docs/papers.json docs/index.html; then
+            echo "No changes detected."
+          else
+            git add docs/papers.json docs/index.html
+            git commit -m "chore: Update papers ($(date -u +'%Y-%m-%d %H:%M:%S') UTC)"
+            git push origin main
+            echo "✅ Papers updated and pushed."
+          fi
