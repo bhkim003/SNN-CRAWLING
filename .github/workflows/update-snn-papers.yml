@@ -8,6 +8,10 @@ on:
     - cron: "0 0 * * *"   # 00:00 UTC = 09:00 KST
   workflow_dispatch: {}
 
+concurrency:
+  group: snn-crawl-and-deploy
+  cancel-in-progress: false
+
 permissions:
   contents: write
   pages: write
@@ -24,7 +28,9 @@ jobs:
       deploy_sha: ${{ steps.commit_and_push.outputs.sha }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -48,7 +54,15 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore: update SNN paper list [skip ci]"
-            git push
+            branch="${GITHUB_REF_NAME:-main}"
+            for attempt in 1 2 3; do
+              git pull --rebase origin "$branch" && git push origin HEAD:"$branch" && break
+              if [ "$attempt" -eq 3 ]; then
+                echo "Push failed after 3 attempts."
+                exit 1
+              fi
+              echo "Push race detected. Retrying (attempt ${attempt}/3)..."
+            done
           fi
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
@@ -60,7 +74,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ needs.update.outputs.deploy_sha }}
 
@@ -68,7 +82,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./docs
 
