@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-10-11T00:51:34.209816+00:00",
+  "generated_at_utc": "2026-10-12T00:52:35.659327+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30398,
+  "total_papers": 30400,
   "categories": {
     "LLM": [
       {
@@ -113352,6 +113352,28 @@
         "venue": "Pattern Recognition",
         "link": "https://doi.org/10.1016/j.patcog.2026.114968",
         "published": "2026-09-19",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Related Species": [
+      {
+        "first_author": "Rachel J. Warmington",
+        "title": "Pathogen diversity, epidemiology and control of sclerotinia disease in vegetable crops",
+        "abstract": "Sclerotinia sclerotiorum is a necrotrophic fungal pathogen with a worldwide distribution and a wide host range, including many economically important crops. The control strategies for this pathogen and related species include using fungicides, biological control agents and cultural practices such as crop rotations. However, the genetic diversity and the long term survival structures (sclerotia) of this pathogen, combined with the recent discovery of the related species S. subarctica in England and the need for growers to implement integrated disease management strategies means that new control measures need to be sought. Biofumigation, using green manures which are macerated and ploughed into the soil, may be a useful new control approach in an integrated programme. Microcosm and in vitro experiments clearly showed that volatiles released from biofumigation crops have a direct inhibitory effect on the mycelial growth and carpogenic germination of S. sclerotiorum sclerotia. The most effective biofumigation crop for inhibiting carpogenic germination varied depending on whether the volatiles released from the biofumigant crops were in direct contact with the sclerotia when the most effective crop was Raphanus sativus ‘Terranova’, or in the vapour phase when the most effective crop was B. juncea ‘Vittasso’. Carrot root inoculations showed that the number of sclerotia produced on carrot roots was significantly affected by S. sclerotiorum isolate. However, the results also showed that the weight of individual sclerotia produced by different isolates was influenced by carrot accession, but not by S. sclerotiorum isolate. Additionally, the carrot plant and detached leaf inoculations showed significant differences in the rate of lesion progression of S. sclerotiorum on different carrot accessions, indicating differences in susceptibility to the pathogen. S. subarctica microsatellite haplotypes identified in this research were shown to be shared between Scotland and Norway, and between crop plants and meadow buttercup. However, the English population did not share any microsatellite haplotypes with any other population, and analysis indicated that this S. subarctica population in England may be isolated and inbred",
+        "venue": "Warwick Research Archive Portal (University of Warwick)",
+        "link": "https://doi.org/10.82444/warw.33689446",
+        "published": "2026-09-13",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Turnip Yellows Virus": [
+      {
+        "first_author": "Elvis Asare‐Bediako",
+        "title": "Brassicaceae : Turnip yellows virus interactions",
+        "abstract": "Turnip yellows virus (TuYV) is the most common and important virus infecting oilseed rape (Brassica napus) in the UK. It causes reductions in growth and seed yield in oilseed rape. Between 2007 and 2010, the prevalence of TuYV in oilseed rape crops in Lincolnshire, Warwickshire and Yorkshire was determined; incidences of infection ranged from 0 and 100%. The highest levels of infection were detected in Lincolnshire and the lowest in Yorkshire. Highest incidences were recorded during 2009-10 and the lowest in 2008-9. Incidences of TuYV were closely related to the flight activities Myzus persicae vector. Most fields showed slightly aggregated pattern of infection during autumn but spring sampling revealed more random patterns. Phylogenetic analysis of both nucleotide and amino acid sequences of the P0 and P3 genes of TuYY revealed three and two genetic groups of TuYV respectively, infecting oilseed rape in Lincolnshire, Warwickshire and Yorkshire. The P0 gene was more variable than the P3 gene and both were under purifying selection. TuYV populations in the three regions were highly structured with limited gene flow between them. Analysis of molecular variance (AMOVA) indicated 96- 97% of the observed variation was due to the variation between isolates within fields. Three RT-PCR assays were developed to differentiate the three genotypes. They successfully detected and discriminated isolates of the two major genotypes from oilseed rape in Lincolnshire. Twenty seven accessions of a B. napus Diversity Fixed Foundation Set (DFFS) screened for resistance against TuYV infections varied in their susceptibility to the virus. An accession Yudal had partial resistance to some but not all the isolates of the two major genetic groups tested. TuYV caused yield losses of up to 44.7% in a glasshouse experiment. A major QTL for the partial TuYV resistance was detected on chromosome C4 (N14), explaining up to 50.5% of the observed resistance.",
+        "venue": "Warwick Research Archive Portal (University of Warwick)",
+        "link": "https://doi.org/10.82444/warw.33658918",
+        "published": "2026-09-12",
         "is_arxiv": false
       }
     ],
