@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-13T00:49:03.957235+00:00",
+  "generated_at_utc": "2026-10-14T00:38:27.565017+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
@@ -82,7 +82,7 @@
       {
         "first_author": "Guangji Bai",
         "title": "Beyond Efficiency: A Systematic Survey of Resource-Efficient Large Language Models",
-        "abstract": "The burgeoning field of Large Language Models (LLMs), exemplified by sophisticated models like OpenAI’s ChatGPT, represents a significant advancement in artificial intelligence. These models, however, bring forth substantial challenges in high consumption of computational, memory, energy, and financial resources, especially in environments with limited resource capabilities. This survey aims to systematically address these challenges by reviewing a broad spectrum of techniques designed to enhance the resource efficiency of LLMs. We categorize methods based on their optimization focus—covering computational, memory, energy, financial, and network resources—and their applicability across various stages of an LLM’s lifecycle, including architecture design, pre-training, fine-tuning, and system design. Additionally, the survey introduces a nuanced categorization of resource efficiency techniques by their specific resource types, which uncovers the intricate relationships and mappings between various resources and corresponding optimization techniques. A standardized set of evaluation metrics and datasets is also presented to facilitate consistent and fair comparisons across different models and techniques. By offering a comprehensive overview of the current state-of-the-art and identifying open research avenues, this survey serves as a foundational reference for researchers and practitioners, aiding them in developing more sustainable and efficient LLMs in a rapidly evolving landscape. To make the field more accessible to interested beginners, we not only make a systematic review of existing works and a highly structured taxonomy of resource-efficient LLMs but also release a website including a constantly-updated paper list https://github.com/tiingweii-shii/Awesome-Resource-Efficient-LLM-Papers.",
+        "abstract": "The burgeoning field of Large Language Models (LLMs), exemplified by sophisticated models like OpenAI’s ChatGPT, represents a significant advancement in artificial intelligence. These models, however, bring forth substantial challenges in high consumption of computational, memory, energy, and financial resources, especially in environments with limited resource capabilities. This survey aims to systematically address these challenges by reviewing a broad spectrum of techniques designed to enhance the resource efficiency of LLMs. We categorize methods based on their optimization focus—covering computational, memory, energy, financial, and network resources—and their applicability across various stages of an LLM’s lifecycle, including architecture design, pre-training, fine-tuning, and system design. Additionally, the survey introduces a nuanced categorization of resource efficiency techniques by their specific resource types, which uncovers the intricate relationships and mappings between various resources and corresponding optimization techniques. A standardized set of evaluation metrics and datasets is also presented to facilitate consistent and fair comparisons across different models and techniques. By offering a comprehensive overview of the current state-of-the-art and identifying open research avenues, this survey serves as a foundational reference for researchers and practitioners, aiding them in developing more sustainable and efficient LLMs in a rapidly evolving landscape. To make the field more accessible to interested beginners, we not only make a systematic review of existing works and a highly structured taxonomy of resource-efficient LLMs but also release a website including a constantly-updated article list https://github.com/tiingweii-shii/Awesome-Resource-Efficient-LLM-Papers.",
         "venue": "ACM Computing Surveys",
         "link": "https://doi.org/10.1145/3845797",
         "published": "2026-09-15",
@@ -113393,17 +113393,6 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Related Species": [
-      {
-        "first_author": "Rachel J. Warmington",
-        "title": "Pathogen diversity, epidemiology and control of sclerotinia disease in vegetable crops",
-        "abstract": "Sclerotinia sclerotiorum is a necrotrophic fungal pathogen with a worldwide distribution and a wide host range, including many economically important crops. The control strategies for this pathogen and related species include using fungicides, biological control agents and cultural practices such as crop rotations. However, the genetic diversity and the long term survival structures (sclerotia) of this pathogen, combined with the recent discovery of the related species S. subarctica in England and the need for growers to implement integrated disease management strategies means that new control measures need to be sought. Biofumigation, using green manures which are macerated and ploughed into the soil, may be a useful new control approach in an integrated programme. Microcosm and in vitro experiments clearly showed that volatiles released from biofumigation crops have a direct inhibitory effect on the mycelial growth and carpogenic germination of S. sclerotiorum sclerotia. The most effective biofumigation crop for inhibiting carpogenic germination varied depending on whether the volatiles released from the biofumigant crops were in direct contact with the sclerotia when the most effective crop was Raphanus sativus ‘Terranova’, or in the vapour phase when the most effective crop was B. juncea ‘Vittasso’. Carrot root inoculations showed that the number of sclerotia produced on carrot roots was significantly affected by S. sclerotiorum isolate. However, the results also showed that the weight of individual sclerotia produced by different isolates was influenced by carrot accession, but not by S. sclerotiorum isolate. Additionally, the carrot plant and detached leaf inoculations showed significant differences in the rate of lesion progression of S. sclerotiorum on different carrot accessions, indicating differences in susceptibility to the pathogen. S. subarctica microsatellite haplotypes identified in this research were shown to be shared between Scotland and Norway, and between crop plants and meadow buttercup. However, the English population did not share any microsatellite haplotypes with any other population, and analysis indicated that this S. subarctica population in England may be isolated and inbred",
-        "venue": "Warwick Research Archive Portal (University of Warwick)",
-        "link": "https://doi.org/10.82444/warw.33689446",
-        "published": "2026-09-13",
-        "is_arxiv": false
-      }
-    ],
     "Recurrent Networks": [
       {
         "first_author": "Daniel Szelogowski",
@@ -115826,6 +115815,17 @@
         "link": "https://arxiv.org/abs/2609.22775v1",
         "published": "2026-09-19T05:18:38Z",
         "is_arxiv": true
+      }
+    ],
+    "Topic: Related Species": [
+      {
+        "first_author": "Rachel J. Warmington",
+        "title": "Pathogen diversity, epidemiology and control of sclerotinia disease in vegetable crops",
+        "abstract": "Sclerotinia sclerotiorum is a necrotrophic fungal pathogen with a worldwide distribution and a wide host range, including many economically important crops. The control strategies for this pathogen and related species include using fungicides, biological control agents and cultural practices such as crop rotations. However, the genetic diversity and the long term survival structures (sclerotia) of this pathogen, combined with the recent discovery of the related species S. subarctica in England and the need for growers to implement integrated disease management strategies means that new control measures need to be sought. Biofumigation, using green manures which are macerated and ploughed into the soil, may be a useful new control approach in an integrated programme. Microcosm and in vitro experiments clearly showed that volatiles released from biofumigation crops have a direct inhibitory effect on the mycelial growth and carpogenic germination of S. sclerotiorum sclerotia. The most effective biofumigation crop for inhibiting carpogenic germination varied depending on whether the volatiles released from the biofumigant crops were in direct contact with the sclerotia when the most effective crop was Raphanus sativus ‘Terranova’, or in the vapour phase when the most effective crop was B. juncea ‘Vittasso’. Carrot root inoculations showed that the number of sclerotia produced on carrot roots was significantly affected by S. sclerotiorum isolate. However, the results also showed that the weight of individual sclerotia produced by different isolates was influenced by carrot accession, but not by S. sclerotiorum isolate. Additionally, the carrot plant and detached leaf inoculations showed significant differences in the rate of lesion progression of S. sclerotiorum on different carrot accessions, indicating differences in susceptibility to the pathogen. S. subarctica microsatellite haplotypes identified in this research were shown to be shared between Scotland and Norway, and between crop plants and meadow buttercup. However, the English population did not share any microsatellite haplotypes with any other population, and analysis indicated that this S. subarctica population in England may be isolated and inbred",
+        "venue": "Warwick Research Archive Portal (University of Warwick)",
+        "link": "https://doi.org/10.82444/warw.33689446",
+        "published": "2026-09-13",
+        "is_arxiv": false
       }
     ],
     "Topic: Turnip Yellows Virus": [
