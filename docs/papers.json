@@ -1,12 +1,21 @@
 {
-  "generated_at_utc": "2026-10-14T00:38:27.565017+00:00",
+  "generated_at_utc": "2026-10-15T00:38:08.107344+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30404,
+  "total_papers": 30415,
   "categories": {
     "LLM": [
+      {
+        "first_author": "Dan Saunders",
+        "title": "Compute-Optimal Scaling Laws for Spiking Language Models",
+        "abstract": "Spiking neural networks target energy-efficient language modeling through sparse, binary activations, but the efficiency-accuracy tradeoff of spiking language models is uncharacterized at scale. We present the first Chinchilla-style IsoFLOP scaling study of a spiking language model, sweeping SpikeGPT-family models (RWKV backbone) from width 384 to 1536 across compute budgets from $3\\times10^{17}$ to $10^{19}$ FLOPs on FineWeb-EDU. We report two findings. First, the compute-optimal frontier is $N_{opt} \\propto C^{0.56}$, close to the 0.50 that Hoffmann et al. report for dense Transformers, so spiking does not change how parameters and data should be traded off under a compute budget. Second, against non-spiking RWKV and Transformer baselines trained the same way, the loss gap splits into a backbone cost of about 0.16 nats that does not change with compute and a spiking cost that falls from 0.34 to about 0.23 nats and then levels off. These results give the first compute-optimal recipe for spiking language models and quantify the accuracy cost of their sparsity.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.15146v1",
+        "published": "2026-10-10T19:46:24Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Ivan Moloshnikov",
         "title": "A Multi-Agent LLM System for Automated Tuning of Specialized Neural Network Models",
@@ -37,9 +46,9 @@
       {
         "first_author": "Ruoyu Zhao",
         "title": "Large Language Model-Guided Evolutionary Discovery of Native Neural Architectures for Spiking Sequence Modeling",
-        "abstract": "Spiking neural networks (SNNs) offer low-energy sequence modeling through sparse, event-driven computation. However, interactions among spike encoding, neuronal dynamics, and information propagation complicate architecture design. Existing SNN sequence models often adapt artificial neural network (ANN) architectures designed for real-valued activations, potentially underusing spike-based communication and temporal state updates, motivating automated discovery of native SNN architectures. Most evolutionary neural architecture search (ENAS) methods operate within predefined configuration spaces, limiting discovery to mechanisms expressible within those spaces. We introduce OpenArchEvo, which uses large language models (LLMs) to evolve executable architecture code in an open program space under spiking-projection constraints. In this space, code differences need not reflect architectural novelty, while direct performance evaluation requires costly training. We construct a three-view representation spanning code, design rationale, and a behavioral fingerprint to support novelty estimation and performance prediction. The search treats predicted performance and estimated novelty as two objectives, using surrogate predictions to select candidates for expensive training evaluations. With an estimated candidate-training cost of 132 V100 GPU-days, the search uncovers multiple native SNN architectures, exemplified by three designs featuring mechanisms such as spike-activity-dependent control of state updates and residual pathways. The discovered NeuroGate surpasses the ANN DeltaNet on WikiText-103, and the discovered architectures reduce estimated architecture-level arithmetic energy by up to 50.6x (LoopMem) relative to a common dense Transformer (ANN) baseline. All code and all discovered architectures will be made publicly available soon.",
+        "abstract": "Spiking neural networks (SNNs) offer low-energy sequence modeling through sparse, event-driven computation. However, interactions among spike encoding, neuronal dynamics, and information propagation complicate architecture design. Existing SNN sequence models often adapt artificial neural network (ANN) architectures designed for real-valued activations, potentially underusing spike-based communication and temporal state updates, motivating automated discovery of native SNN architectures. Most evolutionary neural architecture search (ENAS) methods operate within predefined configuration spaces, limiting discovery to mechanisms expressible within those spaces. We introduce OpenArchEvo, which uses large language models (LLMs) to evolve executable architecture code in an open program space under spiking-projection constraints. In this space, code differences need not reflect architectural novelty, while direct performance evaluation requires costly training. We construct a three-view representation spanning code, design rationale, and a behavioral fingerprint to support novelty estimation and performance prediction. The search treats predicted performance and estimated novelty as two objectives, using surrogate predictions to select candidates for expensive training evaluations. With an estimated candidate-training cost of 132 V100 GPU-days, the search uncovers multiple native SNN architectures, exemplified by three designs featuring mechanisms such as spike-activity-dependent control of state updates and residual pathways. The discovered NeuroGate surpasses the ANN DeltaNet on WikiText-103, and the discovered architectures reduce estimated architecture-level arithmetic energy by up to 50.6x (LoopMem) relative to a common dense Transformer (ANN) baseline. Code and all discovered architectures: https://github.com/Optima-CityU/OpenArchEvo",
         "venue": "arXiv",
-        "link": "https://arxiv.org/abs/2609.40258v1",
+        "link": "https://arxiv.org/abs/2609.40258v2",
         "published": "2026-09-30T17:41:01Z",
         "is_arxiv": true
       },
@@ -11516,6 +11525,15 @@
     ],
     "Event-based Vision": [
       {
+        "first_author": "Somayeh Hussaini",
+        "title": "Removing the Compute Bottleneck for Event-based Visual Place Recognition with Spiking Neural Networks",
+        "abstract": "Neuromorphic sensing and computing promise low latency and high energy efficiency for robotics, yet most event-based visual place recognition (VPR) pipelines reintroduce dense, frame-like computation downstream of an inherently sparse sensor, forfeiting the sensor's latency advantage. In this paper, we address the problem of resolving an event-based VPR query in tens of microseconds on a commodity CPU. We train a two-layer spiking neural network (SNN) with additive spike-timing-dependent plasticity (STDP), which drives the learned weight matrix towards a strongly bimodal distribution, amenable to aggressive magnitude pruning. At inference, our pipeline exploits this sparsity by reading only the pruned weights corresponding to the query's active pixels. As surviving weights share a near-uniform magnitude, each neuron's score reduces to an integer count of matching synapses instead of a weighted sum, lowering per-query latency. This computation is small enough to remain resident in a CPU's fast on-chip cache. On three event-based VPR benchmarks, our sparse SNN exceeds the recall of LENS, an existing event-based SNN, while reducing per-query latency by 5.5-6.2x to tens of microseconds. It matches the recall of a dense variant of our network and of the sum-of-absolute-differences (SAD) baseline, while reading 10x fewer weights than the dense variant. We further characterise how recall and latency scale with the number of active pixels and reference places. These results suggest that the sparsity of both event-based input and learned weights can already be exploited for low-latency inference on conventional processors.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.16022v1",
+        "published": "2026-10-12T00:45:01Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Xiaoli Liu",
         "title": "Contrastive Attention Mitigates Spectral Bias in Spiking Transformers",
         "abstract": "Spiking Transformers merge the energy-efficiency of spiking neural networks (SNNs) with the representational power of self-attention, creating a promising architecture for high-performance, energy-efficient computation. However, a performance gap persists versus its counterparts in artificial neural networks (ANNs). Unlike prior works attributing this to binary activations, we reveal that both spiking neurons and spiking self-attention (SSA) act as low-pass filters through multiscale spectral analysis. This characteristic leads to the dissipation of high-frequency components. To address this issue, we propose the Spiking Contrastive Attention (SCA) paradigm, which draw inspiration from the edge-detection and differential sensing properties of biological visual system. By extracting contrast prototypes via global contrastive aggregation and applying local differential refinement, SCA effectively enhances high-frequency information. Extensive experiments show that SCA is a general module that consistently boosts Spiking Transformers across image classification, semantic segmentation, and event-based tracking. Furthermore, it achieves lower complexity, offering superior efficiency over original SSA. These results establish its potential as a fundamental building block for energy-efficient Spiking Transformers.",
@@ -19563,6 +19581,33 @@
       }
     ],
     "Neuromorphic Hardware": [
+      {
+        "first_author": "Francesco Panetta",
+        "title": "Saliency-Guided Replay for Continual Learning in Deep Spiking Neural Networks",
+        "abstract": "Spiking Neural Networks (SNNs) are promising for energy-efficient neuromorphic computing, but they still suffer from catastrophic forgetting when learning tasks sequentially. This work investigates the integration of Experience Packing and Replay (EPR) as a memory-efficient continual learning strategy for deep SNNs under low-latency constraints. The proposed framework combines Batch Normalization Through Time stabilized VGG9 SNNs with Spike Activation Maps (SAM), which provide forward-only explanations based on spike activity. These explanations are temporally aggregated into spatial attention maps and used to select the most informative image patches for replay, instead of storing full images. Experiments on Split CIFAR10 and Split CIFAR100 show that SAM-guided EPR improves the accuracy-memory trade-off under tight memory budgets, and remains competitive while requiring substantially less storage.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.17998v1",
+        "published": "2026-10-13T08:58:28Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Jingang Jin",
+        "title": "An FPGA-Based Spiking Neural Network for Spatiotemporal Pattern Learning and Classification",
+        "abstract": "Spiking Neural Networks (SNNs) are promising for energy-efficient spatiotemporal pattern recognition at the edge, but efficient deployment and on-device adaptation require specialized hardware. In this work, we present an FPGA implementation of multilayer SNNs for spatiotemporal pattern classification, in which both inference and training take place on the same hardware. Our design adopts a temporal-forward-only training algorithm that avoids the memory and latency overhead associated with traditional Backpropagation Through Time (BPTT). A mixed-precision scheme balances training stability with resource efficiency, and architectural optimization maximizes hardware and memory utilization. We further identify and resolve hazards that arise when inference and learning share the same memory, including port conflicts between the forward and backward access patterns and read-after-write dependencies in floating-point potential accumulation. Experimental evaluations on MNIST and five multivariate time-series classification datasets demonstrate that, with fully on-chip training, our SNN model achieves accuracy comparable to SNN or LSTM trained with BPTT. Compared to CPU and GPU based implementations, our FPGA design delivers 2.5 to 6 times higher throughput while consuming an order of magnitude less energy per sample.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.17463v1",
+        "published": "2026-10-12T22:26:18Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Yiding Sun",
+        "title": "SpikeOcc: Towards Resilient Multimodal 3D Occupancy Perception via Spiking Experts",
+        "abstract": "Multimodal 3D occupancy prediction underpins safe autonomous driving through comprehensive scene understanding. However, existing methods have largely pursued higher accuracy through sophisticated fusion, leaving resilience to missing sensors underexplored. In this paper, we investigate spiking neural networks (SNNs) as a means of building more resilient multimodal perception. Still, the discrete nature of spiking neurons makes optimization challenging. To overcome this difficulty, SpikeOcc is introduced with two complementary components, a Spiking Mixture-of-Experts (SMoE) and Sensor Availability Learning (SAL). Specifically, SMoE organizes RGB, LiDAR, and joint fusion into specialized pathways, enabling full-width unimodal representations while retaining the original multimodal features via a bounded residual. Beyond sensor dropout, SAL employs a staged curriculum with explicit routing supervision, progressively improving robustness under severe sensing conditions. Remarkably, SAL also yields notable gains for conventional models, highlighting its broader potential for resilient multimodal learning. Extensive experiments demonstrate that SpikeOcc maintains competitive full-sensor accuracy while markedly raising the performance floor under sensor outages. SpikeOcc illustrates the promise of neuromorphic computing, pointing toward more reliable and energy-efficient autonomous driving.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.15745v1",
+        "published": "2026-10-11T16:28:48Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Guangnan Feng",
         "title": "OACM: Optimistic Asynchronous Communication Model for Large-Scale SNN Simulation",
@@ -47674,6 +47719,15 @@
       }
     ],
     "Surrogate Gradient": [
+      {
+        "first_author": "Kaixiang He",
+        "title": "FidLIF: Parallel Training of High-Fidelity Spiking Neurons with Exact BPTT",
+        "abstract": "Although spiking neural networks (SNNs) show promise in energy-efficient computing through event-driven computation and stateful temporal processing, their recurrent membrane dynamics render their training inherently sequential and inefficient for long sequences. Existing methods achieve full-sequence parallelism in SNNs through two main strategies: redesigning or approximating spiking dynamics to avoid reset-coupled temporal dependencies, or relying on iterative relaxed fixed-point solvers that suffer from excessive memory costs and iteration-dependent backward overhead. To address these limitations, we present FidLIF, a novel framework that reconciles the incremental update and hard-reset behavior of standard spiking LIF neurons with parallel forward propagation and BPTT-equivalent backward propagation. FidLIF iteratively recovers the full-sequence membrane-potential trajectory in parallel. By exploiting the lower bidiagonal structure induced by the local recurrence of LIF neurons, FidLIF formulates each forward trajectory correction and backward adjoint propagation as associative scans with an $O(\\log T)$ temporal depth. This formulation also supports input-dependent neuronal parameters and allows the same neuron to perform full-sequence parallel training and incremental step-by-step inference at deployment. In our numerical convergence evaluation, FidLIF achieves a mean absolute error below $10^{-7}$ relative to the matched serial relaxed LIF dynamics, while yielding gradients numerically equivalent to exact BPTT. Our Triton implementation delivers favorable long-sequence latency and memory scaling, while achieving competitive performance on four sequential classification benchmarks. By reconciling parallel training with step-by-step execution, FidLIF enables high-fidelity spiking dynamics to benefit from parallel hardware without compromising incremental inference at deployment.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.16924v1",
+        "published": "2026-10-12T15:07:20Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Yanxun Zhang",
         "title": "Learning While Inferring: Local and Parallel Learning for Edge SNNs across Sensing Modalities",
@@ -77704,6 +77758,24 @@
     ],
     "Speech & Audio": [
       {
+        "first_author": "Hanan Beit-On",
+        "title": "Spiking Neural Beamforming for Multichannel Speech Enhancement on the Edge",
+        "abstract": "Speech enhancement with wearable and edge devices requires architectures that balance enhancement quality against power and memory resources. Spiking Neural Networks (SNNs) offer a promising path towards this goal through sparse, event-driven computation, but existing SNN-based speech enhancement methods are largely restricted to single-channel processing and therefore cannot exploit the spatial diversity available from microphone arrays. In this work, we propose a fully SNN framework for multichannel speech enhancement based on a fully connected architecture (FC-SNN) with sequential spike encoding, derived from a compact artificial neural network (ANN) baseline via leaky integrate-and-fire neurons. We characterize how enhancement performance scales with model size and spike-train length relative to ANN and classical beamforming baselines, and report the resulting parameter counts and computational complexity. We further compare direct and rate spike encoding, revealing a clear trade-off between event-driven computation and enhancement performance, and use these results to identify favorable configurations for edge devices.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.16430v1",
+        "published": "2026-10-12T08:55:50Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Li Jin",
+        "title": "SpikCTU: A Compact Spiking Network with Adaptive Recurrent Computation for Speech Command Recognition",
+        "abstract": "Spiking Neural Networks offer event-driven, energy-efficient computation for speech command recognition, yet most existing methods follow fixed computation paths, allocating redundant computation to easy samples while providing limited insight into how evidence evolves during inference. To address these challenges, we introduce SpikCTU, a compact spiking network with adaptive recurrent computation for speech command recognition. Specifically, a hybrid spiking embedding module preserves continuous input information alongside spike features to construct a fixed temporal memory. A shared Continuous Thinking Unit (CTU) repeatedly reads this memory using keys derived from spikes and continuous values, and updates a binary recurrent state with lightweight stage adapters. Furthermore, combining a fixed base prediction with accumulated corrections at each step enables learned aggregation over all steps or confidence-based early exit using only the predictions available so far. Experiments on three speech command recognition benchmarks show that SpikCTU achieves competitive accuracy with only 0.16--0.17M parameters, and the early exit strategy can substantially further reduce computational cost without compromising accuracy. In addition, trajectory and attention analyses reveal that recurrent steps enable error correction and progressively refine predictions. Code is available at https://github.com/Rivflyyy/spikctu.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.14594v1",
+        "published": "2026-10-10T05:32:07Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Zhanglu Yan",
         "title": "Latency and accuracy tradeoffs in Spiking Neural Networks",
         "abstract": "Spiking neural networks are attractive for low-power speech command recognition, yet their latency has received far less attention than their energy efficiency, and their multi-timestep execution is widely assumed to make them slower than quantized neural networks. This paper challenges the assumption that more local timesteps necessarily imply higher network latency. By overlapping computation across adjacent layers at the timestep level, SNNs may complete execution in less time than comparable bit-serial QNNs. However, this overlap relies on spikes firing on incomplete inputs, and a spike once generated cannot be withdrawn, so its error persists and reduces accuracy. Waiting for more input before firing would seem to improve accuracy at the cost of reduced overlap. Yet we find and prove that this intuition fails at some layers, where even a small increase in waiting can change spike timing and downstream computation, making the network both slower and less accurate. We therefore propose a Pipeline Delay Search method which selects each layer's delay by balancing task-level accuracy gains against added network latency. We then adapt the selected configurations through spike-based quantization-aware training and bounded tuning of firing thresholds and initial membrane potentials. Together, these steps form Falcon, a framework for Fine-grained Analysis of Latency and Controlled firing which systematically analyzes and optimizes SNN latency under a spatial analog compute-in-memory mapping with shared digital engines. We evaluate Falcon on GSCV2 and SSC, achieving competitive accuracies of 96.31 and 83.02 at modeled network-core latencies of 119.64 and 124.00us, respectively. Together, our analysis and results show that SNNs can compute more yet finish faster, and wait longer yet predict worse, highlighting why Falcon matters for both latency and accuracy.",
@@ -80747,6 +80819,15 @@
       }
     ],
     "Medical Diagnosis": [
+      {
+        "first_author": "Ning Zhang",
+        "title": "Neuromorphic Decoding and Dynamical Image Reconstruction from Populations of Spiking Retinal Ganglion Cells",
+        "abstract": "Decoding visual stimuli from the spiking activity of retinal ganglion cells (RGCs) informs both our understanding of the retinal code and the design of visual prostheses. Natural vision is dynamic, yet state-of-the-art decoders mostly reconstruct single frames with artificial neural networks that process dense, continuous-valued signals rather than the retina's sparse, asynchronous spikes. We asked whether dynamic scenes can be reconstructed and tracked entirely within the spike domain, and at what computational cost. We built an end-to-end spiking neural network (SNN) whose neurons integrate the recorded RGC spikes over time. Populations of up to 1836 RGCs were recorded ex vivo from mouse retina on high-density microelectrode arrays while flashed images, moving bars, drifting gratings and randomly moving handwritten digits were presented. For moving digits, one shared spiking encoder fed two readouts, one reconstructing the image and one decoding the digit's position. Compute energy was estimated from counted synaptic operations. The SNN decoded what and where at once. It reconstructed the stimuli with a structural similarity (SSIM) of up to 0.93, refining the reconstruction as spikes accumulated, and tracked a randomly moving target with a mean error of 1.33 pixels on a $32\\times32$ grid. Its fidelity nearly matched that of the best of 17 larger spiking and artificial decoders (5.9 million to 1.7 billion parameters, versus 5.4 million), and at a mean firing rate of 14.2% it needed an estimated $\\sim$70-fold less compute energy than a dense artificial network of the same architecture. Dynamic visual scenes can thus be decoded from retinal population activity in the spike domain, with a compact network and at a compute cost compatible with implantable and wearable neural interfaces, supporting spike-native decoders for visual prostheses.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.17154v1",
+        "published": "2026-10-12T17:33:10Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Luke Taylor",
         "title": "Temporal prediction captures retinal spiking responses across animal species",
@@ -104206,6 +104287,15 @@
     ],
     "Model Compression": [
       {
+        "first_author": "Christian Soize",
+        "title": "Physics-informed random neural architectures on compact boundaryless multiply connected manifolds for random-operator models in machine learning and uncertainty quantification",
+        "abstract": "We introduce stochastic physics-informed neural networks (SPINNs) for stochastic boundary-value problems (SBVPs) with random operators. The method enforces physics through a structural probabilistic coupling: a common Gaussian stochastic germ drives both the SBVP random operator and a manifold-based stochastic neural architecture. The stochastic neural network is non-feedforward and intrinsically random. A latent Gaussian field and an inhomogeneous Poisson point process on a compact, boundaryless, multiply connected manifold generate random neuron locations, geodesically local sparse connectivity, and a sparse random weight matrix, all governed by a low-dimensional hyperparameter. For deterministic inputs, the network output is random and can represent non-Gaussian random operators. Training is performed in observation space: SBVP simulations produce random observables, while the SNN defines a predictive conditional probability density function. The supervised objective combines data fidelity, through negative log-likelihood, with a cross-entropy alignment term relative to the SBVP-induced conditional distribution. The resulting target is a convex mixture of observation-induced and SBVP-induced distributions, with a dimensionless parameter controlling robustness to model--data mismatch. The shared stochastic germ yields common-random-numbers Monte Carlo estimators and reduced-variance gradients. The method uses only evaluations of the SBVP solution mapping, without differentiating or modifying it, and avoids PDE-residual or boundary-penalty losses. A stochastic elliptic problem on a periodic cylindrical surface illustrates the approach in SBVP-consistent and SBVP-misspecified regimes. A generalized-posterior formulation is also outlined for hyperparameter inference and posterior averaging without per-query reoptimization.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.14844v1",
+        "published": "2026-10-10T11:59:27Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Linliang Chen",
         "title": "BASC : Behavior-Aligned Quantization and Pruning for Low-Bit Spiking Neural Networks",
         "abstract": "Spiking Neural Networks (SNNs) encode information through binary spikes and compute in an event-driven manner, offering an energy-efficient paradigm for machine intelligence. However, high-performance SNNs incur substantial memory and timestep-wise computation costs that hinder deployment on resource-constrained devices. Quantization and pruning provide complementary routes to reducing these costs, yet both make their decisions with local criteria that overlook temporal task feedback in quantization and inter-channel dependencies in pruning. Consequently, optimizing either criterion can still yield suboptimal compression performance. We refer to this discrepancy as criterion-behavior mismatch and propose Behavior-Aligned SNN Compression (BASC), a unified framework with two lightweight modules. For quantization, the scale is applied to synaptic current at every timestep and therefore shifts spike timing. Temporal-Behavior Scale Correction (TSC) makes the scale learnable under a temporal loss, allowing firing behavior to inform scale optimization. For pruning, channel importance depends on how channels jointly drive the membrane potential across the firing threshold. Boundary-Level Inter-Channel Correction (BIC) uses channelwise importance scores for initial selection and inter-channel information to re-evaluate only channels near the pruning threshold. Extensive experiments on static and neuromorphic benchmarks show that lower-bit BASC models match or outperform higher-bit baselines and retain this accuracy advantage after structured pruning, while further reducing model storage and synaptic operations.",
@@ -113367,6 +113457,17 @@
         "abstract": "Focal task-specific dystonia (FTSD) poses a complex interplay of maladaptive neuroplasticity and motor-circuit imbalance. Traditional theories often implicate subcortical nuclei but fail to explain why symptoms remain so tightly bound to a singular, highly practiced skill. Here, we propose that the primary driver of FTSD is a newly formed “dystonic synergy” within the primary motor cortex (M1), in which excitatory circuit synapses are adequate relative to under-strengthened inhibitory circuit synapses, triggering involuntary contractions once the skill’s intensity demands surpass the functional synergy’s excitatory and inhibitory circuit capacity (synaptic strength). In short, we use an extensive single-case observation as the core empirical foundation, we chronicle how a decade of stable piano performance deteriorated following a sudden technical change that forced the finger flexion motor synergy to “overreach”. The patient’s initial phase was dominated by “true weakness,” a condition of task-specific paresis where the motor system is physically unable to generate the required excitatory/inhibitory (E/I) drive to match the attempted movement speed; over repetitive attempts to override that limitation, the excitatory circuit strengthened while the inhibitory circuit lagged, culminating in a fully formed dystonic synergy within three weeks. This maladaptive synergy then manifested in both piano playing and typing—a related digit-based skill—greatly disabling normal function in both tasks. We illustrate that once formed, the dystonic synergy remains stable but not spontaneously progressive, consistent with a saturable excitatory capacity. Moreover, we used a spiking neural network simulation to provide quantitative proof of concept verification of the hypothesis. Other commonly reported structural or electrophysiological alterations—such as basal ganglia and cerebellar changes, sensorimotor smudging in the primary somatosensory cortex (S1), or impaired spinal inhibition—are reframed and proposed as secondary byproducts emerging from chronic hyperexcitation of the M1 synergy. Additionally, we outline a new taxonomy distinguishing (i) “typical” neuroplastic dystonias, including task-specific forms whose primary trigger is repeated overreaching and whose pathophysiology lies in the consequent synergy imbalance; (ii) atypical neuroplastic variants with strong genetic underpinnings but partial plastic compensation; and (iii) non-neuroplastic dystonias resulting from more deterministically causal gene mutations. Finally, we propose and describe a non-invasive motor retraining approach for reversing FTSD: “below or at-threshold retraining” (BATR), wherein the inhibitory circuit of the dystonic synergy is methodically strengthened. This motor strategy, validated in the single-case longitudinal data alongside other published studies using very similar methods, reveals that the dysregulated synergy can be rebalanced to restore fully normal motor function. By integrating these mechanistic and therapeutic insights, we offer a unifying framework for FTSD pathogenesis and highlight a compelling, noninvasive avenue for cure alongside a guided strategy for prevention.",
         "venue": "Brain Sciences",
         "link": "https://doi.org/10.3390/brainsci16101011",
+        "published": "2026-09-24",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Focus Covid Pandemic": [
+      {
+        "first_author": "Matti Sällberg",
+        "title": "Exploring the Development of Vaccine Platforms, With a Particular Focus on the COVID ‐19 Pandemic",
+        "abstract": "Vaccines have been a cornerstone of human health for more than 200 years and one of the most important tools to reduce childhood deaths caused by pathogens. The concept of vaccines is basically to take something safe, make it immunogenic and induce an immune response in the host that will protect it against something dangerous. Live attenuated vaccines were the only option two centuries ago. These are excellent, and possibly the best vaccine platform, but they have limitations as they cannot always be given to everyone safely, for example due to deficient immunity or pregnancy. That is why newer platforms, such as killed or inactivated vaccines, were developed. These provide better all-round safety, but are often less immunogenic and require additional doses. Subcomponent vaccines were then developed in the 1980s. These only used parts of the virus, further improving safety and introducing the possibility of producing vaccines using gene technology. Adding genetic vaccines to the toolbox revolutionized the way that we handled the COVID-19 pandemic. The host became the producer of the vaccine, which better mimicked the immune responses induced by the live attenuated vaccines. All these platforms will be discussed in this mini-review.",
+        "venue": "Acta Paediatrica",
+        "link": "https://doi.org/10.1111/apa.70762",
         "published": "2026-09-24",
         "is_arxiv": false
       }
