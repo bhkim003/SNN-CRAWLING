@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-10-15T00:38:08.107344+00:00",
+  "generated_at_utc": "2026-10-16T00:38:59.921903+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30415,
+  "total_papers": 30418,
   "categories": {
     "LLM": [
       {
@@ -11525,6 +11525,24 @@
     ],
     "Event-based Vision": [
       {
+        "first_author": "Kainan Wang",
+        "title": "STISA: A 0.16 GOPS/W/PE Single-Shot Inference FPGA-based SNN Accelerator with Algorithm and Hardware Co-Design",
+        "abstract": "Spiking neural networks (SNNs) offer great potential for low-power intelligent computing owing to their event-driven nature, yet their deployment is limited by high inference latency and inefficient hardware utilization caused by temporal dependencies. Existing accelerators struggle to balance timesteps, accuracy, and energy efficiency, while hardware-oriented timestep compression remains underexplored. To address these challenges, this work presents STISA, a unified algorithm-hardware co-design framework featuring: (i) a Temporal Splitter Compression (TSC) technique with a Temporal Split Structure (TSS) to reduce temporal redundancy while preserving network dynamics; (ii) a hardware-efficient spatiotemporal parallelism scheme, which co-optimizes dataflow and architecture through a Temporal-Prioritized Output-Stationary (TPOS) mapping and a flexible Block-Mux Streaming (BMS) architecture; and (iii) a joint TSC-TPOS-BMS co-optimization framework featuring a bandwidth-aware resource allocation strategy to achieve balanced accuracy, latency, and energy efficiency across diverse network architectures. On the algorithmic side, TSC reduces synaptic operations by 24.44%-51.71% while achieving competitive accuracies of 96.38%, 81.10%, 68.51%, and 82.40% on CIFAR-10, CIFAR-100, ImageNet, and DVS-CIFAR10, respectively. On the hardware side, FPGA prototypes deliver up to 7.99 speedup, 30.4% power reduction, and 30.1% LUT reduction. Compared with state-of-the-art SNN accelerators, STISA achieves 0.16 GOPS/W/PE, demonstrating its scalability and superior energy efficiency for real-time SNN inference under constrained hardware resources.",
+        "venue": "IEEE Transactions on Circuits and Systems I: Regular Papers, vol. 73, no. 5, pp. 3438-3451, May 2026",
+        "link": "https://arxiv.org/abs/2610.19973v1",
+        "published": "2026-10-14T10:57:12Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Alban Colas-Gattepaille",
+        "title": "Design and Analysis of Temporal Representations in Neural Networks",
+        "abstract": "The ability to represent temporal information is often hypothesized to underlie the efficiency and learning capabilities of biological neural networks. This motivates the development of spiking neural networks. However, it remains unclear how temporal information is actually represented in neural networks and how different forms of temporal representation affect performance and computational efficiency. We introduce the notion of the degree of temporal representation of a neural network, defined by whether its constituent functions (activation, learning, encoding, and decoding) explicitly manipulate time as a computational variable. This perspective yields a continuum ranging from non-temporal representations, where time does not explicitly appear as a computational variable in the network functions, to fully temporal representations, where computations explicitly operate on temporal variables. Using a fixed deep architecture, we compare different encoding, activation mechanisms and decoding with increasing temporal expressiveness: non-temporal weighted-sum activations used in usual artificial neural networks, non-temporal binary spiking activations used in spiking neural networks, and spike-time-based activations used in delay neural networks. Experiments on event-based datasets show that increasing the degree of temporal representation improves both performance and computational efficiency, allowing state-of-the-art performances on the Google Speech Commands dataset. We further analyze how temporal representations induce distinct forward and backward computational trajectories, leading to gradients that depend explicitly on the history of event times.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.19730v1",
+        "published": "2026-10-14T07:51:18Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Somayeh Hussaini",
         "title": "Removing the Compute Bottleneck for Event-based Visual Place Recognition with Spiking Neural Networks",
         "abstract": "Neuromorphic sensing and computing promise low latency and high energy efficiency for robotics, yet most event-based visual place recognition (VPR) pipelines reintroduce dense, frame-like computation downstream of an inherently sparse sensor, forfeiting the sensor's latency advantage. In this paper, we address the problem of resolving an event-based VPR query in tens of microseconds on a commodity CPU. We train a two-layer spiking neural network (SNN) with additive spike-timing-dependent plasticity (STDP), which drives the learned weight matrix towards a strongly bimodal distribution, amenable to aggressive magnitude pruning. At inference, our pipeline exploits this sparsity by reading only the pruned weights corresponding to the query's active pixels. As surviving weights share a near-uniform magnitude, each neuron's score reduces to an integer count of matching synapses instead of a weighted sum, lowering per-query latency. This computation is small enough to remain resident in a CPU's fast on-chip cache. On three event-based VPR benchmarks, our sparse SNN exceeds the recall of LENS, an existing event-based SNN, while reducing per-query latency by 5.5-6.2x to tens of microseconds. It matches the recall of a dense variant of our network and of the sum-of-absolute-differences (SAD) baseline, while reading 10x fewer weights than the dense variant. We further characterise how recall and latency scale with the number of active pixels and reference places. These results suggest that the sparsity of both event-based input and learned weights can already be exploited for low-latency inference on conventional processors.",
@@ -12153,15 +12171,6 @@
         "link": "https://arxiv.org/abs/2601.01658v1",
         "published": "2026-01-04T20:26:55Z",
         "is_arxiv": true
-      },
-      {
-        "first_author": "Kainan Wang",
-        "title": "STISA: A 0.16-GOPS/W/PE Single-Shot Inference FPGA-Based SNN Accelerator With Algorithm and Hardware Co-Design",
-        "abstract": "Spiking neural networks (SNNs) offer great potential for low-power intelligent computing owing to their event-driven nature, yet their deployment is limited by high inference latency and inefficient hardware utilization caused by temporal dependencies. Existing accelerators struggle to balance timesteps, accuracy, and energy efficiency, while hardware-oriented timestep compression remains underexplored. To address these challenges, this work presents STISA, a unified algorithm-hardware co-design framework featuring: 1) a Temporal Splitter Compression (TSC) technique with a Temporal Split Structure (TSS) to reduce temporal redundancy while preserving network dynamics; 2)a hardware-efficient spatiotemporal parallelism scheme, which co-optimizes dataflow and architecture through a Temporal-Prioritized Output-Stationary (TPOS) mapping and a flexible Block-Mux Streaming (BMS) architecture; and 3) a joint TSC-TPOS-BMS co-optimization framework featuring a bandwidth-aware resource allocation strategy to achieve balanced accuracy, latency, and energy efficiency across diverse network architectures. On the algorithmic side, TSC reduces synaptic operations by 24.44%-51.71% while achieving competitive accuracies of 96.38%, 81.10%, 68.51%, and 82.40% on CIFAR-10, CIFAR-100, ImageNet, and DVS-CIFAR10, respectively. On the hardware side, FPGA prototypes deliver up to <inline-formula xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"> <tex-math notation=\"LaTeX\">$7.99\\times $</tex-math> </inline-formula> speedup, 30.4% power reduction, and 30.1% LUT reduction. Compared with state-of-the-art SNN accelerators, STISA achieves 0.16 GOPS/W/PE, demonstrating its scalability and superior energy efficiency for real-time SNN inference under constrained hardware resources.",
-        "venue": "IEEE Transactions on Circuits and Systems I Regular Papers",
-        "link": "https://doi.org/10.1109/tcsi.2025.3648765",
-        "published": "2025-12-31",
-        "is_arxiv": false
       },
       {
         "first_author": "Yelim Kim",
@@ -19607,6 +19616,15 @@
         "link": "https://arxiv.org/abs/2610.15745v1",
         "published": "2026-10-11T16:28:48Z",
         "is_arxiv": true
+      },
+      {
+        "first_author": "Pedro Antunes",
+        "title": "FPGA-Based Neural Network Accelerators for Space Missions: A Survey",
+        "abstract": "Space missions are growing ever more ambitious, placing greater demands on onboard computing. Field-programmable gate arrays (FPGAs) have garnered interest due to their reconfigurability and cost-effectiveness. At the same time, neural network (NN)-based methods are proving invaluable for critical spacecraft tasks such as autonomous operations, remote sensing, selective downlink, and data compression. This survey reviews and classifies the state of the art in FPGA-based NN accelerators for space missions. We examine current trends, highlight key challenges, and suggest directions for future research. This work highlights key aspects for integrating high-performance NN acceleration into next-generation spacecraft computing systems.",
+        "venue": "ACM Computing Surveys",
+        "link": "https://doi.org/10.1145/3857797",
+        "published": "2026-10-07",
+        "is_arxiv": false
       },
       {
         "first_author": "Guangnan Feng",
@@ -113492,6 +113510,17 @@
         "link": "https://doi.org/10.1016/j.patcog.2026.114968",
         "published": "2026-09-19",
         "is_arxiv": false
+      }
+    ],
+    "Topic: Partonic Dynamics": [
+      {
+        "first_author": "Di Zhao",
+        "title": "Strange-quark-number-dependent response to partonic dynamics in baryon-rich Au+Au collisions",
+        "abstract": "We identify a strange-quark-number-dependent hierarchy in the response to explicit partonic dynamics by comparing PHSD5.2 with its hadron--string limit in baryon-rich Au+Au collisions at $\\snn=3.0$--$7.2$~GeV. Crossing the local conversion threshold alone does not ensure a visible final-state signal: abundant-hadron flow changes little at 3--4.5~GeV, whereas the fractional yield response becomes ordered at 6.2--7.2~GeV, reaching $S_{|s|=1}\\simeq0.2$--$0.3$, $S_{|s|=2}\\simeq0.65$, and $S_{|s|=3}\\simeq0.93$ at 7.2~GeV. The hierarchy is consistent with an enlarged recombination phase space for strange constituents released from different pre-hadronic sources, but does not by itself establish an increase in the total $s+\\bar s$ abundance or stronger strange-quark clustering. Since $S_X$ is a model-defined response rather than a direct observable, matched excitation functions of $Ξ^-/Λ$ and $Ω^-/Λ$, together with high-$m_T$ proton elliptic flow, provide experimentally accessible discriminants between the predicted PHSD and HSD dynamics.",
+        "venue": "Phys. Lett. B 882 (2026) 141031",
+        "link": "https://arxiv.org/abs/2610.19392v1",
+        "published": "2026-10-14T01:37:51Z",
+        "is_arxiv": true
       }
     ],
     "Recurrent Networks": [
