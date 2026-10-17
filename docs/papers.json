@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-10-16T00:38:59.921903+00:00",
+  "generated_at_utc": "2026-10-17T00:40:09.718432+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30418,
+  "total_papers": 30423,
   "categories": {
     "LLM": [
       {
@@ -10020,6 +10020,15 @@
     ],
     "Drone": [
       {
+        "first_author": "Junjie Jiang",
+        "title": "Towards bio-inspired visual navigation: a neuromorphic navigation paradigm for MAVs",
+        "abstract": "Biological visual navigation achieves remarkable robustness at extremely low power, whereas frame-based robotic systems relying on artificial neural networks remain limited in both respects, particularly for energy-constrained micro aerial vehicles (MAVs) operating in complex environments. Inspired by the event-driven, sparse, and asynchronous principles of biological visual systems, neuromorphic sensing and computation provide a promising alternative for robust and energy-efficient navigation. In this paper, we propose the first end-to-end event-driven neuromorphic paradigm for MAV visual navigation in complex environments by integrating neuromorphic vision, spiking neural networks, and neuromorphic processors. The proposed method first extracts the environmental representation from event streams using a spiking perceptual representation module. This representation is fed into a spiking navigation module, where guidance learning and population coding enable efficient policy learning with few time steps. The navigation module then outputs a waypoint converted into executable trajectory points. Experiments show that the proposed neuromorphic method achieves navigation performance comparable to ANN-based methods while markedly reducing power consumption. The spiking perceptual module consumes only 19.57% of the power of its ANN counterpart, while the spiking navigation module deployed on Intel Loihi consumes only 12.37% of that required by its ANN counterpart running on NVIDIA Orin NX. Beyond prior neuromorphic systems focused mainly on relatively simple navigation subtasks, we demonstrate a complete neuromorphic visual navigation system spanning simulation and real-world deployment. Our results establish the feasibility of the neuromorphic paradigm for autonomous navigation and provide a bio-inspired pathway toward robust and low-power MAV navigation.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.21978v1",
+        "published": "2026-10-15T14:31:25Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Pengzhi Zhong",
         "title": "SBMVTrack: Spike-Budgeted Multi-View Learning for Power-Efficient UAV Tracking",
         "abstract": "With sparse and event-driven computation, spiking neural networks show great potential for achieving accurate and power-efficient UAV visual tracking. However, existing SNN-based trackers typically use spike firing rates only for power consumption and lack explicit optimization of actual spike activity. Moreover, regulating spike activity alone does not explicitly encourage stable target representations under partial observations and temporal appearance changes. We propose SBMVTrack, a fully spiking tracking framework that combines spike activity regulation with complementary multi-view representation learning. Specifically, SBMVTrack introduces Energy-Weighted Spike Budgeting (EWSB), which incorporates layer-wise computational costs when regulating spike firing rates and penalizing saturated activations, thereby reducing redundant spike computation. To further improve target representations under the spike budget constraint, we introduce Masked Multi-View Target Modeling (MVTM), which treats the initial template, online template, and search region as temporal views of the same target. By aligning target embeddings between masked and corresponding unmasked views and enforcing cross-view identity consistency, MVTM encourages robustness to missing local cues and temporal appearance changes. Experiments on four UAV benchmarks demonstrate competitive tracking performance with a 24.1% reduction in estimated power consumption relative to the baseline. On VisDrone2018, SBMVTrack achieves a success rate of 70.0%, exceeding SpikeTrack by 9.7 percentage points while reducing estimated power consumption by 45.7%. The source code will be released upon acceptance.",
@@ -19590,6 +19599,33 @@
       }
     ],
     "Neuromorphic Hardware": [
+      {
+        "first_author": "Sergio Davies",
+        "title": "Beyond the Hamming Cliff: Compact Spatial Encodings Preserving Semantic Distance in Spiking Neural Networks",
+        "abstract": "By pre-processing input signals with Gray, Thermometer, Johnson and hybrid encodings before passing them to spiking neural networks running on SpiNNaker hardware, Davies et al.(2025) address the semantic-spatial disparity that causes the ``Hamming cliff'' in standard binary representations. Continuous semantic patterns are presented as a set of simultaneous spikes at the input layer, preserving ultra-low latency processing. Training the network on multiple continuous values under each scheme, and measuring accuracy, required homeostatic scaling and false-positive rates, shows that removing the cliff is necessary but not sufficient: Gray encoding removes it yet retains little global distance structure, whereas Thermometer and Johnson preserve semantic distance at a code width that grows with the value range. The proposed hybrid encodings contain all three as limiting cases of a single parameter, recovering most of that structure at a fraction of the width. The homeostatic factor is shown to set a radius of tolerance around each trained pattern, so that the choice of encoding alone decides which values the network treats as similar.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.22083v1",
+        "published": "2026-10-15T15:38:51Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Ruichen Ma",
+        "title": "The Dormant Spiking Neuron: A State-Driven Mechanism for Efficient Spiking Neural Networks",
+        "abstract": "Spiking neural networks (SNNs) offer a compelling pathway toward energy-efficient artificial intelligence, fundamentally anchored in presynaptic input-driven sparsity. However, a substantial yet chronically overlooked source of computational overhead persists: the continuous subthreshold dynamics of postsynaptic neurons. Quantitative analysis reveals that up to 44% of neurons in an ImageNet-trained ResNet-18 model reside in a deeply inhibited state, imposing a persistent computational burden despite having a negligible probability of firing. To address this inefficiency, the Dormant Spiking Neuron (DSN) model is introduced. By incorporating a state-driven dynamic gate, the DSN allows a neuron to enter a dormant state when its membrane potential falls below a predefined negative threshold, dynamically pruning redundant computations at the instance level. Crucially, this dormancy mechanism is directly integrated into the neuronal dynamics and trained end-to-end via backpropagation through time using surrogate gradients, enabling the network to actively learn a robust dormancy policy that adaptively preserves critical information flow. Extensive experiments across static and neuromorphic datasets demonstrate that the DSN framework consistently reduces computational energy by 40% to over 70%. Notably, on the large-scale ImageNet dataset, the DSN outperforms state-of-the-art static pruning techniques at comparable reported cost reductions and simultaneously improves the corresponding baseline SNN accuracy by 1.34%. By establishing a trainable, state-driven sparsity paradigm orthogonal to conventional input-driven methods, the DSN unlocks synergistic efficiency gains, presenting an effective approach for advancing neuromorphic computing.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.21748v1",
+        "published": "2026-10-15T12:05:06Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Sanhe Fu",
+        "title": "PSA: A Pruning-Friendly Sparse-Aware Accelerator for Efficient Sparse Convolution in SNNs",
+        "abstract": "Spiking neural networks (SNNs) are promising for energy-efficient artificial intelligence due to their event-driven sparse computation, and neuron pruning can further reduce redundant operations. However, in practical hardware accelerators, spike sparsity and pruning-induced sparsity produce highly irregular sparse workloads that are difficult to execute efficiently. Existing approaches do not jointly support sparse-input execution, low-overhead sparse convolution lowering and pruning-friendly execution. This paper presents PSA, a Pruning-friendly Sparse-aware Accelerator for efficient sparse convolution in SNNs. PSA features a Sparse-Aware Merge-Accumulation (SAMA) dataflow that aligns sparse spike indices and converts irregular activations into continuous computation streams for efficient sparse convolution execution. It further introduces a Sparse Implicit Group-wise im2col (SIG-im2col) convolution lowering mechanism that converts sparse convolution into SpMM on-chip with low mapping cost and memory overhead. In addition, PSA integrates a lightweight pruning-friendly gating mechanism to directly support pruned SNNs. Results on ResNet-18/CIFAR-10 show that PSA achieves a 4.45x improvement in energy efficiency and an 18.52x reduction in energy-delay product (EDP) over the dense baseline.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.21313v1",
+        "published": "2026-10-15T06:02:06Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Francesco Panetta",
         "title": "Saliency-Guided Replay for Continual Learning in Deep Spiking Neural Networks",
@@ -113509,6 +113545,17 @@
         "venue": "Pattern Recognition",
         "link": "https://doi.org/10.1016/j.patcog.2026.114968",
         "published": "2026-09-19",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Self-Organizing Memristive": [
+      {
+        "first_author": "Francesco Caravelli",
+        "title": "Self-organizing memristive networks as physical learning systems",
+        "abstract": "",
+        "venue": "Nature Reviews Physics",
+        "link": "https://doi.org/10.1038/s42254-026-00978-x",
+        "published": "2026-09-18",
         "is_arxiv": false
       }
     ],
