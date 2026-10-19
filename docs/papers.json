@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-18T00:44:35.748018+00:00",
+  "generated_at_utc": "2026-10-19T00:43:38.951116+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
@@ -113548,17 +113548,6 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Self-Organizing Memristive": [
-      {
-        "first_author": "Francesco Caravelli",
-        "title": "Self-organizing memristive networks as physical learning systems",
-        "abstract": "",
-        "venue": "Nature Reviews Physics",
-        "link": "https://doi.org/10.1038/s42254-026-00978-x",
-        "published": "2026-09-18",
-        "is_arxiv": false
-      }
-    ],
     "Topic: Partonic Dynamics": [
       {
         "first_author": "Di Zhao",
@@ -115992,6 +115981,17 @@
         "link": "https://arxiv.org/abs/2609.22775v1",
         "published": "2026-09-19T05:18:38Z",
         "is_arxiv": true
+      }
+    ],
+    "Topic: Self-Organizing Memristive": [
+      {
+        "first_author": "Francesco Caravelli",
+        "title": "Self-organizing memristive networks as physical learning systems",
+        "abstract": "",
+        "venue": "Nature Reviews Physics",
+        "link": "https://doi.org/10.1038/s42254-026-00978-x",
+        "published": "2026-09-18",
+        "is_arxiv": false
       }
     ],
     "Topic: Related Species": [
