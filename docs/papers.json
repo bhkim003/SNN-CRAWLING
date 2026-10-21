@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-10-20T00:41:08.451127+00:00",
+  "generated_at_utc": "2026-10-21T00:39:51.871138+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30426,
+  "total_papers": 30431,
   "categories": {
     "LLM": [
       {
@@ -19617,6 +19617,24 @@
       }
     ],
     "Neuromorphic Hardware": [
+      {
+        "first_author": "Danny Rosen",
+        "title": "Small-scale neural simulation of Caenorhabditis elegans on Loihi-2 using NeuroML2Loihi",
+        "abstract": "Neural simulation is an essential methodology for studying biological nervous systems, but it remains limited by the computational costs of repeatedly updating neural and synaptic states over many timesteps. Neuromorphic hardware is a promising substrate for this class of workloads because such devices combine event-driven execution, localized memory, and spike-based communication. However, neuromorphic \\textit{software} remains comparatively fragmented and difficult to integrate with the model-description standards used by the computational neuroscience community. This disconnect limits reproducible experimentation and makes direct comparison between conventional and neuromorphic simulation workflows difficult. This paper introduces ``NeuroML2Loihi'', an open-source framework for translating NeuroML model descriptions into Loihi~2-deployable Lava primitives, enabling standardized biological models to be executed on Intel's Loihi~2 neuromorphic chip. We evaluate our framework using c302-derived \\textit{C. elegans} neural models across three connectome-scale configurations. Cross-platform similarity is assessed using spike-train and voltage-trace metrics, while latency, power, and energy consumption are benchmarked against the conventional reference workflow. Across the evaluated models, Loihi~2 execution enabled through NeuroML2Loihi achieves 514--1211$\\times$ lower latency and a 1.8--1.9$\\times$ reduction in mean wattage relative to the NEURON reference, producing substantially lower total energy consumption primarily through reduced execution time. These results demonstrate that standards-based neuromorphic neural simulation is feasible on Loihi~2 and can support meaningful comparison against established computational neuroscience workflows.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.25424v1",
+        "published": "2026-10-18T17:27:16Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Xiang Hao",
+        "title": "SpikeAid: A Streaming Spiking Hearing Aid Framework for Joint Noise Reduction and Wide Dynamic Range Compression",
+        "abstract": "Modern hearing aids combine noise reduction (NR) with wide dynamic range compression (WDRC) to suppress background interference while compensating for the reduced auditory dynamic range associated with hearing loss. Conventional systems typically process NR and WDRC as separate stages, although the output of NR directly affects the signal levels and envelopes that determine subsequent compression. Recent end-to-end neural approaches can jointly optimize these processes, but their dense computation remains challenging for always-on hearing aids. In this work, we propose SpikeAid, a causal end-to-end spiking neural network (SNN) framework for joint NR and WDRC. SpikeAid consists of an NR-Net that constructs complementary speech and noise representations and a WDRC-Net that estimates the corresponding branch gains, with both components jointly optimized according to the final hearing aid objective. To capture the multiscale temporal structures required by joint NR and WDRC in a computationally efficient manner, we further introduce the Delayed Resonate-and-fire Neuron (DRN), which incorporates bio-inspired heterogeneous dendritic delays and resonating dynamics. Experimental results on the hearing aid task show that SpikeAid improves key objective metrics over cascaded processing and outperforms existing spiking speech-processing baselines. Evaluation on the public Intel Neuromorphic Deep Noise Suppression (N-DNS) Challenge further demonstrates state-of-the-art neuromorphic speech-denoising performance with DRN. Finally, we designed an FPGA-based neuromorphic hardware system for efficient deployment of SpikeAid, where it achieves over two orders of magnitude higher energy efficiency than conventional CPU/GPU implementations, demonstrating its potential for energy-efficient hearing aid applications.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.24696v1",
+        "published": "2026-10-17T13:50:11Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Sergio Davies",
         "title": "Beyond the Hamming Cliff: Compact Spatial Encodings Preserving Semantic Distance in Spiking Neural Networks",
@@ -59677,6 +59695,15 @@
       }
     ],
     "Medical & BCI": [
+      {
+        "first_author": "Jacqueline Yau",
+        "title": "Uncovering EEG Patterns Consistently Associated with Cybersickness Discomfort Using Deep Learning Interpretability Maps",
+        "abstract": "",
+        "venue": "Research Square",
+        "link": "https://doi.org/10.21203/rs.3.rs-11176708/v1",
+        "published": "2026-10-16",
+        "is_arxiv": false
+      },
       {
         "first_author": "Wout Mommen",
         "title": "Logic Gate Networks and Lookup Table Networks as Lightweight Hardware Classifiers for Inter-patient ECG Arrhythmia Classification",
@@ -106368,6 +106395,15 @@
     ],
     "Edge AI & Embedded": [
       {
+        "first_author": "Muhammad Fahd Ibrahim Bhatti",
+        "title": "SpikeDuet: CPU-Accelerator Co-Execution of Sparse SNNs on Commodity MCUs",
+        "abstract": "Spiking neural networks (SNNs) expose sparse event activity, but commodity microcontrollers increasingly pair general-purpose processors with dense matrix-vector accelerators whose suitability for sparse inference is unclear. We investigate whether the on-chip Matrix Vector Processor (MVP) of the EFR32MG24 can accelerate SNN inference beyond optimized event-driven Cortex-M33 execution. Our automated snnTorch-to-C deployment flow combines hardware-calibrated engine selection, function-preserving neuron reordering that places co-active neurons adjacently for the accelerator, and asynchronous scheduling that overlaps CPU and MVP computation. On physical hardware, heterogeneous execution achieves 1.27--1.87$\\times$ speedup and 11--34\\% lower energy per inference than optimized sparse Cortex-M33 execution across five evaluated network configurations, while the smallest Braille network remains CPU-optimal. Reordering alone moves Braille-384's dominant hidden layer from the CPU to the MVP, and its benefit persists under asynchronous execution. These results show that activity locality and concurrency between CPU and MVP can jointly improve sparse SNN inference on commodity MCUs.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.24677v1",
+        "published": "2026-10-17T13:05:43Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Jie Shao",
         "title": "EM-SNN: Efficiently Modulated Spiking Neural Network for Remote Sensing Image Dehazing",
         "abstract": "Although spiking neural networks (SNNs) provide an energy-efficient alternative to artificial neural networks (ANNs), their application to remote sensing image dehazing remains limited. A key challenge arises from the coupling between haze-induced high-frequency attenuation and discrete spike thresholding. This interaction suppresses weak responses and fundamentally limits the recovery of edges, textures, and fine details in spiking dehazing models. To address this challenge, we propose the Efficiently Modulated Spiking Neural Network (EM-SNN), a dedicated spiking framework tailored to remote sensing image dehazing. EM-SNN integrates a statistics-driven Threshold-Modulated Leaky Integrate-and-Fire (TM-LIF) neuron to adaptively compensate for haze-induced contrast compression, together with a Spike Sobel Modulation (SSM) module that enhances structural cues and reduces depth-wise attenuation during spiking feature propagation. By jointly modulating activation scales and structural representations, EM-SNN improves dehazing performance while preserving the inherent event-driven sparsity of SNNs. Experiments on HRSD, RICE, RRSHID, and SateHaze1K demonstrate that EM-SNN achieves competitive dehazing performance while consuming only one quarter of the energy of the strong ANN baseline SFRDP-Net.",
@@ -113563,6 +113599,17 @@
         "venue": "arXiv",
         "link": "https://arxiv.org/abs/2610.22484v1",
         "published": "2026-10-15T18:00:11Z",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Unified State-Dynamics": [
+      {
+        "first_author": "Jing Yang",
+        "title": "A Time-Variant Spiking Neuron from a Unified State-Dynamics Perspective",
+        "abstract": "Spiking neural networks (SNNs) have increasingly incorporated rich neuronal dynamics to enhance temporal processing. However, richer dynamics do not necessarily enable neurons to adapt how information is processed over time. To examine this issue systematically, we introduce a unified state-dynamics framework that characterizes diverse spiking neurons through a common formulation and enables direct comparison of their dynamical designs. The framework reveals a common limitation of existing neurons: although they enhance temporal processing through richer internal states and state evolution, the dynamical rules determining how inputs are integrated, how states evolve, and how they are read out generally remain unchanged throughout temporal processing. Such time-invariant rules limit the ability of neurons to adjust information processing as information relevance changes over time. Inspired by time-varying regulation in biological neurons, we propose the Time-Variant Multi-Compartment Neuron (TV-MCN). TV-MCN builds on multiscale compartment dynamics and makes the rules for input integration, state evolution, and state readout time-varying according to the current input. Specifically, an input-dependent internal time regulates the rate of state evolution, while the current input dynamically modulates input integration and state readout. Extensive experiments show that TV-MCN achieves strong overall performance, with particularly large gains on tasks requiring selective retention and retrieval of information, while ablation studies further support the effectiveness of its time-varying mechanisms.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.23981v1",
+        "published": "2026-10-14T06:24:18Z",
         "is_arxiv": true
       }
     ],
