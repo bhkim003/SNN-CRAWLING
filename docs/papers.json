@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-10-21T00:39:51.871138+00:00",
+  "generated_at_utc": "2026-10-22T00:40:45.254230+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30431,
+  "total_papers": 30433,
   "categories": {
     "LLM": [
       {
@@ -19,9 +19,9 @@
       {
         "first_author": "Dan Saunders",
         "title": "Compute-Optimal Scaling Laws for Spiking Language Models",
-        "abstract": "Spiking neural networks target energy-efficient language modeling through sparse, binary activations, but the efficiency-accuracy tradeoff of spiking language models is uncharacterized at scale. We present the first Chinchilla-style IsoFLOP scaling study of a spiking language model, sweeping SpikeGPT-family models (RWKV backbone) from width 384 to 1536 across compute budgets from $3\\times10^{17}$ to $10^{19}$ FLOPs on FineWeb-EDU. We report two findings. First, the compute-optimal frontier is $N_{opt} \\propto C^{0.56}$, close to the 0.50 that Hoffmann et al. report for dense Transformers, so spiking does not change how parameters and data should be traded off under a compute budget. Second, against non-spiking RWKV and Transformer baselines trained the same way, the loss gap splits into a backbone cost of about 0.16 nats that does not change with compute and a spiking cost that falls from 0.34 to about 0.23 nats and then levels off. These results give the first compute-optimal recipe for spiking language models and quantify the accuracy cost of their sparsity.",
+        "abstract": "Spiking neural networks target energy-efficient language modeling through sparse, binary activations, but the efficiency-accuracy tradeoff of spiking language models is uncharacterized at scale. We present the first Chinchilla-style IsoFLOP scaling study of a spiking language model, sweeping SpikeGPT-family models (RWKV backbone) from width 384 to 1536 across compute budgets from $3\\times10^{17}$ to $10^{19}$ FLOPs on FineWeb-EDU. We report two findings. First, the compute-optimal frontier is $N_{opt} \\propto C^{0.56}$, close to the 0.50 that Hoffmann et al. report for dense Transformers, so spiking does not change how parameters and data should be traded off under a compute budget. Second, against non-spiking RWKV and Transformer baselines trained the same way, the loss gap splits into a backbone cost of about 0.16 nats that does not change with compute and a spiking cost that falls steadily with compute, from 0.34 to 0.23 nats over our range. These results give the first compute-optimal recipe for spiking language models and quantify the accuracy cost of their sparsity.",
         "venue": "arXiv",
-        "link": "https://arxiv.org/abs/2610.15146v1",
+        "link": "https://arxiv.org/abs/2610.15146v2",
         "published": "2026-10-10T19:46:24Z",
         "is_arxiv": true
       },
@@ -19617,6 +19617,15 @@
       }
     ],
     "Neuromorphic Hardware": [
+      {
+        "first_author": "Yuli Zha",
+        "title": "Robust Representation Learning for Spiking Neural Networks based on Conditional Information Bottleneck",
+        "abstract": "Spiking Neural Networks (SNNs) have shown great potential for low-power neuromorphic computing due to their event-driven processing and spatiotemporal sparsity, but they remain vulnerable to input perturbations, hardware-intrinsic noise, and adversarial attacks in real-world deployment. We attribute this vulnerability partly to input-specific hidden representations learned by standard SNNs trained with conventional cross-entropy loss, as our information-plane analysis empirically shows that substantial input-related information can still be retained after label-predictive information becomes stable. To address this issue, we propose SCIB, a simple yet effective robust learning objective for SNNs based on the Conditional Information Bottleneck. Different from conventional variational IB methods, SCIB replaces the mutual information compression term $I(X;S)$ with the conditional mutual information $I(X;S|Y)$ and derives a tractable variational upper bound. Moreover, it introduces a learnable class-conditional prior instead of a label-agnostic isotropic Gaussian prior, improving the expressiveness of variational compression and encouraging class-structured representations when combined with the supervised classification objective. Systematic experiments on Fashion-MNIST, CIFAR-10, and CIFAR-100 under external environmental noise, neuromorphic hardware noise, and adversarial attacks show that SCIB improves robustness over standard SNNs and IB-based baselines under most evaluated noise conditions, improves adversarial accuracy under the evaluated attacks without using adversarial training, and reduces the SynOps-based single-sample inference energy consumption by 24.9% relative to an unconstrained SNN baseline.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.28110v1",
+        "published": "2026-10-20T12:21:31Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Danny Rosen",
         "title": "Small-scale neural simulation of Caenorhabditis elegans on Loihi-2 using NeuroML2Loihi",
@@ -77870,7 +77879,7 @@
         "title": "SpikCTU: A Compact Spiking Network with Adaptive Recurrent Computation for Speech Command Recognition",
         "abstract": "Spiking Neural Networks offer event-driven, energy-efficient computation for speech command recognition, yet most existing methods follow fixed computation paths, allocating redundant computation to easy samples while providing limited insight into how evidence evolves during inference. To address these challenges, we introduce SpikCTU, a compact spiking network with adaptive recurrent computation for speech command recognition. Specifically, a hybrid spiking embedding module preserves continuous input information alongside spike features to construct a fixed temporal memory. A shared Continuous Thinking Unit (CTU) repeatedly reads this memory using keys derived from spikes and continuous values, and updates a binary recurrent state with lightweight stage adapters. Furthermore, combining a fixed base prediction with accumulated corrections at each step enables learned aggregation over all steps or confidence-based early exit using only the predictions available so far. Experiments on three speech command recognition benchmarks show that SpikCTU achieves competitive accuracy with only 0.16--0.17M parameters, and the early exit strategy can substantially further reduce computational cost without compromising accuracy. In addition, trajectory and attention analyses reveal that recurrent steps enable error correction and progressively refine predictions. Code is available at https://github.com/Rivflyyy/spikctu.",
         "venue": "arXiv",
-        "link": "https://arxiv.org/abs/2610.14594v1",
+        "link": "https://arxiv.org/abs/2610.14594v2",
         "published": "2026-10-10T05:32:07Z",
         "is_arxiv": true
       },
@@ -97864,6 +97873,15 @@
     ],
     "Time Series": [
       {
+        "first_author": "Erik Stolt",
+        "title": "Model- and Layer-Level Closed-Loop Forecasting with SSM-Based Spiking Neural Networks",
+        "abstract": "Deep State-Space Models (Deep SSMs) have shown promising performance and computational benefits in processing of time-series data with complex temporal dependencies. Spiking neural networks (SNNs) constitute a biologically inspired class of deep SSMs, where computing blocks communicate through spikes, discrete single-bit events rather than continuous activation functions. A particularly important task in time-series processing is forecasting, i.e. predicting future values of a sequence from past observations alone. However, how to best perform forecasting with SNNs is an open question, where the standard autoregressive nature of the data processing with SNNs requires values that are not available during the forecasting phase. In this article, we address this challenge. We explore two closed-loop forecasting strategies, in which the network's own generated values are fed back into the network as if they were observed past values: (i) model-level and (ii) layer-level closed-loop forecasting. We evaluate these approaches on the ETT-small datasets, a standard benchmark for time-series forecasting, under both spike-based and continuous activation functions. We compare the proposed closed-loop approaches against state-of-the-art methods such as SpaceTime, as well as the zero-masking baseline in S4. Both of the proposed approaches perform comparably to or better than zero-masking with S4, and in most cases match SpaceTime. These findings highlight the trade-off between continuous and low-bit quantized activations, and demonstrate that the proposed Deep SSM architectures provide a competitive framework for forecasting.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.28495v1",
+        "published": "2026-10-20T16:39:59Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Bang Hu",
         "title": "SpikeLite: Lightweight Spiking Neural Networks for Time-Series Forecasting",
         "abstract": "Spiking neural networks (SNNs) offer an energy-efficient paradigm for time-series forecasting through spike-driven computation. However, recent SNN forecasters often pursue higher accuracy through increasingly complex attention mechanisms, or specialized neuronal dynamics, weakening the lightweight motivation of SNNs. We introduce SpikeLite, a spiking forecasting framework built around two modules: a Frequency-Selective Spiking Encoder (FSSE) for frequency-sensitive temporal encoding and a Sparse Spiking Channel Attention (SSCA) module for selective cross-channel interaction. FSSE exploits the low-pass filtering behavior of LIF dynamics to reorganize each input sequence into frequency-sensitive components while collectively preserving the input at the decomposition stage. SSCA then learns a binary mask from encoded channel representations and uses it to selectively exchange information within spike-driven self-attention, retaining informative cross-channel interactions while suppressing redundant ones. When explicit channel interaction is unnecessary, SpikeLite uses the lighter FSSE-only channel-independent path. Experiments under the SeqSNN and SpikF protocols cover four standard multivariate and eight long-term forecasting benchmarks. SpikeLite achieves the best aggregate performance under both protocols, with an average $R^2$ of 0.790 and RSE of 0.440, and lowest average MSE/MAE of 0.343/0.345 in long-term forecasting. Moreover, evaluation on the ECL dataset shows that SpikeLite achieves the lowest reported energy consumption, further demonstrating its potential for energy-efficient time-series forecasting.",
@@ -113580,17 +113598,6 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Phase Structure Qcd": [
-      {
-        "first_author": "P. Braun‐Munzinger",
-        "title": "The Phase Structure of QCD: Fluctuations and Correlations",
-        "abstract": "The strong interaction, governed by quantum chromodynamics (QCD), shapes the structure of the visible Universe. At about 10 μs after the big bang, the quark–gluon plasma (QGP)—the primordial matter made up of quarks and gluons plus leptons, photons, and neutrinos—became cool enough to create, in a phase transition, the protons and neutrons of ordinary matter, along with other strongly interacting unstable hadrons. This new phase of matter was predicted within the framework of QCD and has been studied in accelerator laboratories worldwide for about 40 years to date. This review explores recent breakthroughs in the study of the QCD phase diagram. We highlight measurements of particle production and fluctuations and compare them with theoretical predictions. We summarize our current understanding of the QCD structure and outline future experimental opportunities with high-energy nuclear collisions at fixed-target and collider facilities worldwide.",
-        "venue": "Annual Review of Nuclear and Particle Science",
-        "link": "https://doi.org/10.1146/annurev-nucl-100324-014902",
-        "published": "2026-09-21",
-        "is_arxiv": false
-      }
-    ],
     "Topic: Causal Pieces": [
       {
         "first_author": "Dominik Dold",
@@ -116035,6 +116042,17 @@
         "link": "https://arxiv.org/abs/2609.26297v1",
         "published": "2026-09-22T12:10:31Z",
         "is_arxiv": true
+      }
+    ],
+    "Topic: Phase Structure Qcd": [
+      {
+        "first_author": "P. Braun‐Munzinger",
+        "title": "The Phase Structure of QCD: Fluctuations and Correlations",
+        "abstract": "The strong interaction, governed by quantum chromodynamics (QCD), shapes the structure of the visible Universe. At about 10 μs after the big bang, the quark–gluon plasma (QGP)—the primordial matter made up of quarks and gluons plus leptons, photons, and neutrinos—became cool enough to create, in a phase transition, the protons and neutrons of ordinary matter, along with other strongly interacting unstable hadrons. This new phase of matter was predicted within the framework of QCD and has been studied in accelerator laboratories worldwide for about 40 years to date. This review explores recent breakthroughs in the study of the QCD phase diagram. We highlight measurements of particle production and fluctuations and compare them with theoretical predictions. We summarize our current understanding of the QCD structure and outline future experimental opportunities with high-energy nuclear collisions at fixed-target and collider facilities worldwide.",
+        "venue": "Annual Review of Nuclear and Particle Science",
+        "link": "https://doi.org/10.1146/annurev-nucl-100324-014902",
+        "published": "2026-09-21",
+        "is_arxiv": false
       }
     ],
     "Topic: Fire Neuron Long": [
