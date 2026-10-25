@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-24T00:38:58.202653+00:00",
+  "generated_at_utc": "2026-10-25T00:43:30.822001+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
@@ -11570,6 +11570,15 @@
     ],
     "Event-based Vision": [
       {
+        "first_author": "Jiaqi Lin",
+        "title": "On the adversarial robustness of spiking neural networks trained by local learning",
+        "abstract": "Abstract Recent research has shown the vulnerability of Spiking Neural Networks (SNNs) under adversarial examples that are nearly indistinguishable from clean data in the context of frame-based and event-based information. The majority of these studies are constrained in generating adversarial examples using Backpropagation Through Time (BPTT), a gradient-based method which lacks biological plausibility. In contrast, local learning methods, which relax many of BPTT's constraints, remain under-explored in the context of adversarial attacks. With the increasing real-world deployment of local learning methods in SNNs, it is critical to investigate whether these approaches introduce adversarial vulnerabilities that could compromise reliability. To address this problem, we examine adversarial robustness in SNNs through the framework of four types of training algorithms. We provide an in-depth analysis showing that direct gradient-based attacks are ineffective for locally trained models. To overcome these limitations, we introduce a hybrid adversarial attack paradigm that leverages the transferability of adversarial instances. The proposed hybrid approach demonstrates superior performance, outperforming existing adversarial attack methods. Furthermore, the generalizability of the method is assessed under multi-step adversarial attacks, adversarial attacks in black-box scenarios, and within the non-spiking domain.",
+        "venue": "Neuromorphic Computing and Engineering",
+        "link": "https://doi.org/10.1088/2634-4386/aeb8bc",
+        "published": "2026-10-23",
+        "is_arxiv": false
+      },
+      {
         "first_author": "Shuangming Yang",
         "title": "SICAF: Time-Varying Focus Bottleneck for Self-Supervised Event-Based Optical Flow with Spiking Neural Network",
         "abstract": "Event-based optical flow estimation achieves high temporal resolution and dynamic range by exploiting asynchronous events, while self-supervised learning provides an effective solution to the absence of ground-truth labels. Spiking neural networks (SNNs), as brain-inspired models, process information through asynchronous spikes, naturally aligning with optical flow events. However, the temporal irregularity across event streams hinders the compact extraction of spatiotemporal features, while the absence of explicit labels leads to spurious correlations, thereby increasing redundancy within latent representations. In this paper, we propose a novel 'Compactly Compress, Time-varying Focus' training strategy. We present SICAF (Spikes Information Compression And Focus) framework that formulates the learning process as a constrained optimization with temporal modulation. It encourages self-supervised SNNs to extract compact latent representations while preventing over-compression that would discard temporal saliency. To better enable feature selectivity across time steps, we design an estimator with learnable temporal attention, achieving context awareness with cross-time dependencies. Experimental results on several datasets demonstrate that SICAF achieves state-of-the-art performance in self-supervised SNNs, with a 8.14% improvement in AEE on the MVSEC dataset and a 13.49% increase in robustness under white-box adversarial attacks.",
@@ -13323,15 +13332,6 @@
         "link": "https://doi.org/10.1038/s41467-025-57352-1",
         "published": "2025-04-15",
         "is_arxiv": false
-      },
-      {
-        "first_author": "Jiaqi Lin",
-        "title": "On the Adversarial Robustness of Spiking Neural Networks Trained by Local Learning",
-        "abstract": "Recent research has shown the vulnerability of Spiking Neural Networks (SNNs) under adversarial examples that are nearly indistinguishable from clean data in the context of frame-based and event-based information. The majority of these studies are constrained in generating adversarial examples using Backpropagation Through Time (BPTT), a gradient-based method which lacks biological plausibility. In contrast, local learning methods, which relax many of BPTT's constraints, remain under-explored in the context of adversarial attacks. To address this problem, we examine adversarial robustness in SNNs through the framework of four types of training algorithms. We provide an in-depth analysis of the ineffectiveness of gradient-based adversarial attacks to generate adversarial instances in this scenario. To overcome these limitations, we introduce a hybrid adversarial attack paradigm that leverages the transferability of adversarial instances. The proposed hybrid approach demonstrates superior performance, outperforming existing adversarial attack methods. Furthermore, the generalizability of the method is assessed under multi-step adversarial attacks, adversarial attacks in black-box FGSM scenarios, and within the non-spiking domain.",
-        "venue": "arXiv",
-        "link": "https://arxiv.org/abs/2504.08897v2",
-        "published": "2025-04-11T18:07:59Z",
-        "is_arxiv": true
       },
       {
         "first_author": "Xiaoyin Yang",
@@ -113603,28 +113603,6 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Focal Task-Specific Dystonia": [
-      {
-        "first_author": "Norman Lu",
-        "title": "Focal Task-Specific Dystonia: An M1-Centered TSMS Framework",
-        "abstract": "Focal task-specific dystonia (FTSD) poses a complex interplay of maladaptive neuroplasticity and motor-circuit imbalance. Traditional theories often implicate subcortical nuclei but fail to explain why symptoms remain so tightly bound to a singular, highly practiced skill. Here, we propose that the primary driver of FTSD is a newly formed “dystonic synergy” within the primary motor cortex (M1), in which excitatory circuit synapses are adequate relative to under-strengthened inhibitory circuit synapses, triggering involuntary contractions once the skill’s intensity demands surpass the functional synergy’s excitatory and inhibitory circuit capacity (synaptic strength). In short, we use an extensive single-case observation as the core empirical foundation, we chronicle how a decade of stable piano performance deteriorated following a sudden technical change that forced the finger flexion motor synergy to “overreach”. The patient’s initial phase was dominated by “true weakness,” a condition of task-specific paresis where the motor system is physically unable to generate the required excitatory/inhibitory (E/I) drive to match the attempted movement speed; over repetitive attempts to override that limitation, the excitatory circuit strengthened while the inhibitory circuit lagged, culminating in a fully formed dystonic synergy within three weeks. This maladaptive synergy then manifested in both piano playing and typing—a related digit-based skill—greatly disabling normal function in both tasks. We illustrate that once formed, the dystonic synergy remains stable but not spontaneously progressive, consistent with a saturable excitatory capacity. Moreover, we used a spiking neural network simulation to provide quantitative proof of concept verification of the hypothesis. Other commonly reported structural or electrophysiological alterations—such as basal ganglia and cerebellar changes, sensorimotor smudging in the primary somatosensory cortex (S1), or impaired spinal inhibition—are reframed and proposed as secondary byproducts emerging from chronic hyperexcitation of the M1 synergy. Additionally, we outline a new taxonomy distinguishing (i) “typical” neuroplastic dystonias, including task-specific forms whose primary trigger is repeated overreaching and whose pathophysiology lies in the consequent synergy imbalance; (ii) atypical neuroplastic variants with strong genetic underpinnings but partial plastic compensation; and (iii) non-neuroplastic dystonias resulting from more deterministically causal gene mutations. Finally, we propose and describe a non-invasive motor retraining approach for reversing FTSD: “below or at-threshold retraining” (BATR), wherein the inhibitory circuit of the dystonic synergy is methodically strengthened. This motor strategy, validated in the single-case longitudinal data alongside other published studies using very similar methods, reveals that the dysregulated synergy can be rebalanced to restore fully normal motor function. By integrating these mechanistic and therapeutic insights, we offer a unifying framework for FTSD pathogenesis and highlight a compelling, noninvasive avenue for cure alongside a guided strategy for prevention.",
-        "venue": "Brain Sciences",
-        "link": "https://doi.org/10.3390/brainsci16101011",
-        "published": "2026-09-24",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Focus Covid Pandemic": [
-      {
-        "first_author": "Matti Sällberg",
-        "title": "Exploring the Development of Vaccine Platforms, With a Particular Focus on the COVID ‐19 Pandemic",
-        "abstract": "Vaccines have been a cornerstone of human health for more than 200 years and one of the most important tools to reduce childhood deaths caused by pathogens. The concept of vaccines is basically to take something safe, make it immunogenic and induce an immune response in the host that will protect it against something dangerous. Live attenuated vaccines were the only option two centuries ago. These are excellent, and possibly the best vaccine platform, but they have limitations as they cannot always be given to everyone safely, for example due to deficient immunity or pregnancy. That is why newer platforms, such as killed or inactivated vaccines, were developed. These provide better all-round safety, but are often less immunogenic and require additional doses. Subcomponent vaccines were then developed in the 1980s. These only used parts of the virus, further improving safety and introducing the possibility of producing vaccines using gene technology. Adding genetic vaccines to the toolbox revolutionized the way that we handled the COVID-19 pandemic. The host became the producer of the vaccine, which better mimicked the immune responses induced by the live attenuated vaccines. All these platforms will be discussed in this mini-review.",
-        "venue": "Acta Paediatrica",
-        "link": "https://doi.org/10.1111/apa.70762",
-        "published": "2026-09-24",
-        "is_arxiv": false
-      }
-    ],
     "Topic: Causal Pieces": [
       {
         "first_author": "Dominik Dold",
@@ -115505,6 +115483,28 @@
         "link": "https://arxiv.org/abs/2609.38432v1",
         "published": "2026-09-29T19:24:56Z",
         "is_arxiv": true
+      }
+    ],
+    "Topic: Focal Task-Specific Dystonia": [
+      {
+        "first_author": "Norman Lu",
+        "title": "Focal Task-Specific Dystonia: An M1-Centered TSMS Framework",
+        "abstract": "Focal task-specific dystonia (FTSD) poses a complex interplay of maladaptive neuroplasticity and motor-circuit imbalance. Traditional theories often implicate subcortical nuclei but fail to explain why symptoms remain so tightly bound to a singular, highly practiced skill. Here, we propose that the primary driver of FTSD is a newly formed “dystonic synergy” within the primary motor cortex (M1), in which excitatory circuit synapses are adequate relative to under-strengthened inhibitory circuit synapses, triggering involuntary contractions once the skill’s intensity demands surpass the functional synergy’s excitatory and inhibitory circuit capacity (synaptic strength). In short, we use an extensive single-case observation as the core empirical foundation, we chronicle how a decade of stable piano performance deteriorated following a sudden technical change that forced the finger flexion motor synergy to “overreach”. The patient’s initial phase was dominated by “true weakness,” a condition of task-specific paresis where the motor system is physically unable to generate the required excitatory/inhibitory (E/I) drive to match the attempted movement speed; over repetitive attempts to override that limitation, the excitatory circuit strengthened while the inhibitory circuit lagged, culminating in a fully formed dystonic synergy within three weeks. This maladaptive synergy then manifested in both piano playing and typing—a related digit-based skill—greatly disabling normal function in both tasks. We illustrate that once formed, the dystonic synergy remains stable but not spontaneously progressive, consistent with a saturable excitatory capacity. Moreover, we used a spiking neural network simulation to provide quantitative proof of concept verification of the hypothesis. Other commonly reported structural or electrophysiological alterations—such as basal ganglia and cerebellar changes, sensorimotor smudging in the primary somatosensory cortex (S1), or impaired spinal inhibition—are reframed and proposed as secondary byproducts emerging from chronic hyperexcitation of the M1 synergy. Additionally, we outline a new taxonomy distinguishing (i) “typical” neuroplastic dystonias, including task-specific forms whose primary trigger is repeated overreaching and whose pathophysiology lies in the consequent synergy imbalance; (ii) atypical neuroplastic variants with strong genetic underpinnings but partial plastic compensation; and (iii) non-neuroplastic dystonias resulting from more deterministically causal gene mutations. Finally, we propose and describe a non-invasive motor retraining approach for reversing FTSD: “below or at-threshold retraining” (BATR), wherein the inhibitory circuit of the dystonic synergy is methodically strengthened. This motor strategy, validated in the single-case longitudinal data alongside other published studies using very similar methods, reveals that the dysregulated synergy can be rebalanced to restore fully normal motor function. By integrating these mechanistic and therapeutic insights, we offer a unifying framework for FTSD pathogenesis and highlight a compelling, noninvasive avenue for cure alongside a guided strategy for prevention.",
+        "venue": "Brain Sciences",
+        "link": "https://doi.org/10.3390/brainsci16101011",
+        "published": "2026-09-24",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Focus Covid Pandemic": [
+      {
+        "first_author": "Matti Sällberg",
+        "title": "Exploring the Development of Vaccine Platforms, With a Particular Focus on the COVID ‐19 Pandemic",
+        "abstract": "Vaccines have been a cornerstone of human health for more than 200 years and one of the most important tools to reduce childhood deaths caused by pathogens. The concept of vaccines is basically to take something safe, make it immunogenic and induce an immune response in the host that will protect it against something dangerous. Live attenuated vaccines were the only option two centuries ago. These are excellent, and possibly the best vaccine platform, but they have limitations as they cannot always be given to everyone safely, for example due to deficient immunity or pregnancy. That is why newer platforms, such as killed or inactivated vaccines, were developed. These provide better all-round safety, but are often less immunogenic and require additional doses. Subcomponent vaccines were then developed in the 1980s. These only used parts of the virus, further improving safety and introducing the possibility of producing vaccines using gene technology. Adding genetic vaccines to the toolbox revolutionized the way that we handled the COVID-19 pandemic. The host became the producer of the vaccine, which better mimicked the immune responses induced by the live attenuated vaccines. All these platforms will be discussed in this mini-review.",
+        "venue": "Acta Paediatrica",
+        "link": "https://doi.org/10.1111/apa.70762",
+        "published": "2026-09-24",
+        "is_arxiv": false
       }
     ],
     "Autonomous Systems": [
