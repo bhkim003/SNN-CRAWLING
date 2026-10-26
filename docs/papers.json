@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-10-25T00:43:30.822001+00:00",
+  "generated_at_utc": "2026-10-26T00:42:09.368368+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30436,
+  "total_papers": 30437,
   "categories": {
     "LLM": [
       {
@@ -19670,6 +19670,15 @@
         "link": "https://arxiv.org/abs/2610.24696v1",
         "published": "2026-10-17T13:50:11Z",
         "is_arxiv": true
+      },
+      {
+        "first_author": "lzmd-arch",
+        "title": "Local Learning Rules Under Honest Measurement: A Reproducibility-First Benchmark of e-prop, Hebbian, and R-STDP on Consumer Hardware",
+        "abstract": "What changed in v1.1. Same benchmark, same numbers: this version corrects the references and the title page. Four citations now point at their published versions instead of the preprints — Korcsák-Gorzo et al., Neuromorphic Computing and Engineering 6(3):034024, 2026; Lin et al., IEEE Access 13:113606–113617, 2025; Yik et al., Nature Communications 16:1545, 2025; Shen et al., NeurIPS 2025, doi:10.52202/085713-5334 — and two entries gained their volume or article number. The sibling findings record is now cited by concept DOI with its current version. The draft-revision stamp was removed from the title page, because the paper is no longer a draft. No reported number changed; v1.1 differs from v1.0 in the reference list, the availability paragraph and the title block only. What this is. A reproducibility-first benchmark of local learning rules for spiking neural networks — e-prop (LIF and ALIF), kernelized information-bottleneck Hebbian feature learning, and reward-modulated STDP with a TD-LTP critic — compared within one paper, under one measurement protocol, at matched budgets, on one consumer GPU. This deposit is the full preprint itself (record B), not the findings record. Four findings, two of them uncomfortable. The neuron model is not a detail: with everything else fixed and five seeds per point, a non-adaptive LIF neuron beats the adaptive ALIF neuron at every learning rate swept (0.93–1.23 pp). e-prop with LIF reaches 0.8889 on sequential MNIST, but only after an eight-fold budget extension, and the plateau criterion was pre-registered before the run. A matched-budget backpropagation-through-time control, each side tuned at its own best recipe, reaches 0.9630 — 7.41 points ahead, the largest effect measured anywhere in the paper. And the same local pipeline does not learn SHD at all (5.34% against a 5% chance level). The paper also reports GPU-memory and wall-clock measurements, including what each local rule's own state costs, rather than what the rule costs at inference only. What is attached. The preprint as a PDF (20 pages). The LaTeX source, every configuration and every per-run record are in the public repository at https://github.com/lzmd-arch/BioSNN-Plug; commit 508c6b3 is the exact source of this PDF. Every number in the paper traces to a directory of per-run JSON files, each carrying the configuration that produced it, and both figures regenerate from those records with a single script. Sibling record. The measurement protocol and the findings record are deposited separately at https://doi.org/10.5281/zenodo.23388708 (concept DOI). That record is a dated snapshot of the project's own records, not a draft of this paper; a reader who lands on it should follow its own update notes rather than this one. Licensing. This paper is CC-BY-4.0. The repository's code and records carry Apache-2.0. Related records. Record C (10.5281/zenodo.23603639) carries the P4 design notes, the synergy-benchmark criterion and the three scope rulings; Record D (10.5281/zenodo.23603642) fixes the architecture and design-decision history as of 2026-10-24.",
+        "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "link": "https://doi.org/10.5281/zenodo.23429027",
+        "published": "2026-10-17",
+        "is_arxiv": false
       },
       {
         "first_author": "Sergio Davies",
