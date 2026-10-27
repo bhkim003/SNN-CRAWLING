@@ -1,12 +1,21 @@
 {
-  "generated_at_utc": "2026-10-26T00:42:09.368368+00:00",
+  "generated_at_utc": "2026-10-27T00:40:19.466202+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30437,
+  "total_papers": 30439,
   "categories": {
     "LLM": [
+      {
+        "first_author": "Ning Liu",
+        "title": "PAFS: Perturbation-Aware Firing Scaffolds for Robust Event-Based SNNs",
+        "abstract": "Event-based spiking neural networks (SNNs) encode information through temporal firing dynamics, but the same stateful computation makes their predictions sensitive to event loss, timestamp jitter, and speed variation. These perturbations alter evidence accumulation, yet late-layer firing trajectories can retain error-diagnostic structure that is absent from the final logits alone. We introduce Perturbation-Aware Firing Scaffolds (PAFS), a labeled post-training calibration method that exploits this structure without updating the pretrained backbone. PAFS associates standardized late-layer leaky integrate-and-fire trajectories with the class-probability residuals of an Adapter anchor, then applies singular value decomposition to extract compact residual-aligned channel directions. At inference, firing trajectories from the same backbone pass are projected onto this fixed low-rank scaffold and combined with anchor statistics to predict a residual logit correction. Across four matched dataset-backbone settings spanning three event datasets and two spiking Transformer architectures, PAFS improves corrupted-average and worst-condition accuracy over the corresponding Adapter anchors, with maximum gains of 3.06 and 3.65 percentage points. In the DailyAction-DVS/Spikingformer setting, the added trainable parameters amount to approximately 0.34% of the frozen backbone.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.32409v1",
+        "published": "2026-10-23T09:34:50Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Rajshekhar Rakshit",
         "title": "Spike-Aware Gradient-Based Mixed-Precision Quantization of Spiking Neural Networks for Vision Applications",
@@ -21,7 +30,7 @@
         "title": "Bio-Inspired Auditory Processing: Coupling Parallel Resonate-and-Fire Dynamics with Ternary Recurrent Networks for Speech Recognition",
         "abstract": "Spiking Neural Networks (SNNs) promise energy-efficient inference through sparse, event-driven computation, yet remain constrained on continuous, context-dependent tasks such as automatic speech recognition (ASR). A key bottleneck is the Leaky Integrate-and-Fire (LIF) neuron, whose membrane decay erases information across pauses and phonetic boundaries while it must both extract features and retain long-range context. Inspired by cortical separation of nonlinear filtering and somatic integration, we introduce the Spiking Ternary GRU (stGRU): a ternary-weight gated recurrent unit performs temporal filtering, while downstream Resonate-and-Fire (RF) neurons generate the binary spike stream driving the next block's event pathway. This makes binary event transmission a native training constraint rather than a separate deployment-time activation quantization step; together with ternary weights, learned projections avoid dense floating-point matrix MACs. Trained end-to-end on LibriSpeech-960, Small, Medium, and Large stGRUs reach 8.09%, 7.04%, and $6.44 \\pm 0.17\\%$ WER on test-clean without an external language model. To our knowledge, these are the first matrix-MAC-free spiking networks without a learned ANN sequence decoder to achieve single-digit WER on LibriSpeech. The architecture also achieves 10.88% test CER on Aishell-1 (9.28% on dev) when trained from scratch. Internally, trained networks develop a depth-graded hierarchy: shallow layers act as fast acoustic filters, while deep layers form slower semantic integrators whose latent representations segregate into part-of-speech manifolds and word-level spike events. Deep-layer firing rates follow lognormal distributions with a sparsity gradient, mirroring hierarchical processing observed in human cortex in vivo. Our biologically grounded architecture combines competitive ASR with favorable modeled compute and memory cost.",
         "venue": "arXiv",
-        "link": "https://arxiv.org/abs/2610.29720v1",
+        "link": "https://arxiv.org/abs/2610.29720v2",
         "published": "2026-10-21T13:29:46Z",
         "is_arxiv": true
       },
@@ -11569,6 +11578,15 @@
       }
     ],
     "Event-based Vision": [
+      {
+        "first_author": "Ali Mehrabi",
+        "title": "A Resource-Efficient and Precision-Scalable FPGA Accelerator for Spiking Neural Networks Using Minifloat Arithmetic",
+        "abstract": "Spiking neural networks (SNNs) are well suited to event-driven edge intelligence, but the arithmetic complexity, memory footprint, and power consumption associated with conventional floating-point implementations can limit their deployment on resource-constrained hardware. This paper presents a precision-scalable and resource-efficient SNN hardware accelerator architecture based on parameterized minifloat arithmetic. The proposed architecture implements recurrent leaky integrate-and-fire (LIF) neurons and leaky-integrator (LI) readout neurons using a unified minifloat datapath whose word length and mantissa width can be configured at synthesis time. A valid-driven arithmetic subsystem employs pipelined minifloat multiplication and addition, while time-multiplexed processing enables arithmetic resources to be shared across synaptic accumulation, neuron-state updates, recurrent connections, and output processing. This organization reduces replicated arithmetic hardware and provides a scalable design approach for different SNN sizes and precision requirements. The architecture supports E8M23, E5M10, E5M6, and E4M3 formats within the same RTL framework, allowing precision, memory capacity, timing, and power to be traded without modifying the underlying neuron architecture. FPGA implementation results demonstrate that reducing minifloat precision substantially decreases arithmetic-resource utilization and estimated dynamic power, while also reducing the theoretical storage requirement of synaptic parameters. A recurrent event-based classification network is used as a hardware validation case, demonstrating that substantial precision reduction can be achieved while retaining competitive inference accuracy. The results establish parameterized minifloat computation as an effective basis for scalable, low-resource, and energy-efficient FPGA SNN accelerators.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.32052v1",
+        "published": "2026-10-23T01:45:36Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Jiaqi Lin",
         "title": "On the adversarial robustness of spiking neural networks trained by local learning",
