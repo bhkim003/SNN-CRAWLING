@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-10-27T00:40:19.466202+00:00",
+  "generated_at_utc": "2026-10-28T00:31:38.309727+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30439,
+  "total_papers": 30442,
   "categories": {
     "LLM": [
       {
@@ -11603,6 +11603,15 @@
         "venue": "arXiv",
         "link": "https://arxiv.org/abs/2610.29158v1",
         "published": "2026-10-21T03:48:08Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Jonathan Courtois",
+        "title": "Evaluating Spiking MoveNet Deployability for Near-Future Onboard Spiking Satellite Pose Estimation",
+        "abstract": "SNNs are attracting interest due to their potential for energy efficiency and event-driven processing. However, neuromorphic hardware is not yet mature enough to enable embedded deployment of complex spiking network architectures. In this work, we investigate a spiking version of the MoveNet architecture tailored for autonomous spacecraft operation, aiming to evaluate the deployability of this complex architecture compared to the non-spiking version for embedded, fully event-based solutions in space applications. Using the RAPTOR dataset, we compare the performance and operational cost of the proposed S-MoveNet-Lightning architecture with its standard version, MoveNet-Lightning. Our results show balanced advantages in computational resources and architectural settings for spiking U-Net-like architectures. An evaluation of the performance and hardware footprint of the proposed Spiking Neural Network (SNN) approach for pose estimation shows that, on average, 2.2 times fewer multiplication and accumulation operations are required compared to the non-spiking solution deployed on FPGA platforms with the AMD Deep Learning Processor Unit (DPU). These results provide valuable insights into the feasibility and potential of SNNs in complex aerospace applications and highlight their role in balancing efficiency and performance, paving the way for event-driven solutions in embedded space applications.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.33061v1",
+        "published": "2026-10-19T12:58:47Z",
         "is_arxiv": true
       },
       {
@@ -59758,6 +59767,15 @@
       }
     ],
     "Medical & BCI": [
+      {
+        "first_author": "Cristian David Guerrero-Mendez",
+        "title": "A spinal-inspired spiking neural network for continuous finger-joint kinematics estimation from high-density surface EMG",
+        "abstract": "Decoding simultaneous and proportional finger kinematics from high-density surface electromyography (HD sEMG) remains challenging. Although data-driven methods have shown promising performance for finger movement decoding, their limited physiological interpretability remains a relevant limitation. This study proposes and evaluates a spiking neural network (SNN) that incorporates spinal-inspired structures and mechanisms to predict multi-joint finger kinematics from HD sEMG signals. The spinal-inspired SNN includes a spike-encoding computational model with input-noise variability, a phenomenological representation of Henneman's size principle, and excitation/inhibition (E/I) balance. HD sEMG and kinematic data were collected from 23 healthy participants performing grasping tasks under different elbow and wrist postures. Performance was assessed using six prediction metrics and compared against six baseline machine learning and deep learning methods. The proposed method showed a large and significant ($p<0.05$, rank-biserial correlation $r_{rb}>0.7$) improvement over all baseline methods across all accuracy metrics. Performance improved significantly with increasing spike encoder firing rates up to approximately 128 Hz, and with more regular input spike trains compared with a Poisson-like encoder. In contrast, the E/I balance did not significantly affect the decoding performance of the algorithm. The firing rate and inter-spike interval statistics of the SNN differed significantly across motor tasks. These results demonstrate that incorporating neurophysiological principles into SNNs improves prediction performance while providing additional physiological interpretability for simultaneous and proportional finger-kinematics decoding. This approach represents a promising step toward physiology-informed neural networks, with potential applications in motor rehabilitation.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.33979v1",
+        "published": "2026-10-25T01:34:42Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Jacqueline Yau",
         "title": "Uncovering EEG Patterns Consistently Associated with Cybersickness Discomfort Using Deep Learning Interpretability Maps",
@@ -113628,6 +113646,17 @@
         "link": "https://doi.org/10.1371/journal.pcbi.1014798",
         "published": "2026-10-01",
         "is_arxiv": false
+      }
+    ],
+    "Topic: Hadrons Rhic Lhc": [
+      {
+        "first_author": "Neeraj",
+        "title": "Midrapidity dip and limiting fragmentation of charged hadrons from RHIC to LHC energies",
+        "abstract": "The charged-hadron pseudorapidity density $\\dndeta$ in central heavy-ion collisions has a midrapidity depression that deepens with collision energy. Whether it reflects structure in the rapidity density $\\dndy$ or only the kinematics of the $y\\toη$ transformation has mostly been argued with effective or model-based Jacobians. We test this without an event generator, with a $y\\toη$ kernel built from measured identified-hadron spectra. In central Au+Au and Pb+Pb collisions from $\\snn=19.6$~GeV to 5.36~TeV the data do not require a dip in $\\dndy$: the decisive null-hypothesis family gives $p\\ge\\pMinAll$ in all variants. For dips up to one rapidity unit wide, the depth giving $p<0.05$ in half the pseudo-experiments is \\rng{\\dminLHClo}{\\dminLHChi}\\% at the LHC and \\rng{\\dminRHIClo}{\\dminRHIChi}\\% at 62.4--200~GeV. Generator closure tests show a false dip at top RHIC energy caused by the forward region. As the LHC data barely constrain the fragmentation region, an energy sum rule calibrated on RHIC data, with the RHIC shape of that region, gives best-fit LHC/RHIC ratios of \\rng{\\sLoE}{\\sHiE}, \\rng{\\sLoF}{\\sHiF} and \\rng{\\sLoG}{\\sHiG} at 2.76, 5.02 and 5.36~TeV for three shape families, with 95\\% intervals over the families of \\rng{\\sNFLoE}{\\sNFHiE}, \\rng{\\sNFLoF}{\\sNFHiF} and \\sNFG{} that include unity, although at 2.76 and 5.02~TeV the fits prefer \\rng{\\pullLoEF}{\\pullHiEF}$\\,σ$ more energy than calibrated. Over plausible RHIC covariances and kernels the best-fit ratios span \\rng{\\sSystAllLo}{\\sSystAllHi}, and single variants exclude unity at \\systUnionAbs: limiting fragmentation is neither established nor excluded.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.35456v1",
+        "published": "2026-10-26T13:54:22Z",
+        "is_arxiv": true
       }
     ],
     "Topic: Causal Pieces": [
