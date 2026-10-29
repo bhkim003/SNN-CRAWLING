@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-10-28T00:31:38.309727+00:00",
+  "generated_at_utc": "2026-10-29T00:32:02.521660+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30442,
+  "total_papers": 30450,
   "categories": {
     "LLM": [
       {
@@ -11578,6 +11578,15 @@
       }
     ],
     "Event-based Vision": [
+      {
+        "first_author": "Maksim Surov",
+        "title": "Spiking Neuromorphic Control for Periodic Orbits Stabilization in Underactuated Robots: A Greedy Lyapunov-Based Approach",
+        "abstract": "This work investigates the use of event-based spiking controllers, implemented as spiking neural networks, for trajectory tracking in underactuated robots. Specifically, we address the problem of stabilizing a prescribed periodic orbit. It is well known that, by applying the method of transverse linearization to the robot dynamics in a neighborhood of a periodic trajectory, the dynamics can be approximately described by a linear time-varying system with periodic coefficients (a periodic LTV system). The problem of orbital stabilization can therefore be reduced to stabilizing the trivial solution of this LTV system. We show that a previously proposed Lyapunov-based greedy design, originally developed for LTI systems, can also be extended to the corresponding linearized transverse dynamics, which take the form of a periodic LTV system. This enables the construction of a feedback controller for orbital stabilization of the robot. The effectiveness of the proposed method is demonstrated on the trajectory stabilization problem for the butterfly robot.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.37310v1",
+        "published": "2026-10-27T14:27:45Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Ali Mehrabi",
         "title": "A Resource-Efficient and Precision-Scalable FPGA Accelerator for Spiking Neural Networks Using Minifloat Arithmetic",
@@ -47882,6 +47891,15 @@
     ],
     "Surrogate Gradient": [
       {
+        "first_author": "lzmd-arch",
+        "title": "BioSNN-Plug reproduction records v0.1: measurement protocol and findings for local learning rules in spiking neural networks",
+        "abstract": "Data update (v0.2). A report-style deposit of the project's own measurement protocol and reproduction records, not the paper. What changed since v0.1. Three things were measured in between, and the attached index now carries all three. (1) The W2 official arm moved from the adaptive neuron to the non-adaptive one: LIF at lr=1e-2 over 250 epochs reaches 0.8889, replacing 0.8831 as the headline; the ALIF value remains in the record as the control, unchanged. (2) The backpropagation-through-time control arm's recipe was selected by a pre-registered sweep, and its matched-budget result was added: 0.9630 against e-prop's 0.8889, a 7.41-point gap in the control's favour. (3) A resource sweep over six recurrent layer sizes was measured; peak memory grows sub-linearly and the largest point exceeds the device. Attachments. sweep_results_README.md is the index of every reproduction record behind the reported numbers --- what each run was, its budget, its seeds, its wall clock, and the file it lives in. w2_eprop_README.en.md is the English edition of the W2 (e-prop) line's README: the pre-registered decision rules, the learning-rate sweep and its interaction with neuron type, the extended-budget run, the control arm, and the known limitations stated as limitations. Source and traceability. Code, configurations and the full evidence ledger are at https://github.com/lzmd-arch/BioSNN-Plug (public). Every number in these files traces to a per-run record; comparisons are made only at matched budgets, and gaps are reported as they are found rather than as they would be convenient. Licensing. Both attachments are repository documents and carry the repository's Apache-2.0 licence; that is the only licence this record needs. Where this is going. A full preprint describing the measurement protocol and the complete benchmark was published on 2026-10-17 as a separate record (concept doi:10.5281/zenodo.23429027; current version doi:10.5281/zenodo.23429379). The paper is deliberately not part of this deposit. Record B. The preprint is not a later version of this record, and this record is not a draft of it: they are siblings. Each keeps its own licence (this one Apache-2.0, the paper CC-BY-4.0), its own frozen attachments, and its own point in time. Related records. Record C (10.5281/zenodo.23603639) carries the P4 design notes, the synergy-benchmark criterion and the three scope rulings; Record D (10.5281/zenodo.23603642) fixes the architecture and design-decision history as of 2026-10-24.",
+        "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "link": "https://doi.org/10.5281/zenodo.23388708",
+        "published": "2026-10-16",
+        "is_arxiv": false
+      },
+      {
         "first_author": "Kaixiang He",
         "title": "FidLIF: Parallel Training of High-Fidelity Spiking Neurons with Exact BPTT",
         "abstract": "Although spiking neural networks (SNNs) show promise in energy-efficient computing through event-driven computation and stateful temporal processing, their recurrent membrane dynamics render their training inherently sequential and inefficient for long sequences. Existing methods achieve full-sequence parallelism in SNNs through two main strategies: redesigning or approximating spiking dynamics to avoid reset-coupled temporal dependencies, or relying on iterative relaxed fixed-point solvers that suffer from excessive memory costs and iteration-dependent backward overhead. To address these limitations, we present FidLIF, a novel framework that reconciles the incremental update and hard-reset behavior of standard spiking LIF neurons with parallel forward propagation and BPTT-equivalent backward propagation. FidLIF iteratively recovers the full-sequence membrane-potential trajectory in parallel. By exploiting the lower bidiagonal structure induced by the local recurrence of LIF neurons, FidLIF formulates each forward trajectory correction and backward adjoint propagation as associative scans with an $O(\\log T)$ temporal depth. This formulation also supports input-dependent neuronal parameters and allows the same neuron to perform full-sequence parallel training and incremental step-by-step inference at deployment. In our numerical convergence evaluation, FidLIF achieves a mean absolute error below $10^{-7}$ relative to the matched serial relaxed LIF dynamics, while yielding gradients numerically equivalent to exact BPTT. Our Triton implementation delivers favorable long-sequence latency and memory scaling, while achieving competitive performance on four sequential classification benchmarks. By reconciling parallel training with step-by-step execution, FidLIF enables high-fidelity spiking dynamics to benefit from parallel hardware without compromising incremental inference at deployment.",
@@ -50556,6 +50574,15 @@
       }
     ],
     "Learning Rules & STDP": [
+      {
+        "first_author": "lzmd-arch",
+        "title": "When Can Arbitration Be Measured? Mixed Local Plasticity Rules Under One Protocol",
+        "abstract": "What this is. The second paper of the BioSNN-Plug project. Two heterogeneous local plasticity rules --- an information-bottleneck Hebbian rule and e-prop --- are put on the one weight they already share, and the paper asks a narrower question than ``does mixing help'': when can arbitration between rules be measured at all? What it finds. Mixing is measurable and measured: a fixed 50/50 mixture reaches a Fisher ratio of 0.651 against 0.472 and 0.331 for the rules alone (five seeds, paired margin +0.179). Arbitration itself is negative, and measurably so: no adaptive scheme the authors could build beats the fixed mixture (paired median +0.003 against a pre-registered threshold of 0.05), the static optimum turns out to be the default value, and the only affordable objective was shown to lack discriminating power before it was used. What else is in it. Four triviality analyses --- degenerate measurements that could otherwise have been published as results --- are reported with the guards that now catch them, and the two rescue arms are reported under a pre-registration that limited them to two. What this is not. It is not a claim that arbitration is impossible: the paper's own wording distinguishes not measurable within budget from disproved, and prices the only known-valid objective at about seven hours per fit. It is also not a comparison against discrete rule switching; that comparison is analytical, and the empirical one is left as future work. Related records. The companion paper is 10.5281/zenodo.23429379; the findings-and-protocol record is 10.5281/zenodo.23388708; the P4 design notes are 10.5281/zenodo.23603639; the architecture and decision record is 10.5281/zenodo.23603642. Source and every pre-registration record live in the repository. Licence. The manuscript is CC-BY-4.0. The attached LaTeX source and bibliography are the same manuscript in source form.",
+        "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "link": "https://doi.org/10.5281/zenodo.23613538",
+        "published": "2026-10-24",
+        "is_arxiv": false
+      },
       {
         "first_author": "Aidin Attar",
         "title": "Multi-Depth Temporal Fusion for Feedforward, Locally Trained Spiking Neural Networks",
@@ -76640,6 +76667,15 @@
     ],
     "Gesture & Action Recognition": [
       {
+        "first_author": "Anthony Sánchez",
+        "title": "Keeping Inference in the Radio: Design and Measurement of a Spiking Accelerator for mmWave ISAC Activity Recognition",
+        "abstract": "Integrated sensing and communication allows wireless networks to recognize human activity from the channel estimates that the receiver computes anyway. The inference, however, runs on the general-purpose processors of the base station, access point or handset, which are the first components a device switches off to save energy. Always-on sensing therefore requires a classifier that is small enough to remain powered while the rest of the system sleeps. We investigate whether Spiking Neural Networks (SNNs) can provide such a classifier. To this end, we generate SNN accelerators for micro-Doppler activity recognition on the public DISC dataset (IEEE 802.11ay at 60 GHz) with the open-source Spiker+ framework, and implement them together with a spike encoder on a ZCU208 RFSoC, so that the complete chain from micro-Doppler frame to activity label runs in programmable logic. A fully connected SNN with 132 neurons achieves 94.7 % accuracy (90.7 % macro-F1) on unseen subjects and performs an inference in 206 microseconds. Compared to conventional networks of the same topology on the same device, it requires an eighth of the logic and 3.4X less dynamic energy per decision than a network fed the same binary spikes, at comparable accuracy, and 7.6X less than a network fed the 16-bit spectrogram, at 1.2 points lower accuracy. Quantization-aware training reduces its weights to 3 bits within half a percentage point of the 6-bit network at the same encoder threshold",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.37480v1",
+        "published": "2026-10-27T16:07:09Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Xuanle Zhao",
         "title": "Adaptive Runge-Kutta Dynamics for Spatiotemporal Prediction",
         "abstract": "Spatiotemporal prediction is important in solving natural problems and processing video frames, especially in weather forecasting and human action recognition. Recent advances attempt to incorporate prior physical knowledge into the deep learning framework to estimate the unknown governing partial differential equations (PDEs) in complex dynamics, which have shown promising results in spatiotemporal prediction tasks. However, previous approaches only restrict neural network architectures or loss functions to acquire physical or PDE features, which decreases the representative capacity of a neural network. Meanwhile, the updating process of the physical state cannot be effectively estimated. To solve the problems mentioned above, we introduce a physical-guided neural network, which utilizes an adaptive second-order Runge-Kutta method with physical constraints to model the physical states more precisely. Furthermore, we propose a frequency-enhanced Fourier module to strengthen the model’s ability to estimate the spatiotemporal dynamics. We evaluate our model on both spatiotemporal and video prediction tasks. The experimental results show that our model outperforms several state-of-the-art methods and performs the best in several spatiotemporal scenarios with a much smaller parameter count.",
@@ -88903,6 +88939,15 @@
       }
     ],
     "Image Classification": [
+      {
+        "first_author": "Ayana Moshruba",
+        "title": "Spiking Neural Networks Are Harder to Steal: A Benchmark Study of Model Stealing Attacks",
+        "abstract": "Machine learning models deployed behind query interfaces expose more than their predictions, because an adversary can use those predictions to rebuild the model itself. Model stealing attacks (MSAs) exploit this exposure by training a surrogate model that replicates the decision behavior of a target through black-box queries alone, without access to its parameters or training data. These attacks are well characterized for conventional artificial neural networks (ANNs), yet spiking neural networks (SNNs) process information in a fundamentally different way. SNNs communicate through sparse, discrete spikes, and their outputs depend on membrane potentials that evolve over time rather than on a static mapping from input to output. This temporal mode of computation suggests that the decision behavior of an SNN may be harder to reconstruct from its responses. This work tests that possibility by benchmarking four representative MSAs, namely the Papernot, Tramèr, T-RND, and color perturbation attacks, against SNNs and their ANN counterparts on MNIST, Fashion-MNIST, and CIFAR-10. Across every attack and dataset, SNNs prove consistently more difficult to steal. Surrogates of SNNs achieve 10% to 20% lower agreement with the target model and 15% to 25% lower adversarial transferability than surrogates of ANNs. We attribute this resistance to the way SNNs compute, as their spike-based and time-dependent dynamics yield decision boundaries that ANN-based surrogates struggle to approximate, even under large query budgets. These findings extend the known resilience of SNNs beyond attacks on training data to the replication of model functionality, strengthening the case for neuromorphic architectures in security-sensitive applications.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.36298v1",
+        "published": "2026-10-26T21:24:08Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Yujia Liu",
         "title": "Controllable Stochastic Quantization Encoding for Adversarially Robust Spiking Neural Networks",
@@ -104476,6 +104521,15 @@
     ],
     "Model Compression": [
       {
+        "first_author": "Arooba Farhan",
+        "title": "Hardware-Matched Spiking Neural Networks for Real-Time Purkinje Cell Spike Classification",
+        "abstract": "Distinguishing Purkinje cell (PC) simple spikes (SSs) from complex spikes (CSs) is key to studying cerebellar function. PC recordings commonly rely on wired headstages, whose tethers restrict natural movement in freely behaving animals. Untethered headstages remove this constraint, but cannot continuously transmit raw recordings within their power budgets, making on-headstage spike classification an attractive form of compression, provided it runs accurately in real time on constrained hardware. This work presents two compact spiking neural networks (SNNs) matched to their target hardware: ConvSNN, which maps to the Matrix Vector Processor (MVP) of an EFM32PG28 microcontroller, and StreamSNN, which processes one waveform value per timestep using learned time constants and fixed synaptic delays for a dedicated SKY130 circuit. Evaluated on cells unseen during training, ConvSNN achieves a CS F1 of 0.873 with 1,018 parameters and StreamSNN 0.837 with 527 parameters, both with eight-bit weights. On the microcontroller, MVP acceleration reduces ConvSNN latency by 62.3\\% and extends estimated battery life to 33.73~hours on a 50~mAh battery. In SKY130, StreamSNN occupies 0.173~mm$^2$ and consumes 0.46~$μ$J per event, with 0.2~ms of computation within an 8.3~ms end-to-end latency.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.37104v1",
+        "published": "2026-10-27T12:05:38Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Christian Soize",
         "title": "Physics-informed random neural architectures on compact boundaryless multiply connected manifolds for random-operator models in machine learning and uncertainty quantification",
         "abstract": "We introduce stochastic physics-informed neural networks (SPINNs) for stochastic boundary-value problems (SBVPs) with random operators. The method enforces physics through a structural probabilistic coupling: a common Gaussian stochastic germ drives both the SBVP random operator and a manifold-based stochastic neural architecture. The stochastic neural network is non-feedforward and intrinsically random. A latent Gaussian field and an inhomogeneous Poisson point process on a compact, boundaryless, multiply connected manifold generate random neuron locations, geodesically local sparse connectivity, and a sparse random weight matrix, all governed by a low-dimensional hyperparameter. For deterministic inputs, the network output is random and can represent non-Gaussian random operators. Training is performed in observation space: SBVP simulations produce random observables, while the SNN defines a predictive conditional probability density function. The supervised objective combines data fidelity, through negative log-likelihood, with a cross-entropy alignment term relative to the SBVP-induced conditional distribution. The resulting target is a convex mixture of observation-induced and SBVP-induced distributions, with a dimensionless parameter controlling robustness to model--data mismatch. The shared stochastic germ yields common-random-numbers Monte Carlo estimators and reduced-variance gradients. The method uses only evaluations of the SBVP solution mapping, without differentiating or modifying it, and avoids PDE-residual or boundary-penalty losses. A stochastic elliptic problem on a periodic cylindrical surface illustrates the approach in SBVP-consistent and SBVP-misspecified regimes. A generalized-posterior formulation is also outlined for hyperparameter inference and posterior averaging without per-query reoptimization.",
@@ -113637,6 +113691,26 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Host Range": [
+      {
+        "first_author": "Nazia Thakur",
+        "title": "Breadth of ACE2 receptor usage predicts host range and antigenic relatedness across bat sarbecoviruses",
+        "abstract": "Sarbecoviruses interact with their receptor, angiotensin-converting enzyme 2 (ACE2), via the receptor-binding domain (RBD) of Spike, the immunodominant target for neutralising antibodies. Understanding the interplay and correlation between ACE2-determined host range and antigenicity is vitally important for understanding the zoonotic potential of related bat sarbecoviruses. Using binding assays, pseudotype-entry assays and a diverse panel of mammalian ACE2 proteins, we examined the host range and related antigenicity of multiple bat coronaviruses. Broad bat ACE2 usage (a generalist phenotype) was most common in clade 1 sarbecoviruses, including SARS-CoV-2 and the BANAL isolates from Laos. In contrast, clade 3 (e.g., RhGB07) and 5 (e.g., Rc-o319) sarbecoviruses exhibited more restricted ACE2 usage (a specialist phenotype). A novel structure for RhGB07 Spike further helped to identify RBD residues associated with this receptor specialism. Interestingly, the generalist phenotypes were largely maintained with more diverse mammalian receptor libraries, including human, non-human primate, livestock, rodent ACE2 and potential intermediate reservoir hosts (e.g., civet, racoon dog, pangolin), while specialists, like RhGB07, exhibited wider phenotypic diversity. The impact of SARS-CoV-2's continued evolution in humans was also examined, identifying an expanding and/or shifting pattern of generalism for variants, especially Omicron and its sub-lineages. Furthermore, we compared and correlated these entry phenotypes with antigenicity using sera from SARS-CoV-2 convalescent individuals. Clade 1 viruses, phylogenetically related to SARS-CoV-2, were antigenically the most similar, with robust evidence for cross-neutralisation; however, there was still evidence for limited cross-neutralisation across the entire sub-genus. Finally, using monoclonal antibodies, derived from COVID-19 vaccinees with breakthrough infections, we pin-pointed the antibody epitope classes responsible for wider neutralisation. Our research indicates that generalist ACE2-using sarbecoviruses are phylogenetically and antigenically related to SARS-CoV-2.",
+        "venue": "PLoS Biology",
+        "link": "https://doi.org/10.1371/journal.pbio.3003944",
+        "published": "2026-10-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Nazia Thakur",
+        "title": "Understanding the future risk of bat coronavirus spillover into humans – correlating sarbecovirus receptor usage, host range, and antigenicity",
+        "abstract": "Abstract Sarbecoviruses interact with their receptor, angiotensin converting enzyme 2 (ACE2), via the receptor binding domain (RBD) of Spike, the immunodominant target for neutralising antibodies. Understanding the interplay and correlation between ACE2-determined host range and antigenicity is vitally important for understanding the zoonotic potential of related bat sarbecoviruses. Using binding assays, pseudotype-entry assays and a diverse panel of mammalian ACE2 proteins, we examined the host range and related antigenicity of multiple bat coronaviruses. Broad bat ACE2 usage (a generalist phenotype) was most common in clade 1 sarbecoviruses, including SARS-CoV-2 and the BANAL isolates from Laos. In contrast, clade 3 (e.g., RhGB07) and 5 (e.g., Rc-o319) sarbecoviruses exhibited more restricted ACE2 usage (a specialist phenotype). A novel structure for RhGB07 Spike further helped to identify RBD residues associated with this receptor specialism. Interestingly, the generalist phenotypes were largely maintained with more diverse mammalian receptor libraries, including human, non-human primate, livestock, rodent ACE2 and potential intermediate reservoir hosts (e.g., civet, racoon dog, pangolin), while specialists, like RhGB07, exhibited wider phenotypic diversity. The impact of SARS-CoV-2’s continued evolution in humans was also examined, identifying an expanding and/or shifting pattern of generalism for variants, especially Omicron and its sub-lineages. Furthermore, we compared and correlated these entry phenotypes with antigenicity using sera from SARS-CoV-2 convalescent individuals. Clade 1 viruses, phylogenetically related to SARS-CoV-2, were antigenically the most similar, with robust evidence for cross-neutralisation; however, there was still evidence for limited cross-neutralisation across the entire sub-genus. Finally, using monoclonal antibodies, derived from COVID-19 vaccinees with breakthrough infections, we pin-pointed the antibody epitope classes responsible for wider neutralisation. Our research indicates that generalist ACE2-using sarbecoviruses are phylogenetically and antigenically related to SARS-CoV-2.",
+        "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "link": "https://doi.org/10.1101/2025.09.03.673949",
+        "published": "2025-09-08",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Effects Spatial Constraints": [
       {
         "first_author": "Felix Benjamin Kern",
@@ -113646,6 +113720,17 @@
         "link": "https://doi.org/10.1371/journal.pcbi.1014798",
         "published": "2026-10-01",
         "is_arxiv": false
+      }
+    ],
+    "Topic: Temporal Dynamics": [
+      {
+        "first_author": "Ayana Moshruba",
+        "title": "Characterizing Privacy Leakage in Spiking Neural Networks: A Systematic Analysis of Temporal Dynamics, Stochasticity, Neuronal Dynamics and Learning Mechanisms",
+        "abstract": "Spiking neural networks (SNNs) encode information not only in whether neurons fire but also in when they fire, and this temporal dimension shapes what a trained network reveals about its training data. Biologically inspired firing patterns can reduce membership leakage in SNNs without changing the network architecture, which positions temporal dynamics as a design variable for privacy. A change in firing behavior, however, alters stochasticity, spike timing, neuronal response, and the learning problem at once, so harnessing this effect requires identifying which of these properties produces it. This study traces that origin by separating temporal representation, stochasticity, intrinsic neuron dynamics, and learning within a common experimental framework, evaluated under a black-box membership inference attack across image and tabular benchmarks. Varying the temporal representation shows that burst-like firing patterns reduce leakage relative to regular spiking, but at a cost in accuracy. Injecting randomness into the input, spike timing, and spike trains does not reproduce this reduction in leakage, which shows that the reduction arises from how spikes are arranged in time rather than from noise. The privacy benefit further depends on where these firing patterns originate. When neurons generate these patterns through their own adaptive dynamics, leakage falls while accuracy is preserved, so privacy no longer comes at the expense of performance. The learning algorithm then sets the baseline leakage. Under evolutionary training, the attack already performs near chance level, leaving temporal dynamics little room to improve privacy further. Privacy in SNNs is therefore not an inherent property of spikes but a product of how temporal activity is generated, processed, and learned, which offers a principled basis for designing neuromorphic systems that protect sensitive data.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.36243v1",
+        "published": "2026-10-26T20:22:06Z",
+        "is_arxiv": true
       }
     ],
     "Topic: Hadrons Rhic Lhc": [
@@ -129018,17 +129103,6 @@
         "abstract": "Understanding acute infectious disease dynamics at individual and population levels is critical for informing public health preparedness and response. Serological assays, which measure a range of biomarkers relating to humoral immunity, can provide a valuable window into immune responses generated by past infections and vaccinations. However, traditional methods for interpreting serological data, such as binary seropositivity and seroconversion thresholds, often rely on heuristics that fail to account for individual variability in antibody kinetics and timing of infection, potentially leading to biased estimates of infection rates and post-exposure immune responses. To address these limitations, we developed serojump, a novel probabilistic framework and software package that uses individual-level serological data to infer infection status, timing, and subsequent antibody kinetics. We validated serojump using simulated serological data and real-world SARS-CoV-2 datasets from The Gambia. In simulation studies, the model accurately recovered individual infection status, population-level antibody kinetics, and the relationship between biomarkers and immunity against infection, demonstrating robustness under observational noise. Benchmarking against standard serological heuristics in real-world data revealed that serojump achieves higher sensitivity in identifying infections, outperforming static threshold-based methods and precision in inferred infection timing. Application of serojump to longitudinal SARS-CoV-2 serological data taken during the Delta wave provided additional insights into i) missed infections based on sub-threshold rises in antibody level and ii) antibody responses to multiple biomarkers post-vaccination and infection. Our findings highlight the utility of serojump as a pathogen-agnostic, flexible tool for serological inference, enabling deeper insights into infection dynamics, immune responses, and correlates of protection. The open-source framework offers researchers a platform for extracting information from serological datasets, with potential applications across various infectious diseases and study designs.",
         "venue": "PLoS Computational Biology",
         "link": "https://doi.org/10.1371/journal.pcbi.1013467",
-        "published": "2025-09-08",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Host Range": [
-      {
-        "first_author": "Nazia Thakur",
-        "title": "Understanding the future risk of bat coronavirus spillover into humans – correlating sarbecovirus receptor usage, host range, and antigenicity",
-        "abstract": "Abstract Sarbecoviruses interact with their receptor, angiotensin converting enzyme 2 (ACE2), via the receptor binding domain (RBD) of Spike, the immunodominant target for neutralising antibodies. Understanding the interplay and correlation between ACE2-determined host range and antigenicity is vitally important for understanding the zoonotic potential of related bat sarbecoviruses. Using binding assays, pseudotype-entry assays and a diverse panel of mammalian ACE2 proteins, we examined the host range and related antigenicity of multiple bat coronaviruses. Broad bat ACE2 usage (a generalist phenotype) was most common in clade 1 sarbecoviruses, including SARS-CoV-2 and the BANAL isolates from Laos. In contrast, clade 3 (e.g., RhGB07) and 5 (e.g., Rc-o319) sarbecoviruses exhibited more restricted ACE2 usage (a specialist phenotype). A novel structure for RhGB07 Spike further helped to identify RBD residues associated with this receptor specialism. Interestingly, the generalist phenotypes were largely maintained with more diverse mammalian receptor libraries, including human, non-human primate, livestock, rodent ACE2 and potential intermediate reservoir hosts (e.g., civet, racoon dog, pangolin), while specialists, like RhGB07, exhibited wider phenotypic diversity. The impact of SARS-CoV-2’s continued evolution in humans was also examined, identifying an expanding and/or shifting pattern of generalism for variants, especially Omicron and its sub-lineages. Furthermore, we compared and correlated these entry phenotypes with antigenicity using sera from SARS-CoV-2 convalescent individuals. Clade 1 viruses, phylogenetically related to SARS-CoV-2, were antigenically the most similar, with robust evidence for cross-neutralisation; however, there was still evidence for limited cross-neutralisation across the entire sub-genus. Finally, using monoclonal antibodies, derived from COVID-19 vaccinees with breakthrough infections, we pin-pointed the antibody epitope classes responsible for wider neutralisation. Our research indicates that generalist ACE2-using sarbecoviruses are phylogenetically and antigenically related to SARS-CoV-2.",
-        "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-        "link": "https://doi.org/10.1101/2025.09.03.673949",
         "published": "2025-09-08",
         "is_arxiv": false
       }
