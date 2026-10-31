@@ -1,12 +1,21 @@
 {
-  "generated_at_utc": "2026-10-30T00:32:22.066019+00:00",
+  "generated_at_utc": "2026-10-31T00:27:05.892160+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30451,
+  "total_papers": 30456,
   "categories": {
     "LLM": [
+      {
+        "first_author": "Volker Kempe",
+        "title": "AI at a Turning Point: From ChatGPT through Neural Networks to Neuromorphic AI",
+        "abstract": "The tension between the established technologies of connectionist AI and their neuromorphic challengers is attracting growing attention, above all because of the enormous energy demand of the former and the low power consumption of the latter. Developing and running large AI models consumes gigawatt- to terawatt-hours of energy, while the human brain operates on a continuous 20 watts. Spiking neural networks (SNNs) counter this energy demand with a frugal approach and bring elements of self-organization into the methodological repertoire of AI: local learning instead of global error backpropagation, event-driven computing, and time as a carrier of information. They do not replace today's AI but extend it; in hybrid systems each approach can be deployed where its strengths lie. This monograph explains the field in a generally accessible yet mathematically rigorous way. Using the text-generation module of ChatGPT as an example, the principle, elegance, and computational cost of transformer-based AI are presented and compared with the coding, learning, and network-design methods of SNNs. Throughout, relevant mechanisms of the human nervous system serve as model and reference point. Topics include spike-timing-dependent plasticity, population and temporal coding, the Neural Engineering Framework, neuromorphic hardware from Loihi 2 to commercial edge processors, and the prospects for classical and neuromorphic AI to complement and extend each other.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.39796v1",
+        "published": "2026-10-29T10:44:04Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Ning Liu",
         "title": "PAFS: Perturbation-Aware Firing Scaffolds for Robust Event-Based SNNs",
@@ -6273,6 +6282,15 @@
       }
     ],
     "Object Detection": [
+      {
+        "first_author": "Leonardo E. S. Tavares",
+        "title": "Recognition of auditory objects from continuous and ultra-sparse spike streams in neuromorphic devices",
+        "abstract": "Energy consumption is a major concern for modern artificial intelligence (AI) applications. The brain is thought to achieve energy-efficient computation through sparse coding schemes. By emulating the spiking dynamics of the brain, neuromorphic chips hold the potential to realize energy-efficient AI. In this work, we use birdsong to demonstrate that auditory object recognition can be achieved using ultra-sparse coding. Feature-detecting neurons tuned to short temporal features ($\\sim$37 ms), sampled from exemplar syllables, transform continuous auditory signals into streams of ultra-sparse spikes that mark the onsets and offsets of features within the signal. Spike patterns elicited by the exemplars are stored as templates. During recognition, template matching is performed using axonal delays between feature-detecting and template-detecting neurons. Recognition is further enhanced by an additional group of specialized binary neurons trained to discriminate between syllable categories with subtle differences. When tested on Bengalese finch songs, our approach achieved error rates below 5% using 10 to 40 exemplars per syllable type. We then implemented this recognition algorithm using spiking neural networks on Intel's neuromorphic chip, Loihi, and found that response latencies remain constant (approximately 17 ms per syllable), regardless of the number of templates used. Our results demonstrate the potential of neuromorphic chips for low-latency, low-energy recognition of complex sounds, including speech.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.38564v1",
+        "published": "2026-10-28T09:58:41Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Kai Sun",
         "title": "SpikeQ: Spike-Guided Post-Training Quantization for Spiking Neural Networks",
@@ -47891,6 +47909,15 @@
     ],
     "Surrogate Gradient": [
       {
+        "first_author": "Pablo Sorrentino",
+        "title": "Hardware-Aware Model Inversion in Memristive Spiking Neural Networks",
+        "abstract": "Hardware-accelerated spiking neural networks (SNNs) implemented on memristive crossbar arrays offer significant gains in energy efficiency, while device variability and analog noise are sometimes assumed to hinder information extraction. However, whether these hardware effects improve, preserve, or degrade privacy after deployment remains largely unexplored. Therefore, we ask whether model-inversion leakage characterized on an SNN remains representative after the same model is mapped to a non-ideal memristive substrate, and how hardware non-idealities and reliability faults affecting synapses, neuron thresholds, and spike processing reshape that leakage. To study this problem, we introduce Spiking Domain Model Inversion (SDMI), an inversion method that combines Expectation over Transformation (EOT) with surrogate gradients to optimize inputs through stochastic analog behavior and non-differentiable spiking dynamics. We use SDMI consistently across the SNN model, its memristive SNN, and the same memristive SNN under additional hardware perturbations. Across four datasets, reconstruction leakage does not vary monotonically with model accuracy or hardware variability. At comparable accuracy levels, neuron-threshold perturbations increase reconstruction fidelity, measured by SSIM, by up to 51.8%, whereas spike-level perturbations primarily degrade utility without consistently improving reconstruction. Weight noise, in contrast, reduces leakage under the same inversion procedure. These results show that hardware variability is not inherently privacy-preserving: model inversion leakage in memristive SNNs depends on the hardware state and cannot be inferred from model accuracy alone.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.39688v1",
+        "published": "2026-10-29T09:29:38Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "lzmd-arch",
         "title": "BioSNN-Plug reproduction records v0.1: measurement protocol and findings for local learning rules in spiking neural networks",
         "abstract": "Data update (v0.2). A report-style deposit of the project's own measurement protocol and reproduction records, not the paper. What changed since v0.1. Three things were measured in between, and the attached index now carries all three. (1) The W2 official arm moved from the adaptive neuron to the non-adaptive one: LIF at lr=1e-2 over 250 epochs reaches 0.8889, replacing 0.8831 as the headline; the ALIF value remains in the record as the control, unchanged. (2) The backpropagation-through-time control arm's recipe was selected by a pre-registered sweep, and its matched-budget result was added: 0.9630 against e-prop's 0.8889, a 7.41-point gap in the control's favour. (3) A resource sweep over six recurrent layer sizes was measured; peak memory grows sub-linearly and the largest point exceeds the device. Attachments. sweep_results_README.md is the index of every reproduction record behind the reported numbers --- what each run was, its budget, its seeds, its wall clock, and the file it lives in. w2_eprop_README.en.md is the English edition of the W2 (e-prop) line's README: the pre-registered decision rules, the learning-rate sweep and its interaction with neuron type, the extended-budget run, the control arm, and the known limitations stated as limitations. Source and traceability. Code, configurations and the full evidence ledger are at https://github.com/lzmd-arch/BioSNN-Plug (public). Every number in these files traces to a per-run record; comparisons are made only at matched budgets, and gaps are reported as they are found rather than as they would be convenient. Licensing. Both attachments are repository documents and carry the repository's Apache-2.0 licence; that is the only licence this record needs. Where this is going. A full preprint describing the measurement protocol and the complete benchmark was published on 2026-10-17 as a separate record (concept doi:10.5281/zenodo.23429027; current version doi:10.5281/zenodo.23429379). The paper is deliberately not part of this deposit. Record B. The preprint is not a later version of this record, and this record is not a draft of it: they are siblings. Each keeps its own licence (this one Apache-2.0, the paper CC-BY-4.0), its own frozen attachments, and its own point in time. Related records. Record C (10.5281/zenodo.23603639) carries the P4 design notes, the synergy-benchmark criterion and the three scope rulings; Record D (10.5281/zenodo.23603642) fixes the architecture and design-decision history as of 2026-10-24.",
@@ -88940,6 +88967,15 @@
     ],
     "Image Classification": [
       {
+        "first_author": "Nhan Trong Luu",
+        "title": "GC-LIF: Spiking Group-Equivariant Neural Network With Group-Coupled Membrane Dynamics",
+        "abstract": "Spiking neural networks (SNNs) promise event-driven, low-power inference, but on vision tasks they still acquire rotation invariance only through data augmentation. Group-equivariant CNNs build such symmetries into the architecture, yet a faithful spiking analogue is missing: a leaky integrate-and-fire (LIF) neuron placed after a $G$-equivariant convolution can break equivariance through its membrane recurrence. We give a necessary and sufficient condition for this not to happen. The layer is equivariant at every time step if and only if the neuron parameters $(β, v_{\\mathrm{th}})$ are constant along the joint orbits of the group action on the (group, space) index. We solve it in closed form, and it covers any elementwise stateful neuron. Its sufficiency half specialises a known result for equivariant recurrent networks; its necessity half rules out the heterogeneous per-neuron parameters common in SNNs. The per-channel parameterisation that satisfies it, Group-Coupled LIF (GC-LIF), is combined with $p4$ and $p4m$-equivariant convolutions and a spike-rate group max-pool into SGE-Net. On MNIST, KMNIST, Fashion-MNIST, CIFAR-10 and CIFAR-100, evaluating each checkpoint on the clean test set and all its group-transformed copies, SGE-Net trained without rotations is invariant under $C_4$ and $D_4$ and outperforms a plain SNN trained with rotations in nine of ten dataset-group pairs, whereas non-equivariant baselines lose up to $72$ percentage points in the worst case. Operator-level tests confirm the theory before and after training, and an analytical estimate places SGE-Net at $1.7\\times$ the arithmetic energy of a standard CNN and $2.3\\times$ below its ANN counterpart at eight time steps.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.39601v1",
+        "published": "2026-10-29T08:39:42Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Ayana Moshruba",
         "title": "Spiking Neural Networks Are Harder to Steal: A Benchmark Study of Model Stealing Attacks",
         "abstract": "Machine learning models deployed behind query interfaces expose more than their predictions, because an adversary can use those predictions to rebuild the model itself. Model stealing attacks (MSAs) exploit this exposure by training a surrogate model that replicates the decision behavior of a target through black-box queries alone, without access to its parameters or training data. These attacks are well characterized for conventional artificial neural networks (ANNs), yet spiking neural networks (SNNs) process information in a fundamentally different way. SNNs communicate through sparse, discrete spikes, and their outputs depend on membrane potentials that evolve over time rather than on a static mapping from input to output. This temporal mode of computation suggests that the decision behavior of an SNN may be harder to reconstruct from its responses. This work tests that possibility by benchmarking four representative MSAs, namely the Papernot, Tramèr, T-RND, and color perturbation attacks, against SNNs and their ANN counterparts on MNIST, Fashion-MNIST, and CIFAR-10. Across every attack and dataset, SNNs prove consistently more difficult to steal. Surrogates of SNNs achieve 10% to 20% lower agreement with the target model and 15% to 25% lower adversarial transferability than surrogates of ANNs. We attribute this resistance to the way SNNs compute, as their spike-based and time-dependent dynamics yield decision boundaries that ANN-based surrogates struggle to approximate, even under large query budgets. These findings extend the known resilience of SNNs beyond attacks on training data to the replication of model functionality, strengthening the case for neuromorphic architectures in security-sensitive applications.",
@@ -113688,6 +113724,17 @@
         "venue": "Insecta mundi",
         "link": "https://openalex.org/W3021974747",
         "published": "2020-01-01",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Neuroscientist Need Know": [
+      {
+        "first_author": "James C. R. Whittington",
+        "title": "How much neuroscience does a neuroscientist need to know?",
+        "abstract": "How much of the brain’s learned algorithms depend on the fact it is a brain? We argue: a lot, but surprisingly few details matter. We point to simple biological details—e.g. nonnegative firing and energetic/space budgets in connectionist architectures—which, when mixed with the requirements of solving a task, produce models that predict brain responses down to single-neuron tuning. We understand this as details constraining the set of plausible algorithms and their implementations, such that only ‘brain-like’ algorithms are learned. In particular, each biological detail breaks a symmetry in connectionist models (scale, rotation and permutation) leading to interpretable single-neuron responses that are meaningfully characteristic of particular algorithms. This view helps us not only understand the brain’s choice of algorithm but also infer algorithm from measured neural responses. Further, this perspective aligns computational neuroscience with mechanistic interpretability in artificial intelligence (AI), suggesting a more unified approach to studying the mechanisms of intelligence, both natural and artificial.",
+        "venue": "Current Opinion in Neurobiology",
+        "link": "https://doi.org/10.1016/j.conb.2026.103287",
+        "published": "2026-10-29",
         "is_arxiv": false
       }
     ],
