@@ -1,12 +1,21 @@
 {
-  "generated_at_utc": "2026-11-01T00:31:40.656760+00:00",
+  "generated_at_utc": "2026-11-02T00:28:54.833336+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30459,
+  "total_papers": 30460,
   "categories": {
     "LLM": [
+      {
+        "first_author": "Jinyao Shen",
+        "title": "Emergence Without Scale: Dynamics and Organisation Tested Against the Substrate Bet in a Spiking Architecture",
+        "abstract": "What this is. Why intelligence emerges is usually asked as a question about scale. This paper tests the opposite bet --- that dynamics (global state variables that bias learning) and organisation (the arrangement of rules and modules) can carry a system further than substrate size would suggest --- and reports what an instrument built to test it measured. Three pre-registered readings. First, two local rules sharing one weight: a fixed 50/50 mixture is measurable (Fisher ratio 0.651 against 0.472 and 0.331), while choosing the mixing weight is not --- no adaptive scheme beats the fixed mixture, and the static optimum is the default value. Second, a cognitive layer of working memory (0.9269/0.9276), episodic memory (0.805; 0.922 at K=4), metacognitive gating across several OOD families, a world model with a termination head (AUROC 1.0 in receding-horizon closed loop), and a state-level end-to-end gate at 18/18. Third, orchestration by a replaceable language model: real dialogue passes every criterion, while the same spiking trigger that passes on a synthetic salience stream fails on a real one (AUC 0.732 against 0.7475 for a plain novelty gate, one trigger per conversation). What it implies. From those failures the paper derives an architectural rule: writes belong to the dynamics, the language model may only propose, and the bus is the only door. A released implementation is described --- a read-only, per-call-audited MCP server with four read tools and five proposal tools, a gate-mediated write path specified against six pre-registered criteria (specified, not yet built), and a host that enforces read-only at the storage engine. Where the numbers live. Every number traces to a reproduction record in the linked repository; negative results are reported with the same care as positive ones. v1.1 (2026-10-31). The author line now carries the Chinese name (沈锦垚) as an embedded vector graphic; no results, numbers or wording changed. v1.2 (2026-10-31). Typesetting and pointer fixes only; no result, number or claim changed. (1) Table 5's first column -- the Chinese section names of the pre-registration record -- was blank in v1.1 because no CJK font was loaded; it now renders. (2) Tables 1 and 2 ran past the right margin and their result column was clipped; they are re-typeset with fixed-width columns. (3) The availability section cited the superseded companion and self records; it now gives the concept DOIs of Paper A (10.5281/zenodo.23817506) and of this manuscript (10.5281/zenodo.23817510).",
+        "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "link": "https://doi.org/10.5281/zenodo.23817510",
+        "published": "2026-10-30",
+        "is_arxiv": false
+      },
       {
         "first_author": "Volker Kempe",
         "title": "AI at a Turning Point: From ChatGPT through Neural Networks to Neuromorphic AI",
@@ -113751,7 +113760,7 @@
       {
         "first_author": "Alain Lucien Éric Tourrette",
         "title": "Nodules impulsionnels frugaux",
-        "abstract": "Note de recherche et dépôt complet (code, bilans, vérifications) sur des réseaux de neurones impulsionnels frugaux : neurone, grappe, nodule, ganglion. Expériences E8 à E13b. Résultat principal : sur les mêmes neurones, un lecteur unique qui écoute toutes les grappes (le coordinateur) tient des labyrinthes bien plus grands que le vote des nodules, dont les erreurs sont corrélées. Versions française et anglaise. Research note and complete repository (code, summaries, checks) on frugal spiking neural networks: neuron, cluster, nodule, ganglion. Experiments E8 to E13b. Main result: on the same neurons, a single reader listening to all clusters (the coordinator) holds much larger mazes than the nodules' vote, whose errors are correlated. French and English versions.",
+        "abstract": "Note de recherche et dépôt complet (code, bilans, vérifications) sur des réseaux de neurones impulsionnels frugaux, organisés en quatre niveaux : neurone, grappe, nodule, ganglion. Expériences E8 à E13b. Ce travail établit des règles de dimensionnement de ces structures en fonction de leur coût énergétique et de leur efficacité : combien de neurones, de grappes et de nodules sont nécessaires pour une tâche donnée, et à partir de quel seuil ajouter des neurones ne paie plus. Résultat principal : sur les mêmes neurones, un lecteur unique qui écoute toutes les grappes (le coordinateur) tient des labyrinthes bien plus grands que le vote des nodules, dont les erreurs sont corrélées. Ce résultat sur la coordination et le vote est prolongé, dans les institutions collectives, par deux notes ultérieures (voir Related works). Versions française et anglaise. Research note and complete repository (code, summaries, checks) on frugal spiking neural networks, organised in four levels: neuron, cluster, nodule, ganglion. Experiments E8 to E13b. This work establishes sizing rules for these structures based on their energy cost and efficiency: how many neurons, clusters and nodules a given task requires, and the threshold beyond which adding neurons no longer pays off. Main result: on the same neurons, a single reader listening to all clusters (the coordinator) handles much larger mazes than the vote of the nodules, whose errors are correlated. This result on coordination versus voting is extended to collective institutions in two later notes (see Related works). French and English versions.",
         "venue": "Zenodo (CERN European Organization for Nuclear Research)",
         "link": "https://doi.org/10.5281/zenodo.23271527",
         "published": "2026-10-10",
