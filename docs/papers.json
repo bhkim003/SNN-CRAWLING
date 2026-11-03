@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-02T00:28:54.833336+00:00",
+  "generated_at_utc": "2026-11-03T00:26:49.088603+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30460,
+  "total_papers": 30464,
   "categories": {
     "LLM": [
       {
@@ -19717,6 +19717,15 @@
     ],
     "Neuromorphic Hardware": [
       {
+        "first_author": "Aashman Mehta",
+        "title": "Input-dependent Neuromodulation Enhances Mixed-Signal Neuromorphic Hardware",
+        "abstract": "Gating mechanisms allow a fixed neural network to adapt its computation to the current input by dynamically modulating its effective parameters. In the brain, neuromodulation uses this principle to move neural circuits between dynamical regimes, and deep learning exploits input-dependent gating, e.g., in gated recurrent networks and self-attention. Input-dependent modulation has also recently been shown to improve spiking neural networks, with particularly strong benefits in small, parameter-limited ones. This makes neuromodulation especially promising for neuromorphic processors at the edge, where area, memory and energy budgets constrain network size, while circuit physics limits parameter precision. Here we demonstrate input-dependent, within-trial neuromodulation of a spiking recurrent neural network on a mixed-signal neuromorphic processor. An off-chip modulator reads the on-chip network's input and activity and adjusts its population-level gains while the chip's analog circuits compute with the physics of the silicon. Neuromodulation raises binary spoken-digit classification accuracy by $+17.3 \\pm 10.4$ percentage points, tested across five hardware network instantiations.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.41265v1",
+        "published": "2026-10-30T05:14:35Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Yuli Zha",
         "title": "Robust Representation Learning for Spiking Neural Networks based on Conditional Information Bottleneck",
         "abstract": "Spiking Neural Networks (SNNs) have shown great potential for low-power neuromorphic computing due to their event-driven processing and spatiotemporal sparsity, but they remain vulnerable to input perturbations, hardware-intrinsic noise, and adversarial attacks in real-world deployment. We attribute this vulnerability partly to input-specific hidden representations learned by standard SNNs trained with conventional cross-entropy loss, as our information-plane analysis empirically shows that substantial input-related information can still be retained after label-predictive information becomes stable. To address this issue, we propose SCIB, a simple yet effective robust learning objective for SNNs based on the Conditional Information Bottleneck. Different from conventional variational IB methods, SCIB replaces the mutual information compression term $I(X;S)$ with the conditional mutual information $I(X;S|Y)$ and derives a tractable variational upper bound. Moreover, it introduces a learnable class-conditional prior instead of a label-agnostic isotropic Gaussian prior, improving the expressiveness of variational compression and encouraging class-structured representations when combined with the supervised classification objective. Systematic experiments on Fashion-MNIST, CIFAR-10, and CIFAR-100 under external environmental noise, neuromorphic hardware noise, and adversarial attacks show that SCIB improves robustness over standard SNNs and IB-based baselines under most evaluated noise conditions, improves adversarial accuracy under the evaluated attacks without using adversarial training, and reduces the SynOps-based single-sample inference energy consumption by 24.9% relative to an unconstrained SNN baseline.",
@@ -19742,6 +19751,15 @@
         "link": "https://arxiv.org/abs/2610.24696v1",
         "published": "2026-10-17T13:50:11Z",
         "is_arxiv": true
+      },
+      {
+        "first_author": "lzmd-arch",
+        "title": "Local Learning Rules Under Honest Measurement: A Reproducibility-First Benchmark of e-prop, Hebbian, and R-STDP on Consumer Hardware",
+        "abstract": "What changed in v1.1. Same benchmark, same numbers: this version corrects the references and the title page. Four citations now point at their published versions instead of the preprints — Korcsák-Gorzo et al., Neuromorphic Computing and Engineering 6(3):034024, 2026; Lin et al., IEEE Access 13:113606–113617, 2025; Yik et al., Nature Communications 16:1545, 2025; Shen et al., NeurIPS 2025, doi:10.52202/085713-5334 — and two entries gained their volume or article number. The sibling findings record is now cited by concept DOI with its current version. The draft-revision stamp was removed from the title page, because the paper is no longer a draft. No reported number changed; v1.1 differs from v1.0 in the reference list, the availability paragraph and the title block only. What this is. A reproducibility-first benchmark of local learning rules for spiking neural networks — e-prop (LIF and ALIF), kernelized information-bottleneck Hebbian feature learning, and reward-modulated STDP with a TD-LTP critic — compared within one paper, under one measurement protocol, at matched budgets, on one consumer GPU. This deposit is the full preprint itself (record B), not the findings record. Four findings, two of them uncomfortable. The neuron model is not a detail: with everything else fixed and five seeds per point, a non-adaptive LIF neuron beats the adaptive ALIF neuron at every learning rate swept (0.93–1.23 pp). e-prop with LIF reaches 0.8889 on sequential MNIST, but only after an eight-fold budget extension, and the plateau criterion was pre-registered before the run. A matched-budget backpropagation-through-time control, each side tuned at its own best recipe, reaches 0.9630 — 7.41 points ahead, the largest effect measured anywhere in the paper. And the same local pipeline does not learn SHD at all (5.34% against a 5% chance level). The paper also reports GPU-memory and wall-clock measurements, including what each local rule's own state costs, rather than what the rule costs at inference only. What is attached. The preprint as a PDF (20 pages). The LaTeX source, every configuration and every per-run record are in the public repository at https://github.com/lzmd-arch/BioSNN-Plug; commit 508c6b3 is the exact source of this PDF. Every number in the paper traces to a directory of per-run JSON files, each carrying the configuration that produced it, and both figures regenerate from those records with a single script. Sibling record. The measurement protocol and the findings record are deposited separately at https://doi.org/10.5281/zenodo.23388708 (concept DOI). That record is a dated snapshot of the project's own records, not a draft of this paper; a reader who lands on it should follow its own update notes rather than this one. Licensing. This paper is CC-BY-4.0. The repository's code and records carry Apache-2.0. Related records. Record C (10.5281/zenodo.23603639) carries the P4 design notes, the synergy-benchmark criterion and the three scope rulings; Record D (10.5281/zenodo.23603642) fixes the architecture and design-decision history as of 2026-10-24.",
+        "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "link": "https://doi.org/10.5281/zenodo.23429027",
+        "published": "2026-10-17",
+        "is_arxiv": false
       },
       {
         "first_author": "Sergio Davies",
@@ -47917,15 +47935,6 @@
       }
     ],
     "Surrogate Gradient": [
-      {
-        "first_author": "Jinyao Shen",
-        "title": "Local Learning Rules Under Honest Measurement: A Reproducibility-First Benchmark of e-prop, Hebbian, and R-STDP on Consumer Hardware",
-        "abstract": "What this is. We benchmark three purely local learning rules for spiking neural networks --- e-prop, kernelised information-bottleneck Hebbian, and reward-modulated STDP with a TD-LTP critic --- under one measurement protocol, on one consumer GPU, with every criterion pre-registered and every negative result reported. Headline results. Hebbian features reach 0.9774 on MNIST over five seeds; e-prop with LIF neurons reaches 0.8889 on sequential MNIST after 250 epochs, against a matched-budget backpropagation-through-time control at 0.9630, the paper's largest measured gap. Neuron type interacts with learning rate: a non-adaptive LIF neuron beats the adaptive ALIF neuron at every learning rate swept. The spiking execution layer does not learn CartPole, and sixteen pre-registered diagnostic rounds trace the failure to credit assignment rather than to the readout, the sampling temperature, the weight budget or the learning signal's amplitude --- after a fixed input encoding raises the readout's state response thirty-fold and leaves the policy's angle dependence at zero. An event-driven e-prop whose updates are elementwise identical to dense e-prop is reported with its cost at 500,000 neurons. A failure library of four cognitive-layer probes is included with its criteria and mechanisms. Where the numbers live. Every number traces to a reproduction record in the linked repository; the LaTeX source is in paper/. Negative results are part of the body, not an appendix. v1.1 (2026-10-31). The author line now carries the Chinese name (沈锦垚) as an embedded vector graphic; no results, numbers or wording changed.",
-        "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-        "link": "https://doi.org/10.5281/zenodo.23817506",
-        "published": "2026-10-30",
-        "is_arxiv": false
-      },
       {
         "first_author": "Pablo Sorrentino",
         "title": "Hardware-Aware Model Inversion in Memristive Spiking Neural Networks",
@@ -81081,6 +81090,15 @@
     ],
     "Medical Diagnosis": [
       {
+        "first_author": "Jiao Cao",
+        "title": "Decoder-FFPE-seq enables sensitive, genome-wide spatial transcriptomics of archival tissues at single-cell resolution",
+        "abstract": "Abstract Formalin-fixed paraffin-embedded (FFPE) tissue-compatible spatial transcriptomics (ST) is transforming biology and histopathology, but achieving high sensitivity, genome-wide coverage, single-cell resolution and researcher-accessibility remains challenging. Here, we present a dendrimeric DNA coordinate-barcoding design for FFPE-adapted spatial RNA sequencing (Decoder-FFPE-seq), by integrating RNA-to-DNA probe conversion with blotting-assisted barcoding. Decoder-FFPE-seq provides single-cell resolution with a 2.54-4.25-fold sensitivity increase in mouse brain transcriptomic profiling over similar assays with an available protocol, successfully mapping rare genes and sparse cell types. It robustly resolves tumor microenvironments (TMEs) in clinical archives preserved 6-20 years. With expanded probe libraries, Decoder-FFPE-seq captures long non-coding and viral RNAs, revealing spatial co-expression networks with mRNAs in oral squamous cell carcinomas (OSCCs). In an OSCC immunotherapy cohort, it delineates TME heterogeneity across pathology response groups and tracks spatial cellular dynamics pre- and post-immuno-chemotherapy. Decoder-FFPE-seq establishes a robust, high-resolution framework for sensitive ST profiling in fundamental and translational studies of archival tissues.",
+        "venue": "Science Advances",
+        "link": "https://doi.org/10.1126/sciadv.ady5085",
+        "published": "2026-10-30",
+        "is_arxiv": false
+      },
+      {
         "first_author": "Ning Zhang",
         "title": "Neuromorphic Decoding and Dynamical Image Reconstruction from Populations of Spiking Retinal Ganglion Cells",
         "abstract": "Decoding visual stimuli from the spiking activity of retinal ganglion cells (RGCs) informs both our understanding of the retinal code and the design of visual prostheses. Natural vision is dynamic, yet state-of-the-art decoders mostly reconstruct single frames with artificial neural networks that process dense, continuous-valued signals rather than the retina's sparse, asynchronous spikes. We asked whether dynamic scenes can be reconstructed and tracked entirely within the spike domain, and at what computational cost. We built an end-to-end spiking neural network (SNN) whose neurons integrate the recorded RGC spikes over time. Populations of up to 1836 RGCs were recorded ex vivo from mouse retina on high-density microelectrode arrays while flashed images, moving bars, drifting gratings and randomly moving handwritten digits were presented. For moving digits, one shared spiking encoder fed two readouts, one reconstructing the image and one decoding the digit's position. Compute energy was estimated from counted synaptic operations. The SNN decoded what and where at once. It reconstructed the stimuli with a structural similarity (SSIM) of up to 0.93, refining the reconstruction as spikes accumulated, and tracked a randomly moving target with a mean error of 1.33 pixels on a $32\\times32$ grid. Its fidelity nearly matched that of the best of 17 larger spiking and artificial decoders (5.9 million to 1.7 billion parameters, versus 5.4 million), and at a mean firing rate of 14.2% it needed an estimated $\\sim$70-fold less compute energy than a dense artificial network of the same architecture. Dynamic visual scenes can thus be decoded from retinal population activity in the spike domain, with a compact network and at a compute cost compatible with implantable and wearable neural interfaces, supporting spike-native decoders for visual prostheses.",
@@ -81402,15 +81420,6 @@
         "venue": "Anadolu Kliniği Tıp Bilimleri Dergisi",
         "link": "https://doi.org/10.21673/anadoluklin.1615052",
         "published": "2025-09-25",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Jiao Cao",
-        "title": "Decoder-FFPE-seq enables sensitive, genome-wide spatial transcriptomics of archival tissues at single-cell resolution",
-        "abstract": "Abstract Formalin-fixed paraffin-embedded (FFPE) tissue-compatible spatial transcriptomics (ST) is transforming biology and histopathology, but achieving high sensitivity, genome-wide coverage, single-cell resolution and researcher-accessibility remains challenging. Here, we present a dendrimeric DNA coordinate-barcoding design for FFPE-adapted spatial RNA sequencing (Decoder-FFPE-seq), by integrating RNA-to-DNA probe conversion with blotting-assisted barcoding. Decoder-FFPE-seq provides single-cell resolution with a 2.54-4.25-fold sensitivity increase in mouse brain transcriptomic profiling over similar assays with an available protocol, successfully mapping rare genes and sparse cell types. It robustly resolves tumor microenvironments (TMEs) in clinical archives preserved 6-20 years. With expanded probe libraries, Decoder-FFPE-seq captures long non-coding and viral RNAs, revealing spatial co-expression networks with mRNAs in oral squamous cell carcinomas (OSCCs). In an OSCC immunotherapy cohort, it delineates TME heterogeneity across pathology response groups and tracks spatial cellular dynamics pre- and post-immuno-chemotherapy. Decoder-FFPE-seq establishes a robust, high-resolution framework for sensitive ST profiling in fundamental and translational studies of archival tissues.",
-        "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-        "link": "https://doi.org/10.1101/2025.09.12.675967",
-        "published": "2025-09-16",
         "is_arxiv": false
       },
       {
@@ -113745,6 +113754,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Sox Mutagenesis Reveals": [
+      {
+        "first_author": "Camden A. Hoover",
+        "title": "sox17 Mutagenesis Reveals Compounding Effects ofMaternal and Zygotic Contribution on Microglia Abundance",
+        "abstract": "Embryonic development is shaped by maternal and zygotic factors but how the interplay between these factors contributes to phenotypic variability and impacts specific populations of brain cells, and subsequently neurodevelopment, remains largely unknown. Here, we reveal a double hit phenomenon that impacts microglia and microglia precursors during development. Using zebrafish, we identified a mutation in sry-related HMG box gene-17 (sox17) that exhibits a maternal effect phenotype presenting as a reduction of microglia in the brain and precursors in the yolk sac. We demonstrate that microglia deficits are exacerbated in homozygous offspring from homozygous parents compared to homozygous offspring from heterozygous parents, suggesting a compounding effect of maternal and zygotic sox17 mutation on microglia abundance. We observe that sox17 is expressed in microglia and yolk sac precursors and is maternally contributed. Injections of sox17 RNA during embryogenesis are sufficient to rescue microglia and yolk sac cell abundance. To identify additional genes interacting with sox17, we perform a genetic screen using CRISPR mutagenesis and identify f11r.1, gas6, and mpp1 as microglia regulators, which we demonstrate are expressed in zebrafish microglia. Transcriptional and mutant analyses with these genes suggest sox17 positively regulates mpp1 transcription. These results demonstrate that microglia are susceptible to additive effects of maternal and zygotic sox17 mutation, and that offspring greatly differ in their susceptibility to microglia deficits depending on the mother's genotype. Our findings highlight that both the maternal and offspring genotype should be considered when examining neurodevelopmental disorders that could arise from microglia dysfunction.",
+        "venue": "Glia",
+        "link": "https://doi.org/10.1002/glia.70250",
+        "published": "2026-10-30",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Neuroscientist Need Know": [
       {
         "first_author": "James C. R. Whittington",
@@ -113767,15 +113787,44 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Cerebral Organoids": [
+    "Topic: Differential Radial-Flow": [
       {
-        "first_author": "Ábel Vértesy",
-        "title": "Connectomics by Sequencing Reveals Self-Organizing Principles of Neuronal Networks in Cerebral Organoids",
-        "abstract": "Abstract Functional neural networks emerge as developing neurons form synaptic connections. Revealing how these connections are organized and perturbed in disease requires linking single-neuron connectivity to molecular state across thousands of networks, which is challenging with current methods. We developed COSCO (Connectomics by Sequencing in Cerebral Organoids), combining barcoded monosynaptic rabies tracing with single-cell RNA sequencing to reconstruct over 10,000 networks across organoids. We demonstrate that organoid circuitry self-organizes into stereotyped network motifs governed by cell-intrinsic wiring rules aligning with features of mouse cortical connectivity. Projecting network topology onto transcriptomic space reveals that wiring correlates with cell-adhesion and synaptic gene expression programs. In a Tuberous Sclerosis Complex model, pathological hyperexcitability coincides with topological rewiring: mutant networks become more heterogeneous, driven by the transcriptional distribution of upper layer excitatory cell states. This work establishes cerebral organoids as a model to study self-organization of human connectivity, and its disruption in neurodevelopmental disease. Abstract Figure",
-        "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-        "link": "https://doi.org/10.64898/2026.10.01.755792",
-        "published": "2026-10-03",
+        "first_author": "Sanchari Thakur",
+        "title": "Characterizing $\\pT$-differential Radial-Flow Fluctuations in Au+Au Collisions at FAIR with a Multi-Phase Transport Model",
+        "abstract": "We report the first predictions of the transverse-momentum ($\\pT$)-differential radial-flow fluctuation observable, $\\vzpT$, in Au+Au collisions at the top SIS100 energy, $\\snn=4.9$~GeV, which will be available at the FAIR accelerator complex. Radial flow and its fluctuations are studied for different centrality intervals and reference-$\\pT$ selections to investigate the properties and robustness of the calculated long-range correlation. $\\vzpT$ displays a characteristic evolution from negative values at low $\\pT$ to positive values at higher $\\pT$. The integrated $v_0$, obtained with different reference-$\\pT$ intervals, follows a common trend, with an approximately inverse-square-root dependence on the inclusive charged-particle multiplicity ($\\nch$). The $\\vzpT$ signal changes little when the pseudorapidity gap is varied between 0.2 and 0.8, or when the edges of the reference-$\\pT$ interval are varied, in the bulk region. For identified particles, the pion and proton $\\vzpT$ are ordered at low $\\pT$, qualitatively similar to the mass ordering seen at higher energies. However, unlike at higher collision energies, $\\vzpT$ does not exhibit constituent-quark scaling, so the results do not support an interpretation in terms of partonic collectivity. These results provide constraints on the evolution of radial correlations toward lower collision energies and motivate comparisons with complementary observables to clarify their connection to collective dynamics.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.41607v1",
+        "published": "2026-10-30T11:43:11Z",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Simplicial Complexes": [
+      {
+        "first_author": "Lekun Wang",
+        "title": "Adaptive Uncertainty Quantification on Simplicial Complexes with Conformalized Simplicial Neural Networks",
+        "abstract": "Simplicial neural networks (SNNs) are powerful tools for prediction tasks on higher-order relational datasets stored on simplicial complexes (SCs), a higher-order generalization of graphs. However, SNNs usually lack rigorous uncertainty quantification (UQ), limiting their usefulness in high-stakes scenarios. We propose conformalized SNN (CF-SNN), a framework that, given a simplicial-complex entity with m prediction targets, generates prediction sets for all m targets simultaneously. Under mild assumptions, CF-SNN guarantees that, for each target, the prediction set contains the true label with a user-specified nominal coverage probability, and the realized miscoverage proportion across all m targets is guaranteed to remain close to the nominal level with high probability. Extensive experiments across a wide range of SC prediction tasks demonstrate that CF-SNN is a flexible UQ framework that achieves user-specified coverage while producing informative prediction sets of small size.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.41166v1",
+        "published": "2026-10-30T02:42:41Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Ayushman Raghuvanshi",
+        "title": "Variational Self-Supervised Learning on Simplicial Complexes",
+        "abstract": "Graphs effectively model pairwise interactions but are in-adequate for capturing the complex multi-entity interactions common in fields like biochemistry, social networks, and trade dynamics. To address this limitation, simplicial complexes extend graphs by incorporating higher-order interactions, enabling more comprehensive system modeling. This paper focuses on the challenge of limited data learning in simplicial complexes, where the scarcity of labeled data hampers the performance of Simplicial Neural Networks (SNNs). We propose VarRepSC, a variational self-supervised learning framework that generates task-agnostic variational embeddings for simplicial complexes while preserving essential topological features. By employing a variational encoder trained with a self-supervised loss-comprising evidence lower bound (ELBO), Hodge decomposition, and view divergence-VarRepSC effectively captures higher-order interactions and demonstrates robustness to minor perturbations. Experimental results on node, simplex, and simplicial complex classification tasks reveal significant performance gains over baseline models, particularly in limited data settings. Additionally, Var-RepSC incorporates uncertainty modeling in embeddings, enabling active learning strategies to optimize sample labeling. This work advances self-supervised learning for simplicial complexes by offering a probabilistic framework for complex data representation.",
+        "venue": "",
+        "link": "https://doi.org/10.1109/ieeeconf60004.2024.10943073",
+        "published": "2024-10-27",
         "is_arxiv": false
+      },
+      {
+        "first_author": "Maosheng Yang",
+        "title": "Convolutional Learning on Simplicial Complexes",
+        "abstract": "We propose a simplicial complex convolutional neural network (SCCNN) to learn data representations on simplicial complexes. It performs convolutions based on the multi-hop simplicial adjacencies via common faces and cofaces independently and captures the inter-simplicial couplings, generalizing state-of-the-art. Upon studying symmetries of the simplicial domain and the data space, it is shown to be permutation and orientation equivariant, thus, incorporating such inductive biases. Based on the Hodge theory, we perform a spectral analysis to understand how SCCNNs regulate data in different frequencies, showing that the convolutions via faces and cofaces operate in two orthogonal data spaces. Lastly, we study the stability of SCCNNs to domain deformations and examine the effects of various factors. Empirical results show the benefits of higher-order convolutions and inter-simplicial couplings in simplex prediction and trajectory prediction.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2301.11163",
+        "published": "2023-01-26",
+        "is_arxiv": true
       }
     ],
     "Topic: Temporal Dynamics": [
@@ -115668,6 +115717,17 @@
         "venue": "UTS ePRESS (University of Technology Sydney)",
         "link": "https://openalex.org/W3081406688",
         "published": "2020-01-01",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Cerebral Organoids": [
+      {
+        "first_author": "Ábel Vértesy",
+        "title": "Connectomics by Sequencing Reveals Self-Organizing Principles of Neuronal Networks in Cerebral Organoids",
+        "abstract": "Abstract Functional neural networks emerge as developing neurons form synaptic connections. Revealing how these connections are organized and perturbed in disease requires linking single-neuron connectivity to molecular state across thousands of networks, which is challenging with current methods. We developed COSCO (Connectomics by Sequencing in Cerebral Organoids), combining barcoded monosynaptic rabies tracing with single-cell RNA sequencing to reconstruct over 10,000 networks across organoids. We demonstrate that organoid circuitry self-organizes into stereotyped network motifs governed by cell-intrinsic wiring rules aligning with features of mouse cortical connectivity. Projecting network topology onto transcriptomic space reveals that wiring correlates with cell-adhesion and synaptic gene expression programs. In a Tuberous Sclerosis Complex model, pathological hyperexcitability coincides with topological rewiring: mutant networks become more heterogeneous, driven by the transcriptional distribution of upper layer excitatory cell states. This work establishes cerebral organoids as a model to study self-organization of human connectivity, and its disruption in neurodevelopmental disease. Abstract Figure",
+        "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "link": "https://doi.org/10.64898/2026.10.01.755792",
+        "published": "2026-10-03",
         "is_arxiv": false
       }
     ],
@@ -153401,26 +153461,6 @@
         "link": "https://doi.org/10.35232/estudamhsd.642084",
         "published": "2020-01-15",
         "is_arxiv": false
-      }
-    ],
-    "Topic: Simplicial Complexes": [
-      {
-        "first_author": "Ayushman Raghuvanshi",
-        "title": "Variational Self-Supervised Learning on Simplicial Complexes",
-        "abstract": "Graphs effectively model pairwise interactions but are in-adequate for capturing the complex multi-entity interactions common in fields like biochemistry, social networks, and trade dynamics. To address this limitation, simplicial complexes extend graphs by incorporating higher-order interactions, enabling more comprehensive system modeling. This paper focuses on the challenge of limited data learning in simplicial complexes, where the scarcity of labeled data hampers the performance of Simplicial Neural Networks (SNNs). We propose VarRepSC, a variational self-supervised learning framework that generates task-agnostic variational embeddings for simplicial complexes while preserving essential topological features. By employing a variational encoder trained with a self-supervised loss-comprising evidence lower bound (ELBO), Hodge decomposition, and view divergence-VarRepSC effectively captures higher-order interactions and demonstrates robustness to minor perturbations. Experimental results on node, simplex, and simplicial complex classification tasks reveal significant performance gains over baseline models, particularly in limited data settings. Additionally, Var-RepSC incorporates uncertainty modeling in embeddings, enabling active learning strategies to optimize sample labeling. This work advances self-supervised learning for simplicial complexes by offering a probabilistic framework for complex data representation.",
-        "venue": "",
-        "link": "https://doi.org/10.1109/ieeeconf60004.2024.10943073",
-        "published": "2024-10-27",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Maosheng Yang",
-        "title": "Convolutional Learning on Simplicial Complexes",
-        "abstract": "We propose a simplicial complex convolutional neural network (SCCNN) to learn data representations on simplicial complexes. It performs convolutions based on the multi-hop simplicial adjacencies via common faces and cofaces independently and captures the inter-simplicial couplings, generalizing state-of-the-art. Upon studying symmetries of the simplicial domain and the data space, it is shown to be permutation and orientation equivariant, thus, incorporating such inductive biases. Based on the Hodge theory, we perform a spectral analysis to understand how SCCNNs regulate data in different frequencies, showing that the convolutions via faces and cofaces operate in two orthogonal data spaces. Lastly, we study the stability of SCCNNs to domain deformations and examine the effects of various factors. Empirical results show the benefits of higher-order convolutions and inter-simplicial couplings in simplex prediction and trajectory prediction.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2301.11163",
-        "published": "2023-01-26",
-        "is_arxiv": true
       }
     ],
     "Topic: Droplet Generation": [
