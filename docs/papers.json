@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-03T00:26:49.088603+00:00",
+  "generated_at_utc": "2026-11-04T00:26:51.637389+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30464,
+  "total_papers": 30469,
   "categories": {
     "LLM": [
       {
@@ -6298,6 +6298,15 @@
         "venue": "arXiv",
         "link": "https://arxiv.org/abs/2610.38564v1",
         "published": "2026-10-28T09:58:41Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Zhifan Song",
+        "title": "SpikeAD: Toward Multiplication-Free Spike-Controlled Neuromorphic Architecture for Energy-Efficient Small Object Detection",
+        "abstract": "Energy-constrained aerial platforms require accurate object detection under strict power and latency budgets, yet conventional inference remains bottlenecked by multiply-accumulate (MAC) operations. While spiking neural networks (SNNs) offer bio-inspired efficiency, many SNN detectors retain hybrid MACs in intermediate layers, or use spike-driven inference where multi-level spikes are interpreted as repeated binary events. We propose SpikeAD, a direct-trained spike-controlled neuromorphic aerial detector. In SpikeAD, sparse bounded integer spikes act strictly as multiplexer control signals for multiplier-free shift-add inference, preserving spike boundaries throughout a four-scale bidirectional feature pyramid. We introduce the Spike-Gated Multi-Scale (SGMS) block, performing receptive field expansion with activity-driven channel selection, implementable with adders and comparators. Evaluated on VisDrone and DOTA and across Nano, Small, and Medium variants, SpikeAD achieves up to 46.2% mAP@50 on VisDrone (+4.8% over SNN prior art), and generalizes to oriented bounding box (77.6% mAP@50 on DOTA) using the proposed SpikeOBB head. Under the Horowitz 45nm arithmetic energy model following standard methodology in SNN literature, SpikeAD achieves up to 18.9x estimated reduction relative to an equivalent MAC-based implementation. We propose the Spike Processing Core (SPC), an RTL compute primitive to validate hardware realizability for reconfigurable and scalable custom accelerator chip design on FPGA/ASIC, highlighting a promising path toward next-generation ultra-low-power neuromorphic processors for aerial object detection. Link to the open-source and open-weight GitHub repository will be added upon publication.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.00112v1",
+        "published": "2026-10-28T06:13:03Z",
         "is_arxiv": true
       },
       {
@@ -19717,12 +19726,39 @@
     ],
     "Neuromorphic Hardware": [
       {
+        "first_author": "Kainan Wang",
+        "title": "SparseForge: Beyond Spike Sparsity toward Hardware-Exploitable Neuron Pruning for Efficient SNN Acceleration",
+        "abstract": "Spiking Neural Networks (SNNs) provide an event-driven paradigm for energy-efficient edge computing. However, operation-level sparsity in SNNs does not necessarily eliminate the hardware costs associated with redundant output neurons, including neuron-state maintenance, partial-sum (psum) accesses, and on-chip storage requirements. This paper presents SparseForge, a hardware-aware sparse SNN acceleration framework that jointly optimizes neuron pruning, sparse dataflow, and accelerator microarchitecture. At the algorithm level, we introduce a gated leaky integrate-and-fire (G-LIF) neuron to learn differentiable neuron masks with binary spike semantics. A dual regularization scheme is further developed to align pruning with both synaptic-operation reduction and psum buffer capacity reduction. At the dataflow level, we design a sparse Column-Wise Product (CWP) dataflow with a variant of incremental spike encoding to improve weight-access regularity and reduce sparse-index overhead under dynamic spike activity. At the architecture level, we develop a mask-aware sparse processing unit (SPU) that supports compressed spike decoding, sparse implicit im2col conversion, neuron-mask-gated psum updates, and decoupled sparse execution. Experimental results across multiple SNN backbones and datasets show that SparseForge retains 1.75%--77.99% of neurons and 0.16%--62.36% of synaptic operations, with a configurable accuracy--efficiency trade-off. The buffer-capacity-aware regularization reduces the required psum buffer capacity by up to 96.18\\%. FPGA implementations on a Xilinx ZCU9EG achieve 296.94--619.49 GOPS/W across the evaluated workloads. Across matched network and dataset settings, SparseForge provides 1.24--4.17 higher FPS and 1.50--7.18 higher GOPS/W than representative FPGA-based SNN accelerators, while reducing EDP by 1.70--19.13, with benchmark-dependent accuracy--efficiency trade-offs.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.01611v1",
+        "published": "2026-11-01T05:54:44Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Aashman Mehta",
         "title": "Input-dependent Neuromodulation Enhances Mixed-Signal Neuromorphic Hardware",
         "abstract": "Gating mechanisms allow a fixed neural network to adapt its computation to the current input by dynamically modulating its effective parameters. In the brain, neuromodulation uses this principle to move neural circuits between dynamical regimes, and deep learning exploits input-dependent gating, e.g., in gated recurrent networks and self-attention. Input-dependent modulation has also recently been shown to improve spiking neural networks, with particularly strong benefits in small, parameter-limited ones. This makes neuromodulation especially promising for neuromorphic processors at the edge, where area, memory and energy budgets constrain network size, while circuit physics limits parameter precision. Here we demonstrate input-dependent, within-trial neuromodulation of a spiking recurrent neural network on a mixed-signal neuromorphic processor. An off-chip modulator reads the on-chip network's input and activity and adjusts its population-level gains while the chip's analog circuits compute with the physics of the silicon. Neuromodulation raises binary spoken-digit classification accuracy by $+17.3 \\pm 10.4$ percentage points, tested across five hardware network instantiations.",
         "venue": "arXiv",
         "link": "https://arxiv.org/abs/2610.41265v1",
         "published": "2026-10-30T05:14:35Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Samiur Rahman Khan",
+        "title": "State-Dependent Memristor Dynamics for Device-Informed Spike-Timing-Dependent Plasticity in Spiking Neural Networks",
+        "abstract": "This work investigates device-informed spike-timing-dependent plasticity (STDP) in spiking neural networks using a literature-derived threshold-memristor model. Local STDP commands determine programming polarity and a programming coordinate for state-dependent conductance updates in the first fully connected layer, while a backpropagation-trained readout performs classification. HSPICE simulations characterize thresholded, polarity- and state-dependent device dynamics and differential crossbar multiply-accumulate behavior. Experiments on MNIST and Fashion-MNIST compare the hybrid learning rule with direct clipped STDP and evaluate programming asymmetry, device-parameter variation, write noise, stuck-at faults, and input corruption. The hybrid model achieved 95.15% accuracy on MNIST and 85.92% on Fashion-MNIST. In a separate seed-matched comparison, it reached 95.02% and 84.79%, versus 92.33% and 83.25% for direct clipped STDP. Potentiation-dominant asymmetry reduced input-dependent feature selectivity, and endpoint faults introduced during training were less damaging than faults introduced after training. The network-level mapping is a reduced-order, validation-selected abstraction rather than a pulse-accurate physical programming implementation. These results quantify how state-dependent memristor dynamics shape local-STDP learning and its sensitivity to hardware nonidealities.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.00119v1",
+        "published": "2026-10-28T21:28:22Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Ho Fung Tsoi",
+        "title": "SpikePID: Real-Time Neuromorphic Cluster Counting in Future Drift Chambers",
+        "abstract": "Cluster counting ($dN/dx$) measures discrete ionization occurrences along a charged particle track traversing a gaseous medium and is currently being proposed to serve particle identification (PID) in next-generation drift chambers, as it is expected to offer higher separation power than the traditional approach based on the ionization energy loss measurement ($dE/dx$), which has intrinsically larger statistical fluctuations. However, measuring $dN/dx$ in drift chambers proposed for future colliders requires high-resolution waveforms, which result in very large data rates. Running the reconstruction at the edge would drastically reduce the bandwidth required to transmit data off the detector. In this paper, we introduce SpikePID, a neuromorphic computing approach applying spiking neural networks (SNNs) to this task due to their inherently sparse computing and processing nature. We show that an SNN with only 529 parameters improves the kaon-pion separation power by 17% over the traditional derivative-based method and by 4% over an MLP that has $8.6\\times$ more parameters. When synthesized to an FPGA, it uses an order of magnitude fewer resources than the MLP, and has an inference latency compatible with the constraints of future collider experiments, making the SNN an excellent algorithmic candidate for real-time data readout in future drift chambers.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.00104v1",
+        "published": "2026-10-26T18:01:04Z",
         "is_arxiv": true
       },
       {
@@ -98052,6 +98088,15 @@
       }
     ],
     "Time Series": [
+      {
+        "first_author": "Rui Huang",
+        "title": "Friend advice influences mate choice through brain-to-brain synchrony and computational decision processes",
+        "abstract": "Abstract Individuals often rely on friends’ advice when facing ambiguous cues in mate-choice decisions, yet how such advice optimizes outcomes remains unclear. Using fNIRS hyperscanning, we simultaneously recorded neural and behavioral activity from 66 adult friend dyads (33 female dyads) during interactive advice phases. Computational modeling quantified the decision optimization parameter ( β ). It showed that only the bidirectional Social Information Processing (SIP) model—best fit behavioral data, indicating that optimization arises from reciprocal adaptation rather than one-way influence. Behaviorally, positive advice from in the relationship advisors increased mate-choice intention, whereas negative advice from single advisors more effectively promoted optimization. Both conditions elicited enhanced interpersonal neural synchrony (INS) in the dorsolateral prefrontal cortex (DLPFC), linked to risk evaluation, and in the left superior and middle temporal gyri (l-STG, l-MTG), associated with semantic processing and value transformation. Machine learning analyses showed that trial-level INS predicted momentary optimization, while task-level INS robustly forecasted overall decision improvement. Together, these findings demonstrate that decision optimization emerges from dynamic brain-to-brain alignment in control and semantic networks—reflecting emotional sharing during positive advice and risk re-evaluation during negative advice. This study extending SIP theory to interactive decision-making and revealing how friend advice enhances decision quality and social well-being.",
+        "venue": "Communications Biology",
+        "link": "https://doi.org/10.1038/s42003-026-11186-9",
+        "published": "2026-11-02",
+        "is_arxiv": false
+      },
       {
         "first_author": "Erik Stolt",
         "title": "Model- and Layer-Level Closed-Loop Forecasting with SSM-Based Spiking Neural Networks",
