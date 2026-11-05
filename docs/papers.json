@@ -1,12 +1,21 @@
 {
-  "generated_at_utc": "2026-11-04T00:26:51.637389+00:00",
+  "generated_at_utc": "2026-11-05T00:27:49.689743+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30469,
+  "total_papers": 30484,
   "categories": {
     "LLM": [
+      {
+        "first_author": "Minghan Yu",
+        "title": "Bringing Agentic Search to Earth Observation Data Discovery",
+        "abstract": "NASA and its data centers hold thousands of geoscience datasets and tools like Worldview, Giovanni, the Science Discovery Engine, and Harmony. Finding the right one is hard even for domain experts. We present an agentic search framework for geoscience data discovery that takes a natural-language research query and returns matching datasets and tools. We demonstrate that, in the era of large language models, the latent value of knowledge graphs (KGs) can be substantially amplified through agentic search. From the NASA Earth Observation Knowledge Graph (NASA EO-KG) we derive NASA-EO-Bench, an open benchmark of 47k query–dataset pairs (21k task-based queries). A neural scorer fine-tuned on NASA-EO-Bench beats cosine and BM25 baselines. Further combining it with BM25 via score fusion raises both Recall@10 (R@10) and MRR to over 5× the unadapted cosine baseline. On top of this supervised pipeline, a zero-shot reranking stage lifts MRR by 16%, significant under a paired bootstrap, with no additional training, and autonomous web and arXiv tool use adds a further gain, showing that LLM reasoning is complementary to supervised retrieval.",
+        "venue": "ACM International Conference on Information and Knowledge Management (CIKM)",
+        "link": "https://doi.org/10.1145/3799682.3841109",
+        "published": "2026-11-03",
+        "is_arxiv": false
+      },
       {
         "first_author": "Jinyao Shen",
         "title": "Emergence Without Scale: Dynamics and Organisation Tested Against the Substrate Bet in a Spiking Architecture",
@@ -87,6 +96,15 @@
         "link": "https://arxiv.org/abs/2610.11583v1",
         "published": "2026-10-08T09:33:19Z",
         "is_arxiv": true
+      },
+      {
+        "first_author": "Peter König B",
+        "title": "The neuroscience of transformers",
+        "abstract": "Neuroscience has long informed the development of artificial neural networks, but the success of modern architectures invites, in turn, the converse: can modern networks teach us lessons about brain function? Here, we examine the structure of the cortical column and propose that the transformer provides a natural computational analogy for multiple elements of cortical microcircuit organization. Rather than claiming a literal implementation of transformer equations in cortex, we develop a hypothetical mapping between transformer operations and laminar cortical features, using the analogy as an orienting framework for analysis and discussion. This mapping allows us to examine in greater depth how contextual selection, content routing, recurrent integration, and interlaminar transformations may be distributed across cortical circuitry. In doing so, we generate a broad set of predictions and experimentally testable hypotheses concerning laminar specialization, contextual modulation, dendritic integration, oscillatory coordination, and the effective connectivity of cortical columns. This proposal is intended as a structured hypothesis rather than a definitive account of cortical computation. Placing transformer operations and cortical architectonics into a common descriptive framework sharpens questions, reveals new functional correspondences, and opens a productive route for reciprocal exchange between systems neuroscience and modern AI. More broadly, this perspective suggests that comparing brains and architectures at the level of computational organization can yield genuine insight into both.",
+        "venue": "Cognitive Neurodynamics",
+        "link": "https://doi.org/10.1007/s11571-026-10566-5",
+        "published": "2026-10-08",
+        "is_arxiv": false
       },
       {
         "first_author": "Jafar Badour",
@@ -11615,6 +11633,15 @@
     ],
     "Event-based Vision": [
       {
+        "first_author": "Shiao Wang",
+        "title": "Mamba-FETrack V2: Revisiting State Space Model for Frame-Event based Visual Object Tracking",
+        "abstract": "",
+        "venue": "Neural Networks",
+        "link": "https://doi.org/10.1016/j.neunet.2026.109823",
+        "published": "2026-11-01",
+        "is_arxiv": false
+      },
+      {
         "first_author": "Maksim Surov",
         "title": "Spiking Neuromorphic Control for Periodic Orbits Stabilization in Underactuated Robots: A Greedy Lyapunov-Based Approach",
         "abstract": "This work investigates the use of event-based spiking controllers, implemented as spiking neural networks, for trajectory tracking in underactuated robots. Specifically, we address the problem of stabilizing a prescribed periodic orbit. It is well known that, by applying the method of transverse linearization to the robot dynamics in a neighborhood of a periodic trajectory, the dynamics can be approximately described by a linear time-varying system with periodic coefficients (a periodic LTV system). The problem of orbital stabilization can therefore be reduced to stabilizing the trivial solution of this LTV system. We show that a previously proposed Lyapunov-based greedy design, originally developed for LTI systems, can also be extended to the corresponding linearized transverse dynamics, which take the form of a periodic LTV system. This enables the construction of a feedback controller for orbital stabilization of the robot. The effectiveness of the proposed method is demonstrated on the trajectory stabilization problem for the butterfly robot.",
@@ -19726,6 +19753,33 @@
     ],
     "Neuromorphic Hardware": [
       {
+        "first_author": "Huannan Zheng",
+        "title": "Device Stochasticity Directly Implements Bayesian Sampling in Spiking Neurons",
+        "abstract": "ABSTRACT Device stochasticity is considered a non‐ideality in neuromorphic hardware, although stochastic neural activity supports probabilistic computation in biological systems. We show that intrinsic stochastic switching of magnetic tunnel junctions (MTJs) can be mapped to stochastic‐threshold spiking neurons, providing a physical sampling primitive for Bayesian spiking inference. We develop a spiking Bayesian neural network (SBNN) with neuronal threshold distributions learned during training and sampled during inference. We also introduce a rate‐estimation method that propagates firing probabilities rather than explicit spike sequences, achieving up to a 22‐fold speedup over surrogate‐gradient training. Compared with representative Bayesian neural‐network baselines, SBNN achieves favorable accuracy‐calibration trade‐offs, reaching high accuracy across static and event datasets and low negative log likelihood in both MNIST and Fashion‐MNIST. On MNIST, SBNN retains accuracy under a normalized weight‐noise standard deviation of 0.20 and under an input‐noise standard deviation of 0.25, compared with and , respectively, for the spiking neural network (SNN). Hardware‐in‐the‐loop validation using physical MTJ switching for sampling and software for network arithmetic closely matches software inference in spiking behavior and classification performance. This suggests that intrinsic device stochasticity can be transformed from a hardware non‐ideality into a Bayesian computational resource for compact and noise‐tolerant neuromorphic systems.",
+        "venue": "Advanced Science",
+        "link": "https://doi.org/10.1002/advs.78508",
+        "published": "2026-11-03",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Tuba Aksoy",
+        "title": "Evolved Spiking Neural Networks for EEG Seizure Detection: Calcium Dynamics and Delay Mechanics",
+        "abstract": "Neuroevolution can discover compact network designs that are hard to specify by hand. The EONS framework evolves the topology, weights, thresholds and delays of neuromorphic spiking networks without gradients. We tested whether giving integrate-and-fire (IF) neurons an activity-dependent calcium current (Ca-IF neurons) improves evolved networks for EEG seizure detection, with calcium parameters fixed, shared across a network, or evolved for each neuron. On 10 held-out CHB-MIT patients never seen in training, per-neuron calcium raised the record-level Matthews correlation coefficient (MCC) from 0.592 to 0.726 over 20 independent runs (p = 0.008) and lowered the false-alarm rate from 0.17 to 0.10. Fixed or per-network calcium gave no significant benefit. IF networks with evolved synaptic delays of 1-3 ticks gave a similar gain (p = 0.005), whereas axonal delays did not. On Siena, with unchanged settings, per-neuron calcium gained +0.096 MCC over IF in one patient-disjoint split (p = 0.011) and +0.059 in the other (p = 0.052). These results suggest that calcium and delays may make the evolutionary search more effective, and motivate testing on more data and in neuromorphic hardware.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.03841v1",
+        "published": "2026-11-02T19:13:02Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Snehasis Addy",
+        "title": "HyVox: Rethinking Low-Power Voice Intelligence towards Neuromorphic-von Neumann Edge Computing",
+        "abstract": "We present HyVox, a hybrid neuromorphic--von Neumann system for low-energy open-set speaker identification under tight energy budgets. HyVox splits the workload at the speaker embedding. A neuromorphic processor embeds the speech with sparse, event-driven computation, and a von Neumann microcontroller holds the speaker gallery and makes every decision: it scores queries by cosine similarity, rejects unknown speakers, and enrolls new users by writing a prototype, with no weight update. On the neuromorphic processor, a hierarchical temporal abstraction (HTA) SNN backbone learns a synaptic time constant per leaky integrate-and-fire (LIF) neuron, allocating 832 neurons across fast, medium, and slow timescales. A 32-neuron spiking embedding extractor (SEE), pretrained on episodes that each enroll new speakers and reject outsiders, turns the backbone output into an embedding for speakers unseen in training; its 32 spike counts are the only interface between the two processors. To fit the chip's synapse and integer budgets, we compress the backbone 6.5x to 29.0k synapses, train it for integer bit-shift dynamics, and fine-tune it with chip-accurate spiking training (CAST). CAST trains through a differentiable replica of the chip's integer neuron update, derived from its cycle-accurate simulator, so that gradient descent optimizes the exact weights and thresholds the chip runs; it doubles the top-1 accuracy of the mapped backbone on unseen speakers. On 20 Common Voice households of unseen speakers, HyVox reaches 99.6\\% top-1 and 5.5\\% rejection EER with 2 members and 94.9\\% and 13.2\\% with 20, and the network deployed on the neuromorphic chip matches its trained model. Each inference on a 3-s window takes 0.96 s and 1.63 mJ of dynamic energy, 42\\% lower latency than the fastest embedded ANN baseline and 13.5x less dynamic and 5.8x less total energy than the most energy-efficient one.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.03735v1",
+        "published": "2026-11-01T16:57:28Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Kainan Wang",
         "title": "SparseForge: Beyond Spike Sparsity toward Hardware-Exploitable Neuron Pruning for Efficient SNN Acceleration",
         "abstract": "Spiking Neural Networks (SNNs) provide an event-driven paradigm for energy-efficient edge computing. However, operation-level sparsity in SNNs does not necessarily eliminate the hardware costs associated with redundant output neurons, including neuron-state maintenance, partial-sum (psum) accesses, and on-chip storage requirements. This paper presents SparseForge, a hardware-aware sparse SNN acceleration framework that jointly optimizes neuron pruning, sparse dataflow, and accelerator microarchitecture. At the algorithm level, we introduce a gated leaky integrate-and-fire (G-LIF) neuron to learn differentiable neuron masks with binary spike semantics. A dual regularization scheme is further developed to align pruning with both synaptic-operation reduction and psum buffer capacity reduction. At the dataflow level, we design a sparse Column-Wise Product (CWP) dataflow with a variant of incremental spike encoding to improve weight-access regularity and reduce sparse-index overhead under dynamic spike activity. At the architecture level, we develop a mask-aware sparse processing unit (SPU) that supports compressed spike decoding, sparse implicit im2col conversion, neuron-mask-gated psum updates, and decoupled sparse execution. Experimental results across multiple SNN backbones and datasets show that SparseForge retains 1.75%--77.99% of neurons and 0.16%--62.36% of synaptic operations, with a configurable accuracy--efficiency trade-off. The buffer-capacity-aware regularization reduces the required psum buffer capacity by up to 96.18\\%. FPGA implementations on a Xilinx ZCU9EG achieve 296.94--619.49 GOPS/W across the evaluated workloads. Across matched network and dataset settings, SparseForge provides 1.24--4.17 higher FPS and 1.50--7.18 higher GOPS/W than representative FPGA-based SNN accelerators, while reducing EDP by 1.70--19.13, with benchmark-dependent accuracy--efficiency trade-offs.",
@@ -19762,6 +19816,15 @@
         "is_arxiv": true
       },
       {
+        "first_author": "Matéj Hejda",
+        "title": "SEPhIA: spiking electro-photonic integrated tiled architecture leveraging multi-wavelength lasers for scalable optical neuromorphic computing",
+        "abstract": "Abstract Research into optical spiking neural networks (SNNs) has primarily focused on spiking devices, networks of excitable lasers or numerical modeling of large architectures, often overlooking key constraints such as limited optical power, crosstalk and footprint. We introduce SEPhIA, a photonic-electronic, multi-tiled SNN architecture emphasizing implementation feasibility and realistic scaling. SEPhIA leverages microring modulators (MRMs) and multi-wavelength sources to achieve effective $$ < 1$$ < 1 laser-per-spiking neuron ratio. We validate SEPhIA at both device and architecture levels by time‑domain co‑simulating excitable CMOS‑MRM coupled circuits and by devising a physics‑aware, trainable optoelectronic SNN model, with both approaches utilizing experimentally derived device parameters. The multi-layer optoelectronic SNN achieves classification accuracies over 90% on a four-class spike-encoded dataset, closely comparable to software models. A design space study further quantifies how photonic device parameters impact SNN performance under constrained signal-to-noise conditions. SEPhIA offers a scalable, expressive, physically grounded solution for neuromorphic photonic computing, capable of addressing spike-encoded tasks.",
+        "venue": "npj Unconventional Computing",
+        "link": "https://doi.org/10.1038/s44335-026-00102-3",
+        "published": "2026-10-23",
+        "is_arxiv": false
+      },
+      {
         "first_author": "Yuli Zha",
         "title": "Robust Representation Learning for Spiking Neural Networks based on Conditional Information Bottleneck",
         "abstract": "Spiking Neural Networks (SNNs) have shown great potential for low-power neuromorphic computing due to their event-driven processing and spatiotemporal sparsity, but they remain vulnerable to input perturbations, hardware-intrinsic noise, and adversarial attacks in real-world deployment. We attribute this vulnerability partly to input-specific hidden representations learned by standard SNNs trained with conventional cross-entropy loss, as our information-plane analysis empirically shows that substantial input-related information can still be retained after label-predictive information becomes stable. To address this issue, we propose SCIB, a simple yet effective robust learning objective for SNNs based on the Conditional Information Bottleneck. Different from conventional variational IB methods, SCIB replaces the mutual information compression term $I(X;S)$ with the conditional mutual information $I(X;S|Y)$ and derives a tractable variational upper bound. Moreover, it introduces a learnable class-conditional prior instead of a label-agnostic isotropic Gaussian prior, improving the expressiveness of variational compression and encouraging class-structured representations when combined with the supervised classification objective. Systematic experiments on Fashion-MNIST, CIFAR-10, and CIFAR-100 under external environmental noise, neuromorphic hardware noise, and adversarial attacks show that SCIB improves robustness over standard SNNs and IB-based baselines under most evaluated noise conditions, improves adversarial accuracy under the evaluated attacks without using adversarial training, and reduces the SynOps-based single-sample inference energy consumption by 24.9% relative to an unconstrained SNN baseline.",
@@ -19769,6 +19832,15 @@
         "link": "https://arxiv.org/abs/2610.28110v1",
         "published": "2026-10-20T12:21:31Z",
         "is_arxiv": true
+      },
+      {
+        "first_author": "Fateh M. Aleem",
+        "title": "Spiking Neural Network-Based Neuromorphic Signal Processing for Real-Time Audio Event Detection in Low-Power Embedded Smart Sensors",
+        "abstract": "The following paper presents the design of a spiking neural network (SNN) based neuromorphic signal processing system that can be used in low power embedded smart sensors to perform real time detection of audio events. In this regard, the aim is to overcome the shortcomings of traditional deep learning frameworks that are both computationally heavy and demanding in terms of power consumption such that they are incompatible with battery-run or energy-limited edge devices. Citing the performance of biological neural systems, the presented framework should utilize event-driven SNNs executed on neuromorphic platforms to identify notable acoustic situations (like alarms, speech commands and ambient environmental sounds). The architecture envisages audio preprocessing part, audio spike encoding, and spike temporally contrast encoding or Poisson encoding, and a multi-layer core SNN trained by surrogate gradient descent. The model is tuned to run on an Intel Loihi and ARM Cortex-M7 microcontroller. The standard datasets were used to assess the performance, such as Google Speech Commands, ESC-10 and UrbanSound8K. Using the experimental results, it can be proven that the SNN-based model has up to 92.7% correct classification accuracy, using < 5mW power with a latency below 20 milliseconds. SNN approach is equivalent in accuracy to conventional CNN baselines in many cases with much lower energy consumption. Results confirm the prospect of SNNs at ultra-low-power, real-time signal processing in future generation edge-AI acoustic systems. The research directions will look at hardware-aware training and learning that can be used to improve on adaptability and scalability of embedded smart sensing systems.",
+        "venue": "Progress in Electronics and Communication Engineering",
+        "link": "https://doi.org/10.31838/ece/03.02.05",
+        "published": "2026-10-20",
+        "is_arxiv": false
       },
       {
         "first_author": "Danny Rosen",
@@ -47976,7 +48048,7 @@
         "title": "Hardware-Aware Model Inversion in Memristive Spiking Neural Networks",
         "abstract": "Hardware-accelerated spiking neural networks (SNNs) implemented on memristive crossbar arrays offer significant gains in energy efficiency, while device variability and analog noise are sometimes assumed to hinder information extraction. However, whether these hardware effects improve, preserve, or degrade privacy after deployment remains largely unexplored. Therefore, we ask whether model-inversion leakage characterized on an SNN remains representative after the same model is mapped to a non-ideal memristive substrate, and how hardware non-idealities and reliability faults affecting synapses, neuron thresholds, and spike processing reshape that leakage. To study this problem, we introduce Spiking Domain Model Inversion (SDMI), an inversion method that combines Expectation over Transformation (EOT) with surrogate gradients to optimize inputs through stochastic analog behavior and non-differentiable spiking dynamics. We use SDMI consistently across the SNN model, its memristive SNN, and the same memristive SNN under additional hardware perturbations. Across four datasets, reconstruction leakage does not vary monotonically with model accuracy or hardware variability. At comparable accuracy levels, neuron-threshold perturbations increase reconstruction fidelity, measured by SSIM, by up to 51.8%, whereas spike-level perturbations primarily degrade utility without consistently improving reconstruction. Weight noise, in contrast, reduces leakage under the same inversion procedure. These results show that hardware variability is not inherently privacy-preserving: model inversion leakage in memristive SNNs depends on the hardware state and cannot be inferred from model accuracy alone.",
         "venue": "arXiv",
-        "link": "https://arxiv.org/abs/2610.39688v1",
+        "link": "https://arxiv.org/abs/2610.39688v2",
         "published": "2026-10-29T09:29:38Z",
         "is_arxiv": true
       },
@@ -59892,6 +59964,15 @@
         "link": "https://arxiv.org/abs/2610.33979v1",
         "published": "2026-10-25T01:34:42Z",
         "is_arxiv": true
+      },
+      {
+        "first_author": "Dongyi He",
+        "title": "Toward robust, reproducible, and widely accessible intracranial speech brain-computer interfaces: a comprehensive narrative review of neural mechanisms, hardware, algorithms, evaluation, clinical pathways and future directions",
+        "abstract": "Intracranial speech brain-computer interfaces (BCIs) offer a promising route for restoring communication in individuals with severe, chronic, and otherwise irreversible motor and speech impairments who cannot communicate adequately using conventional assistive technologies, but clinical translation remains limited by fragmented and heterogeneous evidence, as well as unresolved design trade-offs across neuroscience, hardware, algorithms, validation methods, and clinical integration. This narrative review synthesizes recent progress across four key domains in intracranial speech neuroprosthetics: i) the neural mechanisms underlying overt, attempted (including silent miming and attempts without observable movement), and imagined speech (speech imagery without an attempt to articulate); ii) decision-oriented hardware comparisons of surgically implanted recording modalities, including microelectrode array (MEA), electrocorticography (ECoG), and stereotactic electroencephalography (SEEG); iii) experimental strategies for cross-subject generalization; and iv) advances in neural decoding, including sequence models, attention-based architectures (e.g., transformers), articulatory intermediate representations, and language-prior-assisted frameworks. We highlight persistent bottlenecks, including limited transfer without individual calibration, long-term non-stationarity and recalibration burden, heterogeneous and non-comparable evaluation practices, limited naturalistic expressivity, and the variable signal-to-noise ratio (SNR) and limited temporal alignment of neural activity in imagined speech decoding. Our contributions are threefold: (1) an end-to-end, decision-oriented synthesis that links neural representations to recording choices, experimental design, decoding model architectures, and translational constraints; (2) a structured framework organized around five coupled design questions, accompanied by a unified evaluation framework and a conceptual cross-linguistic, cross-task benchmark template that integrates objective, perceptual, expressive, conversational, and longitudinal metrics; and (3) user-centered translational guidance that includes agency-preserving shared control, verifiable performance priorities, and scenario-specific minimum viable product (MVP) profiles for differentiating between reliability-first home communication and fidelity-first conversational speech restoration. We conclude with a call for larger multilingual, multi-center longitudinal datasets; harmonized benchmarks; adaptive yet interpretable decoders; prospective clinical validation; and transparent data-sharing and reporting practices with robust ethical safeguards. These efforts are essential to accelerate the safe and equitable deployment of speech neuroprostheses.",
+        "venue": "Artificial Intelligence Review",
+        "link": "https://doi.org/10.1007/s10462-026-11728-x",
+        "published": "2026-10-17",
+        "is_arxiv": false
       },
       {
         "first_author": "Jacqueline Yau",
@@ -97133,6 +97214,15 @@
     ],
     "Graph Neural Networks": [
       {
+        "first_author": "Alessio Borgi",
+        "title": "Sheaf-MPNN: A Library for Sheaf Neural Networks as Message Passing",
+        "abstract": "Standard Graph Neural Networks (GNNs) implicitly assume that neighboring nodes share the same feature space, which contributes to oversmoothing and poor performance on heterophilic graphs. Sheaf Neural Networks (SNNs) remove this assumption by giving each node and edge its own vector space and learning restriction maps that transform features as they move between neighbors. These maps define a sheaf Laplacian that drives diffusion over the graph, but existing implementations often assemble it explicitly as a global sparse block matrix, which adds memory and computational overhead and can hinder scalability. In this paper, we introduce Sheaf-MPNN, a PyTorch Geometric library that reformulates sheaf diffusion as local incidence-wise transport and aggregation, eliminating the need to construct the global Laplacian. Sheaf-MPNN implements fifteen families of SNNs under a unified message-passing framework, each supporting both homogeneous and heterogeneous graphs, and directed and undirected settings, with diagonal, general, orthogonal, and low-rank restriction maps and attention-based predictors. We further provide a unified benchmarking suite covering node- and graph-level tasks, heterogeneous graph learning, and computational efficiency, enabling systematic and reproducible comparisons across architectures. We establish theoretical equivalence between these message-passing formulations and their original counterparts and identify the architectural mechanisms needed to preserve their propagation dynamics. This unified perspective provides a principled foundation for implementing, comparing, and extending sheaf-based architectures within standard graph learning frameworks. Source code is available at https://github.com/alessioborgi/sheaf-mpnn.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.04670v1",
+        "published": "2026-11-03T10:55:37Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Xintao Zong",
         "title": "MSGAT: Multi-Head Spiking Graph Attention with Similarity-Space Fusion for Image-Text Retrieval",
         "abstract": "Spiking neural networks (SNNs) offer an energy-efficient computing paradigm through sparse event-driven computation, showing great potential for efficient multimodal learning. However, applying SNNs to high-level multimodal tasks, such as image-text retrieval (ITR), remains challenging, since sparse spike representations make it difficult to capture semantic structures required for cross-modal alignment. Existing spiking ITR methods rely on local alignment and additional soft-label supervision during training, while lacking awareness of structural and multi-granularity relationships. To address these issues, we propose a Multi-head Spiking Graph Attention Network (\\textbf{MSGAT}) for structural modeling and equip it with dynamic attention heads to capture complementary relational patterns and enable spike-driven graph reasoning and aggregation. However, within a two-branch multi-granularity fusion framework, the fine-grained spike representations generated by MSGAT are sparse and discrete, whereas the global representations are continuous, making conventional feature-level fusion susceptible to interference across heterogeneous representations. Therefore, we introduce \\textbf{Sim-Fuse}, a similarity-space fusion alignment strategy integrating coarse- and fine-grained matching relations while avoiding direct fusion of heterogeneous representations. Experiments on Flickr30K and MSCOCO show our method outperforms ANN methods under matched settings and existing SNN retrieval baselines. Moreover, with only two time steps, our SNN achieves comparable or superior performance to its ANN counterpart while reducing theoretical module-level energy by 55\\%. The code is provided in the Supplementary Materials.",
@@ -98105,6 +98195,15 @@
         "link": "https://arxiv.org/abs/2610.28495v1",
         "published": "2026-10-20T16:39:59Z",
         "is_arxiv": true
+      },
+      {
+        "first_author": "Giovanni Granato",
+        "title": "An automated pipeline for adult and developmental neuropsychological assessment of executive functions and metacognition based on a multi-layer neuropsychological digital-twin framework",
+        "abstract": "An efficient and standardized neuropsychological assessment of higher-order cognition is central to both research and clinical practices. However, existing tools are typically limited to isolated tasks, manual scoring, aggregated analysis, with little or no integration of computational modeling. These constraints reduce reproducibility, scalability, and translational potential across research and clinical contexts. We present an automated pipeline grounded in a multi-layer neuropsychological digital-twin framework that unifies task administration, automatic scoring, extended data analysis, computational modeling, and readable reporting. Specifically, the pipeline provides (I) administration of standard neuropsychological tasks of executive functions and metacognition, including the Wisconsin Card Sorting Test (WCST), the metacognitive WCST (meta-WCST), and an original developmental version (Dev-meta-WCST), (II) fully automated scoring of classical indices and trial-by-trial trends, (III) computational modeling of individual traits and dynamics, (IV) generation of readable individual multi-layer neuropsychological digital twins and group-level reports composed of aggregated data, trial-by-trial dynamics, temporal data, and model-based profiles. We illustrate the pipeline functionalities (task-specific automation, sensitivity to individual profiles, lifespan robustness, and model-based interpretability) using four representative single cases: two adults performing the WCST and meta-WCST and two children, with typical development and ADHD, performing the Dev-meta-WCST. The pipeline, of which a preliminary version is already shared on EBRAINS-Italy, reflects a starting point of an enabling technology for individualized, lifespan profiling across several contexts.",
+        "venue": "Scientific Reports",
+        "link": "https://doi.org/10.1038/s41598-026-75754-z",
+        "published": "2026-10-13",
+        "is_arxiv": false
       },
       {
         "first_author": "Bang Hu",
@@ -113799,6 +113898,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Acute-On-Chronic Liver Failure": [
+      {
+        "first_author": "Theresa Hildegard Wirtz",
+        "title": "Single-cell profiling reveals monocyte mitochondrial dysfunction in patients with cirrhosis progressing to acute-on-chronic liver failure",
+        "abstract": "ABSTRACT Background & Aims Patients with acute decompensation (AD) of cirrhosis are at a high risk of developing acute-on-chronic liver failure (ACLF), a syndrome characterized by multi-organ failure and high short-term mortality. Prospective studies addressing the cellular mechanisms that drive the transition from AD to ACLF are lacking. In this study, we aimed to determine whether peripheral immune cell subsets at hospital admission predict the progression from AD to ACLF and to delineate underlying molecular mechanisms. Approach & Results We prospectively enrolled 63 patients with AD and 15 healthy donors across five European centers, with a 90-day follow-up. Single-cell RNA sequencing was performed on peripheral blood mononuclear cells (PBMCs) from 16 patients with distinct trajectories and 4 controls. Progression to ACLF was associated with expansion of classical monocytes, particularly subcluster “C2”, which specifically displayed impaired energy metabolism with reduced oxidative phosphorylation. Genes encoding respiratory chain Complex IV were markedly downregulated. A C2-derived gene signature was enriched in two large international whole-blood cohorts (PREDICT, n=689; ACLARA, n=521), particularly in patients with bacterial infections, those developing ACLF, and non-survivors. Functional validation by respirometry in an independent AD cohort confirmed declining monocyte Complex IV–dependent oxygen consumption in patients with pre-ACLF. Conclusions We identified and validated a distinct monocyte subpopulation with defective energy metabolism in patients with AD with poor outcomes, suggesting a mechanistic link to ACLF development.",
+        "venue": "JHEP Reports",
+        "link": "https://doi.org/10.1016/j.jhepr.2026.102087",
+        "published": "2026-11-01",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Sox Mutagenesis Reveals": [
       {
         "first_author": "Camden A. Hoover",
@@ -113818,6 +113928,77 @@
         "venue": "Current Opinion in Neurobiology",
         "link": "https://doi.org/10.1016/j.conb.2026.103287",
         "published": "2026-10-29",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Qcd Matter": [
+      {
+        "first_author": "João Barata",
+        "title": "Early-time dynamics of heavy-ion collisions through energy correlators: Celestial blocks and the spacetime structure of out-of-equilibrium QCD matter",
+        "abstract": "Ultrarelativistic heavy-ion collisions provide a unique window into far-from-equilibrium states of QCD matter. The initial stages of these events are characterized by highly anisotropic, nonthermal dynamics that precede hydrodynamization, yet they remain largely inaccessible through conventional soft observables. In this work, we show that the substructure of mid-rapidity jets provides direct sensitivity to the spacetime structure of this early, anisotropic phase. Using classical Yang-Mills simulations and effective kinetic theory to model the early-time evolution of the jet quenching parameter, we compute the azimuthally differential energy-energy correlator within the BDMPS-Z framework. By decomposing the result into celestial blocks, we isolate the coefficients that encode the anisotropic geometry and dynamics of the underlying medium. We identify an observable that couples directly to spatial anisotropies in the out-of-equilibrium QCD matter and also discuss the impact of medium response on its behavior. We further extend our study to mid-rapidity jets generated with the JEWEL Monte-Carlo, adjusted to incorporate an anisotropic medium background, and find qualitative agreement with the analytical expectations. Finally, we discuss how higher-point energy correlators and generalized energy-flow operators can enhance the sensitivity to the microscopic structure of far-from-equilibrium QCD matter.",
+        "venue": "Physical review. D/Physical review. D.",
+        "link": "https://doi.org/10.1103/3hn6-crj6",
+        "published": "2026-10-26",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Reinhard Stock",
+        "title": "Relativistic Nucleus-Nucleus Collisions and the QCD Matter Phase Diagram",
+        "abstract": "Abstract This review will be concerned with our knowledge of extended matter under the governance of strong interaction, in short: QCD matter. Strictly speaking, the hadrons are representing the first layer of extended QCD architecture. In fact we encounter the characteristic phenomena of confinement as distances grow to the scale of 1 fm (i.e. hadron size): loss of the chiral symmetry property of the elementary QCD Lagrangian via non-perturbative generation of “massive” quark and gluon condensates, that replace the bare QCD vacuum. However, given such first experiences of transition from short range perturbative QCD phenomena (jet physics etc.), toward extended, non perturbative QCD hadron structure, we shall proceed here to systems with dimensions far exceeding the force range: matter in the interior of heavy nuclei, or in neutron stars, and primordial matter in the cosmological era from electro-weak decoupling (10 −12 s) to hadron formation (0.5 ⋅ 10 −5 s). This primordial matter, prior to hadronization, should be deconfined in its QCD sector, forming a plasma (i.e. color conducting) state of quarks and gluons: the Quark Gluon Plasma (QGP).",
+        "venue": "",
+        "link": "https://doi.org/10.1007/978-3-030-38207-0_7",
+        "published": "2020-01-01",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Transverse Energy-Energy Correlators": [
+      {
+        "first_author": "Shohini Bhattacharya",
+        "title": "Probing the Sivers asymmetry with transverse energy-energy correlators in the small-x regime",
+        "abstract": "A bstract We investigate transverse energy-energy correlators (TEECs) for both polarized and unpolarized targets in the small- x regime at the Electron-Ion Collider (EIC). Focusing on the approximately back-to-back electroproduction of a hadron-electron pair, we apply transverse-momentum-dependent (TMD) factorization formulas that incorporate TMD evolution for both event-shape observables and expand them in terms of the small- x dipole amplitude. This allows us to write the TEEC off the transversely polarized proton in terms of a C-odd interaction, corresponding to an odderon exchange. Due to the charge-conjugation-odd nature of the small- x quark Sivers function, we restrict the sum over final hadronic states to positively and negatively charged hadrons separately. We present numerical predictions for the TEEC Sivers asymmetry at the EIC and find the magnitude of the asymmetry to be on the 0 . 01% level. This channel offers a promising avenue for benchmarking the still largely unconstrained odderon amplitude.",
+        "venue": "Journal of High Energy Physics",
+        "link": "https://doi.org/10.1007/jhep10(2026)227",
+        "published": "2026-10-22",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Quark-Gluon Plasma": [
+      {
+        "first_author": "Yu Guo",
+        "title": "Bayesian inference of the magnetic component in the quark-gluon plasma",
+        "abstract": "The chromo-magnetic monopoles (CMM), emergent topological excitations of non-Abelian gauge fields carrying chromo-magnetic charge, have long been postulated to play an important role in the vacuum confinement of quantum chromodynamics (QCD), the deconfinement transition at temperature $T_c\\approx 160\\rm MeV$, as well as the strongly coupled nature of quark-gluon plasma (QGP). While such CMMs have been found to provide solutions for challenging puzzles from heavy-ion collision measurements, they were typically introduced as model assumptions in the past. Here we show how their very existence can be determined and their abundance extracted in a data-driven way for the first time. Using the \\textsc{cujet3} framework for calculations of jet energy loss and analyzing a comprehensive experimental data set for nuclear modification factor ($R_{\\mathrm{AA}}$) and elliptic flow ($v_2$) of high-transverse-momentum hadrons, the fraction of CMMs in the QGP is obtained by Bayesian inference and is found to be substantial in the $1\\sim 2 T_c$ region. The posterior CMM fraction is further validated by excellent agreement with additional data and is also shown to predict QGP transport properties quantitatively consistent with the state-of-the-art knowledge.",
+        "venue": "Physical review. D/Physical review. D.",
+        "link": "https://doi.org/10.1103/svh2-j38f",
+        "published": "2026-10-14",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "F. Colamaria",
+        "title": "Quark-gluon plasma evolution and hadronization",
+        "abstract": "Due to the extremely large temperature and energy density reached in ultra-relativistic heavy-ion collisions, a hot and dense state of matter is produced, the quark-gluon plasma (QGP), in which quarks and gluons are deconfined. Due to these properties, this short-lived state shows a very different behaviour compared to ordinary hadronic matter. In this contribution, the typical evolution of a heavy-ion collision is described, from the onset of the QGP phase to the production of final-state particles. Recent experimental results from the LHC Collaborations, allowing us to characterise the various system stages, are reported. Particular focus is given on the hadronisation stage, in which the transition from deconfined partons to hadrons occurs.",
+        "venue": "",
+        "link": "https://doi.org/10.22323/1.422.0016",
+        "published": "2023-03-27",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Baoyi Chen",
+        "title": "Probe the tilted Quark-Gluon Plasma with charmonium directed flow",
+        "abstract": "Charmonium directed flows are studied based on transport model coupled with the realistic three dimensional expansions of the bulk medium. The non-central symmetric nucleus-nucleus collisions can generate the rotating quark-gluon plasma (QGP) with symmetry-breaking longitudinal distributions. In sNN=200 GeV Au+Au semi-central collisions, charmonium are primordially produced in the initial hard process, they are mainly dissociated by the initial tilted source with high temperatures and then move out of the bulk medium to keep the early information of the medium. The momentum distribution of primordially produced charmonia is less affected by the hydrodynamic expansions of QGP where its tilted shape is being diluted. This biased dissociation can generate directed flows of J/ψ and ψ(2S) which are much larger than the values of light charged hadrons and open heavy flavor. Charmonium directed flows can help to quantify the rapidity-odd distributions of QGP initial energy densities in nucleus-nucleus collisions.",
+        "venue": "Physics Letters B",
+        "link": "https://doi.org/10.1016/j.physletb.2020.135271",
+        "published": "2020-02-04",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Baryon Enhancement": [
+      {
+        "first_author": "Antonio Ortiz",
+        "title": "Baryon enhancement in jets",
+        "abstract": "The enhancement of the baryon production relative to mesons in small-collision systems is considered a breakthrough result of the Large Hadron Collider since a similar effect in heavy-ion collisions is understood by invoking the formation of the strongly-interacting quark--gluon plasma. In this paper, a baryon enhancement is reported for $p_{\\rm T}^{\\rm ch,jet}>15$ GeV/$c$ jets produced in pp collisions at $\\sqrt{s}=13$ TeV simulated with PYTHIA8. The effect can be explained as a transition between quark-initiated jets (low jet multiplicities) to gluon-initiated jets (high jet multiplicities). The present result contributes to a deeper understanding of the multiplicity dependence of baryon enhancement across different collision systems.",
+        "venue": "Physical review. D/Physical review. D.",
+        "link": "https://doi.org/10.1103/l2xp-jqxt",
+        "published": "2026-10-14",
         "is_arxiv": false
       }
     ],
@@ -142238,17 +142419,6 @@
         "venue": "Chinese Science Bulletin (Chinese Version)",
         "link": "https://doi.org/10.1360/tb-2019-0543",
         "published": "2020-02-20",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Acute-On-Chronic Liver Failure": [
-      {
-        "first_author": "Theresa H. Wirtz",
-        "title": "Single-cell profiling reveals monocyte mitochondrial dysfunction in patients with cirrhosis progressing to acute-on-chronic liver failure",
-        "abstract": "ABSTRACT Background &amp; Aims Patients with acute decompensation (AD) of cirrhosis are at a high risk of developing acute-on-chronic liver failure (ACLF), a syndrome characterized by multi-organ failure and high short-term mortality. Prospective studies addressing the cellular mechanisms that drive the transition from AD to ACLF are lacking. In this study, we aimed to determine whether peripheral immune cell subsets at hospital admission predict the progression from AD to ACLF and to delineate underlying molecular mechanisms. Approach &amp; Results We prospectively enrolled 63 patients with AD and 15 healthy donors across five European centers, with a 90-day follow-up. Single-cell RNA sequencing was performed on peripheral blood mononuclear cells (PBMCs) from 16 patients with distinct trajectories and 4 controls. Progression to ACLF was associated with expansion of classical monocytes, particularly subcluster “C2”, which specifically displayed impaired energy metabolism with reduced oxidative phosphorylation. Genes encoding respiratory chain Complex IV were markedly downregulated. A C2-derived gene signature was enriched in two large international whole-blood cohorts (PREDICT, n=689; ACLARA, n=521), particularly in patients with bacterial infections, those developing ACLF, and non-survivors. Functional validation by respirometry in an independent AD cohort confirmed declining monocyte Complex IV–dependent oxygen consumption in patients with pre-ACLF. Conclusions We identified and validated a distinct monocyte subpopulation with defective energy metabolism in patients with AD with poor outcomes, suggesting a mechanistic link to ACLF development.",
-        "venue": "medRxiv",
-        "link": "https://doi.org/10.1101/2025.02.04.25321370",
-        "published": "2025-02-07",
         "is_arxiv": false
       }
     ],
@@ -208855,26 +209025,6 @@
         "venue": "ODÜ Sosyal Bilimler Araştırmaları Dergisi (ODÜSOBİAD)",
         "link": "https://doi.org/10.48146/odusobiad.1211583",
         "published": "2023-03-27",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Quark-Gluon Plasma": [
-      {
-        "first_author": "F. Colamaria",
-        "title": "Quark-gluon plasma evolution and hadronization",
-        "abstract": "Due to the extremely large temperature and energy density reached in ultra-relativistic heavy-ion collisions, a hot and dense state of matter is produced, the quark-gluon plasma (QGP), in which quarks and gluons are deconfined. Due to these properties, this short-lived state shows a very different behaviour compared to ordinary hadronic matter. In this contribution, the typical evolution of a heavy-ion collision is described, from the onset of the QGP phase to the production of final-state particles. Recent experimental results from the LHC Collaborations, allowing us to characterise the various system stages, are reported. Particular focus is given on the hadronisation stage, in which the transition from deconfined partons to hadrons occurs.",
-        "venue": "",
-        "link": "https://doi.org/10.22323/1.422.0016",
-        "published": "2023-03-27",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Baoyi Chen",
-        "title": "Probe the tilted Quark-Gluon Plasma with charmonium directed flow",
-        "abstract": "Charmonium directed flows are studied based on transport model coupled with the realistic three dimensional expansions of the bulk medium. The non-central symmetric nucleus-nucleus collisions can generate the rotating quark-gluon plasma (QGP) with symmetry-breaking longitudinal distributions. In sNN=200 GeV Au+Au semi-central collisions, charmonium are primordially produced in the initial hard process, they are mainly dissociated by the initial tilted source with high temperatures and then move out of the bulk medium to keep the early information of the medium. The momentum distribution of primordially produced charmonia is less affected by the hydrodynamic expansions of QGP where its tilted shape is being diluted. This biased dissociation can generate directed flows of J/ψ and ψ(2S) which are much larger than the values of light charged hadrons and open heavy flavor. Charmonium directed flows can help to quantify the rapidity-odd distributions of QGP initial energy densities in nucleus-nucleus collisions.",
-        "venue": "Physics Letters B",
-        "link": "https://doi.org/10.1016/j.physletb.2020.135271",
-        "published": "2020-02-04",
         "is_arxiv": false
       }
     ],
@@ -297681,17 +297831,6 @@
         "abstract": "",
         "venue": "Communications in computer and information science",
         "link": "https://doi.org/10.1007/978-3-030-43823-4_43",
-        "published": "2020-01-01",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Qcd Matter": [
-      {
-        "first_author": "Reinhard Stock",
-        "title": "Relativistic Nucleus-Nucleus Collisions and the QCD Matter Phase Diagram",
-        "abstract": "Abstract This review will be concerned with our knowledge of extended matter under the governance of strong interaction, in short: QCD matter. Strictly speaking, the hadrons are representing the first layer of extended QCD architecture. In fact we encounter the characteristic phenomena of confinement as distances grow to the scale of 1 fm (i.e. hadron size): loss of the chiral symmetry property of the elementary QCD Lagrangian via non-perturbative generation of “massive” quark and gluon condensates, that replace the bare QCD vacuum. However, given such first experiences of transition from short range perturbative QCD phenomena (jet physics etc.), toward extended, non perturbative QCD hadron structure, we shall proceed here to systems with dimensions far exceeding the force range: matter in the interior of heavy nuclei, or in neutron stars, and primordial matter in the cosmological era from electro-weak decoupling (10 −12 s) to hadron formation (0.5 ⋅ 10 −5 s). This primordial matter, prior to hadronization, should be deconfined in its QCD sector, forming a plasma (i.e. color conducting) state of quarks and gluons: the Quark Gluon Plasma (QGP).",
-        "venue": "",
-        "link": "https://doi.org/10.1007/978-3-030-38207-0_7",
         "published": "2020-01-01",
         "is_arxiv": false
       }
