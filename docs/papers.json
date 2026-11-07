@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-06T00:27:45.038069+00:00",
+  "generated_at_utc": "2026-11-07T00:25:14.005981+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30486,
+  "total_papers": 30490,
   "categories": {
     "LLM": [
       {
@@ -11634,11 +11634,11 @@
     "Event-based Vision": [
       {
         "first_author": "Shiao Wang",
-        "title": "Mamba-FETrack V2: Revisiting State Space Model for Frame-Event based Visual Object Tracking",
+        "title": "Mamba-FETrack V2: Revisiting state space model for frame-event based visual object tracking",
         "abstract": "",
         "venue": "Neural Networks",
         "link": "https://doi.org/10.1016/j.neunet.2026.109823",
-        "published": "2026-11-01",
+        "published": "2026-11-03",
         "is_arxiv": false
       },
       {
@@ -113918,6 +113918,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Derivation Mean Field": [
+      {
+        "first_author": "Roberta Maria Lorenzi",
+        "title": "Automated derivation of mean field models from spiking neural networks for the simulation of brain dynamics",
+        "abstract": "",
+        "venue": "Neural Networks",
+        "link": "https://doi.org/10.1016/j.neunet.2026.109872",
+        "published": "2026-11-01",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Acute-On-Chronic Liver Failure": [
       {
         "first_author": "Theresa Hildegard Wirtz",
@@ -113971,6 +113982,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Endothelial Cell": [
+      {
+        "first_author": "Sarah Dobner",
+        "title": "Uncovering the transcriptional hallmarks of endothelial cell aging via integrated single-cell analysis",
+        "abstract": "Abstract Endothelial cells (ECs) are critical regulators of vascular function and exhibit specialized, organ-specific roles across tissues. During aging, these cells become dysfunctional, resulting in increased susceptibility to cardiovascular disease and its associated mortality. While single-cell transcriptomics studies have revealed extensive endothelial heterogeneity across tissues and conditions, a comprehensive atlas of human EC transcriptomes over the course of the adult human lifespan is still lacking. Here, we present the Human Aging Endothelial Cell Atlas (HAECA), a harmonized single-cell transcriptomic compendium of over 375,000 ECs from 12 human tissues throughout adulthood. Using HAECA, we identified age-associated transcriptional shifts, including a decline in angiogenic gene expression in venous ECs and widespread alterations in extracellular matrix (ECM)- and mechanotransduction-associated pathways. We validated these findings in aging human skin and further uncovered a p21-linked transcriptional program in ECs, confirmed in both in vitro and in vivo models and linked to cellular senescence. Together, our study provides a high-resolution transcriptome reference across spatial as well as temporal axes of the human endothelium.",
+        "venue": "Nature Aging",
+        "link": "https://doi.org/10.1038/s43587-026-01247-3",
+        "published": "2026-10-23",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Transverse Energy-Energy Correlators": [
       {
         "first_author": "Shohini Bhattacharya",
@@ -113982,33 +114004,33 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Quark-Gluon Plasma": [
+    "Topic: Bayesian Inference": [
       {
         "first_author": "Yu Guo",
         "title": "Bayesian inference of the magnetic component in the quark-gluon plasma",
-        "abstract": "The chromo-magnetic monopoles (CMM), emergent topological excitations of non-Abelian gauge fields carrying chromo-magnetic charge, have long been postulated to play an important role in the vacuum confinement of quantum chromodynamics (QCD), the deconfinement transition at temperature $T_c\\approx 160\\rm MeV$, as well as the strongly coupled nature of quark-gluon plasma (QGP). While such CMMs have been found to provide solutions for challenging puzzles from heavy-ion collision measurements, they were typically introduced as model assumptions in the past. Here we show how their very existence can be determined and their abundance extracted in a data-driven way for the first time. Using the \\textsc{cujet3} framework for calculations of jet energy loss and analyzing a comprehensive experimental data set for nuclear modification factor ($R_{\\mathrm{AA}}$) and elliptic flow ($v_2$) of high-transverse-momentum hadrons, the fraction of CMMs in the QGP is obtained by Bayesian inference and is found to be substantial in the $1\\sim 2 T_c$ region. The posterior CMM fraction is further validated by excellent agreement with additional data and is also shown to predict QGP transport properties quantitatively consistent with the state-of-the-art knowledge.",
+        "abstract": "The chromomagnetic monopoles (CMM), emergent topological excitations of non-Abelian gauge fields carrying chromomagnetic charge, have long been postulated to play an important role in the vacuum confinement of quantum chromodynamics (QCD), the deconfinement transition at temperature T c ≈ 160 MeV , as well as the strongly coupled nature of quark-gluon plasma (QGP). While such CMMs were found to help provide resolutions for challenging puzzles from heavy-ion collision measurements, they were typically introduced as model assumptions in the past. Here we perform a data-driven Bayesian inference of the chromomagnetic component, within the CUJET framework, and extract its temperature-dependent abundance for the first time. Using the 3 framework for calculations of jet energy loss and analyzing a comprehensive experimental dataset for nuclear modification factor ( R AA ) and elliptic flow ( v 2 ) of high-transverse-momentum hadrons, the fraction of CMMs in the QGP is obtained by Bayesian inference and is found to be substantial in the 1 ∼ 2 T c region. The posterior CMM fraction is further tested against additional data and is also shown to predict QGP transport properties that are quantitatively consistent with the state-of-the-art knowledge.",
         "venue": "Physical review. D/Physical review. D.",
         "link": "https://doi.org/10.1103/svh2-j38f",
         "published": "2026-10-14",
         "is_arxiv": false
       },
       {
-        "first_author": "F. Colamaria",
-        "title": "Quark-gluon plasma evolution and hadronization",
-        "abstract": "Due to the extremely large temperature and energy density reached in ultra-relativistic heavy-ion collisions, a hot and dense state of matter is produced, the quark-gluon plasma (QGP), in which quarks and gluons are deconfined. Due to these properties, this short-lived state shows a very different behaviour compared to ordinary hadronic matter. In this contribution, the typical evolution of a heavy-ion collision is described, from the onset of the QGP phase to the production of final-state particles. Recent experimental results from the LHC Collaborations, allowing us to characterise the various system stages, are reported. Particular focus is given on the hadronisation stage, in which the transition from deconfined partons to hadrons occurs.",
-        "venue": "",
-        "link": "https://doi.org/10.22323/1.422.0016",
-        "published": "2023-03-27",
-        "is_arxiv": false
+        "first_author": "Sepideh Adamiat",
+        "title": "Spike-based Belief Propagation in Nonlinear Dynamical Systems",
+        "abstract": "This paper presents a Bayesian control framework that integrates spike-based dynamics with probabilistic inference for adaptive control. Bayesian inference is widely regarded as a core computational principle of brain function, providing a normative framework for perception, decision-making, and learning under uncertainty. By combining a biologically inspired spiking neural model with Bayesian inference principles, we propose a brain-like control algorithm capable of operating in uncertain environments. We use the mountain car parking problem as a benchmark with non-linear dynamics. Our results demonstrate that the proposed controller can successfully update states in real time and generate goal-directed action plans through spike-driven dynamics. The results highlight the proposed model's potential as a bridge between computational neuroscience and probabilistic control theory.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2608.19907v1",
+        "published": "2026-08-20T11:20:22Z",
+        "is_arxiv": true
       },
       {
-        "first_author": "Baoyi Chen",
-        "title": "Probe the tilted Quark-Gluon Plasma with charmonium directed flow",
-        "abstract": "Charmonium directed flows are studied based on transport model coupled with the realistic three dimensional expansions of the bulk medium. The non-central symmetric nucleus-nucleus collisions can generate the rotating quark-gluon plasma (QGP) with symmetry-breaking longitudinal distributions. In sNN=200 GeV Au+Au semi-central collisions, charmonium are primordially produced in the initial hard process, they are mainly dissociated by the initial tilted source with high temperatures and then move out of the bulk medium to keep the early information of the medium. The momentum distribution of primordially produced charmonia is less affected by the hydrodynamic expansions of QGP where its tilted shape is being diluted. This biased dissociation can generate directed flows of J/ψ and ψ(2S) which are much larger than the values of light charged hadrons and open heavy flavor. Charmonium directed flows can help to quantify the rapidity-odd distributions of QGP initial energy densities in nucleus-nucleus collisions.",
-        "venue": "Physics Letters B",
-        "link": "https://doi.org/10.1016/j.physletb.2020.135271",
-        "published": "2020-02-04",
-        "is_arxiv": false
+        "first_author": "R. J. Ehlers",
+        "title": "Bayesian Inference analysis of jet quenching using inclusive jet and hadron suppression measurements",
+        "abstract": "The JETSCAPE Collaboration reports a new determination of the jet transport parameter $\\hat{q}$ in the Quark-Gluon Plasma (QGP) using Bayesian Inference, incorporating all available inclusive hadron and jet yield suppression data measured in heavy-ion collisions at RHIC and the LHC. This multi-observable analysis extends the previously published JETSCAPE Bayesian Inference determination of $\\hat{q}$, which was based solely on a selection of inclusive hadron suppression data. JETSCAPE is a modular framework incorporating detailed dynamical models of QGP formation and evolution, and jet propagation and interaction in the QGP. Virtuality-dependent partonic energy loss in the QGP is modeled as a thermalized weakly-coupled plasma, with parameters determined from Bayesian calibration using soft-sector observables. This Bayesian calibration of $\\hat{q}$ utilizes Active Learning, a machine--learning approach, for efficient exploitation of computing resources. The experimental data included in this analysis span a broad range in collision energy and centrality, and in transverse momentum. In order to explore the systematic dependence of the extracted parameter posterior distributions, several different calibrations are reported, based on combined jet and hadron data; on jet or hadron data separately; and on restricted kinematic or centrality ranges of the jet and hadron data. Tension is observed in comparison of these variations, providing new insights into the physics of jet transport in the QGP and its theoretical formulation.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2408.08247",
+        "published": "2024-08-15",
+        "is_arxiv": true
       }
     ],
     "Topic: Baryon Enhancement": [
@@ -114031,6 +114053,28 @@
         "link": "https://doi.org/10.5281/zenodo.23271527",
         "published": "2026-10-10",
         "is_arxiv": false
+      }
+    ],
+    "Topic: Dynamics Data Sindy": [
+      {
+        "first_author": "Chuanxing Wang",
+        "title": "Extracting Single-Mode Rayleigh--Taylor Instability dynamics from data via SINDy",
+        "abstract": "Rayleigh-Taylor instability (RTI) is of fundamental importance in fields such as inertial confinement fusion and supernova explosions, and its evolution is commonly described by potential--flow theory and buoyancy--drag models. However, both types of models struggle to accurately capture the overshoot behavior of bubble and spike velocities, as well as the subsequent reacceleration stage. To address these limitations, we develop a physics-constrained, data-driven framework based on the integral formulation of Sparse Identification of Nonlinear Dynamics (SINDy), which extracts low-dimensional dynamical equations for bubble and spike evolution directly from data. By introducing the nondimensional initial amplitude $A_0 = kη_0$ as an explicit parameter, we identify distinct dynamical equations for the bubble and the spike based on data spanning multiple Atwood numbers and initial amplitudes. The resulting low-dimensional dynamical equations not only reproduce the overshoot behavior of the velocity with good accuracy, but also capture the reacceleration stage well, while maintaining high predictive accuracy at unseen values of the wavenumber, acceleration, and Atwood number. This work provides a physics-constrained, data-driven framework complementary to conventional potential-flow and buoyancy--drag models, accurately describing the dynamical evolution of the bubble and spike at high Atwood numbers, and provides a new perspective for directly extracting the dynamical equations of interfacial instabilities from data.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.07666v1",
+        "published": "2026-11-05T08:48:54Z",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Connection Loss": [
+      {
+        "first_author": "Shuchao Gao",
+        "title": "From Connection Loss to Collision: Closed-Loop Fault Assessment of a Fly-Connectome SNN",
+        "abstract": "The public release of the complete adult fruit-fly brain connectome enables brain-scale spiking-network studies, motivating closed-loop assessment of connection loss. We test a connectome-derived controller in synthetic pursuit-escape and check record consistency. Across 576 test episodes in paired campaigns, the baseline mapping at 50% connection-row deletion yields 11/48 proportional and 0/48 relay collisions by 1 s, despite paired P/R trigger/burst schedules. The prespecified secondary relay-minus-proportional net-loss difference is -22.9 percentage points (95% seed-cluster CI [-33.3, -12.5]). Two separately recalibrated mappings yield smaller, uncertain point estimates; unequal healthy clearance, recalibration and different test cohorts limit attribution. A frozen command-rate warning detects only 2/13 baseline collisions across all tested deletion levels. In a separate author-designed fly/delayed-tank catalogue, checks plus model-specific replay detect 81/87 corruptions versus 36/87 for trusted headers, accepting all 20 distinct valid inputs (six misses). These results quantify finite-horizon collisions and the gains and limits of record checks.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.06940v1",
+        "published": "2026-10-31T03:11:36Z",
+        "is_arxiv": true
       }
     ],
     "Topic: Differential Radial-Flow": [
@@ -115966,6 +116010,26 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Quark-Gluon Plasma": [
+      {
+        "first_author": "F. Colamaria",
+        "title": "Quark-gluon plasma evolution and hadronization",
+        "abstract": "Due to the extremely large temperature and energy density reached in ultra-relativistic heavy-ion collisions, a hot and dense state of matter is produced, the quark-gluon plasma (QGP), in which quarks and gluons are deconfined. Due to these properties, this short-lived state shows a very different behaviour compared to ordinary hadronic matter. In this contribution, the typical evolution of a heavy-ion collision is described, from the onset of the QGP phase to the production of final-state particles. Recent experimental results from the LHC Collaborations, allowing us to characterise the various system stages, are reported. Particular focus is given on the hadronisation stage, in which the transition from deconfined partons to hadrons occurs.",
+        "venue": "",
+        "link": "https://doi.org/10.22323/1.422.0016",
+        "published": "2023-03-27",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Baoyi Chen",
+        "title": "Probe the tilted Quark-Gluon Plasma with charmonium directed flow",
+        "abstract": "Charmonium directed flows are studied based on transport model coupled with the realistic three dimensional expansions of the bulk medium. The non-central symmetric nucleus-nucleus collisions can generate the rotating quark-gluon plasma (QGP) with symmetry-breaking longitudinal distributions. In sNN=200 GeV Au+Au semi-central collisions, charmonium are primordially produced in the initial hard process, they are mainly dissociated by the initial tilted source with high temperatures and then move out of the bulk medium to keep the early information of the medium. The momentum distribution of primordially produced charmonia is less affected by the hydrodynamic expansions of QGP where its tilted shape is being diluted. This biased dissociation can generate directed flows of J/ψ and ψ(2S) which are much larger than the values of light charged hadrons and open heavy flavor. Charmonium directed flows can help to quantify the rapidity-odd distributions of QGP initial energy densities in nucleus-nucleus collisions.",
+        "venue": "Physics Letters B",
+        "link": "https://doi.org/10.1016/j.physletb.2020.135271",
+        "published": "2020-02-04",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Cerebral Organoids": [
       {
         "first_author": "Ábel Vértesy",
@@ -116753,26 +116817,6 @@
         "link": "https://doi.org/10.1103/f3nk-5lt9",
         "published": "2026-09-14",
         "is_arxiv": false
-      }
-    ],
-    "Topic: Bayesian Inference": [
-      {
-        "first_author": "Sepideh Adamiat",
-        "title": "Spike-based Belief Propagation in Nonlinear Dynamical Systems",
-        "abstract": "This paper presents a Bayesian control framework that integrates spike-based dynamics with probabilistic inference for adaptive control. Bayesian inference is widely regarded as a core computational principle of brain function, providing a normative framework for perception, decision-making, and learning under uncertainty. By combining a biologically inspired spiking neural model with Bayesian inference principles, we propose a brain-like control algorithm capable of operating in uncertain environments. We use the mountain car parking problem as a benchmark with non-linear dynamics. Our results demonstrate that the proposed controller can successfully update states in real time and generate goal-directed action plans through spike-driven dynamics. The results highlight the proposed model's potential as a bridge between computational neuroscience and probabilistic control theory.",
-        "venue": "arXiv",
-        "link": "https://arxiv.org/abs/2608.19907v1",
-        "published": "2026-08-20T11:20:22Z",
-        "is_arxiv": true
-      },
-      {
-        "first_author": "R. J. Ehlers",
-        "title": "Bayesian Inference analysis of jet quenching using inclusive jet and hadron suppression measurements",
-        "abstract": "The JETSCAPE Collaboration reports a new determination of the jet transport parameter $\\hat{q}$ in the Quark-Gluon Plasma (QGP) using Bayesian Inference, incorporating all available inclusive hadron and jet yield suppression data measured in heavy-ion collisions at RHIC and the LHC. This multi-observable analysis extends the previously published JETSCAPE Bayesian Inference determination of $\\hat{q}$, which was based solely on a selection of inclusive hadron suppression data. JETSCAPE is a modular framework incorporating detailed dynamical models of QGP formation and evolution, and jet propagation and interaction in the QGP. Virtuality-dependent partonic energy loss in the QGP is modeled as a thermalized weakly-coupled plasma, with parameters determined from Bayesian calibration using soft-sector observables. This Bayesian calibration of $\\hat{q}$ utilizes Active Learning, a machine--learning approach, for efficient exploitation of computing resources. The experimental data included in this analysis span a broad range in collision energy and centrality, and in transverse momentum. In order to explore the systematic dependence of the extracted parameter posterior distributions, several different calibrations are reported, based on combined jet and hadron data; on jet or hadron data separately; and on restricted kinematic or centrality ranges of the jet and hadron data. Tension is observed in comparison of these variations, providing new insights into the physics of jet transport in the QGP and its theoretical formulation.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2408.08247",
-        "published": "2024-08-15",
-        "is_arxiv": true
       }
     ],
     "Topic: Hidradenitis Suppurativa": [
