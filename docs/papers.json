@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-08T00:30:03.649672+00:00",
+  "generated_at_utc": "2026-11-09T00:29:26.771234+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
@@ -19834,20 +19834,20 @@
         "is_arxiv": true
       },
       {
-        "first_author": "Barry M. Dillon",
-        "title": "Spiking neural network inference on FPGAs with hls4ml",
-        "abstract": "Abstract Spiking Neural Networks (SNNs) provide a naturally temporal machinelearning framework. Their neurons maintain an internal state and propagate information through discrete spikes, enabling low-latency temporal inference. Although SNNs are often associated with asynchronous neuromorphic processors, many scientific real-time inference systems rely on conventional synchronous fieldprogrammable gate arrays (FPGAs) and high-level synthesis (HLS) workflows. In this paper we present an extension of hls4ml that enables clock-driven deployment of SNNs trained in PyTorch onto FPGA firmware. We demonstrate the workflow using a dense quantised SNN trained on the Heidelberg Spiking Digits dataset where it achieves inference latencies of approximately 34µs. We validate the generated design through software reference comparisons, HLS C simulation, HLS synthesis, export, and Vivado synthesis reports. This work opens up the hls4ml toolkit to neuromorphic computing, allowing streamlined optimisation, synthesis, and deployment of SNN models for realtime inference.",
-        "venue": "Neuromorphic Computing and Engineering",
-        "link": "https://doi.org/10.1088/2634-4386/aeb8ba",
-        "published": "2026-10-23",
-        "is_arxiv": false
-      },
-      {
         "first_author": "Matéj Hejda",
         "title": "SEPhIA: spiking electro-photonic integrated tiled architecture leveraging multi-wavelength lasers for scalable optical neuromorphic computing",
         "abstract": "Abstract Research into optical spiking neural networks (SNNs) has primarily focused on spiking devices, networks of excitable lasers or numerical modeling of large architectures, often overlooking key constraints such as limited optical power, crosstalk and footprint. We introduce SEPhIA, a photonic-electronic, multi-tiled SNN architecture emphasizing implementation feasibility and realistic scaling. SEPhIA leverages microring modulators (MRMs) and multi-wavelength sources to achieve effective $$ < 1$$ < 1 laser-per-spiking neuron ratio. We validate SEPhIA at both device and architecture levels by time‑domain co‑simulating excitable CMOS‑MRM coupled circuits and by devising a physics‑aware, trainable optoelectronic SNN model, with both approaches utilizing experimentally derived device parameters. The multi-layer optoelectronic SNN achieves classification accuracies over 90% on a four-class spike-encoded dataset, closely comparable to software models. A design space study further quantifies how photonic device parameters impact SNN performance under constrained signal-to-noise conditions. SEPhIA offers a scalable, expressive, physically grounded solution for neuromorphic photonic computing, capable of addressing spike-encoded tasks.",
         "venue": "npj Unconventional Computing",
         "link": "https://doi.org/10.1038/s44335-026-00102-3",
+        "published": "2026-10-23",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Barry M. Dillon",
+        "title": "Spiking neural network inference on FPGAs with hls4ml",
+        "abstract": "Abstract Spiking Neural Networks (SNNs) provide a naturally temporal machinelearning framework. Their neurons maintain an internal state and propagate information through discrete spikes, enabling low-latency temporal inference. Although SNNs are often associated with asynchronous neuromorphic processors, many scientific real-time inference systems rely on conventional synchronous fieldprogrammable gate arrays (FPGAs) and high-level synthesis (HLS) workflows. In this paper we present an extension of hls4ml that enables clock-driven deployment of SNNs trained in PyTorch onto FPGA firmware. We demonstrate the workflow using a dense quantised SNN trained on the Heidelberg Spiking Digits dataset where it achieves inference latencies of approximately 34µs. We validate the generated design through software reference comparisons, HLS C simulation, HLS synthesis, export, and Vivado synthesis reports. This work opens up the hls4ml toolkit to neuromorphic computing, allowing streamlined optimisation, synthesis, and deployment of SNN models for realtime inference.",
+        "venue": "Neuromorphic Computing and Engineering",
+        "link": "https://doi.org/10.1088/2634-4386/aeb8ba",
         "published": "2026-10-23",
         "is_arxiv": false
       },
@@ -114427,53 +114427,6 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Neutron Skin": [
-      {
-        "first_author": "Xu-Hua Tian",
-        "title": "Probing neutron skin through event-by-event pion asymmetry in heavy-ion collisions",
-        "abstract": "In this work, we propose a novel approach for probing the neutron skin thickness of gold (Au) by analyzing the event-by-event distribution of $π^{-}$ and $π^{+}$ yield differences. This is achieved through SMASH simulations of ultra-peripheral Au+Au collisions at $\\sqrt{s_{\\rm NN}}=3$ GeV. Our results demonstrate that the mean value of $Δn_π = n_{π^{-}} - n_{π^{+}}$, along with the Pearson correlation and mutual information between $(π^{-}+π^{+})$ and $(π^{-}-π^{+})$, all scale linearly with the neutron skin thickness. Moreover, the slope of the line connecting two distinct $Δn_π$ values in the event-by-event distribution also exhibits a linear dependence on the neutron skin thickness. The most sensitive $Δn_π$ pairs are identified as $(-1, 1)$, $(-1, 2)$, $(0, 1)$, and $(0, 2)$. These findings establish a new pathway for determining the neutron skin thickness. Finally, by comparing SMASH and UrQMD simulations under identical initial conditions, we observe that individual slope values depend on the specific collision model. However, by extracting slopes from multiple $Δn_π$ pairs in experimental event-by-event data and inferring the corresponding neutron skin thickness, one can assess which model better aligns with the true physical value.",
-        "venue": "Physical Review C",
-        "link": "https://doi.org/10.1103/bw3p-lpg6",
-        "published": "2026-10-09",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Mengqi Ding",
-        "title": "Neutron skin and its effects in heavy-ion collisions",
-        "abstract": "Neutron skin is an exotic phenomena in unstable nuclei. The various effects in nuclear reactions caused by the neutron skin and also its relation with the properties of nuclear structure are reviewed in this article. Based on numerous studies with theoretical models, strong correlations have been found between the neutron skin thickness and neutron removal cross section, neutron/proton yield ratio, t/\\ch{^3He} yield ratio, neutron-proton momentum difference, isoscaling parameter, photon production, reaction cross sections for neutron induced reactions, charge-changing cross sections difference of mirror nuclei, astrophysical $S$-factor, and other quantities in nuclear reactions induced by neutron-rich nuclei. Moreover, the relationships between neutron skin thickness and some properties of nuclear structure, such as $α$-cluster formation, $α$ decay, nuclear surface, nuclear temperature, and proton radii difference of mirror nuclei, have also been investigated. It also has been shown that the neutron skin plays a crucial role in relativistic heavy-ion collisions. Experimentally, an unstable nucleus with neutron skin can be generated by radioactive nuclear beam facilities, and the thickness of neutron skin could be extracted by measuring the sensitive probes, which further helps giving stringent constraints on the equation of state of asymmetric nuclear matter and properties of neutron stars.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2409.07059",
-        "published": "2024-09-11",
-        "is_arxiv": true
-      },
-      {
-        "first_author": "Wilke van der Schee",
-        "title": "Hard probes in isobar collisions as a probe of the neutron skin",
-        "abstract": "We present an estimate of the yield of hard probes expected for collisions of the isobars $^{96}_{44}$Ru and $^{96}_{40}$Zr at collision energies reachable at RHIC and the LHC\\@. These yields are proportional to the number of binary nucleon-nucleon interactions, which is characteristically different due to the presence of the large neutron skin in $^{96}_{40}$Zr. This provides an independent opportunity to measure the difference between the neutron skin of $^{96}_{44}$Ru and $^{96}_{40}$Zr, which can provide an important constraint on the Equation of State of cold neutron-rich matter.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2307.11836",
-        "published": "2023-07-21",
-        "is_arxiv": true
-      },
-      {
-        "first_author": "Giuliano Giacalone",
-        "title": "Determination of the neutron skin of $^{208}$Pb from ultrarelativistic nuclear collisions",
-        "abstract": "Emergent bulk properties of matter governed by the strong nuclear force give rise to physical phenomena across vastly different scales, ranging from the shape of atomic nuclei to the masses and radii of neutron stars. They can be accessed on Earth by measuring the spatial extent of the outer skin made of neutrons that characterises the surface of heavy nuclei. The isotope $^{208}$Pb, owing to its simple structure and neutron excess, has been in this context the target of many dedicated efforts. Here, we determine the neutron skin from measurements of particle distributions and their collective flow in $^{208}$Pb+$^{208}$Pb collisions at ultrarelativistic energy performed at the Large Hadron Collider, which are sensitive to the overall size of the colliding $^{208}$Pb ions. By means of state-of-the-art global analysis tools within the hydrodynamic model of heavy-ion collisions, we infer a neutron skin $Δr_{np}=0.217\\pm0.058$ fm, consistent with nuclear theory predictions, and competitive in accuracy with a recent determination from parity-violating asymmetries in polarised electron scattering. We establish thus a new experimental method to systematically measure neutron distributions in the ground state of atomic nuclei.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2305.00015",
-        "published": "2023-04-28",
-        "is_arxiv": true
-      },
-      {
-        "first_author": "H. Xu",
-        "title": "Determine the neutron skin type by relativistic isobaric collisions",
-        "abstract": "The effects of neutron skin on the multiplicity (Nch) and eccentricity (ϵ2) in relativistic 4496Ru+4496Ru and 4096Zr+4096Zr collisions at sNN=200 GeV are investigated with the Trento model. It is found that the Ru+Ru/Zr+Zr ratios of the Nch distributions and ϵ2 in mid-central collisions are exquisitely sensitive to the neutron skin type (skin vs. halo). The state-of-the-art calculations by energy density functional theory (DFT) favor the halo-type neutron skin and can soon be confronted by experimental data. It is demonstrated that the halo-type density can serve as a good surrogate for the DFT density, and thus can be efficiently employed to probe nuclear deformities by using elliptic flow data in central collisions. We provide hereby a proof-of-principle venue to simultaneously determine the neutron skin type, thickness, and nuclear deformity.",
-        "venue": "Physics Letters B",
-        "link": "https://doi.org/10.1016/j.physletb.2021.136453",
-        "published": "2021-06-17",
-        "is_arxiv": false
-      }
-    ],
     "Topic: Dynamics Data Sindy": [
       {
         "first_author": "Chuanxing Wang",
@@ -114589,6 +114542,53 @@
         "link": "https://arxiv.org/abs/2610.19392v1",
         "published": "2026-10-14T01:37:51Z",
         "is_arxiv": true
+      }
+    ],
+    "Topic: Neutron Skin": [
+      {
+        "first_author": "Xu-Hua Tian",
+        "title": "Probing neutron skin through event-by-event pion asymmetry in heavy-ion collisions",
+        "abstract": "In this work, we propose a novel approach for probing the neutron skin thickness of gold (Au) by analyzing the event-by-event distribution of $π^{-}$ and $π^{+}$ yield differences. This is achieved through SMASH simulations of ultra-peripheral Au+Au collisions at $\\sqrt{s_{\\rm NN}}=3$ GeV. Our results demonstrate that the mean value of $Δn_π = n_{π^{-}} - n_{π^{+}}$, along with the Pearson correlation and mutual information between $(π^{-}+π^{+})$ and $(π^{-}-π^{+})$, all scale linearly with the neutron skin thickness. Moreover, the slope of the line connecting two distinct $Δn_π$ values in the event-by-event distribution also exhibits a linear dependence on the neutron skin thickness. The most sensitive $Δn_π$ pairs are identified as $(-1, 1)$, $(-1, 2)$, $(0, 1)$, and $(0, 2)$. These findings establish a new pathway for determining the neutron skin thickness. Finally, by comparing SMASH and UrQMD simulations under identical initial conditions, we observe that individual slope values depend on the specific collision model. However, by extracting slopes from multiple $Δn_π$ pairs in experimental event-by-event data and inferring the corresponding neutron skin thickness, one can assess which model better aligns with the true physical value.",
+        "venue": "Physical Review C",
+        "link": "https://doi.org/10.1103/bw3p-lpg6",
+        "published": "2026-10-09",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Mengqi Ding",
+        "title": "Neutron skin and its effects in heavy-ion collisions",
+        "abstract": "Neutron skin is an exotic phenomena in unstable nuclei. The various effects in nuclear reactions caused by the neutron skin and also its relation with the properties of nuclear structure are reviewed in this article. Based on numerous studies with theoretical models, strong correlations have been found between the neutron skin thickness and neutron removal cross section, neutron/proton yield ratio, t/\\ch{^3He} yield ratio, neutron-proton momentum difference, isoscaling parameter, photon production, reaction cross sections for neutron induced reactions, charge-changing cross sections difference of mirror nuclei, astrophysical $S$-factor, and other quantities in nuclear reactions induced by neutron-rich nuclei. Moreover, the relationships between neutron skin thickness and some properties of nuclear structure, such as $α$-cluster formation, $α$ decay, nuclear surface, nuclear temperature, and proton radii difference of mirror nuclei, have also been investigated. It also has been shown that the neutron skin plays a crucial role in relativistic heavy-ion collisions. Experimentally, an unstable nucleus with neutron skin can be generated by radioactive nuclear beam facilities, and the thickness of neutron skin could be extracted by measuring the sensitive probes, which further helps giving stringent constraints on the equation of state of asymmetric nuclear matter and properties of neutron stars.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2409.07059",
+        "published": "2024-09-11",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Wilke van der Schee",
+        "title": "Hard probes in isobar collisions as a probe of the neutron skin",
+        "abstract": "We present an estimate of the yield of hard probes expected for collisions of the isobars $^{96}_{44}$Ru and $^{96}_{40}$Zr at collision energies reachable at RHIC and the LHC\\@. These yields are proportional to the number of binary nucleon-nucleon interactions, which is characteristically different due to the presence of the large neutron skin in $^{96}_{40}$Zr. This provides an independent opportunity to measure the difference between the neutron skin of $^{96}_{44}$Ru and $^{96}_{40}$Zr, which can provide an important constraint on the Equation of State of cold neutron-rich matter.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2307.11836",
+        "published": "2023-07-21",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Giuliano Giacalone",
+        "title": "Determination of the neutron skin of $^{208}$Pb from ultrarelativistic nuclear collisions",
+        "abstract": "Emergent bulk properties of matter governed by the strong nuclear force give rise to physical phenomena across vastly different scales, ranging from the shape of atomic nuclei to the masses and radii of neutron stars. They can be accessed on Earth by measuring the spatial extent of the outer skin made of neutrons that characterises the surface of heavy nuclei. The isotope $^{208}$Pb, owing to its simple structure and neutron excess, has been in this context the target of many dedicated efforts. Here, we determine the neutron skin from measurements of particle distributions and their collective flow in $^{208}$Pb+$^{208}$Pb collisions at ultrarelativistic energy performed at the Large Hadron Collider, which are sensitive to the overall size of the colliding $^{208}$Pb ions. By means of state-of-the-art global analysis tools within the hydrodynamic model of heavy-ion collisions, we infer a neutron skin $Δr_{np}=0.217\\pm0.058$ fm, consistent with nuclear theory predictions, and competitive in accuracy with a recent determination from parity-violating asymmetries in polarised electron scattering. We establish thus a new experimental method to systematically measure neutron distributions in the ground state of atomic nuclei.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2305.00015",
+        "published": "2023-04-28",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "H. Xu",
+        "title": "Determine the neutron skin type by relativistic isobaric collisions",
+        "abstract": "The effects of neutron skin on the multiplicity (Nch) and eccentricity (ϵ2) in relativistic 4496Ru+4496Ru and 4096Zr+4096Zr collisions at sNN=200 GeV are investigated with the Trento model. It is found that the Ru+Ru/Zr+Zr ratios of the Nch distributions and ϵ2 in mid-central collisions are exquisitely sensitive to the neutron skin type (skin vs. halo). The state-of-the-art calculations by energy density functional theory (DFT) favor the halo-type neutron skin and can soon be confronted by experimental data. It is demonstrated that the halo-type density can serve as a good surrogate for the DFT density, and thus can be efficiently employed to probe nuclear deformities by using elliptic flow data in central collisions. We provide hereby a proof-of-principle venue to simultaneously determine the neutron skin type, thickness, and nuclear deformity.",
+        "venue": "Physics Letters B",
+        "link": "https://doi.org/10.1016/j.physletb.2021.136453",
+        "published": "2021-06-17",
+        "is_arxiv": false
       }
     ],
     "Recurrent Networks": [
