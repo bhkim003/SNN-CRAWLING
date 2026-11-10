@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-09T00:29:26.771234+00:00",
+  "generated_at_utc": "2026-11-10T00:25:37.543722+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30513,
+  "total_papers": 30516,
   "categories": {
     "LLM": [
       {
@@ -19771,6 +19771,15 @@
     ],
     "Neuromorphic Hardware": [
       {
+        "first_author": "Yubo Song",
+        "title": "Circuit Theory-Informed AI for Condition Monitoring in Power Electronics",
+        "abstract": "Artificial intelligence for power electronics is evolving toward a deeper comprehension of system intrinsic behaviors and dynamics. As a novel integration of neural computation and electric circuits, spike-based neuromorphic computing offers promising potential in high energy efficiency and adaptability for data-driven applications. Building on the latency-coding principles, this article proposes a framework for data-light condition monitoring that relies solely on three-phase AC current measurements. The AC current signals are encoded as membrane potentials of RC-based spiking neurons, which are inherently compatible with spiking neural networks that can effectively facilitate the estimation of device parameters. Case studies are presented to validate the performances, while constraints and further optimizations are also evaluated and discussed, and future extensions of the methodology are provided.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.09141v1",
+        "published": "2026-11-06T08:16:23Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Huannan Zheng",
         "title": "Device Stochasticity Directly Implements Bayesian Sampling in Spiking Neurons",
         "abstract": "ABSTRACT Device stochasticity is considered a non‐ideality in neuromorphic hardware, although stochastic neural activity supports probabilistic computation in biological systems. We show that intrinsic stochastic switching of magnetic tunnel junctions (MTJs) can be mapped to stochastic‐threshold spiking neurons, providing a physical sampling primitive for Bayesian spiking inference. We develop a spiking Bayesian neural network (SBNN) with neuronal threshold distributions learned during training and sampled during inference. We also introduce a rate‐estimation method that propagates firing probabilities rather than explicit spike sequences, achieving up to a 22‐fold speedup over surrogate‐gradient training. Compared with representative Bayesian neural‐network baselines, SBNN achieves favorable accuracy‐calibration trade‐offs, reaching high accuracy across static and event datasets and low negative log likelihood in both MNIST and Fashion‐MNIST. On MNIST, SBNN retains accuracy under a normalized weight‐noise standard deviation of 0.20 and under an input‐noise standard deviation of 0.25, compared with and , respectively, for the spiking neural network (SNN). Hardware‐in‐the‐loop validation using physical MTJ switching for sampling and software for network arithmetic closely matches software inference in spiking behavior and classification performance. This suggests that intrinsic device stochasticity can be transformed from a hardware non‐ideality into a Bayesian computational resource for compact and noise‐tolerant neuromorphic systems.",
@@ -19823,6 +19832,15 @@
         "link": "https://arxiv.org/abs/2611.00119v1",
         "published": "2026-10-28T21:28:22Z",
         "is_arxiv": true
+      },
+      {
+        "first_author": "Tauseef Ejaz",
+        "title": "Reliability‐Aware Framework for Fault‐Tolerant Multi‐Sensor Fusion Using Neuromorphic Hardware‐Native Learning",
+        "abstract": "ABSTRACT As decision‐making in autonomous systems becomes increasingly decentralized, with data processing moving closer to the sensing and execution layers, the pursuit for low‐latency and hardware simplicity must not compromise reliability and fault tolerance. Memristor‐based neuromorphic hardware‐native learning offers a promising approach in this direction for handling data locally and enabling fast decisions in safety‐critical autonomous driving scenarios. However, since learning in such circuits is driven by sensor data‐generated pulses in real time that update memristive weights, the reliability of these inputs must be verified before association occurs. Otherwise, noisy or corrupted sensor inputs may produce incorrect weight updates, leading to false activations. In this work, we demonstrate the need for a reliability‐aware framework that monitors the credibility and correctness of sensor inputs arriving in the training phase. A major contribution is the development of FaultynuScenes , an imperfect multimodal dataset that captures the effects of real‐time errors in truthful sensor data points. Together with rule‐based reliability criteria, this dataset provides a low‐level concept demonstration of the proposed reliability layer and clarifies its role in fault‐tolerant hardware‐native learning. Presented PSPICE simulation results clearly show that the reliability layer reduces false activations by approximately 25%–50% depending upon various scenarios.",
+        "venue": "Advanced Computing",
+        "link": "https://doi.org/10.1002/adco.70013",
+        "published": "2026-10-28",
+        "is_arxiv": false
       },
       {
         "first_author": "Ho Fung Tsoi",
@@ -78181,6 +78199,15 @@
     ],
     "Speech & Audio": [
       {
+        "first_author": "Maryam Soltani",
+        "title": "Bridging Spiking and Continuous Dynamics in Spiking Neural Networks: A Muscle-Inspired Model",
+        "abstract": "Transforming the spike trains produced by spiking neural networks (SNNs) into continuous signals through biologically inspired mechanisms remains an open challenge in generative and regression tasks. In biological systems, a similar transformation occurs when muscles integrate neural spikes to produce smooth, coordinated movements. Inspired by this mechanism, we introduce a muscle-response model, a biologically motivated dynamical layer that converts spike trains into continuous representations. Our approach uses second-order dynamics to model the temporal integration of spiking activity. We investigate how the number of spiking neurons and temporal resolution affect the quality of the generated signals in a text-to-speech task, showing that increasing representational capacity has a greater impact than increasing temporal resolution under the evaluated configurations. Furthermore, an analysis of the learned dynamics reveals that, without explicit constraints on the response type, most neurons converge toward non-oscillatory behavior. These results demonstrate the potential of biologically inspired dynamical decoders for bridging spiking neural computation and continuous signal generation.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.09295v1",
+        "published": "2026-11-06T10:47:55Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Hanan Beit-On",
         "title": "Spiking Neural Beamforming for Multichannel Speech Enhancement on the Edge",
         "abstract": "Speech enhancement with wearable and edge devices requires architectures that balance enhancement quality against power and memory resources. Spiking Neural Networks (SNNs) offer a promising path towards this goal through sparse, event-driven computation, but existing SNN-based speech enhancement methods are largely restricted to single-channel processing and therefore cannot exploit the spatial diversity available from microphone arrays. In this work, we propose a fully SNN framework for multichannel speech enhancement based on a fully connected architecture (FC-SNN) with sequential spike encoding, derived from a compact artificial neural network (ANN) baseline via leaky integrate-and-fire neurons. We characterize how enhancement performance scales with model size and spike-train length relative to ANN and classical beamforming baselines, and report the resulting parameter counts and computational complexity. We further compare direct and rate spike encoding, revealing a clear trade-off between event-driven computation and enhancement performance, and use these results to identify favorable configurations for edge devices.",
@@ -114416,17 +114443,6 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Impulsionnels Frugaux": [
-      {
-        "first_author": "Alain Lucien Éric Tourrette",
-        "title": "Nodules impulsionnels frugaux",
-        "abstract": "Note de recherche et dépôt complet (code, bilans, vérifications) sur des réseaux de neurones impulsionnels frugaux, organisés en quatre niveaux : neurone, grappe, nodule, ganglion. Expériences E8 à E13b. Ce travail établit des règles de dimensionnement de ces structures en fonction de leur coût énergétique et de leur efficacité : combien de neurones, de grappes et de nodules sont nécessaires pour une tâche donnée, et à partir de quel seuil ajouter des neurones ne paie plus. Résultat principal : sur les mêmes neurones, un lecteur unique qui écoute toutes les grappes (le coordinateur) tient des labyrinthes bien plus grands que le vote des nodules, dont les erreurs sont corrélées. Ce résultat sur la coordination et le vote est prolongé, dans les institutions collectives, par deux notes ultérieures (voir Related works). Versions française et anglaise. Research note and complete repository (code, summaries, checks) on frugal spiking neural networks, organised in four levels: neuron, cluster, nodule, ganglion. Experiments E8 to E13b. This work establishes sizing rules for these structures based on their energy cost and efficiency: how many neurons, clusters and nodules a given task requires, and the threshold beyond which adding neurons no longer pays off. Main result: on the same neurons, a single reader listening to all clusters (the coordinator) handles much larger mazes than the vote of the nodules, whose errors are correlated. This result on coordination versus voting is extended to collective institutions in two later notes (see Related works). French and English versions.",
-        "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-        "link": "https://doi.org/10.5281/zenodo.23271527",
-        "published": "2026-10-10",
-        "is_arxiv": false
-      }
-    ],
     "Topic: Dynamics Data Sindy": [
       {
         "first_author": "Chuanxing Wang",
@@ -114542,6 +114558,17 @@
         "link": "https://arxiv.org/abs/2610.19392v1",
         "published": "2026-10-14T01:37:51Z",
         "is_arxiv": true
+      }
+    ],
+    "Topic: Impulsionnels Frugaux": [
+      {
+        "first_author": "Alain Lucien Éric Tourrette",
+        "title": "Nodules impulsionnels frugaux",
+        "abstract": "Note de recherche et dépôt complet (code, bilans, vérifications) sur des réseaux de neurones impulsionnels frugaux, organisés en quatre niveaux : neurone, grappe, nodule, ganglion. Expériences E8 à E13b. Ce travail établit des règles de dimensionnement de ces structures en fonction de leur coût énergétique et de leur efficacité : combien de neurones, de grappes et de nodules sont nécessaires pour une tâche donnée, et à partir de quel seuil ajouter des neurones ne paie plus. Résultat principal : sur les mêmes neurones, un lecteur unique qui écoute toutes les grappes (le coordinateur) tient des labyrinthes bien plus grands que le vote des nodules, dont les erreurs sont corrélées. Ce résultat sur la coordination et le vote est prolongé, dans les institutions collectives, par deux notes ultérieures (voir Related works). Versions française et anglaise. Research note and complete repository (code, summaries, checks) on frugal spiking neural networks, organised in four levels: neuron, cluster, nodule, ganglion. Experiments E8 to E13b. This work establishes sizing rules for these structures based on their energy cost and efficiency: how many neurons, clusters and nodules a given task requires, and the threshold beyond which adding neurons no longer pays off. Main result: on the same neurons, a single reader listening to all clusters (the coordinator) handles much larger mazes than the vote of the nodules, whose errors are correlated. This result on coordination versus voting is extended to collective institutions in two later notes (see Related works). French and English versions.",
+        "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "link": "https://doi.org/10.5281/zenodo.23271527",
+        "published": "2026-10-10",
+        "is_arxiv": false
       }
     ],
     "Topic: Neutron Skin": [
