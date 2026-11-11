@@ -1,12 +1,21 @@
 {
-  "generated_at_utc": "2026-11-10T00:25:37.543722+00:00",
+  "generated_at_utc": "2026-11-11T00:27:12.142122+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30516,
+  "total_papers": 30526,
   "categories": {
     "LLM": [
+      {
+        "first_author": "Jiale Deng",
+        "title": "TSFFormer: A Frequency-Domain Spike Transformer for Green Human Activity Recognition",
+        "abstract": "Wearable Inertial Measurement Units (IMUs) enable pervasive Human Activity Recognition (HAR), but traditional Deep Neural Networks (DNNs) suffer from an \"arithmetic-latency deadlock\" due to dense floating-point MAC operations. While Spiking Neural Networks (SNNs) offer ultra-low power, existing ones face spatial blind spots, rigid neurons, and gradient degradation. To address these, we propose TSFFormer, a purely spiking Fourier Transformer for Green HAR. It introduces two key innovations: (1) a MultiHeadFourier attention that performs frequency-domain global mixing, reducing complexity from \\(O(V^2)\\) to \\(O(V\\log V)\\), eliminating spatial blind spots, and saving \\(\\sim\\)50% GPU memory; and (2) a dual-compartment Temporal Spiking LIF (TSLIFNode) that utilizes dynamic thresholds to adapt to non-stationary rhythms and mitigate gradient degradation. Extensive experiments on 8 public IMU benchmarks demonstrate that TSFFormer surpasses state-of-the-art SNNs and even the classic DeepConvLSTM, achieving a \\(\\sim\\)3\\(\\times\\) faster training speed with an energy footprint of 0.1 pJ. Ablation studies confirm the synergistic effect of our modules, providing a highly accurate, ultra-low-power event-driven paradigm for wearable sensing.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.12090v1",
+        "published": "2026-11-09T09:08:35Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Qi Wang",
         "title": "CLVisc Agent for autonomous relativistic hydrodynamics studies",
@@ -19939,6 +19948,15 @@
         "venue": "arXiv",
         "link": "https://arxiv.org/abs/2610.21313v1",
         "published": "2026-10-15T06:02:06Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Alban Gattepaille",
+        "title": "Controlling the latency in temporal coded spiking models for neuromorphic datasets",
+        "abstract": "Spiking neural networks (SNNs) promise energy-efficient, event-driven computation on neuromorphic hardware, where response time, or latency, matters as much as energy for real-time applications. Time-to-first-spike (TTFS) coding with learnable synaptic delays is a natural way to exploit the timing of events. However, in state-of-the-art spiking neuron models, spike times emerge from nonlinear membrane dynamics and thresholds: no closed-form expression links network parameters to spike times, so latency can only be measured empirically, not specified or guaranteed at design time. Moreover, TTFS models are mostly evaluated on static datasets, which hides their latency on truly temporal data. Our hypothesis is that, if spike times are computed directly as closed-form functions of presynaptic spike times and synaptic delays, bypassing membrane potential and thresholding, latency becomes an explicit function of the learnable parameters that can be bounded, and therefore controlled, analytically. We build on this hypothesis with the Delay Neural Network (DeNN) in real time, which turns event streams into successive single-spike images, computes each spike time from standardised inter-spike intervals and synaptic delays, and links successive images through a long-term memory. We prove lower and upper bounds on the latency of every neuron of a layer, and show that bounding the synaptic parameters after training with a single hyperparameter places the latency anywhere between these bounds, without retraining. On a ten-class subset of the Google Speech Commands dataset, this post-training control exposes the accuracy--latency trade-off: a three-hidden-layer network reaches 94.25\\% accuracy while deciding, on average, 477~ms after the end of the one-second input, and about 250~ms with confidence-based early decisions. Learning is also shown to concentrate the long-term memory on a few neurons. Latency thus becomes a design parameter of spiking models rather than a quantity measured after the fact, a step towards neuromorphic systems with real-time guarantees.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2610.19732v2",
+        "published": "2026-10-14T07:53:52Z",
         "is_arxiv": true
       },
       {
@@ -48089,6 +48107,15 @@
     ],
     "Surrogate Gradient": [
       {
+        "first_author": "Pranith Dutta",
+        "title": "Neural Activity Synchronization-Based Fast Local Learnable Spiking Neural Network Architecture",
+        "abstract": "Implementing intelligent learning systems on low- power edge devices is challenging due to the high compu- tational complexity, training latency, and energy demands of traditional Artificial Neural Networks (ANNs). Spiking Neural Networks (SNNs), biologically plausible and spike-driven, come as an alternative. However, SNN training commonly relies on backpropagation through time (BPTT), which is computationally expensive, inherently global, and unsuitable for battery-driven devices. This work proposes a novel local learning framework for multi-layered SNNs inspired by Neural Activity Synchronization (NAS). Each layer updates its own weights using locally com- puted gradients. No gradient backpropagation is needed. This significantly reduces computational complexity, training latency, and energy consumption. The proposed SNN model is trained and evaluated on the MNIST dataset, achieving a classification accuracy of 97.78%. The model is also analyzed with Gaussian and salt-and-pepper noise, demonstrating robust performance across different noise levels.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.11053v1",
+        "published": "2026-11-08T01:13:59Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Pablo Sorrentino",
         "title": "Hardware-Aware Model Inversion in Memristive Spiking Neural Networks",
         "abstract": "Hardware-accelerated spiking neural networks (SNNs) implemented on memristive crossbar arrays offer significant gains in energy efficiency, while device variability and analog noise are sometimes assumed to hinder information extraction. However, whether these hardware effects improve, preserve, or degrade privacy after deployment remains largely unexplored. Therefore, we ask whether model-inversion leakage characterized on an SNN remains representative after the same model is mapped to a non-ideal memristive substrate, and how hardware non-idealities and reliability faults affecting synapses, neuron thresholds, and spike processing reshape that leakage. To study this problem, we introduce Spiking Domain Model Inversion (SDMI), an inversion method that combines Expectation over Transformation (EOT) with surrogate gradients to optimize inputs through stochastic analog behavior and non-differentiable spiking dynamics. We use SDMI consistently across the SNN model, its memristive SNN, and the same memristive SNN under additional hardware perturbations. Across four datasets, reconstruction leakage does not vary monotonically with model accuracy or hardware variability. At comparable accuracy levels, neuron-threshold perturbations increase reconstruction fidelity, measured by SSIM, by up to 51.8%, whereas spike-level perturbations primarily degrade utility without consistently improving reconstruction. Weight noise, in contrast, reduces leakage under the same inversion procedure. These results show that hardware variability is not inherently privacy-preserving: model inversion leakage in memristive SNNs depends on the hardware state and cannot be inferred from model accuracy alone.",
@@ -60010,6 +60037,24 @@
       }
     ],
     "Medical & BCI": [
+      {
+        "first_author": "Yuxuan Hou",
+        "title": "Understanding Spike Encoding across IoT Sensing Modalities: An Empirical Study",
+        "abstract": "Spiking neural networks (SNNs) offer a path to energy-efficient sensing on Internet of Things (IoT) devices. The input encoder shapes that opportunity by changing the cues available for recognition and the work required to process them. We study these choices across wireless, inertial, surface electromyographic, and tactile sensing. For wireless activity recognition, interleaving reduces estimated energy for arithmetic in the network layers, latency from the prepared input window to returned scores, and energy on the graphics processing unit and system-on-chip (GPU/SoC) rail, compared with repeating the full window on Jetson AGX Orin. With the same input size at each SNN time step, repeating a compact input can yield higher mean development accuracy than interleaving. The inertial experiments show that higher accuracy can come at higher device cost. Direct input can also be faster and more accurate than an event encoder while using less energy on the measured rail, even when its estimated energy for arithmetic in the network layers is higher. Level crossings improve grasp recognition on a later day for previously observed users. In tactile slip detection, level crossings shift the balance between missed slips and false alarms, and checkpoint selection can reverse which input offers higher slip recall. We use these findings to outline how edge sensing systems can profile encoders against the signal structure, the errors that matter to the task, and the cost of the full inference pipeline.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.11317v1",
+        "published": "2026-11-08T11:42:09Z",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Kasra Fallah",
+        "title": "NeuralFieldManifold: Uncovering the Manifold Geometry of Local Field Potentials",
+        "abstract": "Abstract Manifold geometry has become a powerful framework for understanding how the brain organizes high-dimensional neural activity into compact, interpretable structure. To date, however, most theoretical and methodological advances in neural manifold analysis have focused on spiking activity, leaving unresolved a fundamental question: What are the geometric principles governing the dynamics of local field potentials (LFPs)—population level signals reflecting integrated sub-threshold and suprathreshold neural activity that are broadly integral to clinical and brain–computer interface settings. Here, we establish, analytically and empirically, that the lag-embedded dynamics of LFP signals lie on a low-dimensional K-torus, where K directly relates to sustained oscillatory modes present in the signal. Modeling LFPs as bounded autoregressive processes, we show that each oscillatory component contributes an independent circular degree of freedom, while aperiodic 1/f structure and noise contribute only geometric thickness around the manifold without altering its topology. To apply this theory to real nonstationary recordings, we introduce DeepLagField, a physics-informed network that jointly estimates time-varying AR structure and effective model order, with formal guarantees that local toroidal geometry is preserved despite non-stationary nature of neuronal processes. Persistent homology analysis on real recordings reveals topological signatures consistent with the predicted toroidal Betti numbers in primate V1 LFP, rodent hippocampal LFP, and mouse cortical EEG, with varying degrees of agreement across recordings and temporal windows. Crucially, decoding analyses across three distinct neural datasets demonstrate that these geometric structures are not merely descriptive but capture behaviorally relevant information rivaling conventional spectral features. Together, these findings establish a theoretically grounded and empirically validated geometric framework for neural field analysis, extending the manifold perspective beyond spiking activity and offering a complementary language to spectral analysis for understanding and translating population dynamics across neural modalities.",
+        "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "link": "https://doi.org/10.64898/2026.10.28.762631",
+        "published": "2026-11-03",
+        "is_arxiv": false
+      },
       {
         "first_author": "Cristian David Guerrero-Mendez",
         "title": "A spinal-inspired spiking neural network for continuous finger-joint kinematics estimation from high-density surface EMG",
@@ -98260,6 +98305,15 @@
     ],
     "Time Series": [
       {
+        "first_author": "Lleyton Ariton",
+        "title": "Spiking Sensory Networks",
+        "abstract": "Effective sensory reception is critical for survival, yet the computational mechanisms behind how peripheral sensory neurons (SNs) transduce external signals into spiking representations for downstream brain circuits remain to be fully understood. Numerous theoretical frameworks have been proposed to model sensory processing, with Bayesian approaches among the most prominent. However, existing machine learning attempts to apply Bayesian theory to spiking neurons remain largely phenomenological, disconnected from empirical biology, and poorly validated on non-stationary temporal data. Conversely, neuroscientific models often rely on strong inductive experimental biases or explicit kinetic dynamics fit post hoc to match spiking data. Here, we introduce a class of recurrent Poisson VAE models, termed Spiking Sensory Networks (SSNs), that bridge these paradigms by reconciling variational inference with biologically inspired spike transduction for time-varying stimuli. Evaluated on real-world odor plume recordings from locust olfactory receptor neurons (ORNs), SSNs match or exceed the reconstruction fidelity of Spiking Neural Network (SNN) and GLM baselines while exhibiting superior representational characteristics. Furthermore, SSNs are well-suited for neuroscientific investigation, learning empirical in vivo ORN response motifs and exhibiting emergent spike-frequency adaptation under unsupervised reconstruction without manual tuning. Moreover, we theoretically link the recurrent decoding objective to mutual information maximization, and derive a formal thermodynamic lower bound connecting the Poisson Kullback-Leibler regularizer to the excess non-equilibrium metabolic power of biophysical homeostasis. Ultimately, our work synthesizes principles from machine learning theory and empirical neuroscience, providing a viable bridge that concretizes Bayesian models with biological mechanisms.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.10359v1",
+        "published": "2026-11-07T00:44:45Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Rui Huang",
         "title": "Friend advice influences mate choice through brain-to-brain synchrony and computational decision processes",
         "abstract": "Abstract Individuals often rely on friends’ advice when facing ambiguous cues in mate-choice decisions, yet how such advice optimizes outcomes remains unclear. Using fNIRS hyperscanning, we simultaneously recorded neural and behavioral activity from 66 adult friend dyads (33 female dyads) during interactive advice phases. Computational modeling quantified the decision optimization parameter ( β ). It showed that only the bidirectional Social Information Processing (SIP) model—best fit behavioral data, indicating that optimization arises from reciprocal adaptation rather than one-way influence. Behaviorally, positive advice from in the relationship advisors increased mate-choice intention, whereas negative advice from single advisors more effectively promoted optimization. Both conditions elicited enhanced interpersonal neural synchrony (INS) in the dorsolateral prefrontal cortex (DLPFC), linked to risk evaluation, and in the left superior and middle temporal gyri (l-STG, l-MTG), associated with semantic processing and value transformation. Machine learning analyses showed that trial-level INS predicted momentary optimization, while task-level INS robustly forecasted overall decision improvement. Together, these findings demonstrate that decision optimization emerges from dynamic brain-to-brain alignment in control and semantic networks—reflecting emotional sharing during positive advice and risk re-evaluation during negative advice. This study extending SIP theory to interactive decision-making and revealing how friend advice enhances decision quality and social well-being.",
@@ -113997,6 +114051,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Spin Hydrodynamic Attractor": [
+      {
+        "first_author": "Qi Zhou",
+        "title": "Projective origin of the spin hydrodynamic attractor and its resurgent repeller",
+        "abstract": "We investigate the projective and resurgent structure of a spin hydrodynamic attractor in Bjorken expansion. We show that the nonlinear spin solution family is determined by the projective classes of the two dimensional linear solution space, with the attractor and repellor corresponding to two distinguished projective directions and the linear modes ratio generating the full one-parameter transseries tower. Using the projective transseries structure, we show analytically that the data of repellor are encoded in the Borel-Stokes structure of the attractor expansion. These results provide an explicit analytic realization of resurgence relations that are often extracted through high order expansions and numerical Borel analysis, and yield a unified description of the attractor, the repellor, and their Borel-Stokes connection in minimal causal spin hydrodynamics.",
+        "venue": "Physical review. D/Physical review. D.",
+        "link": "https://doi.org/10.1103/q4lg-1jnj",
+        "published": "2026-11-09",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Heavy-Ion Collisions": [
       {
         "first_author": "Luciano M. Abreu",
@@ -114178,17 +114243,6 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Flow Mesons High": [
-      {
-        "first_author": "Guangyu Zheng",
-        "title": "Observation of Strong Directed Flow for ϕ Mesons in the High Baryon Density Region at RHIC",
-        "abstract": "",
-        "venue": "Journal of subatomic particles and cosmology.",
-        "link": "https://doi.org/10.1016/j.jspc.2026.100594",
-        "published": "2026-11-01",
-        "is_arxiv": false
-      }
-    ],
     "Topic: Derivation Mean Field": [
       {
         "first_author": "Roberta Maria Lorenzi",
@@ -114196,6 +114250,17 @@
         "abstract": "",
         "venue": "Neural Networks",
         "link": "https://doi.org/10.1016/j.neunet.2026.109872",
+        "published": "2026-11-01",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Flow Mesons High": [
+      {
+        "first_author": "Guangyu Zheng",
+        "title": "Observation of Strong Directed Flow for ϕ Mesons in the High Baryon Density Region at RHIC",
+        "abstract": "",
+        "venue": "Journal of subatomic particles and cosmology.",
+        "link": "https://doi.org/10.1016/j.jspc.2026.100594",
         "published": "2026-11-01",
         "is_arxiv": false
       }
@@ -114328,6 +114393,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Quasiparticle Mass": [
+      {
+        "first_author": "Seyed Farid Taghavi",
+        "title": "Nonconformal kinetic theory with transverse dynamics and event-by-event simulations using CoMBolt-RTA",
+        "abstract": "A new version of CoMBolt, called CoMBolt-RTA, is introduced to solve the Boltzmann equation for massive quasiparticles in the relaxation time approximation (RTA). The inclusion of a constant quasiparticle mass allows one to obtain an equation of state (EOS) closer to that of lattice QCD. The nonequilibrium dynamics of a boost-invariant, nonconformal system with transverse spatial extension are studied, with particular emphasis on the effects of quasiparticle mass on the evolution toward equilibrium. Using the hybrid version, which includes TrENTo for the initial state and UrQMD as an afterburner, the model parameters are manually tuned to describe recent anisotropic-flow and charged-multiplicity measurements in OO collisions by the ALICE Collaboration. The resulting predictions for the $p_T$-spectrum and $\\langle p_T\\rangle$ are also compared with ATLAS measurements. Based on the preferred parameter tuning, the collective response as a function of opacity is investigated. The results suggest that central OO collisions remain in the fluid-like regime, while smaller systems, namely ${}^3$He-${}^3$He and ${}^4$He-${}^4$He collisions, could provide a better opportunity to investigate the transition from fluid-like to particle-like collective dynamics.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2610.31611",
+        "published": "2026-10-22",
+        "is_arxiv": true
+      }
+    ],
     "Topic: Vertex Silicon Plane": [
       {
         "first_author": "D. Dementev",
@@ -114359,6 +114435,17 @@
         "link": "https://doi.org/10.1016/j.physletb.2026.141081",
         "published": "2026-10-19",
         "is_arxiv": false
+      }
+    ],
+    "Topic: Beyond Linear Cubic": [
+      {
+        "first_author": "Andreas Kirchner",
+        "title": "Fluctuations of $v_2$ versus fluctuations of $\\varepsilon_2$: Beyond linear and cubic response",
+        "abstract": "Elliptic flow ($v_2$) is the most prominent signature of collective flow in heavy-ion collisions. Its event-by-event fluctuations are accurately measured in Pb+Pb collisions at the LHC. They originate from the early stages of the collision, and are usually understood in terms of linear response to the initial anisotropy $\\varepsilon_2$, with a small cubic correction. We reveal deviations from this scenario on the basis of extensive event-by-event hydrodynamic simulations. We analyze the hydrodynamic response order by order in the cumulant expansion of $\\varepsilon_2$ and $v_2$ fluctuations. We carry out this expansion in the \"intrinsic frame\" where the magnitude and direction of the impact parameter are fixed. We find that the asymmetry of $v_2$ fluctuations is opposite to that of $\\varepsilon_2$ fluctuations. We also find that the response to $\\varepsilon_2$ fluctuations is larger by $\\approx 10-20\\%$ than the response to the average geometry. This effect, which is not explained by the cubic response, increases the splitting between $v_2\\{2\\}$ and $v_2\\{4\\}$.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2610.26621",
+        "published": "2026-10-19",
+        "is_arxiv": true
       }
     ],
     "Topic: Jet Quenching": [
@@ -114441,6 +114528,17 @@
         "link": "https://doi.org/10.1142/s0217751x21300076",
         "published": "2021-03-10",
         "is_arxiv": false
+      }
+    ],
+    "Topic: Turbulence-Like Dynamics Spatial": [
+      {
+        "first_author": "Zequan Liu",
+        "title": "Spike-to-Field Mechanisms of Turbulence-Like Dynamics in Spatial Spiking Neural Networks",
+        "abstract": "Neural avalanches and turbulence-like brain dynamics are usually measured after neural activity has been coarse-grained into continuous fields, leaving open which spike-level mechanisms can generate these macroscopic observables. We build a spatial leaky integrate-and-fire spiking neural network and explicitly transform spikes into activity-density and Hilbert phase fields. A delayed, distance-dependent, passive-dendrite regime reproducibly generates turbulence-like field structure, including high-amplitude phase-defect tracks, structure-function scaling, and power-law-favored continuous-field avalanche tails. Controls show that firing rate, vortex count, and avalanche tail fits are individually insufficient: destroying delayed propagation, dendritic filtering, or spike timing suppresses key field signatures, while random-space nulls can retain many mathematical phase defects but show weaker spatial structure and synaptic-delay transfer. Biologically motivated gates further shape the regime: PV-like perisomatic inhibition clamps phase dynamics, SST-like dendritic inhibition and projection-specific inhibitory facilitation preserve long-lived tracks, and a rate-constrained projection-STP regime expresses a roughly 200-ms episode at 12.25 Hz (full-record mean) across 12 seeds. These results use SNNs as a mechanistic testbed for spike-derived brain turbulence observables and show why phase defects and avalanche-like statistics must be interpreted jointly with spatial scaling and spike-level propagation.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.12627v1",
+        "published": "2026-11-09T16:09:21Z",
+        "is_arxiv": true
       }
     ],
     "Topic: Dynamics Data Sindy": [
