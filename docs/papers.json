@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-12T00:27:57.240442+00:00",
+  "generated_at_utc": "2026-11-13T00:27:38.436965+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30533,
+  "total_papers": 30535,
   "categories": {
     "LLM": [
       {
@@ -114069,6 +114069,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Sqrt Textrm Gev": [
+      {
+        "first_author": "S.S. Liu",
+        "title": "Proton and kaon production in Au+Au collisions at $$\\sqrt{s_\\textrm{NN}}=3$$ GeV",
+        "abstract": "",
+        "venue": "Nuclear Science and Techniques",
+        "link": "https://doi.org/10.1007/s41365-026-02084-0",
+        "published": "2026-11-11",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Spin Hydrodynamic Attractor": [
       {
         "first_author": "Qi Zhou",
@@ -114440,6 +114451,17 @@
         "abstract": "The Vertex Silicon Plane (VSP), installed close to the target in BM@N Run 9, can extend the tracking acceptance of the central tracking system toward larger polar angles. Using Monte Carlo simulations of Xe+Sn collisions at 3 AGeV, we reconstruct short tracklets from the primary vertex, one VSP hit, and hits in the first two Gas Electron Multiplier (GEM) stations. These tracklets extend the reconstructed primary-proton coverage toward midrapidity and higher transverse momenta. For the 10-30% centrality interval of the independent validation dataset, the conditional reconstruction efficiency for reconstructible high-$p_T$ primary protons after BDT selection is 67.0%, while the tracklet purity reaches 86.5%. For $p_T>1.2$ GeV/c, the VSP-assisted tracklets increase the number of reconstructed primary protons by 17.5% relative to standard BM@N tracking. Of these additional protons, 84.6% lie within $|y|<0.3$, where the relative reconstruction gain reaches 45.5%. The added acceptance is concentrated in the high-$p_T$, near-midrapidity region relevant for identified-proton observables. Its use in data requires particle identification in the same region.",
         "venue": "arXiv (Cornell University)",
         "link": "https://doi.org/10.48550/arxiv.2610.29705",
+        "published": "2026-10-21",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Nuclear Geometry-Driven": [
+      {
+        "first_author": "D. Kincses",
+        "title": "Nuclear Geometry-Driven Femtoscopic Correlations in Light-Ion Collisions",
+        "abstract": "Recent anisotropic flow measurements in $^{16}\\rm O{+}^{16}\\rm O$ and $^{20}\\rm Ne{+}^{20}\\rm Ne$ collisions at a center-of-mass energy per nucleon pair of 5.36~TeV provide evidence for nuclear geometry-driven collectivity. In this Letter, we investigate the femtoscopic signatures of nuclear geometry in these light-ion collision systems, using a hybrid simulation framework that couples \\textit{ab initio} nuclear configurations to viscous hydrodynamics and hadronic transport. We show that the $\\rm Ne{+}Ne/O{+}O$ ratio of the freeze-out eccentricity, extracted from azimuthally sensitive femtoscopy, reaches 1.5-1.8 in central collisions for deformed nuclear configurations, compared with about unity for a spherical baseline. This enhancement is significantly larger than that of elliptic flow in the same simulations, and remains stable when pre-equilibrium free streaming is omitted, even though the absolute source radii change considerably. Confronting these predictions with future data will provide new, complementary constraints on nuclear structure and initial-condition modeling.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2610.29760",
         "published": "2026-10-21",
         "is_arxiv": true
       }
