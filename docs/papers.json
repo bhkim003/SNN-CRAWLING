@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-15T00:29:01.172974+00:00",
+  "generated_at_utc": "2026-11-16T00:32:54.796717+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30551,
+  "total_papers": 30554,
   "categories": {
     "LLM": [
       {
@@ -60076,7 +60076,7 @@
       {
         "first_author": "Nicolas Calvo Peiro",
         "title": "EEG-based Deep Learning Reveals Cortical Sensitivity to Small Changes in Deep Brain Stimulation Parameters",
-        "abstract": "Abstract Deep Brain Stimulation (DBS) is an invasive procedure used to alleviate motor symptoms in Parkinson’s Disease (PD) patients. Despite its effectiveness, the impact of DBS on brain activity and the way to optimise stimulation parameters remains unclear. In this study, we aimed to map the sensitivity of cortical neural response to changes in DBS parameters in real-world clinical settings. We recorded in-clinic EEG data from PD patients during their clinical DBS programming sessions, both at rest and during arm movement. A siamese variant of the EEGNet deep learning architecture was trained independently for each patient and parameter combination to determine whether two 1-sec-long EEG segments were recorded under the same or different DBS parameters, yielding 30 independently trained models. Our models achieved an average accuracy of 78% in classifying whether two 1-second EEG segments corresponded to the same or different DBS parameters. Explainability methods were then applied to extract the neural oscillations learned by the models. Ablation studies identified mid-gamma oscillations (60-90Hz) as the key band for classifying these changes. Importantly, that was not driven by 1:2□gamma entrainment. In a sub-group of patients, the theta-alpha oscillations (4-12Hz) also contributed to detecting changes in DBS parameters. We demonstrate that small DBS parameter changes modify cortical activity in a consistent manner that can be detected using shallow convolutional networks on low-density EEG. Our findings suggest that cortical mid-gamma oscillations (60-90Hz) are highly sensitive to small changes in DBS settings. Our approach and findings could be leveraged towards identifying and defining novel digital biomarkers to guide DBS programming and adaptive DBS systems, potentially improving future treatment outcomes for PD patients.",
+        "abstract": "Deep Brain Stimulation (DBS) is an invasive procedure used to alleviate motor symptoms in Parkinson's Disease (PD) patients. Despite its effectiveness, the impact of DBS on brain activity and the way to optimise stimulation parameters remains unclear. In this study, we aimed to map the sensitivity of cortical neural response to changes in DBS parameters in real-world clinical settings. We recorded in-clinic EEG data from PD patients during their clinical DBS programming sessions, both at rest and during arm movement. A siamese variant of the EEGNet deep learning architecture was trained independently for each patient and parameter combination to determine whether two 1-sec-long EEG segments were recorded under the same or different DBS parameters, yielding 30 independently trained models. Our models achieved an average accuracy of 74% in classifying whether two 1-second EEG segments corresponded to the same or different DBS parameters. Explainability methods were then applied to extract the neural oscillations learned by the models. Ablation studies identified mid-gamma oscillations (55-90Hz) as the key band for classifying these changes. Importantly, that was not driven by 1:2 gamma entrainment. In a sub-group of patients, the theta-alpha oscillations (4-12Hz) also contributed to detecting changes in DBS parameters. We demonstrate that small DBS parameter changes modify cortical activity in a consistent manner that can be detected using shallow convolutional networks on low-density EEG. Our findings suggest that cortical mid-gamma oscillations (55-90Hz) are highly sensitive to small changes in DBS settings. Our approach and findings could be leveraged towards identifying and defining novel digital biomarkers to guide DBS programming and adaptive DBS systems.",
         "venue": "NeuroImage",
         "link": "https://doi.org/10.1016/j.neuroimage.2026.122354",
         "published": "2026-11-01",
@@ -98350,6 +98350,15 @@
     ],
     "Time Series": [
       {
+        "first_author": "Yaseen Yaseen",
+        "title": "Adaptive dimensionality reduction for efficient deep learning on temporal video datasets",
+        "abstract": "Abstract In the domain of computer vision and its related research fields, especially in temporal data handling, the analysis and processing of high dimensional data is a huge problem. Challenges in deep learning-based high dimension data processing often arise from their variable length sequences and their complex data patterns. As the use of high dimensional data continues to grow, the demand for dimension reduction of complex data is growing rapidly. Dimensionality reduction is the process of reducing a high-dimensional matrix of a dataset into a lower dimension. Standard approaches based on principal component analysis, independent component analysis and others, including simple padding and truncation, can lead to data loss or unwanted computational overhead. To address this issue, we introduce a VidSqeOpt method for dimensionality reduction based on feature extraction which exploits statistical approaches with reduced dimension and optimal length finding. Our method is validated on several benchmark datasets that are based on temporal data with complex dimensionality. Cross comparison with the baseline methods shows that our proposed approach adapts to diverse tasks, achieving up to 2.0% higher accuracy while reducing per-frame processing time by at least 23.7%, down to ≤0.45 seconds.",
+        "venue": "Knowledge and Information Systems",
+        "link": "https://doi.org/10.1007/s10115-026-02926-8",
+        "published": "2026-11-14",
+        "is_arxiv": false
+      },
+      {
         "first_author": "Lleyton Ariton",
         "title": "Spiking Sensory Networks",
         "abstract": "Effective sensory reception is critical for survival, yet the computational mechanisms behind how peripheral sensory neurons (SNs) transduce external signals into spiking representations for downstream brain circuits remain to be fully understood. Numerous theoretical frameworks have been proposed to model sensory processing, with Bayesian approaches among the most prominent. However, existing machine learning attempts to apply Bayesian theory to spiking neurons remain largely phenomenological, disconnected from empirical biology, and poorly validated on non-stationary temporal data. Conversely, neuroscientific models often rely on strong inductive experimental biases or explicit kinetic dynamics fit post hoc to match spiking data. Here, we introduce a class of recurrent Poisson VAE models, termed Spiking Sensory Networks (SSNs), that bridge these paradigms by reconciling variational inference with biologically inspired spike transduction for time-varying stimuli. Evaluated on real-world odor plume recordings from locust olfactory receptor neurons (ORNs), SSNs match or exceed the reconstruction fidelity of Spiking Neural Network (SNN) and GLM baselines while exhibiting superior representational characteristics. Furthermore, SSNs are well-suited for neuroscientific investigation, learning empirical in vivo ORN response motifs and exhibiting emergent spike-frequency adaptation under unsupervised reconstruction without manual tuning. Moreover, we theoretically link the recurrent decoding objective to mutual information maximization, and derive a formal thermodynamic lower bound connecting the Poisson Kullback-Leibler regularizer to the excess non-equilibrium metabolic power of biophysical homeostasis. Ultimately, our work synthesizes principles from machine learning theory and empirical neuroscience, providing a viable bridge that concretizes Bayesian models with biological mechanisms.",
@@ -114169,7 +114178,7 @@
       {
         "first_author": "Jing Lyu",
         "title": "G-quadruplex profiling using single-cell CUT&Tag offers insight into the epigenetic landscape of the developing mouse brain",
-        "abstract": "Abstract Background G-quadruplexes (G4s) are non-canonical DNA structures that have gained increasing attention for their potential roles in gene regulation and role in neurodegenerative diseases and cancer. Despite their biological significance, G4 structures have not been studied systematically across tissues and cell types. Results In this study, we employ G4 single-cell CUT&Tag (G4 scCUT&Tag) to characterize G4 landscapes in postnatal mouse brain cells, leveraging single-cell analytical approaches commonly used in scRNA-Seq and scATAC-Seq datasets. Using conventional single-cell omics workflows to process and explore our data, we distinguish distinct cell lineages based on G4 heterogeneity and establish that a subset of lineage-specific genes show unique promoter G4s. Multi-omics integration with scRNA-Seq gene expression profiles, using both a covariance-based technique (canonical correlation analysis) and a transfer learning-based approach, enables more accurate cell-type annotation. These integrations not only reveal correlations between G4 signal and gene expression, but demonstrate that G4 scCUT&Tag enables detailed examination of G4 heterogeneity in complex tissues and supports integrative analysis of G4 profiles with other omics layers, offering new insights into the epigenomic landscapes of the developing brain. Conclusions Our findings establish G4 scCUT&Tag as a framework for investigating the cellular heterogeneity of G4 landscapes in complex tissues and provide a basis for exploring their relationships with gene regulation and other layers of chromatin organization.",
+        "abstract": "BACKGROUND: G-quadruplexes (G4s) are non-canonical DNA structures that have gained increasing attention for their potential roles in gene regulation and role in neurodegenerative diseases and cancer. Despite their biological significance, G4 structures have not been studied systematically across tissues and cell types. RESULTS: In this study, we employ G4 single-cell CUT&Tag (G4 scCUT&Tag) to characterize G4 landscapes in postnatal mouse brain cells, leveraging single-cell analytical approaches commonly used in scRNA-Seq and scATAC-Seq datasets. Using conventional single-cell omics workflows to process and explore our data, we distinguish distinct cell lineages based on G4 heterogeneity and establish that a subset of lineage-specific genes show unique promoter G4s. Multi-omics integration with scRNA-Seq gene expression profiles, using both a covariance-based technique (canonical correlation analysis) and a transfer learning-based approach, enables more accurate cell-type annotation. These integrations not only reveal correlations between G4 signal and gene expression, but demonstrate that G4 scCUT&Tag enables detailed examination of G4 heterogeneity in complex tissues and supports integrative analysis of G4 profiles with other omics layers, offering new insights into the epigenomic landscapes of the developing brain. CONCLUSIONS: Our findings establish G4 scCUT&Tag as a framework for investigating the cellular heterogeneity of G4 landscapes in complex tissues and provide a basis for exploring their relationships with gene regulation and other layers of chromatin organization.",
         "venue": "Genome biology",
         "link": "https://doi.org/10.1186/s13059-026-04339-w",
         "published": "2026-11-13",
@@ -118010,6 +118019,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Parasympathetic Neurons": [
+      {
+        "first_author": "Alison Thomas",
+        "title": "Protocol for generating parasympathetic neurons from hiPSCs and their coculture with hiPSC-atrial cardiomyocytes",
+        "abstract": "Peripheral parasympathetic ganglia lie adjacent to their target organs and are difficult to access for primary culture; their dysfunction contributes to diseases like atrial fibrillation. Here, we present a protocol to differentiate human induced pluripotent stem cells (hiPSCs) into parasympathetic neurons and assess their function by electrophysiological recordings, nicotinic receptor activity, and expression of cholinergic and autonomic markers. We also describe how to establish a coculture system with hiPSC-atrial cardiomyocytes that allows neuromodulation of cardiomyocyte activity.",
+        "venue": "STAR Protocols",
+        "link": "https://doi.org/10.1016/j.xpro.2026.104955",
+        "published": "2026-11-13",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Sqrt Textrm Gev": [
       {
         "first_author": "S.S. Liu",
@@ -118979,6 +118999,26 @@
         "venue": "J. Phys.: Conf. Ser. 1602 (2020) 012009",
         "link": "https://arxiv.org/abs/2007.04751v2",
         "published": "2020-07-09T12:47:46Z",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Pb-Pb Collisions": [
+      {
+        "first_author": "Giorgio Alberto Lucia",
+        "title": "Search for 4Li‾ from p‾+3He‾ femtoscopy in Pb-Pb collisions at sNN=5.36 TeV with ALICE",
+        "abstract": "In these proceedings, the search for 4 Li ‾ in Pb-Pb collisions with ALICE is presented. The particle is reconstructed via its two-body decay channel 4 Li ‾ → p ‾ + 3 He ‾ , using femtoscopic correlations. A dedicated analysis procedure has been developed to subtract the correlated and uncorrelated p ‾ + 3 He ‾ combinatorial background. The production yield of 4 Li ‾ is compared with that of 4 He ‾ . Owing to the presence of several 4 Li resonances and their spin degeneracy, the production of 4 Li ‾ is expected to be enhanced with respect to the compact 4 He ‾ , making this new measurement a sensitive probe for testing nucleosynthesis models in high-energy hadronic collisions.",
+        "venue": "Journal of subatomic particles and cosmology.",
+        "link": "https://doi.org/10.1016/j.jspc.2026.100592",
+        "published": "2026-10-28",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Haifa I. Alrebdi",
+        "title": "Exploring Thermalization and Multi-Freeze-Out Effects in Pb-Pb collisions Based on Tsallis pT Distributions",
+        "abstract": "This study investigates transverse-momentum (pT) distributions of pi-, pi+, K-, K+, p, pbar, K0s, and Lambda in several centrality classes of Pb-Pb collisions at sqrt(sNN) = 2.76 TeV. The measured spectra are analyzed with the Tsallis non-extensive distribution, from which the effective temperature T, non-extensive parameter q, and the mean transverse momentum mean_pT are extracted for each particle species and centrality interval. To disentangle thermal and collective effects, the mean kinetic freeze-out temperature T0 is obtained from the intercept of the T-versus-mass relation, while the average transverse flow velocity betaT is extracted from the slope of mean_pT versus the mean moving mass for pions, kaons, and protons. The results show that T increases and q decreases with increasing centrality, indicating a hotter and more equilibrated system in central collisions. A clear mass dependence of T supports a multi-freeze-out scenario, with heavier particles decoupling earlier. Both T0 and betaT rise from peripheral to mid-central collisions before saturating toward central events, which may suggest the onset of collective behavior or changes in freeze-out dynamics. These observations provide new insights into the thermal and dynamical properties of the medium created in heavy-ion collisions at the LHC.",
+        "venue": "Chinese Physics C 50(4) 1-16 (2026)",
+        "link": "https://arxiv.org/abs/2602.02679v1",
+        "published": "2026-02-02T19:01:11Z",
         "is_arxiv": true
       }
     ],
@@ -301799,17 +301839,6 @@
         "venue": "arXiv",
         "link": "https://arxiv.org/abs/2602.23202v1",
         "published": "2026-02-26T16:51:03Z",
-        "is_arxiv": true
-      }
-    ],
-    "Topic: Pb-Pb Collisions": [
-      {
-        "first_author": "Haifa I. Alrebdi",
-        "title": "Exploring Thermalization and Multi-Freeze-Out Effects in Pb-Pb collisions Based on Tsallis pT Distributions",
-        "abstract": "This study investigates transverse-momentum (pT) distributions of pi-, pi+, K-, K+, p, pbar, K0s, and Lambda in several centrality classes of Pb-Pb collisions at sqrt(sNN) = 2.76 TeV. The measured spectra are analyzed with the Tsallis non-extensive distribution, from which the effective temperature T, non-extensive parameter q, and the mean transverse momentum mean_pT are extracted for each particle species and centrality interval. To disentangle thermal and collective effects, the mean kinetic freeze-out temperature T0 is obtained from the intercept of the T-versus-mass relation, while the average transverse flow velocity betaT is extracted from the slope of mean_pT versus the mean moving mass for pions, kaons, and protons. The results show that T increases and q decreases with increasing centrality, indicating a hotter and more equilibrated system in central collisions. A clear mass dependence of T supports a multi-freeze-out scenario, with heavier particles decoupling earlier. Both T0 and betaT rise from peripheral to mid-central collisions before saturating toward central events, which may suggest the onset of collective behavior or changes in freeze-out dynamics. These observations provide new insights into the thermal and dynamical properties of the medium created in heavy-ion collisions at the LHC.",
-        "venue": "Chinese Physics C 50(4) 1-16 (2026)",
-        "link": "https://arxiv.org/abs/2602.02679v1",
-        "published": "2026-02-02T19:01:11Z",
         "is_arxiv": true
       }
     ],
