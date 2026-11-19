@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-18T00:27:19.059878+00:00",
+  "generated_at_utc": "2026-11-19T00:27:39.312939+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30573,
+  "total_papers": 30580,
   "categories": {
     "LLM": [
       {
@@ -11669,6 +11669,15 @@
     ],
     "Event-based Vision": [
       {
+        "first_author": "Yimeng Shan",
+        "title": "EM-SDTrack: Efficient Multi-Scale Spike-driven Tracking for Event Cameras",
+        "abstract": "Event-driven spiking neural networks (SNNs) match the sparse spatiotemporal output of event cameras, making spike-driven trackers highly attractive for neuromorphic edge deployment. However, events reveal a target only through their spatial distribution, whose extent varies more than tenfold within one sequence. Event tracking therefore demands multi-scale representation, which existing spike-driven trackers lack. Transferring multi-scale schemes from artificial neural networks either breaks spike-driven inference with floating-point multiplication or repeats backbone computation across input scales. To address this, we propose Spike-driven Multi-Scale Interaction (SDMI), which performs cross-scale interaction in a single spiking forward pass. Its core, Dyadic Spike Sampling (DSS), restricts sampling coordinates to dyadic fractions and thus requires only shifts and additions. The resulting M-SDTrack is fully spike-driven at inference. For tighter edge budgets, we further propose Polarity-Privileged Distillation (PPD), which distils M-SDTrack into EM-SDTrack. PPD treats the event counts cancelled by the voxel representation as privileged information. Its core constraint, Polarity-Guided Curvature Distillation (PGCD), aligns the curvature of the template-search relation under polarity-guided perturbations. On FE108, FELT and VisEvent, M-SDTrack achieves state-of-the-art accuracy with an AUC of 65.1, 41.7 and 42.0. EM-SDTrack retains 99% of the accuracy of its teacher M-SDTrack-Tiny with 27% of its energy and 18% of its parameters. On the Lynxi KA200 neuromorphic chip, it runs losslessly in real time at 116 FPS and 0.12 W.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.22700v1",
+        "published": "2026-11-17T12:46:10Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Shiao Wang",
         "title": "Mamba-FETrack V2: Revisiting state space model for frame-event based visual object tracking",
         "abstract": "",
@@ -11719,6 +11728,15 @@
         "abstract": "Abstract Recent research has shown the vulnerability of spiking neural networks (SNNs) under adversarial examples that are nearly indistinguishable from clean data in the context of frame-based and event-based information. The majority of these studies are constrained in generating adversarial examples using backpropagation through time (BPTT), a gradient-based method which lacks biological plausibility. In contrast, local learning methods, which relax many of BPTT’s constraints, remain under-explored in the context of adversarial attacks. With the increasing real-world deployment of local learning methods in SNNs, it is critical to investigate whether these approaches introduce adversarial vulnerabilities that could compromise reliability. To address this problem, we examine adversarial robustness in SNNs through the framework of four types of training algorithms. We provide an in-depth analysis showing that direct gradient-based attacks are ineffective for locally trained models. To overcome these limitations, we introduce a hybrid adversarial attack paradigm that leverages the transferability of adversarial instances. The proposed hybrid approach demonstrates superior performance, outperforming existing adversarial attack methods. Furthermore, the generalizability of the method is assessed under multi-step adversarial attacks, adversarial attacks in black-box scenarios, and within the non-spiking domain.",
         "venue": "Neuromorphic Computing and Engineering",
         "link": "https://doi.org/10.1088/2634-4386/aeb8bc",
+        "published": "2026-10-23",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Naqash Afzal",
+        "title": "Neuromorphic BrailleNet: accurate and generalizable Braille reading beyond single characters through event-based optical tactile sensing",
+        "abstract": "Abstract Replicating fluid, human-like Braille reading requires artificial tactile systems that can maintain high recognition accuracy across varying contact depths and scanning speeds. To achieve this, we present a hybrid event-based tactile sensing and deep-learning pipeline utilizing the Evetac optical tactile sensor to directly capture dynamic contact events during continuous, real-time sliding motion. We combine spatiotemporal segmentation of characters with a lightweight ResNet-based classifier to achieve high-accuracy character recognition across varying indentation depths and scanning speeds. Our system achieves near-perfect accuracy ( ⩾ 98%) at 0.6 − 1.5 mm indentation depth and generalizes across multiple Braille board layouts and scanning speeds. On a physical Braille board featuring daily-living vocabulary, our system achieves above 90% word-level accuracy, demonstrating high accuracy and robustness to noise in a real-world application. These results position neuromorphic tactile sensing as a scalable, low-latency solution for robotic Braille reading, with implications for tactile perception in assistive and robotic applications.",
+        "venue": "Neuromorphic Computing and Engineering",
+        "link": "https://doi.org/10.1088/2634-4386/aeb8bb",
         "published": "2026-10-23",
         "is_arxiv": false
       },
@@ -114177,6 +114195,39 @@
         "is_arxiv": false
       }
     ],
+    "Topic: How Intangibles Drive": [
+      {
+        "first_author": "Gert Bijnens",
+        "title": "Unveiling the J-curve: How intangibles drive productivity mismeasurement",
+        "abstract": "This paper identifies a firm-level Productivity J-curve induced by intangible investment. Using novel microdata on business-to-business transactions for Belgian firms, we construct a comprehensive measure of intangibles covering software, R&D, design, training, and organizational capital. Because these investments are expensed instead of capitalized, conventional TFP measures misclassify them as intermediate inputs, overstating inputs relative to output. Exploiting their lumpy timing in a difference-in-differences event study, we show that TFP is underestimated by about 1.7%–3.0% over seven years. Intangible investment spikes are followed by higher profits and lower marginal costs, indicating that the J-curve reflects mismeasured, rather than absent, returns to intangible investment. Linking intangible capital to systematic mismeasurement provides new evidence on the productivity slowdown and highlights intangibles as a source of downward measurement bias.",
+        "venue": "Research Policy",
+        "link": "https://doi.org/10.1016/j.respol.2026.105663",
+        "published": "2026-11-17",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Qtl Mapping Crispr": [
+      {
+        "first_author": "Marta Perez‐Alcantara",
+        "title": "Integrated QTL mapping and CRISPR screening in pooled iPSC-derived microglia reveals genetic drivers of neurodegenerative risk",
+        "abstract": "Abstract Mounting evidence implicates microglia in neurodegeneration, but linking disease-associated genetic variants to target genes and cellular phenotypes is hindered by the inaccessibility of these cells. We differentiated 261 human induced pluripotent stem cell lines into microglia-like (iMGL) cells in pools with phenotypic (differentiation, phagocytosis and migration) and single-cell transcriptomic readouts. Burden analysis of deleterious variants detected 36 genes influencing microglial phenotypes. Expression quantitative trait locus (eQTL) analysis identified 7,121 eQTL-associated genes and 79 colocalizations across four neurodegenerative disease genome-wide association studies, half of which had limited prior evidence of causality. Integration of eQTL and phenotypic associations highlighted the role of disease-relevant variants, including LRRK2 and TREM2 acting through microglial phagocytosis. A coupled CRISPR screen identified a role for TREM2 in phagocytosis and highlighted the importance of cell type in the directionality of phenotypic effects. By contextualizing variant effects within iMGLs in different inflammatory states, we provide a comprehensive framework for interpreting the function of risk loci in neurodegenerative disorders.",
+        "venue": "Nature Genetics",
+        "link": "https://doi.org/10.1038/s41588-026-02843-0",
+        "published": "2026-11-17",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Singly Heavy Tetraquarks": [
+      {
+        "first_author": "Jun-Jie Liu",
+        "title": "Singly heavy tetraquarks",
+        "abstract": "In this work, we carry out a systematic study of the spectra of the $1S$-wave states for the whole singly-heavy tetraquark systems within a semi-relativistic hybrid quark potential model, in which both the one-gluon exchange (OGE) and one-boson exchange (OBE) interactions are included. Furthermore, the fall-apart decays are evaluated with the quark exchange model by combining the obtained spectra. It is found that besides the OGE potentials, the OBE potentials play crucial roles for describing the spectrum. All of our obtained states lie far above the lowest dissociation meson-meson threshold. They are compact states with relatively narrow fall-apart widths $\\sim 1-120$~MeV. The $D_{s0}(2317)$, $D_{s1}(2460)$, $T_{b\\bar{s}}(5568)$, and $T_{c\\bar{s}}(2327)$ resonances reported from experiments cannot be explained as compact tetraquarks. While the $T_{\\bar{c}\\bar{s}0}(2870)$ and $T_{c\\bar{s}0}(2900)$ favor the tetraquark states with $IJ^P=00^+$ and $10^+$, i.e. $T_{(\\bar{c}\\bar{s}[ud])0^+}^0(2919)$ and $T_{(cn\\{\\bar{s}\\bar{n}\\})0^+}^{1}(2922)$, respectively. More singly-heavy tetraquark states have good potentials to be observed in some of their dominant decay channels in experiments.",
+        "venue": "Physical review. D/Physical review. D.",
+        "link": "https://doi.org/10.1103/qzdm-dj69",
+        "published": "2026-11-17",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Spatiotemporal Clustering": [
       {
         "first_author": "Hunter C. Quintal",
@@ -119448,6 +119499,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Vid Semantic-Enriched Paradigm": [
+      {
+        "first_author": "Jingqian Wu",
+        "title": "Semantic-E2VID: A semantic-enriched paradigm for event-to-video reconstruction",
+        "abstract": "",
+        "venue": "Pattern Recognition",
+        "link": "https://doi.org/10.1016/j.patcog.2026.115291",
+        "published": "2026-11-07",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Baryon Number": [
       {
         "first_author": "Deepak Kumar",
@@ -119724,17 +119786,6 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Vid Semantic-Enriched Paradigm": [
-      {
-        "first_author": "Jingqian Wu",
-        "title": "Semantic-E2VID: A semantic-enriched paradigm for event-to-video reconstruction",
-        "abstract": "",
-        "venue": "Pattern Recognition",
-        "link": "https://doi.org/10.1016/j.patcog.2026.115291",
-        "published": "2026-11-01",
-        "is_arxiv": false
-      }
-    ],
     "Topic: Acute-On-Chronic Liver Failure": [
       {
         "first_author": "Theresa Hildegard Wirtz",
@@ -119794,7 +119845,7 @@
       {
         "first_author": "Zi-ning Wang",
         "title": "Fierz-complete four-quark interactions and the QCD phase diagram",
-        "abstract": "The dynamics of Fierz-complete four-quark interactions and its influence on the QCD phase diagram have been investigated within the functional renormalization group approach to QCD at finite temperature and densities. It is found that in the vacuum the pion and sigma channels play the overwhelmingly dominant role, and all the other channels are negligible. However, when it is near the critical end point (CEP), the magnitude of four-quark couplings in other channels increases sizably and they become more and more important. In comparison to the single scalar-pseudoscalar channel of four-quark interactions, the dynamics of Fierz-complete four-quark interactions increases a bit the curvature of the phase boundary, and moves the CEP to location of larger baryon chemical potential and smaller temperature.",
+        "abstract": "The dynamics of Fierz-complete four-quark interactions and its influence on the QCD phase diagram have been investigated within the functional renormalization group approach to QCD at finite temperature and densities. It is found that in the vacuum the pion and sigma channels play the overwhelmingly dominant role, and all the other channels are negligible. However, when it is near the critical end point (CEP), the magnitude of four-quark couplings in other channels increases sizably, and they become more and more important. In comparison to the single scalar-pseudoscalar channel of four-quark interactions, the dynamics of Fierz-complete four-quark interactions increases a bit the curvature of the phase boundary and moves the CEP to the location of larger baryon chemical potential and smaller temperature.",
         "venue": "Physical review. D/Physical review. D.",
         "link": "https://doi.org/10.1103/ymgd-32dj",
         "published": "2026-10-28",
@@ -119960,58 +120011,36 @@
         "is_arxiv": true
       }
     ],
-    "Topic: Pion Emission Source": [
+    "Topic: World Modeling Visual": [
       {
-        "first_author": "B. E. Aboona",
-        "title": "Tilted geometry of the pion emission source in Au+Au collisions in the beam energy scan at the BNL Relativistic Heavy Ion Collider",
-        "abstract": "We present the first systematic measurement of the tilt of the pion emission source in relativistic Au+Au collisions at center-of-mass energies per nucleon pair, $\\sqrt{s_{NN}}$ = 7.7, 14.5, 17.3 and 27 GeV, using data from the STAR experiment. The tilt angle and final freeze-out eccentricity are extracted through azimuthally sensitive femtoscopy of identical pion pairs. Our results reveal a strong dependence of the tilt parameter on the pair transverse momentum, indicating that the apparent source geometry is strongly coupled to expansion dynamics. Moreover, we observe a rapid decrease of the tilt magnitude with increasing collision energy, consistent with the emission source approaching longitudinal boost invariance at higher energies. These findings demonstrate that the commonly assumed boost-invariant geometry is insufficient and highlight the necessity of exploring the spatial structure of a tilted source, which is required in hydrodynamic models to reproduce features of the longitudinally expanding system, such as the slope of the directed flow. Comparisons with the UrQMD transport model show that it reproduces the overall energy dependence of the tilt magnitude qualitatively, but not quantitatively.",
-        "venue": "Physical Review C",
-        "link": "https://doi.org/10.1103/zzcf-hysy",
-        "published": "2026-10-19",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Baryon Baryon": [
-      {
-        "first_author": "Pengcheng Li",
-        "title": "Dynamical Coulomb effects on charged-pion HBT-radius splitting in central Au+Au collisions at few-GeV energies",
-        "abstract": "The pair transverse momentum ( k T ) and collision-energy ( s N N ) dependent difference between π + π + and π − π − femtoscopic correlations was observed by the HADES and STAR Collaborations. We investigate how much of the observed splitting can be accounted for by Coulomb dynamics in 0–10% central Au+Au collisions at s N N = 2.42 –5.2 GeV. Using the UrQMD model and the CRAB programme, three transport scenarios that successively include baryon–baryon, baryon–meson, and meson–meson Coulomb interactions are considered. In a separate calculation based on the baryon–baryon reference, we reconstruct the time-dependent effective charge Z eff ( t ) and radius R eff ( t ) of the residual charged source and propagate each pion from its individual last strong-interaction point through the evolving field. The calculations reproduce the main k T and s N N dependences of the radii. Baryon–meson Coulomb interactions generate most of the additional charge splitting in the microscopic calculation. The residual-source treatment also enhances the longitudinal and sideward radius ratios relative to the reference, whereas the outward ratio changes little, and the enhancement generally decreases with increasing s N N . Within the present framework, this contribution does not fully account for the data, motivating further investigation of the charged-source geometry and its interplay with strong-interaction dynamics.",
-        "venue": "Physics Letters B",
-        "link": "https://doi.org/10.1016/j.physletb.2026.141081",
-        "published": "2026-10-19",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Neuronal Excitability": [
-      {
-        "first_author": "Gustave Bainier",
-        "title": "A Two-Block Model of Neuronal Excitability",
-        "abstract": "Neurons spike in two regimes. In the tonic regime, an input above the rheobase drives a limit cycle. In the excitable regime, a suitably shaped transient input can trigger an isolated spike while remaining below the rheobase at all times. This sensitivity to input shape underlies reliable spike timing. However, excitability remains poorly understood from an input-output perspective, largely because existing excitable models are nonlinear state-space models that are difficult to analyze systematically. This work aims to identify a minimal excitable model suited to control-theoretic analysis and engineering design. We introduce a high-gain high-pass primitive in which a static high-gain sigmoid feeds a linear high-pass filter in a positive-feedback loop. The high-pass filter provides the mixed feedback (fast excitation, slow inhibition) necessary for excitability. Because the primitive is formulated as a static activation function coupled with a frequency-selective transfer function, it belongs to a particular class of Lur'e systems. It can also be interpreted as a perceptron augmented with a high-pass element in positive feedback. The primitive is related to self-exciting oscillators such as the Wien bridge oscillator: replacing their hard saturation with a high-gain sigmoid introduces sensitivity to input shape, allowing a suitably shaped input to trigger a single oscillation, just as neurons can fire isolated spikes in response to inputs below the rheobase. We show that the high-gain high-pass primitive exhibits both a tonic spiking regime and an excitable regime. We further implement the primitive as an analog circuit using operational amplifiers, and perform a spike-timing reliability experiment. When circuits built from unmatched op-amps are driven by the same input, they produce spikes at consistent times, despite component heterogeneity, thus reproducing the spike-timing reliability observed in biological neurons. These results show that robust spiking behavior can be generated with only two blocks. The simplicity of this representation makes it a promising building block for a frequency-based input-output theory of excitability and for the analysis and design of neuromorphic circuits. It also motivates revisiting spiking neural networks built from genuinely excitable elements rather than relying on leaky integrate-and-fire neurons.",
-        "venue": "ORBi (University of Liège)",
-        "link": "https://doi.org/10.13140/rg.2.2.21553.13925",
-        "published": "2026-10-19",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Hera Low-X": [
-      {
-        "first_author": "A M Cooper-Sarkar",
-        "title": "HERA at low-x",
-        "abstract": "The field of Deep Inelastic Scattering is introduced with particular reference to the High Energy Ring Accelerator HERA. The formalism of the Quark Parton Model and its extension in perturbative Quantum Chromodynamics is outlined, defining the concept of a Parton Distribution Function. The HERA data on inclusive and semi-inclusive processes are reviewed with particular emphasis on results at low x and low Q 2 . Their theoretical imterpretation in terms of conventional QCD DGLAP evolution and its extension to BFKL evolution in the low-x regime is explored together with the possibility of the onset of a new non-linear regime which may lead to gluon saturation. The focus then moves to diffractive processes both quasi-elastic and diffractive dissociation, where more detailed hints of saturation are found.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2610.26393",
-        "published": "2026-10-19",
+        "first_author": "Shuhan Ye",
+        "title": "SpikWM: Efficient End-to-End Spiking World Modeling for Visual Planning",
+        "abstract": "Goal-conditioned planning with image observations and goals requires predictions that distinguish visual states and action consequences. Spiking neural networks offer sparse computation, but single-step spikes can obscure motion cues and merge actions with different physical outcomes. We propose the Spiking Latent World Model (SpikWM), an end-to-end joint-embedding predictive architecture (JEPA) with one simulation step per image and one neural update per latent position. Spiking Regional Encoding retains spatial cues through regional pooling. Bi-Spike Action Encoding combines positive and negative binary responses, while Causal Membrane Prediction carries subthreshold evidence across the latent history with learned group-wise time constants. The encoder and predictor are trained jointly on reward-free image--action trajectories using next-embedding prediction and SIGReg. With a common planner, SpikWM achieves mean success rates of $88.67\\%$, $97.33\\%$, $99.33\\%$, and $86.67\\%$ on Push-T, Two-Room, Reacher, and OGBench-Cube, respectively, outperforming two spiking baselines. Push-T ablations support each module, and controlled replays examine responses to appearance and physical state changes. Under a matched planning budget, SpikWM reduces estimated arithmetic energy by $75.6\\%$ relative to LeWM. Code will be released at https://github.com/ShawnYE618/SpikWM.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.22981v1",
+        "published": "2026-11-17T16:00:02Z",
         "is_arxiv": true
       }
     ],
-    "Topic: Beyond Linear Cubic": [
+    "Topic: Cms Open Data": [
       {
-        "first_author": "Andreas Kirchner",
-        "title": "Fluctuations of $v_2$ versus fluctuations of $\\varepsilon_2$: Beyond linear and cubic response",
-        "abstract": "Elliptic flow ($v_2$) is the most prominent signature of collective flow in heavy-ion collisions. Its event-by-event fluctuations are accurately measured in Pb+Pb collisions at the LHC. They originate from the early stages of the collision, and are usually understood in terms of linear response to the initial anisotropy $\\varepsilon_2$, with a small cubic correction. We reveal deviations from this scenario on the basis of extensive event-by-event hydrodynamic simulations. We analyze the hydrodynamic response order by order in the cumulant expansion of $\\varepsilon_2$ and $v_2$ fluctuations. We carry out this expansion in the \"intrinsic frame\" where the magnitude and direction of the impact parameter are fixed. We find that the asymmetry of $v_2$ fluctuations is opposite to that of $\\varepsilon_2$ fluctuations. We also find that the response to $\\varepsilon_2$ fluctuations is larger by $\\approx 10-20\\%$ than the response to the average geometry. This effect, which is not explained by the cubic response, increases the splitting between $v_2\\{2\\}$ and $v_2\\{4\\}$.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2610.26621",
-        "published": "2026-10-19",
+        "first_author": "Zhipeng Cui",
+        "title": "AI-Assisted Analysis of CMS Open Data: Prompt J/psi Cross-Section Measurements in pp and Peripheral PbPb Collisions at sqrt(S)= 7 TeV and sqrt(sNN) = 2.76 TeV",
+        "abstract": "We investigate the use of an artificial-intelligence (AI) coding agent, supervised by human physicists, for collider physics analyses using CMS Open Data. OpenAI Codex performs dimuon event selection, two-dimensional invariant-mass and decay-length fits, Monte Carlo detector simulations, and systematic uncertainty evaluation after acquiring physics and experimental knowledge from published studies and external references, with human review at each stage. The workflow is tested on two CMS datasets, with custom full-detector simulations used to determine acceptance and reconstruction efficiencies. In proton-proton collisions at sqrt(s) = 7 TeV, prompt J/psi differential cross sections are measured versus transverse momentum and rapidity. The ratios of remeasured to published CMS cross sections have a mean of 1.000 and an RMS spread of 0.215 across 39 bins. In peripheral (50-100% centrality) PbPb collisions at sqrt(s_NN) = 2.76 TeV, the corresponding prompt J/psi fiducial cross-section ratios have a mean of 1.158 and an RMS spread of 0.225 across six intervals. We identify agent failure modes and demonstrate the importance of structured human review in ensuring reliable results.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.22723v1",
+        "published": "2026-11-17T12:58:27Z",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Antiphase Synchronization Biomorphic": [
+      {
+        "first_author": "Artem Guba",
+        "title": "Hierarchical Control of Antiphase Synchronization in Biomorphic Spiking Neural Architectures for Locomotor Control",
+        "abstract": "Central pattern generators (CPGs) provide a biologically inspired foundation for adaptive locomotor control, yet systematically characterizing their dynamic regimes in spiking neural networks remains challenging. This study introduces a framework for identifying and stabilizing antiphase synchronization in a biomorphic spiking CPG model embedded in a closed neuromuscular loop. A composite synchronization metric is developed, integrating phase coherence, amplitude balance, and temporal stability. Its performance is evaluated across systematically varied stimulation waveforms and synaptic configurations. Statistical analysis reveals that stimulation type dominates regime determination, with tonic drive yielding the most robust antiphase synchronization. Periodic inputs induce nonlinear saturation and context-dependent network routing. Although synaptic weights alone show limited discriminative power, they significantly modulate robustness within a given stimulation context, with reciprocal Ia interneuron connections emerging as key stabilizers. The proposed composite metric achieves robust antiphase detection, outperforming traditional phase-only measures while preserving biophysical interpretability. These findings establish a statistically validated, hierarchical modeling approach in which external drive defines the operating regime and targeted synaptic configurations fine-tune dynamic stability, providing actionable guidelines for closed-loop neuromechanical controllers and adaptive neuroprosthetic interfaces.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.22639v1",
+        "published": "2026-11-17T11:55:19Z",
         "is_arxiv": true
       }
     ],
@@ -121868,7 +121897,7 @@
         "title": "Observation of Strong Directed Flow for $φ$ Mesons in the High Baryon Density Region at RHIC",
         "abstract": "We report measurements of the rapidity-odd directed flow ($v_{1}$) of $φ$ mesons in 10--40\\% Au+Au collisions at $\\sqrt{sNN}=3.0$--4.5 GeV from the STAR fixed-target program at RHIC, together with the collider-energy measurement at $\\sqrt{sNN}=7.7$ GeV. Despite its mesonic nature, the $φ$-meson $v_{1}$ exhibits a magnitude comparable to that of protons and $Λ$ baryons and is significantly larger than that of $K^{0}_{S}$ mesons in the high-baryon-density region. Comparisons with UrQMD calculations indicate that the observed $φ$-meson directed flow is consistent with production through high-mass baryon resonances and the collective motion of baryons influenced by baryonic mean-field interactions. These results provide new experimental constraints on baryon-resonance production and strange-hadron transport dynamics in dense QCD matter.",
         "venue": "arXiv",
-        "link": "https://arxiv.org/abs/2611.20400v1",
+        "link": "https://arxiv.org/abs/2611.20400v2",
         "published": "2026-11-16T01:59:31Z",
         "is_arxiv": true
       },
@@ -122032,6 +122061,61 @@
         "venue": "arXiv",
         "link": "https://arxiv.org/abs/2610.35456v1",
         "published": "2026-10-26T13:54:22Z",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Pion Emission Source": [
+      {
+        "first_author": "B. E. Aboona",
+        "title": "Tilted geometry of the pion emission source in Au+Au collisions in the beam energy scan at the BNL Relativistic Heavy Ion Collider",
+        "abstract": "We present the first systematic measurement of the tilt of the pion emission source in relativistic Au+Au collisions at center-of-mass energies per nucleon pair, $\\sqrt{s_{NN}}$ = 7.7, 14.5, 17.3 and 27 GeV, using data from the STAR experiment. The tilt angle and final freeze-out eccentricity are extracted through azimuthally sensitive femtoscopy of identical pion pairs. Our results reveal a strong dependence of the tilt parameter on the pair transverse momentum, indicating that the apparent source geometry is strongly coupled to expansion dynamics. Moreover, we observe a rapid decrease of the tilt magnitude with increasing collision energy, consistent with the emission source approaching longitudinal boost invariance at higher energies. These findings demonstrate that the commonly assumed boost-invariant geometry is insufficient and highlight the necessity of exploring the spatial structure of a tilted source, which is required in hydrodynamic models to reproduce features of the longitudinally expanding system, such as the slope of the directed flow. Comparisons with the UrQMD transport model show that it reproduces the overall energy dependence of the tilt magnitude qualitatively, but not quantitatively.",
+        "venue": "Physical Review C",
+        "link": "https://doi.org/10.1103/zzcf-hysy",
+        "published": "2026-10-19",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Baryon Baryon": [
+      {
+        "first_author": "Pengcheng Li",
+        "title": "Dynamical Coulomb effects on charged-pion HBT-radius splitting in central Au+Au collisions at few-GeV energies",
+        "abstract": "The pair transverse momentum ( k T ) and collision-energy ( s N N ) dependent difference between π + π + and π − π − femtoscopic correlations was observed by the HADES and STAR Collaborations. We investigate how much of the observed splitting can be accounted for by Coulomb dynamics in 0–10% central Au+Au collisions at s N N = 2.42 –5.2 GeV. Using the UrQMD model and the CRAB programme, three transport scenarios that successively include baryon–baryon, baryon–meson, and meson–meson Coulomb interactions are considered. In a separate calculation based on the baryon–baryon reference, we reconstruct the time-dependent effective charge Z eff ( t ) and radius R eff ( t ) of the residual charged source and propagate each pion from its individual last strong-interaction point through the evolving field. The calculations reproduce the main k T and s N N dependences of the radii. Baryon–meson Coulomb interactions generate most of the additional charge splitting in the microscopic calculation. The residual-source treatment also enhances the longitudinal and sideward radius ratios relative to the reference, whereas the outward ratio changes little, and the enhancement generally decreases with increasing s N N . Within the present framework, this contribution does not fully account for the data, motivating further investigation of the charged-source geometry and its interplay with strong-interaction dynamics.",
+        "venue": "Physics Letters B",
+        "link": "https://doi.org/10.1016/j.physletb.2026.141081",
+        "published": "2026-10-19",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Neuronal Excitability": [
+      {
+        "first_author": "Gustave Bainier",
+        "title": "A Two-Block Model of Neuronal Excitability",
+        "abstract": "Neurons spike in two regimes. In the tonic regime, an input above the rheobase drives a limit cycle. In the excitable regime, a suitably shaped transient input can trigger an isolated spike while remaining below the rheobase at all times. This sensitivity to input shape underlies reliable spike timing. However, excitability remains poorly understood from an input-output perspective, largely because existing excitable models are nonlinear state-space models that are difficult to analyze systematically. This work aims to identify a minimal excitable model suited to control-theoretic analysis and engineering design. We introduce a high-gain high-pass primitive in which a static high-gain sigmoid feeds a linear high-pass filter in a positive-feedback loop. The high-pass filter provides the mixed feedback (fast excitation, slow inhibition) necessary for excitability. Because the primitive is formulated as a static activation function coupled with a frequency-selective transfer function, it belongs to a particular class of Lur'e systems. It can also be interpreted as a perceptron augmented with a high-pass element in positive feedback. The primitive is related to self-exciting oscillators such as the Wien bridge oscillator: replacing their hard saturation with a high-gain sigmoid introduces sensitivity to input shape, allowing a suitably shaped input to trigger a single oscillation, just as neurons can fire isolated spikes in response to inputs below the rheobase. We show that the high-gain high-pass primitive exhibits both a tonic spiking regime and an excitable regime. We further implement the primitive as an analog circuit using operational amplifiers, and perform a spike-timing reliability experiment. When circuits built from unmatched op-amps are driven by the same input, they produce spikes at consistent times, despite component heterogeneity, thus reproducing the spike-timing reliability observed in biological neurons. These results show that robust spiking behavior can be generated with only two blocks. The simplicity of this representation makes it a promising building block for a frequency-based input-output theory of excitability and for the analysis and design of neuromorphic circuits. It also motivates revisiting spiking neural networks built from genuinely excitable elements rather than relying on leaky integrate-and-fire neurons.",
+        "venue": "ORBi (University of Liège)",
+        "link": "https://doi.org/10.13140/rg.2.2.21553.13925",
+        "published": "2026-10-19",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Hera Low-X": [
+      {
+        "first_author": "A M Cooper-Sarkar",
+        "title": "HERA at low-x",
+        "abstract": "The field of Deep Inelastic Scattering is introduced with particular reference to the High Energy Ring Accelerator HERA. The formalism of the Quark Parton Model and its extension in perturbative Quantum Chromodynamics is outlined, defining the concept of a Parton Distribution Function. The HERA data on inclusive and semi-inclusive processes are reviewed with particular emphasis on results at low x and low Q 2 . Their theoretical imterpretation in terms of conventional QCD DGLAP evolution and its extension to BFKL evolution in the low-x regime is explored together with the possibility of the onset of a new non-linear regime which may lead to gluon saturation. The focus then moves to diffractive processes both quasi-elastic and diffractive dissociation, where more detailed hints of saturation are found.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2610.26393",
+        "published": "2026-10-19",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Beyond Linear Cubic": [
+      {
+        "first_author": "Andreas Kirchner",
+        "title": "Fluctuations of $v_2$ versus fluctuations of $\\varepsilon_2$: Beyond linear and cubic response",
+        "abstract": "Elliptic flow ($v_2$) is the most prominent signature of collective flow in heavy-ion collisions. Its event-by-event fluctuations are accurately measured in Pb+Pb collisions at the LHC. They originate from the early stages of the collision, and are usually understood in terms of linear response to the initial anisotropy $\\varepsilon_2$, with a small cubic correction. We reveal deviations from this scenario on the basis of extensive event-by-event hydrodynamic simulations. We analyze the hydrodynamic response order by order in the cumulant expansion of $\\varepsilon_2$ and $v_2$ fluctuations. We carry out this expansion in the \"intrinsic frame\" where the magnitude and direction of the impact parameter are fixed. We find that the asymmetry of $v_2$ fluctuations is opposite to that of $\\varepsilon_2$ fluctuations. We also find that the response to $\\varepsilon_2$ fluctuations is larger by $\\approx 10-20\\%$ than the response to the average geometry. This effect, which is not explained by the cubic response, increases the splitting between $v_2\\{2\\}$ and $v_2\\{4\\}$.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2610.26621",
+        "published": "2026-10-19",
         "is_arxiv": true
       }
     ],
@@ -133742,17 +133826,6 @@
         "venue": "Journal of Neuroscience",
         "link": "https://doi.org/10.1523/jneurosci.0860-21.2021",
         "published": "2021-08-20",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Qtl Mapping Crispr": [
-      {
-        "first_author": "Marta Perez‐Alcantara",
-        "title": "Integrated QTL mapping and CRISPR screening in pooled iPSC-derived microglia reveals genetic drivers of neurodegenerative risk",
-        "abstract": "Abstract Mounting evidence implicates microglia in neurodegeneration, but linking disease-associated genetic variants to target genes and cellular phenotypes is hindered by the inaccessibility of these cells. We differentiated 261 human iPSC lines into microglia-like cells (iMGL) in pools with phenotypic (differentiation, phagocytosis and migration) and single-cell transcriptomic readouts. Burden analysis of deleterious variants detected 36 genes influencing microglial phenotypes. Expression quantitative trait locus (eQTL) analysis found 7,121 eGenes, and 79 colocalizations across four neurodegenerative disease GWAS, half of which had limited prior evidence of causality. Integration of eQTL and phenotypic associations highlighted the role of disease-relevant variants including LRRK2 and TREM2 acting via microglial phagocytosis. A coupled CRISPR screen identified a role of TREM2 in phagocytosis and highlighted the importance of cellular state in directionality of phenotype. By contextualizing variant effects within disease-relevant microglial states, we provide a comprehensive framework for interpreting the function of risk loci in neurodegenerative disorders.",
-        "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-        "link": "https://doi.org/10.1101/2025.08.18.670767",
-        "published": "2025-08-19",
         "is_arxiv": false
       }
     ],
