@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-19T00:27:39.312939+00:00",
+  "generated_at_utc": "2026-11-20T00:25:33.123657+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30580,
+  "total_papers": 30586,
   "categories": {
     "LLM": [
       {
@@ -15,6 +15,15 @@
         "link": "https://arxiv.org/abs/2611.12090v1",
         "published": "2026-11-09T09:08:35Z",
         "is_arxiv": true
+      },
+      {
+        "first_author": "Sathvik Joel",
+        "title": "A Survey on LLM-Based Code Generation for Low-Resource and Domain-Specific Programming Languages",
+        "abstract": "Large Language Models (LLMs) have shown remarkable capabilities in code generation for popular programming languages. However, their performance in Low-Resource Programming Languages (LRPLs) and Domain-Specific Languages (DSLs) remains a critical challenge. This gap affects millions of developers—with Rust alone having 3.5 million users—who are currently unable to fully leverage LLM capabilities. LRPLs and DSLs face unique challenges, including severe data scarcity and, for DSLs, highly specialized syntax and semantics that are poorly represented in general-purpose datasets. Addressing these challenges is crucial as LRPLs and DSLs significantly enhance development efficiency in specialized domains and applications, including financial and scientific works. While several surveys on LLMs for software engineering and code exist, none comprehensively address the challenges and opportunities specific to LRPLs and DSLs. Our survey fills this gap by providing a systematic review of the current state, methodologies, and challenges in leveraging LLMs for code generation in LRPL and DSL. We filtered 111 papers from over 27,000 published studies from 2020–2024 to understand the capabilities and limitations of LLMs in these specialized domains. We also expanded our literature search to include five recent papers from 2024–2025. We report LLMs used, benchmarks, and metrics to evaluate code generation in LRPLs and DSLs, as well as strategies used to enhance LLM performance, and the collected datasets and curation methods in this context. We identified four main evaluation techniques used in the literature, along with several metrics to assess code generation in LRPL and DSL. We categorized the methods used for LLM improvement into six main groups and summarized the novel methods and architectures proposed by the researchers. We also classified different approaches used for data collection and preparation. While different techniques, metrics, and datasets are used, there is a lack of a standard approach and a benchmark dataset to evaluate code generation in several LRPLs and DSLs. We discuss several distinctions of the studied approaches with the ones used in High-Resource Programming Languages (HRPLs), as well as several challenges unique to these languages, especially DSLs. The challenges stem from the scarcity of data, the unique requirements, and specialized domains, which often need expertise guidelines or domain-specific tools. Accordingly, we provide insights into different research opportunities for the studied aspects. This survey serves as a comprehensive resource for researchers and practitioners working at the intersection of LLMs, software engineering, and specialized programming languages, providing a foundation for future advancements in LRPL and DSL code generation. A GitHub repository was created to organize the papers of this survey at https://github.com/jie-jw-wu/Survey-CodeLLM4LowResource-DSL .",
+        "venue": "ACM Transactions on Software Engineering and Methodology",
+        "link": "https://doi.org/10.1145/3770084",
+        "published": "2026-11-04",
+        "is_arxiv": false
       },
       {
         "first_author": "Qi Wang",
@@ -32,6 +41,15 @@
         "venue": "ACM International Conference on Information and Knowledge Management (CIKM)",
         "link": "https://doi.org/10.1145/3799682.3841109",
         "published": "2026-11-03",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Huixin Zhan",
+        "title": "Auditing the adversarial robustness of genomic foundation models with SafeGenes",
+        "abstract": "Genomic foundation models (GFMs) such as evolutionary scale modeling (ESM) are increasingly applied to variant effect prediction in clinical genomics, yet their adversarial robustness remains underexplored. We present SafeGenes, an evaluation framework combining input-space attacks, a discrete single-nucleotide variant (SNV)-reachable HotFlip attack, and a soft-prompt-triggered backdoor. Across cardiomyopathy and arrhythmia datasets, iterative attacks severely degrade discrimination: projected gradient descent (PGD) reduces the area under the curve (AUC) by more than 30 percentage points, and the false-positive rate at 95% sensitivity collapses to nearly 1.0, misclassifying virtually all benign variants as pathogenic. The backdoor selectively elevates the pseudo-log-likelihood ratio (PLLR) scores of benign variants and transfers across ESM architectures. A single population-observed background substitution inverts pathogenicity ranking below chance, lowering the AUC from 0.76 to 0.39, showing that these vulnerabilities are biologically realizable. SafeGenes provides an open auditing framework for adversarial robustness in genomic AI.",
+        "venue": "Cell Reports Methods",
+        "link": "https://doi.org/10.1016/j.crmeth.2026.101667",
+        "published": "2026-11-01",
         "is_arxiv": false
       },
       {
@@ -3480,15 +3498,6 @@
         "link": "https://doi.org/10.1109/ipta62886.2024.10755929",
         "published": "2024-10-14",
         "is_arxiv": false
-      },
-      {
-        "first_author": "Sathvik Joel",
-        "title": "A Survey on LLM-based Code Generation for Low-Resource and Domain-Specific Programming Languages",
-        "abstract": "Large Language Models (LLMs) have shown impressive capabilities in code generation for popular programming languages. However, their performance on Low-Resource Programming Languages (LRPLs) and Domain-Specific Languages (DSLs) remains a significant challenge, affecting millions of developers-3.5 million users in Rust alone-who cannot fully utilize LLM capabilities. LRPLs and DSLs encounter unique obstacles, including data scarcity and, for DSLs, specialized syntax that is poorly represented in general-purpose datasets. Addressing these challenges is crucial, as LRPLs and DSLs enhance development efficiency in specialized domains, such as finance and science. While several surveys discuss LLMs in software engineering, none focus specifically on the challenges and opportunities associated with LRPLs and DSLs. Our survey fills this gap by systematically reviewing the current state, methodologies, and challenges in leveraging LLMs for code generation in these languages. We filtered 111 papers from over 27,000 published studies between 2020 and 2024 to evaluate the capabilities and limitations of LLMs in LRPLs and DSLs. We report the LLMs used, benchmarks, and metrics for evaluation, strategies for enhancing performance, and methods for dataset collection and curation. We identified four main evaluation techniques and several metrics for assessing code generation in LRPLs and DSLs. Our analysis categorizes improvement methods into six groups and summarizes novel architectures proposed by researchers. Despite various techniques and metrics, a standard approach and benchmark dataset for evaluating code generation in LRPLs and DSLs are lacking. This survey serves as a resource for researchers and practitioners at the intersection of LLMs, software engineering, and specialized programming languages, laying the groundwork for future advancements in code generation for LRPLs and DSLs.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2410.03981",
-        "published": "2024-10-04",
-        "is_arxiv": true
       },
       {
         "first_author": "Zhengzheng Tang",
@@ -19825,6 +19834,15 @@
     ],
     "Neuromorphic Hardware": [
       {
+        "first_author": "Pedro Antunes",
+        "title": "FPGA-Based Neural Network Accelerators for Space Missions: A Survey",
+        "abstract": "Space missions are growing ever more ambitious, placing greater demands on onboard computing. Field-programmable gate arrays (FPGAs) have garnered interest due to their reconfigurability and cost-effectiveness. At the same time, neural network (NN)-based methods are proving invaluable for critical spacecraft tasks such as autonomous operations, remote sensing, selective downlink, and data compression. This survey reviews and classifies the state-of-the-art in FPGA-based NN accelerators for space missions. We examine current trends, highlight key challenges, and suggest directions for future research. This work highlights key aspects for integrating high-performance NN acceleration into next-generation spacecraft computing systems.",
+        "venue": "ACM Computing Surveys",
+        "link": "https://doi.org/10.1145/3857797",
+        "published": "2026-11-18",
+        "is_arxiv": false
+      },
+      {
         "first_author": "Yubo Song",
         "title": "Circuit Theory-Informed AI for Condition Monitoring in Power Electronics",
         "abstract": "Artificial intelligence for power electronics is evolving toward a deeper comprehension of system intrinsic behaviors and dynamics. As a novel integration of neural computation and electric circuits, spike-based neuromorphic computing offers promising potential in high energy efficiency and adaptability for data-driven applications. Building on the latency-coding principles, this article proposes a framework for data-light condition monitoring that relies solely on three-phase AC current measurements. The AC current signals are encoded as membrane potentials of RC-based spiking neurons, which are inherently compatible with spiking neural networks that can effectively facilitate the estimation of device parameters. Case studies are presented to validate the performances, while constraints and further optimizations are also evaluated and discussed, and future extensions of the methodology are provided.",
@@ -20039,15 +20057,6 @@
         "link": "https://arxiv.org/abs/2610.15745v1",
         "published": "2026-10-11T16:28:48Z",
         "is_arxiv": true
-      },
-      {
-        "first_author": "Pedro Antunes",
-        "title": "FPGA-Based Neural Network Accelerators for Space Missions: A Survey",
-        "abstract": "Space missions are growing ever more ambitious, placing greater demands on onboard computing. Field-programmable gate arrays (FPGAs) have garnered interest due to their reconfigurability and cost-effectiveness. At the same time, neural network (NN)-based methods are proving invaluable for critical spacecraft tasks such as autonomous operations, remote sensing, selective downlink, and data compression. This survey reviews and classifies the state of the art in FPGA-based NN accelerators for space missions. We examine current trends, highlight key challenges, and suggest directions for future research. This work highlights key aspects for integrating high-performance NN acceleration into next-generation spacecraft computing systems.",
-        "venue": "ACM Computing Surveys",
-        "link": "https://doi.org/10.1145/3857797",
-        "published": "2026-10-07",
-        "is_arxiv": false
       },
       {
         "first_author": "Guangnan Feng",
@@ -60101,6 +60110,15 @@
     ],
     "Medical & BCI": [
       {
+        "first_author": "Nicolas Calvo Peiro",
+        "title": "EEG-based deep learning reveals cortical sensitivity to small changes in deep brain stimulation parameters",
+        "abstract": "Deep Brain Stimulation (DBS) is an invasive procedure used to alleviate motor symptoms in Parkinson's Disease (PD) patients. Despite its effectiveness, the impact of DBS on brain activity and the way to optimise stimulation parameters remains unclear. In this study, we aimed to map the sensitivity of cortical neural response to changes in DBS parameters in real-world clinical settings. We recorded in-clinic EEG data from PD patients during their clinical DBS programming sessions, both at rest and during arm movement. A siamese variant of the EEGNet deep learning architecture was trained independently for each patient and parameter combination to determine whether two 1-sec-long EEG segments were recorded under the same or different DBS parameters, yielding 30 independently trained models. Our models achieved an average accuracy of 74% in classifying whether two 1-second EEG segments corresponded to the same or different DBS parameters. Explainability methods were then applied to extract the neural oscillations learned by the models. Ablation studies identified mid-gamma oscillations (55-90Hz) as the key band for classifying these changes. Importantly, that was not driven by 1:2 gamma entrainment. In a sub-group of patients, the theta-alpha oscillations (4-12Hz) also contributed to detecting changes in DBS parameters. We demonstrate that small DBS parameter changes modify cortical activity in a consistent manner that can be detected using shallow convolutional networks on low-density EEG. Our findings suggest that cortical mid-gamma oscillations (55-90Hz) are highly sensitive to small changes in DBS settings. Our approach and findings could be leveraged towards identifying and defining novel digital biomarkers to guide DBS programming and adaptive DBS systems.",
+        "venue": "NeuroImage",
+        "link": "https://doi.org/10.1016/j.neuroimage.2026.122354",
+        "published": "2026-11-13",
+        "is_arxiv": false
+      },
+      {
         "first_author": "Yuxuan Hou",
         "title": "Understanding Spike Encoding across IoT Sensing Modalities: An Empirical Study",
         "abstract": "Spiking neural networks (SNNs) offer a path to energy-efficient sensing on Internet of Things (IoT) devices. The input encoder shapes that opportunity by changing the cues available for recognition and the work required to process them. We study these choices across wireless, inertial, surface electromyographic, and tactile sensing. For wireless activity recognition, interleaving reduces estimated energy for arithmetic in the network layers, latency from the prepared input window to returned scores, and energy on the graphics processing unit and system-on-chip (GPU/SoC) rail, compared with repeating the full window on Jetson AGX Orin. With the same input size at each SNN time step, repeating a compact input can yield higher mean development accuracy than interleaving. The inertial experiments show that higher accuracy can come at higher device cost. Direct input can also be faster and more accurate than an event encoder while using less energy on the measured rail, even when its estimated energy for arithmetic in the network layers is higher. Level crossings improve grasp recognition on a later day for previously observed users. In tactile slip detection, level crossings shift the balance between missed slips and false alarms, and checkpoint selection can reverse which input offers higher slip recall. We use these findings to outline how edge sensing systems can profile encoders against the signal structure, the errors that matter to the task, and the cost of the full inference pipeline.",
@@ -60116,15 +60134,6 @@
         "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
         "link": "https://doi.org/10.64898/2026.10.28.762631",
         "published": "2026-11-03",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Nicolas Calvo Peiro",
-        "title": "EEG-based Deep Learning Reveals Cortical Sensitivity to Small Changes in Deep Brain Stimulation Parameters",
-        "abstract": "Deep Brain Stimulation (DBS) is an invasive procedure used to alleviate motor symptoms in Parkinson's Disease (PD) patients. Despite its effectiveness, the impact of DBS on brain activity and the way to optimise stimulation parameters remains unclear. In this study, we aimed to map the sensitivity of cortical neural response to changes in DBS parameters in real-world clinical settings. We recorded in-clinic EEG data from PD patients during their clinical DBS programming sessions, both at rest and during arm movement. A siamese variant of the EEGNet deep learning architecture was trained independently for each patient and parameter combination to determine whether two 1-sec-long EEG segments were recorded under the same or different DBS parameters, yielding 30 independently trained models. Our models achieved an average accuracy of 74% in classifying whether two 1-second EEG segments corresponded to the same or different DBS parameters. Explainability methods were then applied to extract the neural oscillations learned by the models. Ablation studies identified mid-gamma oscillations (55-90Hz) as the key band for classifying these changes. Importantly, that was not driven by 1:2 gamma entrainment. In a sub-group of patients, the theta-alpha oscillations (4-12Hz) also contributed to detecting changes in DBS parameters. We demonstrate that small DBS parameter changes modify cortical activity in a consistent manner that can be detected using shallow convolutional networks on low-density EEG. Our findings suggest that cortical mid-gamma oscillations (55-90Hz) are highly sensitive to small changes in DBS settings. Our approach and findings could be leveraged towards identifying and defining novel digital biomarkers to guide DBS programming and adaptive DBS systems.",
-        "venue": "NeuroImage",
-        "link": "https://doi.org/10.1016/j.neuroimage.2026.122354",
-        "published": "2026-11-01",
         "is_arxiv": false
       },
       {
@@ -78334,6 +78343,15 @@
     ],
     "Speech & Audio": [
       {
+        "first_author": "Janna Steinebach",
+        "title": "Evaluating speech-like distortion product otoacoustic emissions: a comparison of time- and frequency-domain metrics across three datasets",
+        "abstract": "ABSTRACT Speech-like distortion-product otoacoustic emissions (DPOAEs) allow cochlear activity to be measured during the perception of natural, continuous speech and have been used to study attentional effects in the cochlea. The technique is still young, however, and existing studies differ in stimulus design and in the metric used to quantify the emissions, which makes their results difficult to compare. Here, we reanalysed three existing datasets (106 participants, 14 stimulus types) with a common pipeline. We compared six metrics: the band power of the recording, the magnitude-squared coherence (MSC) between the recording and a DPOAE template, and four metrics derived from their complex cross-correlation, namely peak magnitude, signal-to-noise ratio (SNR), peak area and peak width. A separability index quantified how well each metric separated in-ear recordings from out-of-ear control recordings without emissions. Band power, MSC and SNR separated best, with mean separability indices of about 0.9, whereas the peak magnitude performed worst and was inverted for half of the stimulus types. Since band power does not require a DPOAE template, it serves as a sanity check of the setup rather than as evidence for an emission. The MSC was insensitive to the latency of the emission but well suited for comparisons across stimuli, whereas the cross-correlation additionally provided the latency. The emissions differed significantly between the stimulus types of the three datasets, and those below about 700 Hz were measured least reliably. We derive practical recommendations for the analysis and stimulus design of future experiments.",
+        "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "link": "https://doi.org/10.64898/2026.11.11.765899",
+        "published": "2026-11-13",
+        "is_arxiv": false
+      },
+      {
         "first_author": "Artoghrul Alishbayli",
         "title": "Neural integration of acoustic statistics enables mice to detect acoustic targets in noise",
         "abstract": "Sound detection amidst noise presents an important challenge in audition. Many naturally occurring sounds (rain, wind) can be described and predicted only statistically, so-called sound textures. Previous research has demonstrated the human ability to leverage this statistical predictability for sound recognition, but the neural mechanisms remain elusive. We trained mice to detect vocalizations embedded in sound textures with different statistical predictability, while recording and optogenetically modulating the neural activity in the auditory cortex. Mice showed improved performance and neural encoding if they could sample the statistics longer per trial. Textures with more exploitable structure, specifically higher cross-frequency correlations improved behavioral performance as well as neural representation of vocalizations. Activating parvalbumin-positive (PV) interneurons had an asymmetric effect depending on the acoustic context, improving detection and neural encoding of vocalizations for low correlations, and impoverishing them for high cross-frequency correlations. In summary, mice exploit stimulus statistics to improve sound detection in naturalistic background noise, reflected in behavioral performance and neural activity, relying on PV interneurons for temporal integration.",
@@ -89318,6 +89336,15 @@
     ],
     "Image Classification": [
       {
+        "first_author": "Zecheng Hao",
+        "title": "AdaS-ViT: Test-Time Adaptive Routing for Spiking Vision Transformers with Ultra-High Energy Efficiency",
+        "abstract": "Spiking Neural Networks (SNNs) promise event-driven and energy-efficient vision, yet existing spiking vision transformers (S-ViTs) largely confine spiking tokens to fixed and uniform firing schemes along the temporal, spatial and channel dimensions, whereas suppressing the computational redundancy thus incurred calls for adaptive firing mechanisms that operate jointly across all three axes at test time. To this end, we propose the Adaptive Efficient Integrate-and-Fire (AdaE-IF) model, which consults the attention score of each spiking token and routes salient regions to fine-grained firing patterns while assigning energy-frugal coarse patterns to the remaining regions. Building on AdaE-IF, we further introduce Spiking Gated Self-Attention (S-GSA) and Spiking Local-Gated Unit (S-LGU), which enforce selective spike emission at token and channel granularity. We integrate the aforementioned mechanisms and modules into AdaS-ViT, a test-time adaptive-routing architecture trained with a progressive spatio-temporal curriculum that stabilizes the co-adaptation of firing precision and routing masks. Extensive experiments across benchmarks spanning diverse data scales and modalities demonstrate that AdaS-ViT consistently achieves highly competitive performance. Notably, on ImageNet-1k it consumes only 1.02 to 2.45 millijoules per image and attains an accuracy-per-energy ratio of 32$\\times$ to 72$\\times$, operating in an economical inference regime and thereby pushing the energy-efficiency boundary further.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.23728v1",
+        "published": "2026-11-18T02:40:45Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Yi Heng Cao",
         "title": "Chip‐Level Voltage Controlled Magnetic p‐Bits Array with Variation Compensation for Stochastic Neural Network Computation",
         "abstract": "The increasing computational and energy-efficiency demands of artificial intelligence are driving the development of new computing paradigms based on emerging memory devices. Probabilistic bits (p-bits) based on magnetic tunnel junctions (MTJs), benefiting from energy efficiency, CMOS compatibility, and fast sampling, show broad potential in stochastic neural networks. However, unavoidable device-to-device variations in MTJ switching probabilities hinder the realization of scalable p-bit chips. Here, we integrate a high-density array of voltage-controlled magnetic anisotropy MTJs (VCMA-MTJs) and employ a tail truncation strategy to compensate for their variations in probabilistic switching ranges, enabling chip-level p-bit functionality. Our VCMA-MTJ chip (VM-chip) successfully implements restricted Boltzmann machines (RBM) and deep belief networks (DBN) for image recognition, anomaly detection, image completion, and image generation, demonstrating the practical utility of this chip in stochastic neural networks. Furthermore, we propose a dual-control strategy that tunes both the amplitude and duration of the voltage pulse, significantly enhancing network performance and performing comparably to conventional software-generated pseudo-random numbers. Our work enhances the tolerance of probabilistic computing to variations in MTJ switching probabilities, offering flexibility in device selection and array integration. This approach may provide a promising pathway toward scalable p-bit hardware and cost-effective manufacturing in future probabilistic computing systems.",
@@ -89370,6 +89397,15 @@
         "link": "https://arxiv.org/abs/2610.36298v1",
         "published": "2026-10-26T21:24:08Z",
         "is_arxiv": true
+      },
+      {
+        "first_author": "Ranxi Zhou",
+        "title": "Segment Specialization in Active-Dendrite Continual Learning: An Audit, an Artifact, and a Causal Repair",
+        "abstract": "Version 3 adds cross-links to the companion records published alongside the audit: the S3 repair-headroom study, the S4 gate-saturation study, the corrected data and code record (v3), and the updated DOIs of the precursor audit and the anchor-accumulation study. The manuscript itself is unchanged from Version 2. <!---- paste this verbatim, or keep as short abstract. Use the full abstract if preferred. --> Active-dendrite architectures route each input through a competition among dendritic segments, one of which is trained per task; usage-localized elastic weight consolidation (DeLP) protects what has been learned by scaling per-neuron Fisher anchors with segment usage. Both mechanisms rest on an implicit assumption that, to our knowledge, has never been measured: that the segment-task mapping constitutes a specialization that protection can leverage at sub-neuron granularity. We audit this assumption on Permuted-MNIST and Permuted-Fashion and report three findings. First, a granularity ladder of anchors (plain, neuron-resolved, segment-resolved with attribution-tracked reference states) shows the entire benefit of usage localization is realized at neuron level: segment-resolved anchors are statistically indistinguishable from neuron-resolved anchors across two datasets, two task counts (T=10,20), and two elastic weights (all |Dell|<=0.24, n=10 paired tests n.s.). Second, the audit explains why: task-dominant gating is absent — among active neurons, the probability that a neuron's dominant segment is its own task's segment starts at chance and is pushed below chance by that phase's own training (T=20: 0.05->0.01). Under production sampling budgets 56-63% of neurons are never activated, and naive argmax instrumentation over all neurons fabricates a strong 'segment-0 dominance' (~60%) that vanishes under active-only filtering. Third, because the missing specialization is load-bearing, restoring it causally (a constant bias on the own-segment dendritic input) improves the retention-plasticity trade-off: Dell>0 in 20/20 dose cells, significant in 18/20 (n=10 paired); final accuracy improves in step (up to +4.6, t(9)=8.1). Signed-drift instrumentation shows the network never counteracts the bias at the parameter level. Segment-task specialization in this architecture family is thus not a weak tendency but an actively violated — and a repairable — assumption. This record is a timestamped preprint/source-of-record, deposited independently of journal acceptance. Files: main.pdf (full paper), LaTeX source, four figures, the Q8 data-closure report, cover letter, and the figure-generation script. Companion code and raw per-seed records: https://github.com/zhouranxi/delp-anchor-budget . Preprint dataset DOI: 10.5281/zenodo.23572226 .",
+        "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "link": "https://doi.org/10.5281/zenodo.23637972",
+        "published": "2026-10-25",
+        "is_arxiv": false
       },
       {
         "first_author": "Yujia Liu",
@@ -114195,6 +114231,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Optical Nonlinearities": [
+      {
+        "first_author": "Antonio Fieramosca",
+        "title": "Fully integrated perovskite active polaritonic circuits",
+        "abstract": "Abstract Photonic integrated circuits are emerging as a key technology for compact, analogue and energy-efficient optical information processing 1 . Yet, their practical implementation remains limited by the intrinsically weak optical nonlinearities of conventional materials, which demand high power and large device footprints to achieve substantial nonlinear responses 2 . Exciton–polaritons, hybrid light–matter excitations of semiconducting materials, offer a promising route to overcome these limitations by combining strong optical nonlinearities with the high speed and scalability typical of photonic platforms 3–5 . However, despite their potential, fully integrated on-chip polaritonic systems simultaneously delivering room-temperature waveguide lasing, controllable optical routing and amplification have remained elusive. Here we demonstrate a fully integrated perovskite polaritonic circuit that brings these functionalities together in a single-step-grown platform. We realize precise and scalable polariton circuits with integrated gratings that act as both couplers and reflectors, enabling in-plane Fabry–Pérot cavities. These structures support robust in-plane polariton lasing with coherent guided emission at a geometry-defined wavelength, optical amplification of propagating polaritons and nonlinear optical phase control exceeding π, all within the same on-chip architecture. Our results establish perovskite polariton circuits as a scalable platform for active and interferometric integrated photonics.",
+        "venue": "Nature",
+        "link": "https://doi.org/10.1038/s41586-026-11299-5",
+        "published": "2026-11-18",
+        "is_arxiv": false
+      }
+    ],
     "Topic: How Intangibles Drive": [
       {
         "first_author": "Gert Bijnens",
@@ -114206,22 +114253,11 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Qtl Mapping Crispr": [
-      {
-        "first_author": "Marta Perez‐Alcantara",
-        "title": "Integrated QTL mapping and CRISPR screening in pooled iPSC-derived microglia reveals genetic drivers of neurodegenerative risk",
-        "abstract": "Abstract Mounting evidence implicates microglia in neurodegeneration, but linking disease-associated genetic variants to target genes and cellular phenotypes is hindered by the inaccessibility of these cells. We differentiated 261 human induced pluripotent stem cell lines into microglia-like (iMGL) cells in pools with phenotypic (differentiation, phagocytosis and migration) and single-cell transcriptomic readouts. Burden analysis of deleterious variants detected 36 genes influencing microglial phenotypes. Expression quantitative trait locus (eQTL) analysis identified 7,121 eQTL-associated genes and 79 colocalizations across four neurodegenerative disease genome-wide association studies, half of which had limited prior evidence of causality. Integration of eQTL and phenotypic associations highlighted the role of disease-relevant variants, including LRRK2 and TREM2 acting through microglial phagocytosis. A coupled CRISPR screen identified a role for TREM2 in phagocytosis and highlighted the importance of cell type in the directionality of phenotypic effects. By contextualizing variant effects within iMGLs in different inflammatory states, we provide a comprehensive framework for interpreting the function of risk loci in neurodegenerative disorders.",
-        "venue": "Nature Genetics",
-        "link": "https://doi.org/10.1038/s41588-026-02843-0",
-        "published": "2026-11-17",
-        "is_arxiv": false
-      }
-    ],
     "Topic: Singly Heavy Tetraquarks": [
       {
         "first_author": "Jun-Jie Liu",
         "title": "Singly heavy tetraquarks",
-        "abstract": "In this work, we carry out a systematic study of the spectra of the $1S$-wave states for the whole singly-heavy tetraquark systems within a semi-relativistic hybrid quark potential model, in which both the one-gluon exchange (OGE) and one-boson exchange (OBE) interactions are included. Furthermore, the fall-apart decays are evaluated with the quark exchange model by combining the obtained spectra. It is found that besides the OGE potentials, the OBE potentials play crucial roles for describing the spectrum. All of our obtained states lie far above the lowest dissociation meson-meson threshold. They are compact states with relatively narrow fall-apart widths $\\sim 1-120$~MeV. The $D_{s0}(2317)$, $D_{s1}(2460)$, $T_{b\\bar{s}}(5568)$, and $T_{c\\bar{s}}(2327)$ resonances reported from experiments cannot be explained as compact tetraquarks. While the $T_{\\bar{c}\\bar{s}0}(2870)$ and $T_{c\\bar{s}0}(2900)$ favor the tetraquark states with $IJ^P=00^+$ and $10^+$, i.e. $T_{(\\bar{c}\\bar{s}[ud])0^+}^0(2919)$ and $T_{(cn\\{\\bar{s}\\bar{n}\\})0^+}^{1}(2922)$, respectively. More singly-heavy tetraquark states have good potentials to be observed in some of their dominant decay channels in experiments.",
+        "abstract": "In this work, we carry out a systematic study of the spectra of the 1 S -wave states for the whole singly-heavy tetraquark systems within a semi-relativistic hybrid quark potential model, in which both the one-gluon exchange (OGE) and one-boson exchange (OBE) interactions are included. Furthermore, the fall-apart decays of S -wave channels are evaluated with the quark exchange model by combining the obtained spectra. It is found that besides the OGE potentials, the OBE potentials play crucial roles for describing the spectrum. All of our obtained states lie far above the lowest dissociation meson-meson threshold. They are compact states with relatively narrow fall-apart widths ∼ 1 − 120 ~MeV. The D s 0 ( 2317 ) , D s 1 ( 2460 ) , T b s ‾ ( 5568 ) , and T c s ‾ ( 2327 ) resonances reported from experiments cannot be explained as compact tetraquarks. While the T c ‾ s ‾ 0 ( 2870 ) and T c s ‾ 0 ( 2900 ) favor the tetraquark states with I J P = 00 + and 10 + , i.e. T ( c ‾ s ‾ [ u d ] ) 0 + 0 ( 2919 ) and $T_{(cn {\\bar{s}\\bar{n}\\})0^+}^{1}(2922)$ , respectively. More singly-heavy tetraquark states have good potentials to be observed in some of their dominant decay channels in experiments.",
         "venue": "Physical review. D/Physical review. D.",
         "link": "https://doi.org/10.1103/qzdm-dj69",
         "published": "2026-11-17",
@@ -114283,7 +114319,7 @@
       {
         "first_author": "Si-Wei Dai",
         "title": "Unbiased data-driven determination of the nuclear dipole amplitude in the color glass condensate",
-        "abstract": "Gluon saturation limits the growth of parton densities at small Bjorken-$x$ and is expected to be most pronounced in heavy nuclei. Yet quantitative extractions of the nuclear gluon dipole amplitude have long relied on parametrized initial conditions, introducing uncontrolled model dependence that obscures genuine nuclear effects. We introduce a physics-informed neural-network framework that embeds the collinearly improved Balitsky-Kovchegov evolution equation directly into the training objective, allowing the impact-parameter-averaged dipole amplitude to be determined from data without assuming a functional form for its initial condition. Applying this framework to forward-hadron nuclear-modification-factor and coherent $J/ψ$ photoproduction data, we extract the $^{208}$Pb dipole amplitude at $x_0=0.01$ with QCD evolution and momentum-space positivity enforced throughout training. The evolved amplitude reproduces the measured cross sections across the available kinematic range and yields a saturation-scale ratio $Q_{s0,\\mathrm{Pb}}^2/Q_{s0,p}^2 = 3.17^{+0.17}_{-0.10}$, consistent with simple geometric scaling. The extracted Pb initial condition is well described by a McLerran-Venugopalan-type form, in contrast to the proton, reflecting the higher color-charge density of a large nucleus. Using the same amplitude, we predict the rapidity dependence of the transverse-momentum ratio in $pp$, $p$Pb, and Pb$p$ collisions, finding agreement with recent LHCb measurements at low multiplicity without any system-dependent parameters. This work provides the first unbiased, data-driven determination of nuclear structure in the saturation regime and establishes a general strategy for embedding nonlinear evolution equations into machine-learning extractions of dynamically constrained observables.",
+        "abstract": "Gluon saturation limits the growth of parton densities at small Bjorken- x and is expected to be most pronounced in heavy nuclei. Yet quantitative extractions of the nuclear gluon dipole amplitude have long relied on parametrized initial conditions, introducing uncontrolled model dependence that obscures genuine nuclear effects. We introduce a physics-informed neural-network framework that embeds the collinearly improved Balitsky-Kovchegov evolution equation directly into the training objective, allowing the impact-parameter-averaged dipole amplitude to be determined from data without assuming a functional form for its initial condition. Applying this framework to forward-hadron nuclear-modification-factor and coherent J / ψ photoproduction data, we extract the 208 Pb dipole amplitude at x 0 = 0.01 with QCD evolution and momentum-space positivity enforced throughout training. The evolved amplitude reproduces the measured cross sections across the available kinematic range and yields a saturation-scale ratio Q s 0 , P b 2 / Q s 0 , p 2 = 3.17 − 0.10 + 0.17 , consistent with simple geometric scaling. The extracted Pb initial condition is well described by a McLerran-Venugopalan-type form, in contrast to the proton, reflecting the higher color-charge density of a large nucleus. Using the same amplitude, we predict the rapidity dependence of the transverse-momentum ratio in p p , p Pb, and Pb p collisions, finding agreement with recent LHCb measurements at low multiplicity without any system-dependent parameters. This work provides the first unbiased, data-driven determination of nuclear structure in the saturation regime and establishes a general strategy for embedding nonlinear evolution equations into machine-learning extractions of dynamically constrained observables.",
         "venue": "Physical review. D/Physical review. D.",
         "link": "https://doi.org/10.1103/yncx-zx1c",
         "published": "2026-11-13",
@@ -118825,7 +118861,7 @@
         "abstract": "A mean field model (MFM) is a mesoscopic description of neuronal population dynamics that can reduce the complexity of neural microcircuits into equations preserving key functional properties. The generation of a MFM is a complex mathematical process that starts with the incorporation of single neuron input/output relationships and local connectivity. Once neuron electroresponsiveness and synaptic properties are defined, in principle, the process can be automated. Here we develop a tool for automatic MFM derivation from biophysically grounded spiking networks (Auto-MFM) by performing micro-to-mesoscale parameter remapping, estimating input/output relationships specific for different neuronal populations (i.e., transfer functions), and optimizing transfer function parameters. Auto-MFM was tested using a spiking cerebellar circuit as a generative model. The cerebellar MFM derived with Auto-MFM accurately reproduced cerebellar population dynamics of the corresponding spiking network, matching mean and time-varying firing rates across a wide range of stimulation patterns. Auto-MFM allowed us to model and explore physiological and pathological circuit variants; indeed, it was used to map ataxia-related structural connectivity alterations of the cerebellar network, in which Purkinje cells with simplified dendritic structure altered the cerebellar connectivity. Furthermore, Auto-MFM was used to create a library of cerebellar MFMs by sweeping the level of the excitatory conductance at mossy fiber - granule cell synapse, which is altered in several neuropathologies. Auto-MFM is thus proving a flexible and powerful tool to generate region-specific MFMs of healthy and pathological brain networks to be embedded in brain digital models.",
         "venue": "Neural Networks",
         "link": "https://doi.org/10.1016/j.neunet.2026.109872",
-        "published": "2026-11-01",
+        "published": "2026-11-05",
         "is_arxiv": false
       },
       {
@@ -119556,7 +119592,7 @@
       {
         "first_author": "Luciano M. Abreu",
         "title": "Probing the G (3900) state in heavy-ion collisions",
-        "abstract": "We investigate the interactions of the recently confirmed exotic hadron $G(3900)$ with the hadronic medium composed of light mesons produced in heavy-ion collisions. Using an effective Lagrangian approach, we compute both vacuum and thermally averaged cross sections for processes such as $G(3900) + π\\to D^{(\\ast)} + \\bar{D}^{(\\ast)}$ and their inverse reactions. Following recent proposals, the $G(3900)$ is interpreted as a $P$-wave $D\\bar{D}^*/D^*\\bar{D}$ molecular state. The resulting thermally averaged cross sections are employed in a rate equation to determine the time evolution of the $G(3900)$ multiplicity, with initial conditions provided by statistical and coalescence hadronization models. We compute the number of $G(3900)$'s produced in central Pb-Pb collisions at $\\sqrt{s_{NN}} = 5.02$ TeV and compare it with the number of produced $Z_c(3900)$'s . We obtain a considerably smaller final yield of $G(3900)$ compared to $Z_c(3900)$.",
+        "abstract": "We investigate the interactions of the recently confirmed exotic hadron G ( 3900 ) — with quantum numbers J P C = 1 − − — with the hadronic medium composed of light mesons produced in heavy-ion collisions. Using an effective Lagrangian approach, we compute both vacuum and thermally averaged cross sections for processes such as G ( 3900 ) + π → D ( * ) + D ‾ ( * ) and their inverse reactions. Following recent proposals, the G ( 3900 ) is interpreted as a P -wave D D ‾ * / D * D ‾ molecular state. The resulting thermally averaged cross sections are employed in a rate equation to determine the time evolution of the G ( 3900 ) multiplicity, with initial conditions provided by statistical and coalescence hadronization models. We compute the number of G ( 3900 ) ’s produced in central Pb-Pb collisions at s N N = 5.02 TeV and compare it with the number of produced Z c ( 3900 ) ’s . We obtain a considerably smaller final yield of G ( 3900 ) compared to Z c ( 3900 ) .",
         "venue": "Physical review. D/Physical review. D.",
         "link": "https://doi.org/10.1103/nxdr-1l99",
         "published": "2026-11-05",
@@ -119775,6 +119811,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Schizophrenia Bipolar Disorder": [
+      {
+        "first_author": "Xiao‐Man Liu",
+        "title": "Loss of schizophrenia and bipolar disorder risk gene Akap11 disrupts astrocyte lipid metabolism and increases neuronal activity",
+        "abstract": "A-Kinase Anchoring Protein 11 (AKAP11) is a shared genetic risk factor for schizophrenia and bipolar disorder with poorly understood brain function. Through multi-omic analysis of Akap11 mutant mouse brains and astrocytes, we identify significant transcriptomic, proteomic, and metabolomic alterations. We observe upregulated cholesterol and fatty acid metabolism, elevated cAMP/PKA signaling, and accumulation of cholesteryl esters, triacylglycerols, ceramides, and glycerophospholipids, manifesting as increased lipid droplets in mutant astrocytes. Mechanistically, AKAP11 functions as an autophagy receptor mediating PKA degradation, requiring interaction with ER-resident VAP proteins to regulate lipid homeostasis. In neuron-astrocyte co-culture, astrocytic Akap11 loss increases excitatory neurotransmission and activity in human iPSC-derived neurons. In vivo , pharmacologic targeting of lipid metabolism partially reduces lipid accumulation in Akap11 mutant brains, whereas lithium carbonate further exacerbates this accumulation. Collectively, these findings link AKAP11-mediated lipid and synaptic dysregulation to psychiatric disease risk, highlighting the potential role of astrocytes in these disorders.",
+        "venue": "Cell Reports",
+        "link": "https://doi.org/10.1016/j.celrep.2026.118311",
+        "published": "2026-11-01",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Intracellular Calcium": [
       {
         "first_author": "Yvonne Sleiman",
@@ -119916,7 +119963,7 @@
       {
         "first_author": "Jiaxing Zhao",
         "title": "Accessing exotic hadronic states via charmed-meson femtoscopy in relativistic heavy-ion collisions",
-        "abstract": "The two-particle correlation function measured in femtoscopic analyses provides access to the interaction potentials between emitted particles. This offers a unique opportunity to investigate interactions among charmed mesons and to explore the nature of possible exotic hadronic states. In this Letter, we study femtoscopic correlations of various charmed-meson pairs in relativistic heavy-ion collisions. The dynamical evolution of the system and charm hadron production are described within the Parton-Hadron-String Dynamics (PHSD) transport approach, while the correlation functions are computed using the Correlation Analysis Tool using the Schrödinger equation (CATS). We demonstrate that heavy-ion collisions provide a significantly more favorable environment than $pp$ collisions for accessing charmed meson femtoscopic correlations. This arises from enhanced charm-quark production, reduced relative momenta due to in-medium energy loss, and a strong suppression of initial-state correlations. Our results indicate that femtoscopic measurements in heavy-ion collisions offer a sensitive probe of charmed meson interactions and possible hadronic molecular states.",
+        "abstract": "The two-particle correlation function measured in femtoscopic analyses provides access to the interaction potentials between emitted particles. This offers a unique opportunity to investigate interactions among charmed mesons and to explore the nature of possible exotic hadronic states. In this paper, we study femtoscopic correlations of various charmed-meson pairs in relativistic heavy-ion collisions. The dynamical evolution of the system and charm hadron production are described within the parton-hadron-string dynamics transport approach, while the correlation functions are computed using the correlation analysis tool using the Schr\\\"odinger equation. We demonstrate that heavy-ion collisions provide a significantly more favorable environment than $pp$ collisions for accessing charmed-meson femtoscopic correlations. This arises from enhanced charm-quark production, reduced relative momenta due to in-medium energy loss, and a strong suppression of initial-state correlations. Our results indicate that femtoscopic measurements in heavy-ion collisions offer a sensitive probe of charmed-meson interactions and possible hadronic molecular states.",
         "venue": "Physical Review C",
         "link": "https://doi.org/10.1103/8tx7-w52f",
         "published": "2026-10-26",
@@ -120000,17 +120047,6 @@
         "is_arxiv": true
       }
     ],
-    "Topic: Large Quark": [
-      {
-        "first_author": "Milena Bastos Albino",
-        "title": "Hybrid Stars with Different Amount of Quark Matter",
-        "abstract": "In a previous work, we explored the possibility of neutron stars with large quark cores. Through Bayesian inference, we obtained large sets of equations of state imposing constraints regarding the properties of nuclear matter, mass-radius data from NICER, the GW170817 data from Virgo-LIGO collaboration, perturbative QCD and causality. We also imposed that the maximum mass neutron star (NS$\\text{max}$) must have a large quark core. In this work, we obtain a new set of equations of state (SmallQ set) with the same constraints as before. However, we relaxed the last constraint, imposing only that NS$\\text{max}$ must have quark core, regardless of its size. We compare the results with the set from our previous paper constrained by NICER and GW170817 observations NJL-GW. For both sets, we use the Relativistic Mean Field model with nonlinear meson interactions for the hadron phase and the Nambu--Jona-Lasinio model with four- and eight-quark interaction terms for the quark phase. The SmallQ set has higher values of phase transition density, with 3 -- 4.5 $ρ_0$, compared to the NJL-GW, with 2 -- 2.5 $ρ_0$. The new set describes NSs with smaller radius and smaller tidal deformability, and is more compatible with NICER and GW170817 data. A difference in the quark matter composition is observed, with a larger quark strange fraction occurring in the SmallQ set. Within this set, $2 M_\\odot$ NSs may contain little to no quark matter. It is shown that there is a non negligible fraction of EOS whose mass-radius curve presents a positive slope for 1.8 $M_\\odot$ stars, while for nucleonic stars this fraction is negligible and for hyperonic stars the slope is always negative.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2610.28408",
-        "published": "2026-10-20",
-        "is_arxiv": true
-      }
-    ],
     "Topic: World Modeling Visual": [
       {
         "first_author": "Shuhan Ye",
@@ -120039,7 +120075,7 @@
         "title": "Hierarchical Control of Antiphase Synchronization in Biomorphic Spiking Neural Architectures for Locomotor Control",
         "abstract": "Central pattern generators (CPGs) provide a biologically inspired foundation for adaptive locomotor control, yet systematically characterizing their dynamic regimes in spiking neural networks remains challenging. This study introduces a framework for identifying and stabilizing antiphase synchronization in a biomorphic spiking CPG model embedded in a closed neuromuscular loop. A composite synchronization metric is developed, integrating phase coherence, amplitude balance, and temporal stability. Its performance is evaluated across systematically varied stimulation waveforms and synaptic configurations. Statistical analysis reveals that stimulation type dominates regime determination, with tonic drive yielding the most robust antiphase synchronization. Periodic inputs induce nonlinear saturation and context-dependent network routing. Although synaptic weights alone show limited discriminative power, they significantly modulate robustness within a given stimulation context, with reciprocal Ia interneuron connections emerging as key stabilizers. The proposed composite metric achieves robust antiphase detection, outperforming traditional phase-only measures while preserving biophysical interpretability. These findings establish a statistically validated, hierarchical modeling approach in which external drive defines the operating regime and targeted synaptic configurations fine-tune dynamic stability, providing actionable guidelines for closed-loop neuromechanical controllers and adaptive neuroprosthetic interfaces.",
         "venue": "arXiv",
-        "link": "https://arxiv.org/abs/2611.22639v1",
+        "link": "https://arxiv.org/abs/2611.22639v2",
         "published": "2026-11-17T11:55:19Z",
         "is_arxiv": true
       }
@@ -122061,6 +122097,28 @@
         "venue": "arXiv",
         "link": "https://arxiv.org/abs/2610.35456v1",
         "published": "2026-10-26T13:54:22Z",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Qtl Mapping Crispr": [
+      {
+        "first_author": "Marta Perez‐Alcantara",
+        "title": "Integrated QTL mapping and CRISPR screening in pooled iPSC-derived microglia reveals genetic drivers of neurodegenerative risk",
+        "abstract": "Abstract Mounting evidence implicates microglia in neurodegeneration, but linking disease-associated genetic variants to target genes and cellular phenotypes is hindered by the inaccessibility of these cells. We differentiated 261 human induced pluripotent stem cell lines into microglia-like (iMGL) cells in pools with phenotypic (differentiation, phagocytosis and migration) and single-cell transcriptomic readouts. Burden analysis of deleterious variants detected 36 genes influencing microglial phenotypes. Expression quantitative trait locus (eQTL) analysis identified 7,121 eQTL-associated genes and 79 colocalizations across four neurodegenerative disease genome-wide association studies, half of which had limited prior evidence of causality. Integration of eQTL and phenotypic associations highlighted the role of disease-relevant variants, including LRRK2 and TREM2 acting through microglial phagocytosis. A coupled CRISPR screen identified a role for TREM2 in phagocytosis and highlighted the importance of cell type in the directionality of phenotypic effects. By contextualizing variant effects within iMGLs in different inflammatory states, we provide a comprehensive framework for interpreting the function of risk loci in neurodegenerative disorders.",
+        "venue": "Nature Genetics",
+        "link": "https://doi.org/10.1038/s41588-026-02843-0",
+        "published": "2026-11-17",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Large Quark": [
+      {
+        "first_author": "Milena Bastos Albino",
+        "title": "Hybrid Stars with Different Amount of Quark Matter",
+        "abstract": "In a previous work, we explored the possibility of neutron stars with large quark cores. Through Bayesian inference, we obtained large sets of equations of state imposing constraints regarding the properties of nuclear matter, mass-radius data from NICER, the GW170817 data from Virgo-LIGO collaboration, perturbative QCD and causality. We also imposed that the maximum mass neutron star (NS$\\text{max}$) must have a large quark core. In this work, we obtain a new set of equations of state (SmallQ set) with the same constraints as before. However, we relaxed the last constraint, imposing only that NS$\\text{max}$ must have quark core, regardless of its size. We compare the results with the set from our previous paper constrained by NICER and GW170817 observations NJL-GW. For both sets, we use the Relativistic Mean Field model with nonlinear meson interactions for the hadron phase and the Nambu--Jona-Lasinio model with four- and eight-quark interaction terms for the quark phase. The SmallQ set has higher values of phase transition density, with 3 -- 4.5 $ρ_0$, compared to the NJL-GW, with 2 -- 2.5 $ρ_0$. The new set describes NSs with smaller radius and smaller tidal deformability, and is more compatible with NICER and GW170817 data. A difference in the quark matter composition is observed, with a larger quark strange fraction occurring in the SmallQ set. Within this set, $2 M_\\odot$ NSs may contain little to no quark matter. It is shown that there is a non negligible fraction of EOS whose mass-radius curve presents a positive slope for 1.8 $M_\\odot$ stars, while for nucleonic stars this fraction is negligible and for hyperonic stars the slope is always negative.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2610.28408",
+        "published": "2026-10-20",
         "is_arxiv": true
       }
     ],
