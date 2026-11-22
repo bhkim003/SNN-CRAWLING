@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-21T00:27:16.339709+00:00",
+  "generated_at_utc": "2026-11-22T00:29:05.187732+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30599,
+  "total_papers": 30605,
   "categories": {
     "LLM": [
       {
@@ -60191,6 +60191,15 @@
         "is_arxiv": true
       },
       {
+        "first_author": "Mohamed Ali Torad",
+        "title": "An ESP32-S3 Multimodal Wearable Sensor Platform with Embedded XGBoost for Focal-to-Bilateral Tonic–Clonic Seizure Detection and IoT Alerting",
+        "abstract": "Wearable seizure-detection systems can provide objective event monitoring and rapid caregiver alerting without continuous bedside observation. This study presents a resource-constrained multimodal wearable sensor platform for focal-to-bilateral tonic–clonic seizure (FBTCS) detection using edge artificial intelligence and Internet of Things (IoT) communication. The prototype integrates an ESP32-S3 microcontroller, an analog electromyography (EMG) channel, an MPU6050 inertial sensor, MAX30102 photoplethysmography, GPS, a TFT display, local vibration/buzzer outputs, and Blynk cloud telemetry. The seizure–decision path uses synchronized EMG and acceleration acquired at 100 Hz in non-overlapping 10 s windows. EMG and acceleration are resampled for compatibility with the reference feature pipeline, 13 statistical features are extracted from each modality (26 total), and an 85-tree XGBoost model is executed locally. A probability threshold of 0.85 is combined with temporal smoothing, consecutive-window confirmation, and a 60 s refractory interval. Software verification showed maximum absolute probability differences of approximately 1.19 × 10−7 for random feature-vector tests and 1.49 × 10−8 for end-to-end recorded windows relative to the Python reference. Within the reported validation record covering 2643.69 h and 18 record-labeled FBTCS events, 12 events were detected (12/18; 67% sensitivity). Precision was approximately 26%, F1-score approximately 38%, the reported false-alarm rate was 0.31 per 24 h, and median detection latency was 61.5 s. Approximately 34 false alarms are estimated from the reported false-alarm rate and evaluation duration; this is an estimated count rather than a percentage or directly observed count. Hardware, local alarm, display, GPS, and cloud communication functions passed functional integration tests. The small event count, uncertain label provenance, low precision, and long latency mean that these data support an engineering proof-of-concept only and do not establish clinical applicability.",
+        "venue": "Sensors",
+        "link": "https://doi.org/10.3390/s26216710",
+        "published": "2026-10-23",
+        "is_arxiv": false
+      },
+      {
         "first_author": "Dongyi He",
         "title": "Toward robust, reproducible, and widely accessible intracranial speech brain-computer interfaces: a comprehensive narrative review of neural mechanisms, hardware, algorithms, evaluation, clinical pathways and future directions",
         "abstract": "Intracranial speech brain-computer interfaces (BCIs) offer a promising route for restoring communication in individuals with severe, chronic, and otherwise irreversible motor and speech impairments who cannot communicate adequately using conventional assistive technologies, but clinical translation remains limited by fragmented and heterogeneous evidence, as well as unresolved design trade-offs across neuroscience, hardware, algorithms, validation methods, and clinical integration. This narrative review synthesizes recent progress across four key domains in intracranial speech neuroprosthetics: i) the neural mechanisms underlying overt, attempted (including silent miming and attempts without observable movement), and imagined speech (speech imagery without an attempt to articulate); ii) decision-oriented hardware comparisons of surgically implanted recording modalities, including microelectrode array (MEA), electrocorticography (ECoG), and stereotactic electroencephalography (SEEG); iii) experimental strategies for cross-subject generalization; and iv) advances in neural decoding, including sequence models, attention-based architectures (e.g., transformers), articulatory intermediate representations, and language-prior-assisted frameworks. We highlight persistent bottlenecks, including limited transfer without individual calibration, long-term non-stationarity and recalibration burden, heterogeneous and non-comparable evaluation practices, limited naturalistic expressivity, and the variable signal-to-noise ratio (SNR) and limited temporal alignment of neural activity in imagined speech decoding. Our contributions are threefold: (1) an end-to-end, decision-oriented synthesis that links neural representations to recording choices, experimental design, decoding model architectures, and translational constraints; (2) a structured framework organized around five coupled design questions, accompanied by a unified evaluation framework and a conceptual cross-linguistic, cross-task benchmark template that integrates objective, perceptual, expressive, conversational, and longitudinal metrics; and (3) user-centered translational guidance that includes agency-preserving shared control, verifiable performance priorities, and scenario-specific minimum viable product (MVP) profiles for differentiating between reliability-first home communication and fidelity-first conversational speech restoration. We conclude with a call for larger multilingual, multi-center longitudinal datasets; harmonized benchmarks; adaptive yet interpretable decoders; prospective clinical validation; and transparent data-sharing and reporting practices with robust ethical safeguards. These efforts are essential to accelerate the safe and equitable deployment of speech neuroprostheses.",
@@ -75062,6 +75071,15 @@
       }
     ],
     "Autonomous Navigation": [
+      {
+        "first_author": "John Minnick",
+        "title": "Sensorimotor behavior from an untrained brain-and-nerve-cord connectome",
+        "abstract": "Connectomes now map the neurons and synapses of an adult fly's brain and nerve cord, but how much of behaviour follows from the wiring is unknown. Here we turn one such connectome into a spiking network of 172,433 neurons with a published brain model's untuned parameters, and run it alone and inside a simulated body. Two fixed rules join them: odours and looming objects drive sensory neurons, and motor neurons move the legs. Alone, the network passes a signal to the motor neurons it is known to drive when the pathway supplies about 2% or more of their input. In the body, the fly navigates around obstacles to 95% of the odour sources. A rewiring that keeps each neuron's connection counts and signs reaches 18%, and the fly's leg commands replayed with the senses off reach almost none, so navigation needs the measured wiring and sensory feedback. Dopamine-gated weakening of the mushroom body's output synapses turns approach to an odour into avoidance, which requires the pairing and is odour-specific once one olfactory synapse class is scaled. An untrained connectome thus supports a behaviour and its learned reversal, and the pathways it cannot drive mark what the diagram leaves out.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2610.33881",
+        "published": "2026-10-24",
+        "is_arxiv": true
+      },
       {
         "first_author": "John Minnick",
         "title": "Sensorimotor behaviour from an untrained brain-and-nerve-cord connectome",
@@ -114267,6 +114285,174 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Defocus Wavefront": [
+      {
+        "first_author": "D. Neumann",
+        "title": "Euclid: Precise inference of the defocus wavefront error from image diffraction spike measurements",
+        "abstract": "The success of the Euclid cosmological weak lensing measurements requires exquisite knowledge of the point spread function (PSF) shape. Defocus wavefront errors induce variations in PSF size that directly bias inferred galaxy shapes. We present a rapid, model-independent estimator of the Euclid visible instrument defocus based on measuring subpixel shifts in diffraction spikes from bright stars, arising from the non-mirror-symmetric placement of the telescope spiders. This estimate requires no a priori PSF model and can be directly inferred from individual survey exposures within seconds. We express defocus as the secondary mirror displacement along the optical axis, Δ z, achieving a per-exposure precision of σ(Δ z) = 0.022, . This sensitivity resolves thermally induced shifts, typically 0.1--0.3$, corresponds to field-averaged secondary mirror displacements exceeding łangle Δ z_ ̊angle = (0.0683 ± 0.0024), in standard Euclid Wide Survey images, corresponding to a peak-to-valley optical-path difference of qty 0.75 and enables tracking of the temporal evolution and field-of-view variations when combining exposures within periods of stability. Since July 2024, the Euclid telescope has been exceptionally stable, while changes to defocus are effectively homogeneous across the field of view. By correlating defocus with PSF size, we find that the Euclid DR3 requirement of a fractional PSF size bias of łeft|Δ R_ ^2/R_ ^2̊ight|<10^ PSF PSF -3 thr Our estimator provides a robust real-time monitoring tool, supplies a stringent prior for computationally intensive PSF model fitting, and is applicable not only to the Euclid telescope, but to other telescopes whose spider vanes are not mirror-symmetrically arranged.",
+        "venue": "Astronomy and Astrophysics",
+        "link": "https://doi.org/10.1051/0004-6361/202661629",
+        "published": "2026-11-23",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: All-Magnonic Neuron": [
+      {
+        "first_author": "David Breitbach",
+        "title": "An all-magnonic neuron with tunable fading memory",
+        "abstract": "Magnonics offers nanometer-scale wave propagation and strong nonlinearities, making it attractive for neuromorphic applications such as artificial neurons. Yet, magnonic elements with interconnections solely within the magnonic system remain challenging, preventing the realization of interconnected magnonic neurons to date. Here, we experimentally demonstrate an all-magnonic neuron that reacts to magnon inputs with thresholded, amplified magnon firing and subsequent self-reset, enabling all-magnonic operation and cascading. Our approach is based on micro-antenna excitation on an ultralow damping garnet with perpendicular magnetic anisotropy, where we exploit the positive magnon frequency shift to realize nonlinear activation. Using Brillouin light scattering spectroscopy, we uncover a transient neuron response with tunable fading memory: A 25% change in pump power results in a three-order-of-magnitude tuning in memory time, which we harness, demonstrating temporal integration of up to 50 magnon pulses. Last, we realize neuron triggering in a cascade of three neurons, highlighting its potential for connected magnonic circuits.",
+        "venue": "Science Advances",
+        "link": "https://doi.org/10.1126/sciadv.aeg1429",
+        "published": "2026-11-20",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Heavy-Ion Collisions": [
+      {
+        "first_author": "Luciano M. Abreu",
+        "title": "Probing the G ( 3900 ) state in heavy-ion collisions",
+        "abstract": "We investigate the interactions of the recently confirmed exotic hadron G ( 3900 ) —with quantum numbers J P C = 1 − − —with the hadronic medium composed of light mesons produced in heavy-ion collisions. Using an effective Lagrangian approach, we compute both vacuum and thermally averaged cross sections for processes such as G ( 3900 ) + π → D ( * ) + D ¯ ( * ) and their inverse reactions. Following recent proposals, the G ( 3900 ) is interpreted as a P -wave D D ¯ * / D * D ¯ molecular state. The resulting thermally averaged cross sections are employed in a rate equation to determine the time evolution of the G ( 3900 ) multiplicity, with initial conditions provided by statistical and coalescence hadronization models. We find that the large decay width of the G ( 3900 ) leads to a strong suppression of its abundance during the hadronic phase. Although decay is the dominant depletion mechanism, the full kinetic evolution shows that regeneration through inverse reactions becomes relevant at intermediate and late times, making the final yield different from that obtained from a decay-only treatment. The final G ( 3900 ) multiplicity is considerably smaller than that of the Z c ( 3900 ) , under the assumptions adopted here.",
+        "venue": "Physical review. D/Physical review. D.",
+        "link": "https://doi.org/10.1103/nxdr-1l99",
+        "published": "2026-11-20",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Neelkamal Mallick",
+        "title": "Improved nonflow control for multiparticle correlators and system-size-dependent evolution from OO to Pb--Pb collisions at the LHC",
+        "abstract": "Multiparticle correlations of event-plane angles, known as symmetry plane correlators (SPCs), and correlations of anisotropic flow amplitudes of different harmonics, known as symmetric cumulants (SCs), help constrain the initial conditions and the transport properties of the system formed in heavy-ion collisions. Such multiparticle correlations are robust against nonflow biases in heavy-ion collisions; however, in small systems the nonflow contribution is sizeable and can distort SPCs and SCs at low multiplicity, mimicking a flow-like signal. Evidence of nuclear-geometry-induced collectivity in light-ion collisions, such as OO and Ne--Ne, has been established at the LHC. Measurements of SPCs and SCs in these systems, and their comparison to heavy-ion collisions, can therefore clarify the system-size dependence of these correlations and the strength of nonlinear mode coupling. In this work, an improved nonflow subtraction framework based on multiplicity reweighting ($\\czero$) and $v_1$-estimator-based ($\\cone$) scaling is validated for selected SPCs and SCs using a controlled toy model and the \\textsc{Pythia~8~Angantyr} model, where collective flow is absent by construction. We find that $\\cone$ provides the more reliable nonflow control and apply it to predict the SPCs and normalized SCs in OO collisions at $\\sqrt{s_{\\rm NN}}=5.36$~TeV with the \\textsc{ampt} string-melting model. The results are compared with published Pb--Pb measurements from ALICE and from \\textsc{ampt} as a function of midrapidity charged-particle multiplicity $\\langle N_{\\rm ch}\\rangle(|η|<0.5)$, placing light- and heavy-ion systems on a common system-size axis.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2610.36922",
+        "published": "2026-10-27",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "Ralf Rapp",
+        "title": "Quarkonia in Medium and Transport in Heavy-Ion Collisions",
+        "abstract": "The transport and spectral properties of heavy quarkonia in hot QCD matter are a central ingredient to describe their observables in high-energy heavy-ion collisions. We review recent activity in evaluating these properties, including a nonperturbative quantum many-body approach where the basic two-body interaction kernel is constrained by quantities that can be computed with good precision in thermal lattice QCD. We then give a brief overview of quarkonium transport approaches to heavy-ion collisions. Focusing on the semiclassical approach we discuss the current interpretation of charmonium and bottomonium observables at RHIC and the LHC, including excitation functions that started with 𝐽/𝜓 and 𝜓′ data from the heavy-ion program at the SPS.",
+        "venue": "",
+        "link": "https://doi.org/10.22323/1.465.0114",
+        "published": "2025-02-07",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "D. Kincses",
+        "title": "Lévy walk of pions in heavy-ion collisions",
+        "abstract": "Abstract The process of Lévy walk, i.e., movement patterns described by heavy-tailed random walks, plays a role in various phenomena, from chemical and microbiological systems through marine predators to climate change. Recent experiments have suggested that this phenomenon also appears in heavy-ion collisions. However, the theoretical interpretation supporting such findings is still debated. In high-energy collisions of heavy nuclei, the strongly interacting Quark Gluon Plasma is created, which, similarly to the early Universe, undergoes a rapid expansion and transition back to hadronic matter. In the subsequent expanding hadron gas, particles interact until kinetic freeze-out, when their momenta stop changing, and they freely transition toward the detectors. Measuring spatial freeze-out distributions is a crucial tool in understanding the dynamics of the created matter and the interactions among its constituents. In this paper, we introduce a three-dimensional analysis of the spatial freeze-out distribution of pions (the most abundant particles in such collisions). Utilising Monte-Carlo simulations of high-energy collisions, we show that the chain of processes ending in a final state pion has a step length distribution leading to Lévy-stable distributions. Subsequently, we show that simulated pion freeze-out distributions indeed exhibit heavy tails and can be described by a three-dimensional elliptically contoured symmetric Lévy-stable distribution.",
+        "venue": "Communications Physics",
+        "link": "https://doi.org/10.1038/s42005-025-01973-x",
+        "published": "2025-02-05",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "O. Vitiuk",
+        "title": "Nonequilibrium Phenomenology of Identified Particle Spectra in Heavy-Ion Collisions at LHC Energies",
+        "abstract": "This is the first public version of ThermalBlastMC. ThermalBlastMC is a Monte Carlo event generator for thermal particle production from an expanding relativistic medium, based on the blast-wave model and the Cooper-Frye freeze-out prescription. The generator is designed for event-by-event simulations of hadron emission in relativistic heavy-ion collisions and supports fully differential particle sampling in phase space. The underlying physics model follows a boost-invariant, cylindrically symmetric freeze-out hypersurface with collective flow and allows for quantum statistics through Fermi-Dirac and Bose-Einstein distribution functions. Particles are generated by sampling both the space-time coordinates of the freeze-out surface and the particle momenta in a way that exactly reproduces the Cooper-Frye formula. A detailed description of the blast-wave model, assumptions, and formalism can be found in arXiv:2409.09019. If you are using the ThermalBlastMC, please cite this paper as well as the corresponding software DOI.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2409.09019",
+        "published": "2024-09-13",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "L. Cunqueiro",
+        "title": "Isolating perturbative QCD splittings in heavy-ion collisions",
+        "abstract": "We define a new strategy to scan jet substructure in heavy-ion collisions. The scope is multifold: (i) test the dominance of vacuum jet dynamics at early times, (ii) capture the transition from coherent to incoherent jet energy loss, and (iii) study elastic scatterings in the medium, which are either hard and perturbative or soft and responsible for jet thermalization. To achieve that, we analyze the angular distribution of the hardest splitting, <a:math xmlns:a=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><a:msub><a:mi>θ</a:mi><a:mrow><a:mi>hard</a:mi></a:mrow></a:msub></a:math>, above a transverse momentum scale, <c:math xmlns:c=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><c:mrow><c:msubsup><c:mrow><c:mi>k</c:mi></c:mrow><c:mrow><c:mi>t</c:mi></c:mrow><c:mrow><c:mi>min</c:mi></c:mrow></c:msubsup></c:mrow></c:math>, in high-<e:math xmlns:e=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><e:msub><e:mi>p</e:mi><e:mi>t</e:mi></e:msub></e:math> jets. Sufficiently high values of <g:math xmlns:g=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><g:msubsup><g:mi>k</g:mi><g:mi>t</g:mi><g:mi>min</g:mi></g:msubsup></g:math> target the regime in which the observable is uniquely determined by vacuumlike splittings and energy loss, leaving the jet substructure unmodified compared to proton-proton collisions. Decreasing <i:math xmlns:i=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><i:msubsup><i:mi>k</i:mi><i:mi>t</i:mi><i:mi>min</i:mi></i:msubsup></i:math> enhances the sensitivity to the relation between energy loss and the intrajet structure and, in particular, to observe signatures of color decoherence at small angles. At wider angles it also becomes sensitive to hard elastic scatterings with the medium and, therefore, the perturbative regime of medium response. Choosing <k:math xmlns:k=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><k:msubsup><k:mi>k</k:mi><k:mi>t</k:mi><k:mi>min</k:mi></k:msubsup><k:mo>≈</k:mo><k:mn>0</k:mn></k:math> leads to order one effects of nonperturbative origin such as hadronization and, potentially, soft scatterings responsible for jet thermalization. We perform a comprehensive analysis of this observable with three state-of-the-art jet-quenching Monte Carlo event generators. Our study paves the way for defining jet observables in heavy-ion collisions dominated by perturbative QCD and thus calculable from first principles. Published by the American Physical Society 2024",
+        "venue": "Physical review. D/Physical review. D.",
+        "link": "https://doi.org/10.1103/physrevd.110.014015",
+        "published": "2024-07-10",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Ze-Fang Jiang",
+        "title": "External-magnetic-field-induced paramagnetic squeezing effect in heavy-ion collisions at energies available at the CERN Large Hadron Collider",
+        "abstract": "In noncentral heavy-ion collisions, the quark-gluon plasma (QGP) encounters the most intense magnetic field ever produced in nature, with a strength of approximately $\\ensuremath{\\sim}{10}^{19\\ensuremath{-}20}$ gauss. Recent lattice QCD calculations reveal that the QGP exhibits paramagnetic properties at high temperatures. When an external strong magnetic field is applied, it generates an anisotropic squeezing force density that competes with pressure gradients resulting from the purely QGP geometric expansion. In this study, we employ ($3+1$)-dimensional ideal hydrodynamics simulations to estimate the paramagnetic squeezing effect of this force density on the anisotropic expansion of QGP in noncentral $\\mathrm{Pb}+\\mathrm{Pb}$ collisions at the Large Hadron Collider. We consider both up-to-date magnetic susceptibility and various magnetic field profiles in this work. We find that the impact of rapidly decaying magnetic fields is insignificant, while enduring magnetic fields produce a strong force density that diminishes the momentum anisotropy of the QGP by up to 10% at the intial stage, leaving a visible imprint on the elliptic flow ${v}_{2}$ of final charged particles. Our results provide insights into the interplay between magnetic fields and the dynamics of QGP expansion in noncentral heavy-ion collisions.",
+        "venue": "Physical review. C",
+        "link": "https://doi.org/10.1103/physrevc.110.014902",
+        "published": "2024-07-03",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Benjamin Audurier",
+        "title": "Heavy-ion physics at the LHC",
+        "abstract": "Heavy-ion collisions have been part of the programme of the LHC since its conception. The main nucleus–nucleus system is 20882+Pb+20882+Pb. During the Runs 1 and 2, the LHC provided Pb+Pb collisions with centre-of-mass energy per nucleon pair √sNN=2.76 and 5.02 TeV, Xe+Xe with √sNN=5.44 TeV, and p+Pb with √sNN=5.02 and 8.16 TeV. The LHC performance with heavy-ion beams is described in Ref. 1. The ALICE detector was conceived to be dedicated to the study of heavy-ion collisions. The ATLAS and CMS experiments participated in the programme since the very beginning, and the LHCb experiment participated since the end of Run 1. Figure 1 shows event displays of Pb+Pb collisions from the four experiments.",
+        "venue": "WORLD SCIENTIFIC eBooks",
+        "link": "https://doi.org/10.1142/9789811280184_0005",
+        "published": "2023-09-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Jiaxuan. Luo",
+        "title": "The effect of initial nuclear deformation on dielectron photoproduction in hadronic heavy-ion collisions",
+        "abstract": "Significant excesses of $e^+e^-$ pair production at very low transverse momentum ($p_T &lt;$ 0.15 GeV/c) were observed by the STAR collaboration in hadronic heavy-ion collisions. Such enhancement is assumed to be a sign of photon-photon production in heavy-ion collisions with hadronic overlap, based on comparisons with model calculations for spherical Au + Au collisions. However, there is a lack of calculations for $e^+e^-$ pair production from coherent photon-photon interactions in hadronic U + U collisions, due to the deformity of Uranium nuclei. In this article, we present calculations for $e^+e^-$ pair photoproduction at $\\sqrt{s_{NN}}$ = 193 GeV in both spherical and deformed U + U collisions within STAR detector acceptance using the equivalent photon approximation (EPA). We conduct event-by-event analysis to investigate the effects of initial nuclear deformation on pair production. Our numerical results show good agreement with experimental data for the 40%--60% and 60%--80% centrality classes in U + U collisions, and the differences between spherical and deformed configurations are approximately 3\\%. We also calculate the yields of the photoproduced $e^+e^-$ pair in hadronic deformed Ru + Ru and Zr + Zr collisions at $\\sqrt{s_{NN}}$ = 200 GeV. The results reveal that the ratios of the yields of Ru to Zr exhibit very small differences ($&lt;$ 1%) between spherical and deformed cases.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2308.03070",
+        "published": "2023-08-06",
+        "is_arxiv": true
+      },
+      {
+        "first_author": "A. Abdulsalam",
+        "title": "Dissociation rates and recombination likelihood of bottomonium states in heavy-ion collisions at sNN=5.02 TeV",
+        "abstract": "In the medium of relativistic heavy-ion collisions, dissociation of the quarkonium and its survival have been studied to understand the properties of Quark Gluon Plasma (QGP). The coupled rates of dissociation and recombination reactions in QGP are commonly solved with the Boltzmann transport equation in which the formation and dissociation reactions compete with each other. Since the dissociation of newly formed bound-states is not accounted in the Boltzmann equation, a framework of decoupled rates is developed to assess the combined effect of gluon-induced dissociation and recombination (though it is small for [Formula: see text]) together with color screening on bottomonium production in heavy-ion collisions at center of mass energy [Formula: see text][Formula: see text]TeV. To calculate the recombination rates, we have employed an effective method of Bateman solution which ensures the correlated effect between the recombination and the dissociation of the newly combined bottomonium in the QGP medium. The modifications of bottomonium have been estimated in an inflating QGP with the constraints matching with the dynamics of [Formula: see text] collision events at LHC.",
+        "venue": "International Journal of Modern Physics A",
+        "link": "https://doi.org/10.1142/s0217751x2350104x",
+        "published": "2023-07-21",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "M. Kozhevnikova",
+        "title": "Light-Nuclei Production in Heavy-Ion Collisions at sNN = 6.4 – 19.6 GeV in THESEUS Generator Based on Three-Fluid Dynamics",
+        "abstract": "Light-nuclei production in relativistic heavy-ion collisions is simulated within an updated Three-fluid Hydrodynamics-based Event Simulator Extended by UrQMD (Ultra-relativistic Quantum Molecular Dynamics) final State interactions (THESEUS). The simulations are performed in the collision energy range of sNN= 6.4–19.6 GeV. The light-nuclei are produced within the thermodynamical approach on an equal basis with hadrons. Since the light nuclei do not participate in the UrQMD evolution, the only additional parameter related to the light nuclei, i.e., the energy density of late freeze-out, is used for the imitation of the afterburner stage of the collision. The updated THESEUS provides a reasonable reproduction of data on bulk observables of the light nuclei, especially their functional dependence on the collision energy and light-nucleus mass. Various ratios, d/p, t/p, t/d, and N(t)×N(p)/N2(d), are also considered. Imperfect reproduction of the light-nuclei data leaves room for medium effects in produced light nuclei.",
+        "venue": "Particles",
+        "link": "https://doi.org/10.3390/particles6010024",
+        "published": "2023-03-16",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "P. Parfenov",
+        "title": "Model Study of the Energy Dependence of Anisotropic Flow in Heavy-Ion Collisions at sNN = 2–4.5 GeV",
+        "abstract": "The anisotropic flow is one of the important observables sensitive to the equation of state (EOS) and transport properties of the strongly interacting matter created in relativistic heavy-ion collisions. In this work, we report a detailed multi-differential study of the directed (v1), elliptic (v2), triangular (v3), and quadrangular (v4) flow coefficients of protons in relativistic heavy-ion collisions at sNN = 2.2–4.5 GeV using several hadronic transport models. Recent published results for Au + Au collisions at sNN = 2.4 GeV from HADES experiment and at sNN = 3.0 GeV from the STAR experiment have been used for comparison. The study motivates further experimental investigations of the anisotropic collective flow of protons and neutrons in a high baryon density region.",
+        "venue": "Particles",
+        "link": "https://doi.org/10.3390/particles5040040",
+        "published": "2022-12-09",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "L. C. Bland",
+        "title": "Evidence for a QCD accelerator in relativistic heavy-ion collisions",
+        "abstract": "We report measurements of forward jets produced in $\\mathrm{Cu}+\\mathrm{Au}$ collisions at $\\sqrt{{s}_{NN}}=200$ GeV at the Relativistic Heavy Ion Collider. The jet-energy distributions extend to energies much larger than expected by Feynman scaling. This constitutes the first clear evidence for Feynman-scaling violations in heavy-ion collisions. Such high-energy particle production has been in models via QCD string interactions, but so far is untested by experiment. One such model calls this a hadronic accelerator. Studies with a particular heavy-ion event generator (hijing) show that photons and mesons exhibit such very high-energy production in a heavy-ion collision, so a QCD accelerator appropriately captures the physics associated with such QCD string interactions. All models other than hijing used for hadronic interactions in the study of extensive air showers from cosmic rays either do not include these QCD string interactions or have smaller effects from the QCD accelerator.",
+        "venue": "Physical review. C",
+        "link": "https://doi.org/10.1103/physrevc.106.034902",
+        "published": "2022-09-06",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Shen Chun",
+        "title": "Dynamic modeling for heavy-ion collisions",
+        "abstract": "Recent theory progress in (3+1)D dynamical descriptions of relativistic nuclear collisions at finite baryon density are reviewed. Heavy-ion collisions at different collision energies produce strongly coupled nuclear matter to probe the phase structure of Quantum Chromodynamics (QCD). Dynamical frameworks serve as a quantitative tool to study properties of hot QCD matter and map collisions to the QCD phase diagram. Outstanding challenges are highlighted when confronting theoretical models with the current and forthcoming experimental measurements from the RHIC beam energy scan program.",
+        "venue": "SHILAP Revista de lepidopterología",
+        "link": "https://doi.org/10.1051/epjconf/202225902001",
+        "published": "2022-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "V. Riabov",
+        "title": "Short-Lived Resonances as Probes of the Medium Produced in Heavy-Ion Collisions",
+        "abstract": "Hadronic resonances play an important role in the study of the physics of heavy-ion collisions. In these proceedings, we discuss how the resonances can probe the reaction dynamics, the strangeness production and the properties of the hadronic phase in heavy-ion collisions at center-of-mass energies of sNN = 4–11 GeV. The resonance properties predicted by the general-purpose event generators are found to be very sensitive to the properties and space-time evolution of the medium produced in heavy-ion collisions.",
+        "venue": "Particles",
+        "link": "https://doi.org/10.3390/particles4010001",
+        "published": "2020-12-25",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Jun Xu",
+        "title": "Elliptic flow splittings between particles and their antiparticles in relativistic heavy-ion collisions",
+        "abstract": "<p indent=\"0mm\">Relativistic heavy-ion collisions are an important experimental way of studying the new state of matter as well as the phase diagram of the quantum chromodynamics (QCD) under extremely high temperatures and high densities. The elliptic flow is an important experimental observable in relativistic heavy-ion collisions. In recent years, the beam-energy scan program has been carried out on the relativistic heavy-ion collider at Brookhaven National Laboratory in USA, where phenomena different from those in heavy-ion collisions at extremely high energies, such as the elliptic flow splittings between particles and their antiparticles, are observed. Based on an extended multiphase transport model, this phenomenon can be explained through different mean-field potentials for particles and their antiparticles. In the almond-shaped medium produced in these collisions, particles affected by the repulsive potential are more likely to leave the system, while those affected by the attractive potential are more likely to be trapped in the system, enhancing and reducing their respective elliptic flow. The partonic mean-field potentials are extracted from an extended 3-flavor Nambu-Jona-Lasinio (NJL) model. Quarks are affected by more repulsive potentials compared with their antiquarks as a result of the vector-isoscalar coupling, while <italic>d</italic> quarks are affected by a more repulsive potential compared with <italic>u</italic> quarks as a result of the vector-isovector coupling, in the baryon-rich and <italic>d</italic>-quark-rich medium. The hadronic mean-field potentials are also incorporated through the relativistc mean-field model for baryons and antibaryons, and through the chiral effective field theory for kaons and antikaons as well as for <italic>π</italic><sup><italic>+</italic></sup> and <italic>π</italic><sup><italic>−</italic></sup>. In the baryon-rich and neutron-rich medium, antinucleons, antikaons, and <italic>π</italic><sup><italic>+</italic></sup><italic> </italic>are affected by more attractive potentials than nucleons, kaons, and <italic>π</italic><sup><italic>−</italic></sup>, respectively. It is found that a strong vector-isoscalar and vector-isovector coupling are needed to reproduce the elliptic flow splittings between nucleons and antinucleons, kaons and antikaons, as well as <italic>π</italic><sup><italic>+</italic></sup> and <italic>π</italic><sup><italic>−</italic></sup>, as observed experimentally by the STAR Collaboration. On the other hand, the NJL model can be used to study the spontaneous chiral symmetry breaking and the phase diagram of the chiral phase transition. In order to describe both the chiral and deconfinement phase transition, one needs to extend the NJL model by incorporating the Polyakov-loop contribution (pNJL). Although the temperature of the crtical point for the chiral phase transition is higher in the pNJL model, it is found that the position or the behavior of the critical point is sensitive to the strength of the vector-isoscalar and the vector-isovector couplings in both the NJL and the pNJL model. In addition, the equation of state of baryon-rich and <italic>d</italic>-quark-rich quark matter is sensitive to these couplings as well. With these couplings constrainted by the elliptic flow splittings between particles and their antiparticles, information of the quark matter equation of state as well as the QCD phase diagram at finite baryon and isospin chemical potentials can be thus extracted. The study shows that the QCD critical point may be at very low temperatures or does not even exist, while the strong vector-isoscalar and vector-isovector couplings favor a stiff equation of state of quark matter at high net-baryon and isovector densities. In future studies, the transport framework can be further extended to incorporate the Polyakov-loop contribution.",
+        "venue": "Chinese Science Bulletin (Chinese Version)",
+        "link": "https://doi.org/10.1360/tb-2019-0543",
+        "published": "2020-02-20",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Survey Hyperdimensional Encoding": [
       {
         "first_author": "Sercan Aygün",
@@ -118351,7 +118537,7 @@
       {
         "first_author": "Ankit Kumar",
         "title": "Spin relaxation of heavy quarks from momentum diffusion in the quark-gluon plasma",
-        "abstract": "Heavy-quark spin dynamics in the quark-gluon plasma provides a potential probe of the interaction between heavy quarks and the medium. We develop a stochastic framework in which the random momentum kicks responsible for heavy-quark diffusion also induce spin rotation through Thomas precession. Starting from the Thomas-Bargmann-Michel-Telegdi equation and a Langevin equation for heavy-quark momentum, we derive a novel coupled spin-momentum Fokker-Planck equation. In the heavy-quark limit, where momentum equilibrates faster than spin, the momentum degrees of freedom can be integrated out, yielding a rotational Fokker-Planck equation for the spin orientation. This establishes a direct relation between the Thomas precession contribution to the spin-relaxation time $τ_{s}$ and the heavy-quark momentum-diffusion coefficient $κ$. In the non-relativistic limit, we find $τ_s=2τ_p(m_Q/T)^2$, with $τ_p$ being the momentum relaxation time. Using recent determinations of $κ$ from lattice QCD, strong-coupling estimates, $T$-matrix calculations, and heavy-flavor phenomenology, we obtain the corresponding Thomas precession contribution to spin relaxation times for charm and bottom quarks. Relativistic kinematics modify the result by only a modest amount over the temperature range relevant for heavy-ion collisions, while the uncertainty is dominated by that of $κ$. We emphasize that the result represents the Thomas precession contribution to heavy-quark spin relaxation; direct coupling to the chromomagnetic field provides an additional channel.",
+        "abstract": "Heavy-quark spin dynamics in the quark-gluon plasma provides a potential probe of the interaction between heavy quarks and the medium. We develop a stochastic framework in which the random momentum kicks responsible for heavy-quark diffusion also induce spin rotation through Thomas precession. Starting from the Thomas-Bargmann-Michel-Telegdi equation and a Langevin equation for heavy-quark momentum, we derive a novel coupled spin-momentum Fokker-Planck equation. In the heavy-quark limit, where momentum equilibrates faster than spin, the momentum degrees of freedom can be integrated out, yielding a rotational Fokker-Planck equation for the spin orientation. This establishes a direct relation between the Thomas precession contribution to the spin-relaxation time τ s and the heavy-quark momentum-diffusion coefficient κ . In the non-relativistic limit, we find τ s = 2 τ p ( m Q / T ) 2 , with τ p being the momentum relaxation time. Using recent determinations of κ from lattice QCD, strong-coupling estimates, T -matrix calculations, and heavy-flavor phenomenology, we obtain the corresponding Thomas precession contribution to spin relaxation times for charm and bottom quarks. Relativistic kinematics modify the result by only a modest amount over the temperature range relevant for heavy-ion collisions, while the uncertainty is dominated by that of κ . We emphasize that the result represents the Thomas precession contribution to heavy-quark spin relaxation; direct coupling to the chromomagnetic field provides an additional channel.",
         "venue": "Physics Letters B",
         "link": "https://doi.org/10.1016/j.physletb.2026.141190",
         "published": "2026-11-01",
@@ -119733,6 +119919,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Mental Lexicon": [
+      {
+        "first_author": "Bernd J. Kröger",
+        "title": "A Spiking Neural Model of the Mental Lexicon: Representations, Similarity Structure, and Associative Retrieval in Perception and Production",
+        "abstract": "A neural account of lexical access requires an explicit distinction between the structure of lexical representations, the associations linking representational levels, and the activity generated during retrieval. This paper specifies a spiking neural implementation of the mental lexicon within the Neural Engineering Framework and Semantic Pointer Architecture. Conceptual and phonological form representations are constructed recursively from relational graphs, whereas lemma representations provide independent lexical identities. The implementation contains 613 lexical entries and supports two directed processing pathways: perception maps a phonological form to its associated concept via a lemma, whereas production maps a concept to its associated phonological form via a lemma. Each pathway combines two associative-memory variants, winner-take-all (WTA) selection (competition) and thresholded transfer, and uses 199,400 leaky integrate-and-fire neurons. We formalize within-level similarity, cross-level associative retrieval, and the interpretation of decoded activity. Simulations show successful retrieval of eight selected words from the lexicon in both processing directions, with retrieval evaluated against all 613 lexical entries. These simulations use complete phonological forms as input for perception and complete concepts as input for production, illustrating lexical retrieval through the corresponding processing pathways. This paper provides a transparent description of lexical representations and neural retrieval mechanisms, supported by accessible code, lexical data, and online simulation documentation.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2611.09402",
+        "published": "2026-11-06",
+        "is_arxiv": true
+      }
+    ],
     "Topic: Baryon Number": [
       {
         "first_author": "Deepak Kumar",
@@ -119772,152 +119969,6 @@
         "venue": "Nature Computational Science",
         "link": "https://doi.org/10.1038/s43588-026-01075-w",
         "published": "2026-11-05",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Heavy-Ion Collisions": [
-      {
-        "first_author": "Luciano M. Abreu",
-        "title": "Probing the G (3900) state in heavy-ion collisions",
-        "abstract": "We investigate the interactions of the recently confirmed exotic hadron G ( 3900 ) — with quantum numbers J P C = 1 − − — with the hadronic medium composed of light mesons produced in heavy-ion collisions. Using an effective Lagrangian approach, we compute both vacuum and thermally averaged cross sections for processes such as G ( 3900 ) + π → D ( * ) + D ‾ ( * ) and their inverse reactions. Following recent proposals, the G ( 3900 ) is interpreted as a P -wave D D ‾ * / D * D ‾ molecular state. The resulting thermally averaged cross sections are employed in a rate equation to determine the time evolution of the G ( 3900 ) multiplicity, with initial conditions provided by statistical and coalescence hadronization models. We compute the number of G ( 3900 ) ’s produced in central Pb-Pb collisions at s N N = 5.02 TeV and compare it with the number of produced Z c ( 3900 ) ’s . We obtain a considerably smaller final yield of G ( 3900 ) compared to Z c ( 3900 ) .",
-        "venue": "Physical review. D/Physical review. D.",
-        "link": "https://doi.org/10.1103/nxdr-1l99",
-        "published": "2026-11-05",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Neelkamal Mallick",
-        "title": "Improved nonflow control for multiparticle correlators and system-size-dependent evolution from OO to Pb--Pb collisions at the LHC",
-        "abstract": "Multiparticle correlations of event-plane angles, known as symmetry plane correlators (SPCs), and correlations of anisotropic flow amplitudes of different harmonics, known as symmetric cumulants (SCs), help constrain the initial conditions and the transport properties of the system formed in heavy-ion collisions. Such multiparticle correlations are robust against nonflow biases in heavy-ion collisions; however, in small systems the nonflow contribution is sizeable and can distort SPCs and SCs at low multiplicity, mimicking a flow-like signal. Evidence of nuclear-geometry-induced collectivity in light-ion collisions, such as OO and Ne--Ne, has been established at the LHC. Measurements of SPCs and SCs in these systems, and their comparison to heavy-ion collisions, can therefore clarify the system-size dependence of these correlations and the strength of nonlinear mode coupling. In this work, an improved nonflow subtraction framework based on multiplicity reweighting ($\\czero$) and $v_1$-estimator-based ($\\cone$) scaling is validated for selected SPCs and SCs using a controlled toy model and the \\textsc{Pythia~8~Angantyr} model, where collective flow is absent by construction. We find that $\\cone$ provides the more reliable nonflow control and apply it to predict the SPCs and normalized SCs in OO collisions at $\\sqrt{s_{\\rm NN}}=5.36$~TeV with the \\textsc{ampt} string-melting model. The results are compared with published Pb--Pb measurements from ALICE and from \\textsc{ampt} as a function of midrapidity charged-particle multiplicity $\\langle N_{\\rm ch}\\rangle(|η|<0.5)$, placing light- and heavy-ion systems on a common system-size axis.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2610.36922",
-        "published": "2026-10-27",
-        "is_arxiv": true
-      },
-      {
-        "first_author": "Ralf Rapp",
-        "title": "Quarkonia in Medium and Transport in Heavy-Ion Collisions",
-        "abstract": "The transport and spectral properties of heavy quarkonia in hot QCD matter are a central ingredient to describe their observables in high-energy heavy-ion collisions. We review recent activity in evaluating these properties, including a nonperturbative quantum many-body approach where the basic two-body interaction kernel is constrained by quantities that can be computed with good precision in thermal lattice QCD. We then give a brief overview of quarkonium transport approaches to heavy-ion collisions. Focusing on the semiclassical approach we discuss the current interpretation of charmonium and bottomonium observables at RHIC and the LHC, including excitation functions that started with 𝐽/𝜓 and 𝜓′ data from the heavy-ion program at the SPS.",
-        "venue": "",
-        "link": "https://doi.org/10.22323/1.465.0114",
-        "published": "2025-02-07",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "D. Kincses",
-        "title": "Lévy walk of pions in heavy-ion collisions",
-        "abstract": "Abstract The process of Lévy walk, i.e., movement patterns described by heavy-tailed random walks, plays a role in various phenomena, from chemical and microbiological systems through marine predators to climate change. Recent experiments have suggested that this phenomenon also appears in heavy-ion collisions. However, the theoretical interpretation supporting such findings is still debated. In high-energy collisions of heavy nuclei, the strongly interacting Quark Gluon Plasma is created, which, similarly to the early Universe, undergoes a rapid expansion and transition back to hadronic matter. In the subsequent expanding hadron gas, particles interact until kinetic freeze-out, when their momenta stop changing, and they freely transition toward the detectors. Measuring spatial freeze-out distributions is a crucial tool in understanding the dynamics of the created matter and the interactions among its constituents. In this paper, we introduce a three-dimensional analysis of the spatial freeze-out distribution of pions (the most abundant particles in such collisions). Utilising Monte-Carlo simulations of high-energy collisions, we show that the chain of processes ending in a final state pion has a step length distribution leading to Lévy-stable distributions. Subsequently, we show that simulated pion freeze-out distributions indeed exhibit heavy tails and can be described by a three-dimensional elliptically contoured symmetric Lévy-stable distribution.",
-        "venue": "Communications Physics",
-        "link": "https://doi.org/10.1038/s42005-025-01973-x",
-        "published": "2025-02-05",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "O. Vitiuk",
-        "title": "Nonequilibrium Phenomenology of Identified Particle Spectra in Heavy-Ion Collisions at LHC Energies",
-        "abstract": "This is the first public version of ThermalBlastMC. ThermalBlastMC is a Monte Carlo event generator for thermal particle production from an expanding relativistic medium, based on the blast-wave model and the Cooper-Frye freeze-out prescription. The generator is designed for event-by-event simulations of hadron emission in relativistic heavy-ion collisions and supports fully differential particle sampling in phase space. The underlying physics model follows a boost-invariant, cylindrically symmetric freeze-out hypersurface with collective flow and allows for quantum statistics through Fermi-Dirac and Bose-Einstein distribution functions. Particles are generated by sampling both the space-time coordinates of the freeze-out surface and the particle momenta in a way that exactly reproduces the Cooper-Frye formula. A detailed description of the blast-wave model, assumptions, and formalism can be found in arXiv:2409.09019. If you are using the ThermalBlastMC, please cite this paper as well as the corresponding software DOI.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2409.09019",
-        "published": "2024-09-13",
-        "is_arxiv": true
-      },
-      {
-        "first_author": "L. Cunqueiro",
-        "title": "Isolating perturbative QCD splittings in heavy-ion collisions",
-        "abstract": "We define a new strategy to scan jet substructure in heavy-ion collisions. The scope is multifold: (i) test the dominance of vacuum jet dynamics at early times, (ii) capture the transition from coherent to incoherent jet energy loss, and (iii) study elastic scatterings in the medium, which are either hard and perturbative or soft and responsible for jet thermalization. To achieve that, we analyze the angular distribution of the hardest splitting, <a:math xmlns:a=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><a:msub><a:mi>θ</a:mi><a:mrow><a:mi>hard</a:mi></a:mrow></a:msub></a:math>, above a transverse momentum scale, <c:math xmlns:c=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><c:mrow><c:msubsup><c:mrow><c:mi>k</c:mi></c:mrow><c:mrow><c:mi>t</c:mi></c:mrow><c:mrow><c:mi>min</c:mi></c:mrow></c:msubsup></c:mrow></c:math>, in high-<e:math xmlns:e=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><e:msub><e:mi>p</e:mi><e:mi>t</e:mi></e:msub></e:math> jets. Sufficiently high values of <g:math xmlns:g=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><g:msubsup><g:mi>k</g:mi><g:mi>t</g:mi><g:mi>min</g:mi></g:msubsup></g:math> target the regime in which the observable is uniquely determined by vacuumlike splittings and energy loss, leaving the jet substructure unmodified compared to proton-proton collisions. Decreasing <i:math xmlns:i=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><i:msubsup><i:mi>k</i:mi><i:mi>t</i:mi><i:mi>min</i:mi></i:msubsup></i:math> enhances the sensitivity to the relation between energy loss and the intrajet structure and, in particular, to observe signatures of color decoherence at small angles. At wider angles it also becomes sensitive to hard elastic scatterings with the medium and, therefore, the perturbative regime of medium response. Choosing <k:math xmlns:k=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><k:msubsup><k:mi>k</k:mi><k:mi>t</k:mi><k:mi>min</k:mi></k:msubsup><k:mo>≈</k:mo><k:mn>0</k:mn></k:math> leads to order one effects of nonperturbative origin such as hadronization and, potentially, soft scatterings responsible for jet thermalization. We perform a comprehensive analysis of this observable with three state-of-the-art jet-quenching Monte Carlo event generators. Our study paves the way for defining jet observables in heavy-ion collisions dominated by perturbative QCD and thus calculable from first principles. Published by the American Physical Society 2024",
-        "venue": "Physical review. D/Physical review. D.",
-        "link": "https://doi.org/10.1103/physrevd.110.014015",
-        "published": "2024-07-10",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Ze-Fang Jiang",
-        "title": "External-magnetic-field-induced paramagnetic squeezing effect in heavy-ion collisions at energies available at the CERN Large Hadron Collider",
-        "abstract": "In noncentral heavy-ion collisions, the quark-gluon plasma (QGP) encounters the most intense magnetic field ever produced in nature, with a strength of approximately $\\ensuremath{\\sim}{10}^{19\\ensuremath{-}20}$ gauss. Recent lattice QCD calculations reveal that the QGP exhibits paramagnetic properties at high temperatures. When an external strong magnetic field is applied, it generates an anisotropic squeezing force density that competes with pressure gradients resulting from the purely QGP geometric expansion. In this study, we employ ($3+1$)-dimensional ideal hydrodynamics simulations to estimate the paramagnetic squeezing effect of this force density on the anisotropic expansion of QGP in noncentral $\\mathrm{Pb}+\\mathrm{Pb}$ collisions at the Large Hadron Collider. We consider both up-to-date magnetic susceptibility and various magnetic field profiles in this work. We find that the impact of rapidly decaying magnetic fields is insignificant, while enduring magnetic fields produce a strong force density that diminishes the momentum anisotropy of the QGP by up to 10% at the intial stage, leaving a visible imprint on the elliptic flow ${v}_{2}$ of final charged particles. Our results provide insights into the interplay between magnetic fields and the dynamics of QGP expansion in noncentral heavy-ion collisions.",
-        "venue": "Physical review. C",
-        "link": "https://doi.org/10.1103/physrevc.110.014902",
-        "published": "2024-07-03",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Benjamin Audurier",
-        "title": "Heavy-ion physics at the LHC",
-        "abstract": "Heavy-ion collisions have been part of the programme of the LHC since its conception. The main nucleus–nucleus system is 20882+Pb+20882+Pb. During the Runs 1 and 2, the LHC provided Pb+Pb collisions with centre-of-mass energy per nucleon pair √sNN=2.76 and 5.02 TeV, Xe+Xe with √sNN=5.44 TeV, and p+Pb with √sNN=5.02 and 8.16 TeV. The LHC performance with heavy-ion beams is described in Ref. 1. The ALICE detector was conceived to be dedicated to the study of heavy-ion collisions. The ATLAS and CMS experiments participated in the programme since the very beginning, and the LHCb experiment participated since the end of Run 1. Figure 1 shows event displays of Pb+Pb collisions from the four experiments.",
-        "venue": "WORLD SCIENTIFIC eBooks",
-        "link": "https://doi.org/10.1142/9789811280184_0005",
-        "published": "2023-09-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Jiaxuan. Luo",
-        "title": "The effect of initial nuclear deformation on dielectron photoproduction in hadronic heavy-ion collisions",
-        "abstract": "Significant excesses of $e^+e^-$ pair production at very low transverse momentum ($p_T &lt;$ 0.15 GeV/c) were observed by the STAR collaboration in hadronic heavy-ion collisions. Such enhancement is assumed to be a sign of photon-photon production in heavy-ion collisions with hadronic overlap, based on comparisons with model calculations for spherical Au + Au collisions. However, there is a lack of calculations for $e^+e^-$ pair production from coherent photon-photon interactions in hadronic U + U collisions, due to the deformity of Uranium nuclei. In this article, we present calculations for $e^+e^-$ pair photoproduction at $\\sqrt{s_{NN}}$ = 193 GeV in both spherical and deformed U + U collisions within STAR detector acceptance using the equivalent photon approximation (EPA). We conduct event-by-event analysis to investigate the effects of initial nuclear deformation on pair production. Our numerical results show good agreement with experimental data for the 40%--60% and 60%--80% centrality classes in U + U collisions, and the differences between spherical and deformed configurations are approximately 3\\%. We also calculate the yields of the photoproduced $e^+e^-$ pair in hadronic deformed Ru + Ru and Zr + Zr collisions at $\\sqrt{s_{NN}}$ = 200 GeV. The results reveal that the ratios of the yields of Ru to Zr exhibit very small differences ($&lt;$ 1%) between spherical and deformed cases.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2308.03070",
-        "published": "2023-08-06",
-        "is_arxiv": true
-      },
-      {
-        "first_author": "A. Abdulsalam",
-        "title": "Dissociation rates and recombination likelihood of bottomonium states in heavy-ion collisions at sNN=5.02 TeV",
-        "abstract": "In the medium of relativistic heavy-ion collisions, dissociation of the quarkonium and its survival have been studied to understand the properties of Quark Gluon Plasma (QGP). The coupled rates of dissociation and recombination reactions in QGP are commonly solved with the Boltzmann transport equation in which the formation and dissociation reactions compete with each other. Since the dissociation of newly formed bound-states is not accounted in the Boltzmann equation, a framework of decoupled rates is developed to assess the combined effect of gluon-induced dissociation and recombination (though it is small for [Formula: see text]) together with color screening on bottomonium production in heavy-ion collisions at center of mass energy [Formula: see text][Formula: see text]TeV. To calculate the recombination rates, we have employed an effective method of Bateman solution which ensures the correlated effect between the recombination and the dissociation of the newly combined bottomonium in the QGP medium. The modifications of bottomonium have been estimated in an inflating QGP with the constraints matching with the dynamics of [Formula: see text] collision events at LHC.",
-        "venue": "International Journal of Modern Physics A",
-        "link": "https://doi.org/10.1142/s0217751x2350104x",
-        "published": "2023-07-21",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "M. Kozhevnikova",
-        "title": "Light-Nuclei Production in Heavy-Ion Collisions at sNN = 6.4 – 19.6 GeV in THESEUS Generator Based on Three-Fluid Dynamics",
-        "abstract": "Light-nuclei production in relativistic heavy-ion collisions is simulated within an updated Three-fluid Hydrodynamics-based Event Simulator Extended by UrQMD (Ultra-relativistic Quantum Molecular Dynamics) final State interactions (THESEUS). The simulations are performed in the collision energy range of sNN= 6.4–19.6 GeV. The light-nuclei are produced within the thermodynamical approach on an equal basis with hadrons. Since the light nuclei do not participate in the UrQMD evolution, the only additional parameter related to the light nuclei, i.e., the energy density of late freeze-out, is used for the imitation of the afterburner stage of the collision. The updated THESEUS provides a reasonable reproduction of data on bulk observables of the light nuclei, especially their functional dependence on the collision energy and light-nucleus mass. Various ratios, d/p, t/p, t/d, and N(t)×N(p)/N2(d), are also considered. Imperfect reproduction of the light-nuclei data leaves room for medium effects in produced light nuclei.",
-        "venue": "Particles",
-        "link": "https://doi.org/10.3390/particles6010024",
-        "published": "2023-03-16",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "P. Parfenov",
-        "title": "Model Study of the Energy Dependence of Anisotropic Flow in Heavy-Ion Collisions at sNN = 2–4.5 GeV",
-        "abstract": "The anisotropic flow is one of the important observables sensitive to the equation of state (EOS) and transport properties of the strongly interacting matter created in relativistic heavy-ion collisions. In this work, we report a detailed multi-differential study of the directed (v1), elliptic (v2), triangular (v3), and quadrangular (v4) flow coefficients of protons in relativistic heavy-ion collisions at sNN = 2.2–4.5 GeV using several hadronic transport models. Recent published results for Au + Au collisions at sNN = 2.4 GeV from HADES experiment and at sNN = 3.0 GeV from the STAR experiment have been used for comparison. The study motivates further experimental investigations of the anisotropic collective flow of protons and neutrons in a high baryon density region.",
-        "venue": "Particles",
-        "link": "https://doi.org/10.3390/particles5040040",
-        "published": "2022-12-09",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "L. C. Bland",
-        "title": "Evidence for a QCD accelerator in relativistic heavy-ion collisions",
-        "abstract": "We report measurements of forward jets produced in $\\mathrm{Cu}+\\mathrm{Au}$ collisions at $\\sqrt{{s}_{NN}}=200$ GeV at the Relativistic Heavy Ion Collider. The jet-energy distributions extend to energies much larger than expected by Feynman scaling. This constitutes the first clear evidence for Feynman-scaling violations in heavy-ion collisions. Such high-energy particle production has been in models via QCD string interactions, but so far is untested by experiment. One such model calls this a hadronic accelerator. Studies with a particular heavy-ion event generator (hijing) show that photons and mesons exhibit such very high-energy production in a heavy-ion collision, so a QCD accelerator appropriately captures the physics associated with such QCD string interactions. All models other than hijing used for hadronic interactions in the study of extensive air showers from cosmic rays either do not include these QCD string interactions or have smaller effects from the QCD accelerator.",
-        "venue": "Physical review. C",
-        "link": "https://doi.org/10.1103/physrevc.106.034902",
-        "published": "2022-09-06",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Shen Chun",
-        "title": "Dynamic modeling for heavy-ion collisions",
-        "abstract": "Recent theory progress in (3+1)D dynamical descriptions of relativistic nuclear collisions at finite baryon density are reviewed. Heavy-ion collisions at different collision energies produce strongly coupled nuclear matter to probe the phase structure of Quantum Chromodynamics (QCD). Dynamical frameworks serve as a quantitative tool to study properties of hot QCD matter and map collisions to the QCD phase diagram. Outstanding challenges are highlighted when confronting theoretical models with the current and forthcoming experimental measurements from the RHIC beam energy scan program.",
-        "venue": "SHILAP Revista de lepidopterología",
-        "link": "https://doi.org/10.1051/epjconf/202225902001",
-        "published": "2022-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "V. Riabov",
-        "title": "Short-Lived Resonances as Probes of the Medium Produced in Heavy-Ion Collisions",
-        "abstract": "Hadronic resonances play an important role in the study of the physics of heavy-ion collisions. In these proceedings, we discuss how the resonances can probe the reaction dynamics, the strangeness production and the properties of the hadronic phase in heavy-ion collisions at center-of-mass energies of sNN = 4–11 GeV. The resonance properties predicted by the general-purpose event generators are found to be very sensitive to the properties and space-time evolution of the medium produced in heavy-ion collisions.",
-        "venue": "Particles",
-        "link": "https://doi.org/10.3390/particles4010001",
-        "published": "2020-12-25",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Jun Xu",
-        "title": "Elliptic flow splittings between particles and their antiparticles in relativistic heavy-ion collisions",
-        "abstract": "<p indent=\"0mm\">Relativistic heavy-ion collisions are an important experimental way of studying the new state of matter as well as the phase diagram of the quantum chromodynamics (QCD) under extremely high temperatures and high densities. The elliptic flow is an important experimental observable in relativistic heavy-ion collisions. In recent years, the beam-energy scan program has been carried out on the relativistic heavy-ion collider at Brookhaven National Laboratory in USA, where phenomena different from those in heavy-ion collisions at extremely high energies, such as the elliptic flow splittings between particles and their antiparticles, are observed. Based on an extended multiphase transport model, this phenomenon can be explained through different mean-field potentials for particles and their antiparticles. In the almond-shaped medium produced in these collisions, particles affected by the repulsive potential are more likely to leave the system, while those affected by the attractive potential are more likely to be trapped in the system, enhancing and reducing their respective elliptic flow. The partonic mean-field potentials are extracted from an extended 3-flavor Nambu-Jona-Lasinio (NJL) model. Quarks are affected by more repulsive potentials compared with their antiquarks as a result of the vector-isoscalar coupling, while <italic>d</italic> quarks are affected by a more repulsive potential compared with <italic>u</italic> quarks as a result of the vector-isovector coupling, in the baryon-rich and <italic>d</italic>-quark-rich medium. The hadronic mean-field potentials are also incorporated through the relativistc mean-field model for baryons and antibaryons, and through the chiral effective field theory for kaons and antikaons as well as for <italic>π</italic><sup><italic>+</italic></sup> and <italic>π</italic><sup><italic>−</italic></sup>. In the baryon-rich and neutron-rich medium, antinucleons, antikaons, and <italic>π</italic><sup><italic>+</italic></sup><italic> </italic>are affected by more attractive potentials than nucleons, kaons, and <italic>π</italic><sup><italic>−</italic></sup>, respectively. It is found that a strong vector-isoscalar and vector-isovector coupling are needed to reproduce the elliptic flow splittings between nucleons and antinucleons, kaons and antikaons, as well as <italic>π</italic><sup><italic>+</italic></sup> and <italic>π</italic><sup><italic>−</italic></sup>, as observed experimentally by the STAR Collaboration. On the other hand, the NJL model can be used to study the spontaneous chiral symmetry breaking and the phase diagram of the chiral phase transition. In order to describe both the chiral and deconfinement phase transition, one needs to extend the NJL model by incorporating the Polyakov-loop contribution (pNJL). Although the temperature of the crtical point for the chiral phase transition is higher in the pNJL model, it is found that the position or the behavior of the critical point is sensitive to the strength of the vector-isoscalar and the vector-isovector couplings in both the NJL and the pNJL model. In addition, the equation of state of baryon-rich and <italic>d</italic>-quark-rich quark matter is sensitive to these couplings as well. With these couplings constrainted by the elliptic flow splittings between particles and their antiparticles, information of the quark matter equation of state as well as the QCD phase diagram at finite baryon and isospin chemical potentials can be thus extracted. The study shows that the QCD critical point may be at very low temperatures or does not even exist, while the strong vector-isoscalar and vector-isovector couplings favor a stiff equation of state of quark matter at high net-baryon and isovector densities. In future studies, the transport framework can be further extended to incorporate the Polyakov-loop contribution.",
-        "venue": "Chinese Science Bulletin (Chinese Version)",
-        "link": "https://doi.org/10.1360/tb-2019-0543",
-        "published": "2020-02-20",
         "is_arxiv": false
       }
     ],
@@ -121894,6 +121945,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Pdes Low-Dimensional Distribution-Learning": [
+      {
+        "first_author": "You Yang",
+        "title": "Adaptive-Distribution Randomized Neural Networks for PDEs: A Low-Dimensional Distribution-Learning Framework",
+        "abstract": "",
+        "venue": "Journal of Computational Physics",
+        "link": "https://doi.org/10.1016/j.jcp.2026.115603",
+        "published": "2026-11-01",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Schizophrenia Bipolar Disorder": [
       {
         "first_author": "Xiao‐Man Liu",
@@ -122597,50 +122659,6 @@
         "is_arxiv": true
       }
     ],
-    "Topic: Transverse Energy-Energy Correlators": [
-      {
-        "first_author": "Shohini Bhattacharya",
-        "title": "Probing the Sivers asymmetry with transverse energy-energy correlators in the small-x regime",
-        "abstract": "We investigate transverse energy-energy correlators (TEECs) for both polarized and unpolarized targets in the small- x regime at the Electron-Ion Collider (EIC). Focusing on the approximately back-to-back electroproduction of a hadron-electron pair, we apply transverse-momentum-dependent (TMD) factorization formulas that incorporate TMD evolution for both event-shape observables and expand them in terms of the small- x dipole amplitude. This allows us to write the TEEC off the transversely polarized proton in terms of a C-odd interaction, corresponding to an odderon exchange. Due to the charge-conjugation-odd nature of the small- x quark Sivers function, we restrict the sum over final hadronic states to positively and negatively charged hadrons separately. We present numerical predictions for the TEEC Sivers asymmetry at the EIC and find the magnitude of the asymmetry to be on the 0 . 01% level. This channel offers a promising avenue for benchmarking the still largely unconstrained odderon amplitude.",
-        "venue": "Journal of High Energy Physics",
-        "link": "https://doi.org/10.1007/jhep10(2026)227",
-        "published": "2026-10-22",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Slow Fast Gamma": [
-      {
-        "first_author": "Vignesh Raju",
-        "title": "Differential burst dynamics of slow and fast gamma rhythms in macaque primary visual cortex",
-        "abstract": "Gamma oscillations have been ubiquitously observed across a wide spectrum of brain areas in multiple species. They tend to occur intermittently in the form of bursts, rather than being produced as sustained and continuous rhythmic activity. Recent studies have shown that large visual sinusoidal gratings elicit two distinct gamma rhythms, namely, slow (≈20–35 Hz) and fast gamma (≈40–65 Hz), in the primary visual cortex (V1) of non-human primates. However, their mechanisms of generation and potential functional role in cortical processing remain unclear. Details of their burst signatures could potentially provide crucial insights about how the two rhythms influence network dynamics. Therefore, we computed burst statistics (durations and latencies) of simultaneously induced slow and fast gamma rhythms in the local field potential (LFP) recorded from area V1 of two adult female bonnet monkeys using several burst estimation methods. We found that slow gamma rhythm exhibited significantly longer burst durations and longer latencies than fast gamma rhythm. Slow gamma also exhibited higher long-range synchrony than fast gamma, as estimated by coherence and weighted phase lag index (WPLI). Interestingly, longer burst length of slow gamma could be replicated in a recently developed noisy Wilson–Cowan network model by simply changing the firing-rate time constant of the corresponding inhibitory interneuronal population, which led to both slower and longer bursts. These results are consistent with the hypothesis that the two oscillations are generated by different inter-neuronal classes that operate over different temporal and spatial scales of integration.",
-        "venue": "Imaging Neuroscience",
-        "link": "https://doi.org/10.1162/imag.a.1404",
-        "published": "2026-10-22",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Quasiparticle Mass": [
-      {
-        "first_author": "Seyed Farid Taghavi",
-        "title": "Nonconformal kinetic theory with transverse dynamics and event-by-event simulations using CoMBolt-RTA",
-        "abstract": "A new version of CoMBolt, called CoMBolt-RTA, is introduced to solve the Boltzmann equation for massive quasiparticles in the relaxation time approximation (RTA). The inclusion of a constant quasiparticle mass allows one to obtain an equation of state (EOS) closer to that of lattice QCD. The nonequilibrium dynamics of a boost-invariant, nonconformal system with transverse spatial extension are studied, with particular emphasis on the effects of quasiparticle mass on the evolution toward equilibrium. Using the hybrid version, which includes TrENTo for the initial state and UrQMD as an afterburner, the model parameters are manually tuned to describe recent anisotropic-flow and charged-multiplicity measurements in OO collisions by the ALICE Collaboration. The resulting predictions for the $p_T$-spectrum and $\\langle p_T\\rangle$ are also compared with ATLAS measurements. Based on the preferred parameter tuning, the collective response as a function of opacity is investigated. The results suggest that central OO collisions remain in the fluid-like regime, while smaller systems, namely ${}^3$He-${}^3$He and ${}^4$He-${}^4$He collisions, could provide a better opportunity to investigate the transition from fluid-like to particle-like collective dynamics.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2610.31611",
-        "published": "2026-10-22",
-        "is_arxiv": true
-      }
-    ],
-    "Topic: Determining Directions": [
-      {
-        "first_author": "Bence Csajbók",
-        "title": "Functions determining $(q+3)/2$ directions over the finite field with $q$ elements",
-        "abstract": "Let $q=p^n$, where $p>2$ is prime. We prove that every $q$-set $U\\subseteq\\mathrm{AG}(2,q)$ determining exactly $(q+3)/2$ directions is affinely equivalent to the graph of $x^{(q+1)/2}$. For $n\\ge2$, we also prove that a $q$-set determining at most $(q+p)/2$ directions is either an affine $\\mathbb{F}_p$-linear set or affinely equivalent to this graph. The classification for $n=1$ is due to Lovász and Schrijver. For $n=2$, the classification and the stated stability result follow from results of Gács, Lovász, and Sz\\H onyi and the direction theorems of Blokhuis, Ball, Brouwer, Storme, and Sz\\H onyi, completed by Ball. These direction theorems establish affine $\\mathbb{F}_p$-linearity for functions with fewer than $(q+3)/2$ determined directions. Our proof uses Rédei polynomials, results of Gács, Lovász, and Sz\\H onyi on their coefficients, and an earlier polynomial comparison lemma of the author.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2610.31516",
-        "published": "2026-10-22",
-        "is_arxiv": true
-      }
-    ],
     "Topic: World Modeling Visual": [
       {
         "first_author": "Shuhan Ye",
@@ -122844,6 +122862,50 @@
         "venue": "arXiv",
         "link": "https://arxiv.org/abs/2610.35456v1",
         "published": "2026-10-26T13:54:22Z",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Transverse Energy-Energy Correlators": [
+      {
+        "first_author": "Shohini Bhattacharya",
+        "title": "Probing the Sivers asymmetry with transverse energy-energy correlators in the small-x regime",
+        "abstract": "We investigate transverse energy-energy correlators (TEECs) for both polarized and unpolarized targets in the small- x regime at the Electron-Ion Collider (EIC). Focusing on the approximately back-to-back electroproduction of a hadron-electron pair, we apply transverse-momentum-dependent (TMD) factorization formulas that incorporate TMD evolution for both event-shape observables and expand them in terms of the small- x dipole amplitude. This allows us to write the TEEC off the transversely polarized proton in terms of a C-odd interaction, corresponding to an odderon exchange. Due to the charge-conjugation-odd nature of the small- x quark Sivers function, we restrict the sum over final hadronic states to positively and negatively charged hadrons separately. We present numerical predictions for the TEEC Sivers asymmetry at the EIC and find the magnitude of the asymmetry to be on the 0 . 01% level. This channel offers a promising avenue for benchmarking the still largely unconstrained odderon amplitude.",
+        "venue": "Journal of High Energy Physics",
+        "link": "https://doi.org/10.1007/jhep10(2026)227",
+        "published": "2026-10-22",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Slow Fast Gamma": [
+      {
+        "first_author": "Vignesh Raju",
+        "title": "Differential burst dynamics of slow and fast gamma rhythms in macaque primary visual cortex",
+        "abstract": "Gamma oscillations have been ubiquitously observed across a wide spectrum of brain areas in multiple species. They tend to occur intermittently in the form of bursts, rather than being produced as sustained and continuous rhythmic activity. Recent studies have shown that large visual sinusoidal gratings elicit two distinct gamma rhythms, namely, slow (≈20–35 Hz) and fast gamma (≈40–65 Hz), in the primary visual cortex (V1) of non-human primates. However, their mechanisms of generation and potential functional role in cortical processing remain unclear. Details of their burst signatures could potentially provide crucial insights about how the two rhythms influence network dynamics. Therefore, we computed burst statistics (durations and latencies) of simultaneously induced slow and fast gamma rhythms in the local field potential (LFP) recorded from area V1 of two adult female bonnet monkeys using several burst estimation methods. We found that slow gamma rhythm exhibited significantly longer burst durations and longer latencies than fast gamma rhythm. Slow gamma also exhibited higher long-range synchrony than fast gamma, as estimated by coherence and weighted phase lag index (WPLI). Interestingly, longer burst length of slow gamma could be replicated in a recently developed noisy Wilson–Cowan network model by simply changing the firing-rate time constant of the corresponding inhibitory interneuronal population, which led to both slower and longer bursts. These results are consistent with the hypothesis that the two oscillations are generated by different inter-neuronal classes that operate over different temporal and spatial scales of integration.",
+        "venue": "Imaging Neuroscience",
+        "link": "https://doi.org/10.1162/imag.a.1404",
+        "published": "2026-10-22",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Quasiparticle Mass": [
+      {
+        "first_author": "Seyed Farid Taghavi",
+        "title": "Nonconformal kinetic theory with transverse dynamics and event-by-event simulations using CoMBolt-RTA",
+        "abstract": "A new version of CoMBolt, called CoMBolt-RTA, is introduced to solve the Boltzmann equation for massive quasiparticles in the relaxation time approximation (RTA). The inclusion of a constant quasiparticle mass allows one to obtain an equation of state (EOS) closer to that of lattice QCD. The nonequilibrium dynamics of a boost-invariant, nonconformal system with transverse spatial extension are studied, with particular emphasis on the effects of quasiparticle mass on the evolution toward equilibrium. Using the hybrid version, which includes TrENTo for the initial state and UrQMD as an afterburner, the model parameters are manually tuned to describe recent anisotropic-flow and charged-multiplicity measurements in OO collisions by the ALICE Collaboration. The resulting predictions for the $p_T$-spectrum and $\\langle p_T\\rangle$ are also compared with ATLAS measurements. Based on the preferred parameter tuning, the collective response as a function of opacity is investigated. The results suggest that central OO collisions remain in the fluid-like regime, while smaller systems, namely ${}^3$He-${}^3$He and ${}^4$He-${}^4$He collisions, could provide a better opportunity to investigate the transition from fluid-like to particle-like collective dynamics.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2610.31611",
+        "published": "2026-10-22",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Determining Directions": [
+      {
+        "first_author": "Bence Csajbók",
+        "title": "Functions determining $(q+3)/2$ directions over the finite field with $q$ elements",
+        "abstract": "Let $q=p^n$, where $p>2$ is prime. We prove that every $q$-set $U\\subseteq\\mathrm{AG}(2,q)$ determining exactly $(q+3)/2$ directions is affinely equivalent to the graph of $x^{(q+1)/2}$. For $n\\ge2$, we also prove that a $q$-set determining at most $(q+p)/2$ directions is either an affine $\\mathbb{F}_p$-linear set or affinely equivalent to this graph. The classification for $n=1$ is due to Lovász and Schrijver. For $n=2$, the classification and the stated stability result follow from results of Gács, Lovász, and Sz\\H onyi and the direction theorems of Blokhuis, Ball, Brouwer, Storme, and Sz\\H onyi, completed by Ball. These direction theorems establish affine $\\mathbb{F}_p$-linearity for functions with fewer than $(q+3)/2$ determined directions. Our proof uses Rédei polynomials, results of Gács, Lovász, and Sz\\H onyi on their coefficients, and an earlier polynomial comparison lemma of the author.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2610.31516",
+        "published": "2026-10-22",
         "is_arxiv": true
       }
     ],
