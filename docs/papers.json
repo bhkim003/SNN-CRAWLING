@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-22T00:29:05.187732+00:00",
+  "generated_at_utc": "2026-11-23T00:29:22.992663+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30605,
+  "total_papers": 30607,
   "categories": {
     "LLM": [
       {
@@ -24,6 +24,15 @@
         "link": "https://arxiv.org/abs/2611.12090v1",
         "published": "2026-11-09T09:08:35Z",
         "is_arxiv": true
+      },
+      {
+        "first_author": "Zecheng Hao",
+        "title": "Ge²mS-T: Multi-Dimensional Grouping for Ultra-High Energy Efficiency in Spiking Transformer",
+        "abstract": "Spiking Neural Networks (SNNs) offer superior energy efficiency over Artificial Neural Networks (ANNs). However, they encounter significant deficiencies in training and inference metrics when applied to Spiking Vision Transformers (S-ViTs). Existing paradigms including ANN-SNN Conversion and Spatial-Temporal Backpropagation (STBP) suffer from inherent limitations, precluding concurrent optimization of memory, accuracy and energy consumption. To address these issues, we propose Ge²mS-T, a novel architecture implementing grouped computation across temporal, spatial and network structure dimensions. Specifically, we introduce the Grouped-Exponential-Coding-based IF (ExpG-IF) model, enabling lossless conversion with constant training overhead and precise regulation for spike patterns. Additionally, we develop Group-wise Spiking Self-Attention (GW-SSA) to reduce computational complexity via multi-scale token grouping and multiplication-free operations within a hybrid attention-convolution framework. Experiments confirm that our method can achieve superior performance with ultra-high energy efficiency on challenging benchmarks. To our best knowledge, this is the first work to systematically establish multi-dimensional grouped computation for resolving the triad of memory overhead, learning capability and energy budget in S-ViTs. Code is available at https://github.com/hzc1208/Ge2mST.",
+        "venue": "ACM International Conference on Multimedia (ACM MM)",
+        "link": "https://doi.org/10.1145/3767308.3834944",
+        "published": "2026-11-09",
+        "is_arxiv": false
       },
       {
         "first_author": "Minghan Yu",
@@ -58856,6 +58865,15 @@
       }
     ],
     "Reservoir Computing": [
+      {
+        "first_author": "Nida Shahab",
+        "title": "Brain-inspired spiking neural network frameworks for multimodal spatiotemporal brain data integration: a case study on EEG-fMRI data",
+        "abstract": "Multimodal data integration advances brain informatics by capturing complementary spatial and temporal characteristics of neural activity, leading to more accurate and biologically meaningful representations of brain function. The well-established brain measurement modalities, including electroencephalography (EEG) and functional Magnetic Resonance Imaging (fMRI), represent fundamental heterogeneity in their temporal and spatial feature representations, making their integration significantly challenging. This study proposes biologically inspired Spiking Neural Network (SNN) frameworks for multimodal spatiotemporal brain data integration using early, intermediate, and late fusion strategies, including a novel ensemble-based explainable X-Meta late-fusion classifier. Methodologically, it extends SNN reservoir architectures to support multimodal learning across separate reservoirs for EEG and fMRI, enabling the modelling of cross-modal interactions. The fusion frameworks were evaluated on a resting-state simultaneous EEG-fMRI dataset for decoding the Eyes-Closed (EC) and Eyes-Open-Eyes-Closed (EOEC) brain states and benchmarked against conventional machine learning (using alpha alone and multiple bands) and deep learning approaches. We investigated two EEG representations: raw amplitude and Power Spectral Density (PSD), each integrated with fMRI, to evaluate how the EEG feature representation influences multimodal fusion performance. Our results show that all fusion strategies significantly outperformed unimodal fMRI, with accuracy improvements exceeding 6.6–18%. Improvement over the EEG modality was representation-dependent: for PSD-EEG, post-reservoir fusion strategies improved accuracy by 2.1–4.21%, whereas for raw-EEG, improvements were smaller, with intermediate fusion and X-Meta providing approximately 1.3% gains, reflecting differences in the relative discriminative strength of the modality under each representation. In addition to classification, X-Meta provided model-level feature attribution, identifying EEG and fMRI features associated with previously reported functional brain regions while also highlighting potential exploratory candidate markers. Overall, the proposed frameworks advance brain-inspired computational modelling by not only improving brain-state decoding but also providing interpretable insights into the features contributing to the model’s decision.",
+        "venue": "Brain Informatics",
+        "link": "https://doi.org/10.1186/s40708-026-00340-y",
+        "published": "2026-11-05",
+        "is_arxiv": false
+      },
       {
         "first_author": "JianWei Lou",
         "title": "Persistent memory through triple-loop consolidation under stochastic unit turnover",
@@ -121982,7 +122000,7 @@
       {
         "first_author": "Patryk Organiściak",
         "title": "Machine-learning-based predictive control of anaerobic digestion considering meteorological conditions",
-        "abstract": "Efficient control of the anaerobic digestion process in municipal wastewater treatment plants poses an engineering challenge due to the high inertia of the system and the impact of uncontrolled external disturbances.This paper presented a novel approach to optimising feedstock composition (the ratio of primary to excess sludge) to maximise biogas production.Unlike classical control methods, the proposed solution accounts for the impact of exogenous factors ambient temperature and precipitation which determine the physicochemical parameters of raw sludge.To build an effective model on a limited dataset, a spatial disaggregation technique was applied, merging data from four parallel digestion chambers.A hybrid decision-making system was developed, integrating a Random Forest model with a genetic algorithm (GA).The resulting predictive model achieved accuracy (R 2 = 0.77, MAPE = 7.33) under LODO validation, indicating that incorporating time delays in weather data allows for precise prediction of efficiency drops.The application of the evolutionary algorithm in a one-day numerical case study enabled the determination of optimal operational setpoints, indicating the potential for increased energy yield under difficult environmental conditions.Rather than a real-time autonomous control system, the presented solution constitutes a predictive optimisation framework and a functional module for a decision support system (DSS), enabling a transition from reactive to prescriptive strategies.",
+        "abstract": "Efficient control of the anaerobic digestion process in municipal wastewater treatment plants poses an engineering challenge due to the high inertia of the system and the impact of uncontrolled external disturbances. This paper presents a novel approach to optimizing feedstock composition (the ratio of primary to excess sludge) to maximize biogas production. Unlike classical control methods, the proposed solution accounts for the impact of exogenous factors ambient temperature and precipitation which determine the physicochemical parameters of raw sludge. To build an effective model on a limited dataset, a spatial disaggregation technique was applied, merging data from four parallel digestion chambers. A hybrid decision-making system was developed, integrating a random forest model with a genetic algorithm (GA). The resulting predictive model achieved accuracy (R 2 = 0.77, MAPE = 7.33) under LODO validation, indicating that incorporating time delays in weather data allows for precise prediction of efficiency drops. The application of the evolutionary algorithm in a one-day numerical case study enabled the determination of optimal operational setpoints, indicating the potential for increased energy yield under difficult environmental conditions. Rather than a real-time autonomous control system, the presented solution constitutes a predictive optimization framework and a functional module for a decision support system (DSS), enabling a transition from reactive to prescriptive strategies.",
         "venue": "Advances in Science and Technology – Research Journal",
         "link": "https://doi.org/10.12913/22998624/226496",
         "published": "2026-11-01",
@@ -122626,39 +122644,6 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Endothelial Cell": [
-      {
-        "first_author": "Sarah Dobner",
-        "title": "Uncovering the transcriptional hallmarks of endothelial cell aging via integrated single-cell analysis",
-        "abstract": "Endothelial cells (ECs) are critical regulators of vascular function and exhibit tissue-specialized roles. During aging, these cells become dysfunctional, resulting in increased susceptibility to cardiovascular disease. Although single-cell transcriptomics has revealed extensive endothelial heterogeneity, a comprehensive atlas of human EC transcriptomes over the course of the adult human lifespan has been lacking. Here, we present the Human Aging Endothelial Cell Atlas (HAECA), a harmonized single-cell transcriptomic compendium of over 375,000 ECs from 12 human tissues throughout adulthood. We identified age-associated transcriptional shifts, including a decline in angiogenic gene expression in venous ECs and widespread alterations in extracellular matrix and mechanotransduction-associated signatures. Furthermore, we uncovered a p21-linked transcriptional program in ECs, which we linked to cellular senescence in both in vitro and in vivo models. Together, our study provides a high-resolution transcriptomic reference of the human endothelium across tissues and age. The Human Aging Endothelial Cell Atlas reveals how gene expression patterns of the human endothelium change with age, identifying reduced angiogenesis, altered mechanical signaling and a conserved gene program linked to endothelial senescence.",
-        "venue": "Nature Aging",
-        "link": "https://doi.org/10.1038/s43587-026-01247-3",
-        "published": "2026-10-23",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Ensuremath Eta": [
-      {
-        "first_author": "Anonymous",
-        "title": "Constraining the low- p T η / π 0 ratio for direct-photon analyses with blast-wave fits to π , K , and p spectra",
-        "abstract": "We predict the $\\ensuremath{\\eta}/{\\ensuremath{\\pi}}^{0}$ ratio at low ${p}_{T}$ (${p}_{T}\\ensuremath{\\lesssim}3\\phantom{\\rule{4pt}{0ex}}\\mathrm{GeV}/c$) using the measured charged $K/\\ensuremath{\\pi}$ ratio and model input from a blast-wave framework with feed-down contributions. This approach can provide improved, data-constrained background estimates for direct-photon and dilepton measurements in heavy-ion collisions. In this approach, the explicit modeling of radial flow and hadronic feed down enables an uncertainty estimate for the low-${p}_{T}$ extrapolation of the $\\ensuremath{\\eta}/{\\ensuremath{\\pi}}^{0}$ ratio. Using central Pb-Pb collisions at $\\sqrt{{s}_{NN}}=2.76$ TeV as an example, we find that the $\\ensuremath{\\eta}$-related decay-photon uncertainty at ${p}_{T}\\ensuremath{\\approx}1\\phantom{\\rule{4pt}{0ex}}\\mathrm{GeV}/c$ is of order 10% of the expected direct-photon signal.",
-        "venue": "Physical Review C",
-        "link": "https://doi.org/10.1103/g5b3-6fdk",
-        "published": "2026-10-23",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Discrete Flow Matching": [
-      {
-        "first_author": "Niklas Kemper",
-        "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
-        "abstract": "The natural units of structured discrete generation are often not independent single-component edits but richer actions: attaching a fragment to a molecule, inserting a node together with an incident edge, or growing a hierarchy by adding a child. Yet most existing discrete flow matching methods (DFM) are restricted to independent component-wise edits over fixed-size states. This restriction stems from endpoint conditioning: endpoints fix the source and target during training but not the action sequence between them, making tractable conditional rates hard to define for complex actions that cannot be factorized component-wise. We propose trajectory matching, which conditions the flow on a full sequence of actions connecting the endpoints. This yields principled, simulation-free training targets for user-defined action spaces, including actions that change state size, modify multiple components, or depend on earlier actions. We prove that the resulting objective recovers the marginal flow and that trajectory matching strictly subsumes factorized DFM, while additionally capturing actions with prerequisite structure such as hierarchy growth or fragment-based molecule generation. Empirically, on tree and molecular graph generation, trajectory matching with domain-aligned actions matches or surpasses factorized DFM baselines (lifting MOSES validity from 92.8% to 99.2%) and transfers without retraining to substructure extension and linking. Trajectory matching enlarges the design space of discrete flow matching by turning the action vocabulary into a modeling choice. An interactive explanation of trajectory matching is available at https://niklaskemper.com/blog/trajectory-matching/.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2610.32602",
-        "published": "2026-10-23",
-        "is_arxiv": true
-      }
-    ],
     "Topic: World Modeling Visual": [
       {
         "first_author": "Shuhan Ye",
@@ -122862,6 +122847,39 @@
         "venue": "arXiv",
         "link": "https://arxiv.org/abs/2610.35456v1",
         "published": "2026-10-26T13:54:22Z",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Endothelial Cell": [
+      {
+        "first_author": "Sarah Dobner",
+        "title": "Uncovering the transcriptional hallmarks of endothelial cell aging via integrated single-cell analysis",
+        "abstract": "Endothelial cells (ECs) are critical regulators of vascular function and exhibit tissue-specialized roles. During aging, these cells become dysfunctional, resulting in increased susceptibility to cardiovascular disease. Although single-cell transcriptomics has revealed extensive endothelial heterogeneity, a comprehensive atlas of human EC transcriptomes over the course of the adult human lifespan has been lacking. Here, we present the Human Aging Endothelial Cell Atlas (HAECA), a harmonized single-cell transcriptomic compendium of over 375,000 ECs from 12 human tissues throughout adulthood. We identified age-associated transcriptional shifts, including a decline in angiogenic gene expression in venous ECs and widespread alterations in extracellular matrix and mechanotransduction-associated signatures. Furthermore, we uncovered a p21-linked transcriptional program in ECs, which we linked to cellular senescence in both in vitro and in vivo models. Together, our study provides a high-resolution transcriptomic reference of the human endothelium across tissues and age. The Human Aging Endothelial Cell Atlas reveals how gene expression patterns of the human endothelium change with age, identifying reduced angiogenesis, altered mechanical signaling and a conserved gene program linked to endothelial senescence.",
+        "venue": "Nature Aging",
+        "link": "https://doi.org/10.1038/s43587-026-01247-3",
+        "published": "2026-10-23",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Ensuremath Eta": [
+      {
+        "first_author": "Anonymous",
+        "title": "Constraining the low- p T η / π 0 ratio for direct-photon analyses with blast-wave fits to π , K , and p spectra",
+        "abstract": "We predict the $\\ensuremath{\\eta}/{\\ensuremath{\\pi}}^{0}$ ratio at low ${p}_{T}$ (${p}_{T}\\ensuremath{\\lesssim}3\\phantom{\\rule{4pt}{0ex}}\\mathrm{GeV}/c$) using the measured charged $K/\\ensuremath{\\pi}$ ratio and model input from a blast-wave framework with feed-down contributions. This approach can provide improved, data-constrained background estimates for direct-photon and dilepton measurements in heavy-ion collisions. In this approach, the explicit modeling of radial flow and hadronic feed down enables an uncertainty estimate for the low-${p}_{T}$ extrapolation of the $\\ensuremath{\\eta}/{\\ensuremath{\\pi}}^{0}$ ratio. Using central Pb-Pb collisions at $\\sqrt{{s}_{NN}}=2.76$ TeV as an example, we find that the $\\ensuremath{\\eta}$-related decay-photon uncertainty at ${p}_{T}\\ensuremath{\\approx}1\\phantom{\\rule{4pt}{0ex}}\\mathrm{GeV}/c$ is of order 10% of the expected direct-photon signal.",
+        "venue": "Physical Review C",
+        "link": "https://doi.org/10.1103/g5b3-6fdk",
+        "published": "2026-10-23",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Discrete Flow Matching": [
+      {
+        "first_author": "Niklas Kemper",
+        "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
+        "abstract": "The natural units of structured discrete generation are often not independent single-component edits but richer actions: attaching a fragment to a molecule, inserting a node together with an incident edge, or growing a hierarchy by adding a child. Yet most existing discrete flow matching methods (DFM) are restricted to independent component-wise edits over fixed-size states. This restriction stems from endpoint conditioning: endpoints fix the source and target during training but not the action sequence between them, making tractable conditional rates hard to define for complex actions that cannot be factorized component-wise. We propose trajectory matching, which conditions the flow on a full sequence of actions connecting the endpoints. This yields principled, simulation-free training targets for user-defined action spaces, including actions that change state size, modify multiple components, or depend on earlier actions. We prove that the resulting objective recovers the marginal flow and that trajectory matching strictly subsumes factorized DFM, while additionally capturing actions with prerequisite structure such as hierarchy growth or fragment-based molecule generation. Empirically, on tree and molecular graph generation, trajectory matching with domain-aligned actions matches or surpasses factorized DFM baselines (lifting MOSES validity from 92.8% to 99.2%) and transfers without retraining to substructure extension and linking. Trajectory matching enlarges the design space of discrete flow matching by turning the action vocabulary into a modeling choice. An interactive explanation of trajectory matching is available at https://niklaskemper.com/blog/trajectory-matching/.",
+        "venue": "arXiv (Cornell University)",
+        "link": "https://doi.org/10.48550/arxiv.2610.32602",
+        "published": "2026-10-23",
         "is_arxiv": true
       }
     ],
