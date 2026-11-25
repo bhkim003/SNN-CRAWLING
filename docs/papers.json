@@ -1,12 +1,21 @@
 {
-  "generated_at_utc": "2026-11-24T00:25:46.829754+00:00",
+  "generated_at_utc": "2026-11-25T00:27:51.031475+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30614,
+  "total_papers": 30619,
   "categories": {
     "LLM": [
+      {
+        "first_author": "Romaric Mazna",
+        "title": "Exploring Deep Learning for Event-Based Saliency Prediction with a Transformer-Based Model",
+        "abstract": "",
+        "venue": "Communications in computer and information science",
+        "link": "https://doi.org/10.1007/978-981-92-8146-6_20",
+        "published": "2026-11-24",
+        "is_arxiv": false
+      },
       {
         "first_author": "Bassam El Said",
         "title": "FEA solver integration of a composite World Model with a Spiking Neural Network memory Block for computationally efficient modelling of defects and variabilities",
@@ -11744,7 +11753,7 @@
         "first_author": "Robin Wroblowski",
         "title": "Neuromorphic design of a rhythmic network",
         "abstract": "Central Pattern Generators (CPGs) have long inspired the design of rhythms that combine endogenous generation and exogenous interaction. In neurodynamics and engineering studies, CPGs have been primarily analysed and designed as networks of coupled oscillators. In contrast, the present article regards CPGs as networks that propagate events through excitable rather than oscillatory nodes. The proposed event-based perspective reduces the design of network-level rhythmic properties to the tuning of local nodal input-output characteristics. This reduction enables a distributed and robust design methodology: nodes can be tuned independently, they can be heterogeneous, and the global rhythm results from local event propagation rather than from a specific global tuning of the network parameters. The present article builds on previously introduced concepts that parallel existing characterizations of oscillators: the event describing function (eDF), which characterises the propagation delay of a node, and the event phase response curve (ePRC), which characterises the phase sensitivity of a node. Event-based CPGs made of excitable rather than oscillatory nodes emerge as a principled design framework for robust rhythm generation.",
-        "venue": "arXiv (Cornell University)",
+        "venue": "arXiv",
         "link": "https://doi.org/10.48550/arxiv.2610.39762",
         "published": "2026-10-29",
         "is_arxiv": true
@@ -46881,6 +46890,15 @@
     ],
     "ANN-to-SNN Conversion": [
       {
+        "first_author": "Shaohong Gu",
+        "title": "A New Perspective on ANN-to-SNN Conversion: Hardware-Aligned Multi-Threshold Neuron Dynamics for Neuromorphic Inference",
+        "abstract": "By accumulating spikes over multiple timesteps, rate coding approximates the real-valued activations of an ANN, a principle that underpins numerous ANN-to-SNN conversion methods. However, the converted SNNs typically incur loss in accuracy compared to the original ANN. Existing methods either increase a number of timesteps or introduce more complex neuronal dynamics to reduce this accuracy gap. Yet, both approaches ultimately lead to the same outcome: redundancy either in information or in computation, thereby suffering from efficiency degradation. To address this issue, we propose \\textbf{PRIME} (\\underline{P}otential-\\underline{R}esidual \\underline{I}ntegration for \\underline{M}ulti-threshold \\underline{E}ncoding), a multi-threshold concurrent spiking neuron framework redesigned from a hardware data representation perspective:a) We introduce the Residual Membrane Potential Amplification (RMPA) mechanism, which replaces rate coding with Integration Coding by actively amplifying the residual membrane potential. RMPA enables the binary representation of spikes to carry substantially more information, achieving near-lossless conversion with as few as two timesteps.b) Complementarily, we implement concurrent spike firing in multi-threshold neurons, where spikes are decoded directly from the binary representation of floating-point data, eliminating membrane potential--threshold comparisons and replacing multiplications with lightweight bit-shift and accumulation operations that align with hardware computation primitives. At $T=2$ and $D=3$, we achieve competitive performance across both vision and language benchmarks with only 40.6\\% of the FP32 bit-transmission cost and 13.4\\% of the FP32 multiplication energy consumption. The PRIME framework establishes a new design principle for efficient ANN-to-SNN conversion, bridging the gap between algorithmic efficiency and hardware constraints.",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.30277v1",
+        "published": "2026-11-23T08:34:22Z",
+        "is_arxiv": true
+      },
+      {
         "first_author": "Hyunseok Oh",
         "title": "Spiking Neural Networks Incrementally Track Firing-Rate Networks",
         "abstract": "Understanding how spiking neural networks (SNNs) efficiently process data streams is key to (i) studying how biological brains conserve energy for lifelong predictions and (ii) enabling efficient continuous AI inference. In this work, we propose a theory on how an SNN incrementally tracks its corresponding firing-rate network, a continuous-valued neural network (ANN). We prove that the output of a discrete SNN continuously tracks the instantaneous ANN output implicitly determined by the SNN input. Based on this principle, we develop LIF-Stream, a conversion framework for efficient SNN inference over unbounded data streams. It enables the converted SNN to reuse its prior activation state and compute only the activation updates between frames, thereby reducing the average number of time steps needed per frame. Specifically, LIF-Stream controls the SNN to continuously track the reference ANN output, which gives a high-accuracy prediction for every frame. Evaluation on three large-scale streaming inference benchmarks with distinct modalities shows that LIF-Stream achieves the best efficiency-accuracy trade-off compared to high-accuracy SNN techniques.",
@@ -60200,6 +60218,15 @@
     ],
     "Medical & BCI": [
       {
+        "first_author": "Nick Griffin",
+        "title": "Spontaneous emergence of action decisions and slow ramping in a deep brain-constrained model of frontotemporal areas",
+        "abstract": "Humans are capable of voluntarily initiating actions that are spontaneous—not triggered by any sensory event in the immediate context. In such cases, how does the brain make a decision that the time to act has come? To investigate this question, we used a 6-area brain-constrained neural-network model to account for the neurophysiological and anatomical features of relevant areas of the cortex. To replicate the experimental settings under which volitional non stimulus-triggered button-presses are performed, we analysed the network activity in the absence of any “sensory” input: we observed spontaneous ignitions of previously-learned “perception–action” circuits (linking “visual” information to corresponding “hand/finger movement”) caused by the accumulation of noise within them, which we took as model correlates of self-generated decisions to act. The time to first spontaneous circuit ignition was then used to build a simulated waiting-time histogram. We found that, for select values of the parameters, the network autonomously “decided” to act (or to wait) in a way that accurately reflected participant behaviour under such conditions. Additionally, we found that when the model’s macroscopic behaviour matched that of participants, its microscopic activity prior to a spontaneous ignition event also reproduced the pre-movement slow ramping neural signal (the readiness potential, or RP) experimentally recorded using electroencephalography. Reproducing both behavioural and brain indices of spontaneous voluntary movements, the present brain-constrained architecture offers a neuro-mechanistic explanation of the emergence of endogenous action decisions in the human brain in the form of memory traces’ spontaneous ignitions. Our results also speak to the ongoing debate over the interpretation of the RP, suggesting that, rather than reflecting motor preparation (a decision outcome), the emerging RP is pre-decisional, with overt movement being the result of a distributed perception–action circuit spontaneous ignition.",
+        "venue": "Scientific Reports",
+        "link": "https://doi.org/10.1038/s41598-026-62812-9",
+        "published": "2026-11-14",
+        "is_arxiv": false
+      },
+      {
         "first_author": "Nicolas Calvo Peiro",
         "title": "EEG-based deep learning reveals cortical sensitivity to small changes in deep brain stimulation parameters",
         "abstract": "Deep Brain Stimulation (DBS) is an invasive procedure used to alleviate motor symptoms in Parkinson's Disease (PD) patients. Despite its effectiveness, the impact of DBS on brain activity and the way to optimise stimulation parameters remains unclear. In this study, we aimed to map the sensitivity of cortical neural response to changes in DBS parameters in real-world clinical settings. We recorded in-clinic EEG data from PD patients during their clinical DBS programming sessions, both at rest and during arm movement. A siamese variant of the EEGNet deep learning architecture was trained independently for each patient and parameter combination to determine whether two 1-sec-long EEG segments were recorded under the same or different DBS parameters, yielding 30 independently trained models. Our models achieved an average accuracy of 74% in classifying whether two 1-second EEG segments corresponded to the same or different DBS parameters. Explainability methods were then applied to extract the neural oscillations learned by the models. Ablation studies identified mid-gamma oscillations (55-90 Hz) as the key band for classifying these changes. Importantly, that was not driven by 1:2 gamma entrainment. In a sub-group of patients, the theta-alpha oscillations (4-12 Hz) also contributed to detecting changes in DBS parameters. We demonstrate that small DBS parameter changes modify cortical activity in a consistent manner that can be detected using shallow convolutional networks on low-density EEG. Our findings suggest that cortical mid-gamma oscillations (55-90 Hz) are highly sensitive to small changes in DBS settings. Our approach and findings could be leveraged towards identifying and defining novel digital biomarkers to guide DBS programming and adaptive DBS systems.",
@@ -60230,7 +60257,7 @@
         "first_author": "Sara Gjorgjieva",
         "title": "A New AFIB Detection Method with Deep Neural Networks",
         "abstract": "Early detection of atrial fibrillation (AFIB), characterized by irregular heart rhythms, can potentially save thousands of lives annually [20]. Numerous studies have attempted to address this challenge using various algorithms and methodologies. This paper introduces a novel and robust method that enhances the precision of AFIB detection. Neural Networks (NN) are widely recognized for their ability to identify complex electrocardiogram (ECG) patterns, facilitating the accurate detection of irregular heart rhythms. This study explores multiple conventional machine learning algorithms alongside neural network approaches to develop a robust AFIB detection system. To evaluate the effective- ness and robustness of the proposed method, the MIT BIH arrhythmia database (MITDB) and the Long-term Atrial Fibrillation Database (LTAFDB), both available on the Physionet site. Our approach presents a novel feature engineering technique, employing specific features such as a time series of the differences in successive heart rates (dBPM) rather than traditional inter-beat intervals. The model analyzes inputs labeled into five distinct classes, using only clean intervals identified through a new labeling method for training while treating others as outliers. This strategy ensures a more accurate and reliable AFIB detection process. The best-performing model, a Deep Neural Network (DNN), achieved an F1 score of 95.18% for binary atrial fibrillation classification on a benchmark dataset distinct from the training set. Models trained using our approach have demonstrated superior performance than previously published models.",
-        "venue": "arXiv (Cornell University)",
+        "venue": "arXiv",
         "link": "https://doi.org/10.48550/arxiv.2610.39665",
         "published": "2026-10-29",
         "is_arxiv": true
@@ -71001,6 +71028,15 @@
       }
     ],
     "Robotics & Control": [
+      {
+        "first_author": "Mingquan Liu",
+        "title": "Spiking World-Action Models for Robotic Manipulation",
+        "abstract": "World action models (WAMs) predict how the world responds to actions and offer a promising path toward general embodied intelligence, but they are large and run the network many times per plan, so they are hard to deploy on robots. Spiking neural networks (SNNs) compute with sparse binary spikes and use additions instead of multiplications, which saves power. However, existing WAMs use dense videos as the world state, so a spiking version would spend most of its computation on the background. We therefore introduce SpikingWAM, the first spiking WAM, which uses a sparse task skeleton as the world state. Inspired by biological motor control, which attends only to the key positions of a task, the Task Skeleton State (TSS) keeps the keypoints of the arm and the task objects, and a small spiking front end estimates the object keypoints from images. Body Frame Spike Coding (BFSC) and Grid Coincidence Attention (GCA) keep millimetre precision, and the Persistent Single Step Readout (PSR) runs the network once per plan. On the simulated benchmarks LIBERO, LIBERO-Plus and RoboTwin 2.0, SpikingWAM achieves competitive success rates with far less energy than ANN methods and surpasses all compared methods on LIBERO-Plus. Real robot experiments further confirm its effectiveness. These results show that a task skeleton lets spiking networks implement WAMs at very low energy, offering a new solution for low power embodied intelligence. Project page: https://wxqnl.github.io/spikingwam/",
+        "venue": "arXiv",
+        "link": "https://arxiv.org/abs/2611.30041v1",
+        "published": "2026-11-23T04:48:43Z",
+        "is_arxiv": true
+      },
       {
         "first_author": "Mengting Yu",
         "title": "Opto-Electronic Hybrid Reinforcement Learning Based on MZI for Robotic Manipulator Control",
@@ -105160,6 +105196,15 @@
     ],
     "Model Compression": [
       {
+        "first_author": "Haitian Wang",
+        "title": "Quantization-Aware Neuromorphic Architecture for Skin Lesion Classification on Resource-Constrained Devices",
+        "abstract": "",
+        "venue": "Communications in computer and information science",
+        "link": "https://doi.org/10.1007/978-981-92-8233-3_12",
+        "published": "2026-11-24",
+        "is_arxiv": false
+      },
+      {
         "first_author": "Arooba Farhan",
         "title": "Hardware-Matched Spiking Neural Networks for Real-Time Purkinje Cell Spike Classification",
         "abstract": "Distinguishing Purkinje cell (PC) simple spikes (SSs) from complex spikes (CSs) is key to studying cerebellar function. PC recordings commonly rely on wired headstages, whose tethers restrict natural movement in freely behaving animals. Untethered headstages remove this constraint, but cannot continuously transmit raw recordings within their power budgets, making on-headstage spike classification an attractive form of compression, provided it runs accurately in real time on constrained hardware. This work presents two compact spiking neural networks (SNNs) matched to their target hardware: ConvSNN, which maps to the Matrix Vector Processor (MVP) of an EFM32PG28 microcontroller, and StreamSNN, which processes one waveform value per timestep using learned time constants and fixed synaptic delays for a dedicated SKY130 circuit. Evaluated on cells unseen during training, ConvSNN achieves a CS F1 of 0.873 with 1,018 parameters and StreamSNN 0.837 with 527 parameters, both with eight-bit weights. On the microcontroller, MVP acceleration reduces ConvSNN latency by 62.3\\% and extends estimated battery life to 33.73~hours on a 50~mAh battery. In SKY130, StreamSNN occupies 0.173~mm$^2$ and consumes 0.46~$μ$J per event, with 0.2~ms of computation within an 8.3~ms end-to-end latency.",
@@ -114393,7 +114438,7 @@
         "first_author": "Neelkamal Mallick",
         "title": "Improved nonflow control for multiparticle correlators and system-size-dependent evolution from OO to Pb--Pb collisions at the LHC",
         "abstract": "Multiparticle correlations of event-plane angles, known as symmetry plane correlators (SPCs), and correlations of anisotropic flow amplitudes of different harmonics, known as symmetric cumulants (SCs), help constrain the initial conditions and the transport properties of the system formed in heavy-ion collisions. Such multiparticle correlations are robust against nonflow biases in heavy-ion collisions; however, in small systems the nonflow contribution is sizeable and can distort SPCs and SCs at low multiplicity, mimicking a flow-like signal. Evidence of nuclear-geometry-induced collectivity in light-ion collisions, such as OO and Ne--Ne, has been established at the LHC. Measurements of SPCs and SCs in these systems, and their comparison to heavy-ion collisions, can therefore clarify the system-size dependence of these correlations and the strength of nonlinear mode coupling. In this work, an improved nonflow subtraction framework based on multiplicity reweighting ($\\czero$) and $v_1$-estimator-based ($\\cone$) scaling is validated for selected SPCs and SCs using a controlled toy model and the \\textsc{Pythia~8~Angantyr} model, where collective flow is absent by construction. We find that $\\cone$ provides the more reliable nonflow control and apply it to predict the SPCs and normalized SCs in OO collisions at $\\sqrt{s_{\\rm NN}}=5.36$~TeV with the \\textsc{ampt} string-melting model. The results are compared with published Pb--Pb measurements from ALICE and from \\textsc{ampt} as a function of midrapidity charged-particle multiplicity $\\langle N_{\\rm ch}\\rangle(|η|<0.5)$, placing light- and heavy-ion systems on a common system-size axis.",
-        "venue": "arXiv (Cornell University)",
+        "venue": "arXiv",
         "link": "https://doi.org/10.48550/arxiv.2610.36922",
         "published": "2026-10-27",
         "is_arxiv": true
@@ -114555,53 +114600,6 @@
         "venue": "Physical review. E",
         "link": "https://doi.org/10.1103/wqqn-z4p4",
         "published": "2026-11-19",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Excitatory Inhibitory": [
-      {
-        "first_author": "Arezoo Alizadeh",
-        "title": "How the layer-dependent ratio of excitatory to inhibitory cells shapes cortical coding in balanced networks",
-        "abstract": "The cerebral cortex exhibits a sophisticated neural architecture across its six layers. Recently, it was found that these layers exhibit different ratios of excitatory to inhibitory (EI) neurons, ranging from 4 to 9. This ratio is a key factor for achieving the often reported balance of excitation and inhibition, a hallmark of cortical computation. Although previous studies have explored various biologically realistic aspects of classical balanced networks, such as the effects of more complex neuronal properties including spike frequency adaptation using adaptive exponential integrate-and-fire (AdEx) neuron models (1), the temporal evolution of randomly connected balanced networks through second-order mean-field approximations (2), predictions of nonlinear dynamics across diverse neuron models ranging from integrate-and-fire to Hodgkin–Huxley formulations, thus bridging population dynamics to neuronal electrophysiology (3), the impact of spatial heterogeneity in balanced networks (4–6), and variations in synaptic timescales (7), the specific effects of differences in excitatory-inhibitory (EI) ratios on layer-specific dynamics and computational properties have, to the best of our knowledge, not yet been addressed. We investigate this question using a sparsely connected network model of excitatory and inhibitory neurons. To keep the network in a physiological range of firing rates, we varied the inhibitory firing threshold or the synaptic strength between excitatory and inhibitory neurons. We find that decreasing the EI ratio allows the network to explore a higher-dimensional space and enhance its capacity to represent complex input. By comparing the empirical EI ratios of layer 2/3 and layer 4 in the rodent barrel cortex, we predict that layer 2/3 has a higher dimensionality and coding capacity than layer 4. Furthermore, our analysis of primary visual cortex data from the Allen Brain Institute corroborates these modeling results, also demonstrating increased dimensionality and coding capabilities of layer 2/3.",
-        "venue": "eLife",
-        "link": "https://doi.org/10.7554/elife.105162.2",
-        "published": "2026-11-19",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Jin Luo",
-        "title": "Ferroelectric FET based Signed Synapses of Excitatory and Inhibitory Connection fo Stochastic Spiking Neural Network based Optimizer",
-        "abstract": "For combinatorial optimization problem (CSP) solving of spiking neural networks (SNNs), both excitatory and inhibitory synaptic connections are necessary for mapping of constraints, along with adaptively-stochastic neuron. In this work, for the first time, a novel ferroelectric FET (FeFET) based signed synapse with only two transistors is proposed and experimentally demonstrated to achieve excitatory and inhibitory connections, enabling cascade circuit with our previous proposed FeFET-based adaptively-stochastic neuron for all ferroelectric SNN optimizer. Based on the proposed design, a stochastic SNN is implemented for fast solving CSPs with accuracy improvement by 200%, providing a promising ultralow-hardware-cost and energy-efficient solution for optimization.",
-        "venue": "",
-        "link": "https://doi.org/10.1109/edtm55494.2023.10102951",
-        "published": "2023-03-07",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Lior Bar",
-        "title": "Excitatory and inhibitory hippocampal neurons differ in their homeostatic adaptation to chronic M-channel modulation",
-        "abstract": "A large body of studies has investigated bidirectional homeostatic plasticity both <i>in vitro</i> and <i>in vivo</i> using numerous pharmacological manipulations of activity or behavioral paradigms. However, these experiments rarely explored in the same cellular system the bidirectionality of the plasticity and simultaneously on excitatory and inhibitory neurons. M-channels are voltage-gated potassium channels that play a crucial role in regulating neuronal excitability and plasticity. In cultured hippocampal excitatory neurons, we previously showed that chronic exposure to the M-channel blocker XE991 leads to adaptative compensations, thereby triggering at different timescales intrinsic and synaptic homeostatic plasticity. This plastic adaptation barely occurs in hippocampal inhibitory neurons. In this study, we examined whether this homeostatic plasticity induced by M-channel inhibition was bidirectional by investigating the acute and chronic effects of the M-channel opener retigabine on hippocampal neuronal excitability. Acute retigabine exposure decreased excitability in both excitatory and inhibitory neurons. Chronic retigabine treatment triggered in excitatory neurons homeostatic adaptation of the threshold current and spontaneous firing rate at a time scale of 4-24 h. These plastic changes were accompanied by a substantial decrease in the M-current density and by a small, though significant, proximal relocation of Kv7.3-FGF14 segment along the axon initial segment. Thus, bidirectional homeostatic changes were observed in excitatory neurons though not symmetric in kinetics and mechanisms. Contrastingly, in inhibitory neurons, the compensatory changes in intrinsic excitability barely occurred after 48 h, while no homeostatic normalization of the spontaneous firing rate was observed. Our results indicate that excitatory and inhibitory hippocampal neurons differ in their adaptation to chronic alterations in neuronal excitability induced by M-channel bidirectional modulation.",
-        "venue": "Frontiers in Molecular Neuroscience",
-        "link": "https://doi.org/10.3389/fnmol.2022.972023",
-        "published": "2022-10-14",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Alessandro Ingrosso",
-        "title": "Optimal learning with excitatory and inhibitory synapses",
-        "abstract": "Characterizing the relation between weight structure and input/output statistics is fundamental for understanding the computational capabilities of neural circuits. In this work, I study the problem of storing associations between analog signals in the presence of correlations, using methods from statistical mechanics. I characterize the typical learning performance in terms of the power spectrum of random input and output processes. I show that optimal synaptic weight configurations reach a capacity of 0.5 for any fraction of excitatory to inhibitory weights and have a peculiar synaptic distribution with a finite fraction of silent synapses. I further provide a link between typical learning performance and principal components analysis in single cases. These results may shed light on the synaptic profile of brain circuits, such as cerebellar structures, that are thought to engage in processing time-dependent signals and performing on-line prediction.",
-        "venue": "PLoS Computational Biology",
-        "link": "https://doi.org/10.1371/journal.pcbi.1008536",
-        "published": "2020-12-28",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Jiaxing Wu",
-        "title": "Network and cellular mechanisms underlying heterogeneous excitatory/inhibitory balanced states",
-        "abstract": "Recent work has explored spatiotemporal relationships between excitatory (E) and inhibitory (I) signaling within neural networks, and the effect of these relationships on network activity patterns. Data from these studies have indicated that excitation and inhibition are maintained at a similar level across long time periods and that excitatory and inhibitory currents may be tightly synchronized. Disruption of this balance-leading to an aberrant E/I ratio-is implicated in various brain pathologies. However, a thorough characterization of the relationship between E and I currents in experimental settings is largely impossible, due to their tight regulation at multiple cellular and network levels. Here, we use biophysical neural network models to investigate the emergence and properties of balanced states by heterogeneous mechanisms. Our results show that a network can homeostatically regulate the E/I ratio through interactions among multiple cellular and network factors, including average firing rates, synaptic weights and average neural depolarization levels in excitatory/inhibitory populations. Complex and competing interactions between firing rates and depolarization levels allow these factors to alternately dominate network dynamics in different synaptic weight regimes. This leads to the emergence of distinct mechanisms responsible for determining a balanced state and its dynamical correlate. Our analysis provides a comprehensive picture of how E/I ratio changes when manipulating specific network properties, and identifies the mechanisms regulating E/I balance. These results provide a framework to explain the diverse, and in some cases, contradictory experimental observations on the E/I state in different brain states and conditions.",
-        "venue": "European Journal of Neuroscience",
-        "link": "https://doi.org/10.1111/ejn.14669",
-        "published": "2020-01-05",
         "is_arxiv": false
       }
     ],
@@ -119974,7 +119972,7 @@
         "first_author": "Jérôme Adriaens",
         "title": "Excitable Behaviours of a First-Order High-Pass Neuron Model",
         "abstract": "With the rise of neuromorphic technologies, simple and tunable neuron models are needed to analyse and design spiking systems. However, the simplest neuron models, e.g., Leaky Integrate-and-Fire (LIF) models, usually fail to capture the excitable behaviours of biological neurons. This could be a significant limitation, as excitability enables reliable spike timing under parametric uncertainties. Recently, a minimal excitable model, the so-called High-Pass Model (HPM), was introduced in neuroengineering. It simply consists of a static sigmoid with a high-pass filter in positive feedback. Given its novelty, it is still unclear how easily the HPM can be tuned, and how much of the excitable behaviours of a biophysical neuron it can reproduce. To address these questions, we investigate the tunability of a first-order HPM sub- and supra-rheobase, i.e., below and above the onset of the tonic spiking regime (where the neuron spikes periodically), and compare its behaviours with those of a simple Hodgkin-Huxley-type Conductance-Based Model (CBM). Below rheobase, both models fire spikes in response to transient inputs, including post-inhibitory rebound spikes. Above rheobase, an affine reparametrization of the input of the HPM suffices to fit its frequency-current curve to that of a CBM. The two models mostly differ near their respective rheobases, where the first-order HPM lacks bistability and spike latency. We suggest that modifying the frequency-selective element of the HPM may be sufficient to overcome this limitation. These results highlight the potential of the HPM as a fundamental computational primitive in neuromorphic, spike-based technologies.",
-        "venue": "arXiv (Cornell University)",
+        "venue": "arXiv",
         "link": "https://doi.org/10.48550/arxiv.2611.13985",
         "published": "2026-11-10",
         "is_arxiv": true
@@ -120007,7 +120005,7 @@
         "first_author": "Bernd J. Kröger",
         "title": "A Spiking Neural Model of the Mental Lexicon: Representations, Similarity Structure, and Associative Retrieval in Perception and Production",
         "abstract": "A neural account of lexical access requires an explicit distinction between the structure of lexical representations, the associations linking representational levels, and the activity generated during retrieval. This paper specifies a spiking neural implementation of the mental lexicon within the Neural Engineering Framework and Semantic Pointer Architecture. Conceptual and phonological form representations are constructed recursively from relational graphs, whereas lemma representations provide independent lexical identities. The implementation contains 613 lexical entries and supports two directed processing pathways: perception maps a phonological form to its associated concept via a lemma, whereas production maps a concept to its associated phonological form via a lemma. Each pathway combines two associative-memory variants, winner-take-all (WTA) selection (competition) and thresholded transfer, and uses 199,400 leaky integrate-and-fire neurons. We formalize within-level similarity, cross-level associative retrieval, and the interpretation of decoded activity. Simulations show successful retrieval of eight selected words from the lexicon in both processing directions, with retrieval evaluated against all 613 lexical entries. These simulations use complete phonological forms as input for perception and complete concepts as input for production, illustrating lexical retrieval through the corresponding processing pathways. This paper provides a transparent description of lexical representations and neural retrieval mechanisms, supported by accessible code, lexical data, and online simulation documentation.",
-        "venue": "arXiv (Cornell University)",
+        "venue": "arXiv",
         "link": "https://doi.org/10.48550/arxiv.2611.09402",
         "published": "2026-11-06",
         "is_arxiv": true
@@ -120018,7 +120016,7 @@
         "first_author": "Deepak Kumar",
         "title": "Baryon Number Susceptibilities of Hot and Dense Nuclear Matter in Relativistic Mean-Field Models",
         "abstract": "We develop a fully analytical framework for calculating baryon number susceptibilities in relativistic mean-field (RMF) models of hot and dense nuclear matter at finite temperature and baryon chemical potential. The formalism is applied to representative nonlinear RMF parameterization sets to investigate the model dependence of baryon number fluctuations over a wide range of temperatures and baryon chemical potentials. All the considered RMF parameterizations reproduce the overall qualitative beam-energy dependence of the cumulant ratios. The observed skewness and kurtosis within the RMF models satisfy the experimental values. Specifically, the FSU-family parameterizations exhibit relatively small deviations from the measured heavy-ion observables i.e. cumulant ratios.",
-        "venue": "arXiv (Cornell University)",
+        "venue": "arXiv",
         "link": "https://doi.org/10.48550/arxiv.2611.09033",
         "published": "2026-11-06",
         "is_arxiv": true
@@ -121978,7 +121976,7 @@
         "first_author": "STAR Collaboration",
         "title": "Global polarization of $Λ$, $Ξ$, and $Ω$ hyperons in Au+Au collisions from the RHIC Beam Energy Scan-II",
         "abstract": "Global polarization of $Λ$, $Ξ$, and $Ω$ hyperons is measured in Au+Au collisions at $\\sqrt{s_{\\mathrm{NN}}}=7.7$, 9.2, 11.5, 14.6, 17.3, 19.6, and 27~GeV using high-statistics data from the second phase of the RHIC Beam Energy Scan. No significant difference between the $Λ$ and $\\barΛ$ polarizations is observed over the measured collision-energy range, providing improved constraints on magnetic-field-induced contributions. The $Λ$ polarization increases with the magnitude of rapidity, with the slope of the linear fit differing from zero by 4.8 standard deviations, providing the first evidence for a nonzero rapidity dependence of global polarization in this energy range. Global polarization of $Ξ^{-}+\\barΞ^{+}$ is observed for the first time at these energies at a significance exceeding 5 standard deviations, with a magnitude comparable to that of $Λ+\\barΛ$ and an increase toward lower collision energies. Measurements of $Ω^{-}+\\barΩ^{+}$ are compatible with a similar energy dependence and favor the decay parameter $γ_Ω= +1$ with high probability under the assumption of the global polarization picture. These measurements provide new constraints on the energy evolution, rapidity dependence, and species dependence of global polarization in heavy-ion collisions.",
-        "venue": "arXiv (Cornell University)",
+        "venue": "arXiv",
         "link": "https://doi.org/10.48550/arxiv.2611.03044",
         "published": "2026-11-02",
         "is_arxiv": true
@@ -122639,7 +122637,7 @@
         "first_author": "Yunied Puig",
         "title": "A Constructive Orbit-Based Theory of Learnability",
         "abstract": "We develop a finite-dimensional orbit framework for constructing data-adapted dictionaries, sparse realizations, and predictive extensions. The method uses wrapped weighted shifts to generate orbit dictionaries and local interpolation maps from independent orbit representatives, turning the learning problem into three explicit tasks: scaffold discovery, sparse realization on the discovered dictionary, and prediction through learned sparse coordinates. We introduce CCDS as the main constructive ingredient: a deviation-controlled sparse realization procedure that recovers MP/OMP-type behavior at the minimal-deviation boundary while allowing feasible interior paths with prescribed residual geometry that is inaccessible to MP/OMP. We prove generic orbit independence, exact block interpolation with norm control, observable bounds on sparse approximation distortion, sparse realization guarantees on selected supports, and fixed-path stability under admissible perturbations of the block interpolants. These results connect sparse approximation, interpolation, and finite-dimensional operator dynamics through the construction and analysis of data-induced orbit dictionaries. Experiments on synthetic geometry, controlled realization tests, and standard classification benchmarks show that selected orbit scaffolds have substantially better matched-rank projection behavior than random orbit or unstructured alternatives, that CCDS attains near-zero realization error at the minimal-deviation boundary, and that predictors trained from the sparse CCDS certificates give competitive performance.",
-        "venue": "arXiv (Cornell University)",
+        "venue": "arXiv",
         "link": "https://doi.org/10.48550/arxiv.2610.41641",
         "published": "2026-10-30",
         "is_arxiv": true
@@ -122913,6 +122911,53 @@
         "link": "https://arxiv.org/abs/2610.35456v1",
         "published": "2026-10-26T13:54:22Z",
         "is_arxiv": true
+      }
+    ],
+    "Topic: Excitatory Inhibitory": [
+      {
+        "first_author": "Arezoo Alizadeh",
+        "title": "How the layer-dependent ratio of excitatory to inhibitory cells shapes cortical coding in balanced networks",
+        "abstract": "The cerebral cortex exhibits a sophisticated neural architecture across its six layers. Recently, it was found that these layers exhibit different ratios of excitatory to inhibitory (EI) neurons, ranging from 4 to 9. This ratio is a key factor for achieving the often reported balance of excitation and inhibition, a hallmark of cortical computation. Although previous studies have explored various biologically realistic aspects of classical balanced networks, such as the effects of more complex neuronal properties including spike frequency adaptation using adaptive exponential integrate-and-fire (AdEx) neuron models (1), the temporal evolution of randomly connected balanced networks through second-order mean-field approximations (2), predictions of nonlinear dynamics across diverse neuron models ranging from integrate-and-fire to Hodgkin–Huxley formulations, thus bridging population dynamics to neuronal electrophysiology (3), the impact of spatial heterogeneity in balanced networks (4–6), and variations in synaptic timescales (7), the specific effects of differences in excitatory-inhibitory (EI) ratios on layer-specific dynamics and computational properties have, to the best of our knowledge, not yet been addressed. We investigate this question using a sparsely connected network model of excitatory and inhibitory neurons. To keep the network in a physiological range of firing rates, we varied the inhibitory firing threshold or the synaptic strength between excitatory and inhibitory neurons. We find that decreasing the EI ratio allows the network to explore a higher-dimensional space and enhance its capacity to represent complex input. By comparing the empirical EI ratios of layer 2/3 and layer 4 in the rodent barrel cortex, we predict that layer 2/3 has a higher dimensionality and coding capacity than layer 4. Furthermore, our analysis of primary visual cortex data from the Allen Brain Institute corroborates these modeling results, also demonstrating increased dimensionality and coding capabilities of layer 2/3.",
+        "venue": "eLife",
+        "link": "https://doi.org/10.7554/elife.105162.2",
+        "published": "2026-11-19",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Jin Luo",
+        "title": "Ferroelectric FET based Signed Synapses of Excitatory and Inhibitory Connection fo Stochastic Spiking Neural Network based Optimizer",
+        "abstract": "For combinatorial optimization problem (CSP) solving of spiking neural networks (SNNs), both excitatory and inhibitory synaptic connections are necessary for mapping of constraints, along with adaptively-stochastic neuron. In this work, for the first time, a novel ferroelectric FET (FeFET) based signed synapse with only two transistors is proposed and experimentally demonstrated to achieve excitatory and inhibitory connections, enabling cascade circuit with our previous proposed FeFET-based adaptively-stochastic neuron for all ferroelectric SNN optimizer. Based on the proposed design, a stochastic SNN is implemented for fast solving CSPs with accuracy improvement by 200%, providing a promising ultralow-hardware-cost and energy-efficient solution for optimization.",
+        "venue": "",
+        "link": "https://doi.org/10.1109/edtm55494.2023.10102951",
+        "published": "2023-03-07",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Lior Bar",
+        "title": "Excitatory and inhibitory hippocampal neurons differ in their homeostatic adaptation to chronic M-channel modulation",
+        "abstract": "A large body of studies has investigated bidirectional homeostatic plasticity both <i>in vitro</i> and <i>in vivo</i> using numerous pharmacological manipulations of activity or behavioral paradigms. However, these experiments rarely explored in the same cellular system the bidirectionality of the plasticity and simultaneously on excitatory and inhibitory neurons. M-channels are voltage-gated potassium channels that play a crucial role in regulating neuronal excitability and plasticity. In cultured hippocampal excitatory neurons, we previously showed that chronic exposure to the M-channel blocker XE991 leads to adaptative compensations, thereby triggering at different timescales intrinsic and synaptic homeostatic plasticity. This plastic adaptation barely occurs in hippocampal inhibitory neurons. In this study, we examined whether this homeostatic plasticity induced by M-channel inhibition was bidirectional by investigating the acute and chronic effects of the M-channel opener retigabine on hippocampal neuronal excitability. Acute retigabine exposure decreased excitability in both excitatory and inhibitory neurons. Chronic retigabine treatment triggered in excitatory neurons homeostatic adaptation of the threshold current and spontaneous firing rate at a time scale of 4-24 h. These plastic changes were accompanied by a substantial decrease in the M-current density and by a small, though significant, proximal relocation of Kv7.3-FGF14 segment along the axon initial segment. Thus, bidirectional homeostatic changes were observed in excitatory neurons though not symmetric in kinetics and mechanisms. Contrastingly, in inhibitory neurons, the compensatory changes in intrinsic excitability barely occurred after 48 h, while no homeostatic normalization of the spontaneous firing rate was observed. Our results indicate that excitatory and inhibitory hippocampal neurons differ in their adaptation to chronic alterations in neuronal excitability induced by M-channel bidirectional modulation.",
+        "venue": "Frontiers in Molecular Neuroscience",
+        "link": "https://doi.org/10.3389/fnmol.2022.972023",
+        "published": "2022-10-14",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Alessandro Ingrosso",
+        "title": "Optimal learning with excitatory and inhibitory synapses",
+        "abstract": "Characterizing the relation between weight structure and input/output statistics is fundamental for understanding the computational capabilities of neural circuits. In this work, I study the problem of storing associations between analog signals in the presence of correlations, using methods from statistical mechanics. I characterize the typical learning performance in terms of the power spectrum of random input and output processes. I show that optimal synaptic weight configurations reach a capacity of 0.5 for any fraction of excitatory to inhibitory weights and have a peculiar synaptic distribution with a finite fraction of silent synapses. I further provide a link between typical learning performance and principal components analysis in single cases. These results may shed light on the synaptic profile of brain circuits, such as cerebellar structures, that are thought to engage in processing time-dependent signals and performing on-line prediction.",
+        "venue": "PLoS Computational Biology",
+        "link": "https://doi.org/10.1371/journal.pcbi.1008536",
+        "published": "2020-12-28",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Jiaxing Wu",
+        "title": "Network and cellular mechanisms underlying heterogeneous excitatory/inhibitory balanced states",
+        "abstract": "Recent work has explored spatiotemporal relationships between excitatory (E) and inhibitory (I) signaling within neural networks, and the effect of these relationships on network activity patterns. Data from these studies have indicated that excitation and inhibition are maintained at a similar level across long time periods and that excitatory and inhibitory currents may be tightly synchronized. Disruption of this balance-leading to an aberrant E/I ratio-is implicated in various brain pathologies. However, a thorough characterization of the relationship between E and I currents in experimental settings is largely impossible, due to their tight regulation at multiple cellular and network levels. Here, we use biophysical neural network models to investigate the emergence and properties of balanced states by heterogeneous mechanisms. Our results show that a network can homeostatically regulate the E/I ratio through interactions among multiple cellular and network factors, including average firing rates, synaptic weights and average neural depolarization levels in excitatory/inhibitory populations. Complex and competing interactions between firing rates and depolarization levels allow these factors to alternately dominate network dynamics in different synaptic weight regimes. This leads to the emergence of distinct mechanisms responsible for determining a balanced state and its dynamical correlate. Our analysis provides a comprehensive picture of how E/I ratio changes when manipulating specific network properties, and identifies the mechanisms regulating E/I balance. These results provide a framework to explain the diverse, and in some cases, contradictory experimental observations on the E/I state in different brain states and conditions.",
+        "venue": "European Journal of Neuroscience",
+        "link": "https://doi.org/10.1111/ejn.14669",
+        "published": "2020-01-05",
+        "is_arxiv": false
       }
     ],
     "Topic: Endothelial Cell": [
