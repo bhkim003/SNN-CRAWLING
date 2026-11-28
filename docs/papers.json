@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-27T00:27:48.614250+00:00",
+  "generated_at_utc": "2026-11-28T00:26:10.711829+00:00",
   "sources": [
     "OpenAlex",
     "arXiv"
   ],
-  "total_papers": 30635,
+  "total_papers": 30645,
   "categories": {
     "LLM": [
       {
@@ -30020,15 +30020,6 @@
         "link": "https://doi.org/10.1111/cns.14638",
         "published": "2024-03-01",
         "is_arxiv": false
-      },
-      {
-        "first_author": "Wenjie Wei",
-        "title": "Event-Driven Learning for Spiking Neural Networks",
-        "abstract": "Brain-inspired spiking neural networks (SNNs) have gained prominence in the field of neuromorphic computing owing to their low energy consumption during feedforward inference on neuromorphic hardware. However, it remains an open challenge how to effectively benefit from the sparse event-driven property of SNNs to minimize backpropagation learning costs. In this paper, we conduct a comprehensive examination of the existing event-driven learning algorithms, reveal their limitations, and propose novel solutions to overcome them. Specifically, we introduce two novel event-driven learning methods: the spike-timing-dependent event-driven (STD-ED) and membrane-potential-dependent event-driven (MPD-ED) algorithms. These proposed algorithms leverage precise neuronal spike timing and membrane potential, respectively, for effective learning. The two methods are extensively evaluated on static and neuromorphic datasets to confirm their superior performance. They outperform existing event-driven counterparts by up to 2.51% for STD-ED and 6.79% for MPD-ED on the CIFAR-100 dataset. In addition, we theoretically and experimentally validate the energy efficiency of our methods on neuromorphic hardware. On-chip learning experiments achieved a remarkable 30-fold reduction in energy consumption over time-step-based surrogate gradient methods. The demonstrated efficiency and efficacy of the proposed event-driven learning methods emphasize their potential to significantly advance the fields of neuromorphic computing, offering promising avenues for energy-efficiency applications.",
-        "venue": "arXiv (Cornell University)",
-        "link": "https://doi.org/10.48550/arxiv.2403.00270",
-        "published": "2024-03-01",
-        "is_arxiv": true
       },
       {
         "first_author": "Ugurcan Cakal",
@@ -60292,7 +60283,7 @@
       {
         "first_author": "Xingchen Yang",
         "title": "Multidimensional motor unit control after paralysing spinal cord injury using non-invasive recordings",
-        "abstract": "Spinal cord injury results in profound motor impairment, which affects approximately 20 million people worldwide. Regaining hand use is one of their highest priorities. Interestingly, even severely affected individuals can still use spared connections to generate detectable activity (measured with electromyography) in their paralysed muscles when attempting to perform a movement. Here we asked whether participants with no hand function due to a cervical spinal cord injury could still control the activity of motor units from paralysed muscles, which we detected using high-density surface electromyographic recordings. Participants could readily control their motor units to accurately perform three different one-dimensional tracking tasks that imposed different control requirements, with performance plateauing after a few days of practice. Moreover, this accurate control readily transferred to a two-dimensional cursor navigation task, allowing participants to play a series of one-dimensional (‘Pong’) and two-dimensional (‘Snake’) games and to navigate a virtual wheelchair using three independent control signals. This robust performance was achieved despite the presence of spasticity, and even in one participant who had a motor complete injury. These findings demonstrate the promise of non-invasive motor unit recordings for restoring hand function and suggest potential avenues for rehabilitation after paralysis.",
+        "abstract": "Spinal cord injury results in profound motor impairment, which affects approximately 20 million people worldwide. Regaining hand use is one of their highest priorities. Interestingly, even severely affected individuals can still use spared connections to generate detectable activity (measured with electromyography) in their paralysed muscles when attempting to perform a movement. Here we asked whether participants with no hand function due to a cervical spinal cord injury could still control the activity of motor units from paralysed muscles, which we detected using high-density surface electromyographic recordings. Participants could readily control their motor units to accurately perform three different one-dimensional tracking tasks that imposed different control requirements, with performance plateauing after a few days of practice. Moreover, this accurate control readily transferred to a two-dimensional cursor navigation task, allowing participants to play a series of one-dimensional ('Pong') and two-dimensional ('Snake') games and to navigate a virtual wheelchair using three independent control signals. This robust performance was achieved despite the presence of spasticity, and even in one participant who had a motor complete injury. These findings demonstrate the promise of non-invasive motor unit recordings for restoring hand function and suggest potential avenues for rehabilitation after paralysis.",
         "venue": "Nature Human Behaviour",
         "link": "https://doi.org/10.1038/s41562-026-02626-x",
         "published": "2026-11-25",
@@ -81665,6 +81656,15 @@
       }
     ],
     "Medical Diagnosis": [
+      {
+        "first_author": "Guolin Huang",
+        "title": "SurvAgent: Hierarchical CoT-Enhanced Case Banking and Dichotomy-Based Multi-Agent System for Multimodal Survival Prediction",
+        "abstract": "Survival analysis is critical for cancer prognosis and treatment planning, yet existing methods lack the transparency essential for clinical adoption. While recent pathology agents have demonstrated explainability in diagnostic tasks, they face three limitations for survival prediction: inability to integrate multimodal data, ineffective region-of-interest (ROI) exploration, and failure to leverage experiential learning from historical cases. We introduce øurs, the first hierarchical chain-of-thought (CoT)-enhanced multi-agent system for multimodal survival prediction. øurs~consists of two stages: (1) WSI-Gene CoT-Enhanced Case Bank Construction employs hierarchical analysis through Low-Magnification Screening, Cross-Modal Similarity-Aware Patch Mining, and Confidence-Aware Patch Mining for pathology images to effectively explore WSI ROI, while Gene-Stratified analysis processes six functional gene categories. Both branches generate structured reports with CoT reasoning, storing complete analytical processes for experiential learning. (2) Dichotomy-Based Multi-Expert Agent Inference retrieves similar cases via RAG and integrates multimodal reports with expert predictions through progressive interval refinement. Extensive experiments on five TCGA cohorts demonstrate øurs's superiority over conventional methods, proprietary MLLMs, and medical agents, establishing a new paradigm for explainable AI-driven survival prediction in precision oncology. Source code is released at https://github.com/hotdogisme/SurvAgent.",
+        "venue": "ACM International Conference on Multimedia (ACM MM)",
+        "link": "https://doi.org/10.1145/3767308.3835399",
+        "published": "2026-11-09",
+        "is_arxiv": false
+      },
       {
         "first_author": "Jiao Cao",
         "title": "Decoder-FFPE-seq enables sensitive, genome-wide spatial transcriptomics of archival tissues at single-cell resolution",
@@ -114492,6 +114492,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Amplitude-Level Nlo": [
+      {
+        "first_author": "Xi-Jie Zhan",
+        "title": "Amplitude-level NLO predictions for exclusive J / ψ + γ production in ultraperipheral collisions",
+        "abstract": "Exclusive γγ → J / ψ + γ production is studied in the color-singlet channel at leading order in the heavy-quark velocity. The conventional fixed-order next-to-leading-order (NLO) result B + V, comprising Born production and its interference with the renormalized one-loop amplitude, is compared with the amplitude-level NLO result B + V + Q, defined as the full squared modulus of the Born-plus-renormalized-one-loop amplitude. At photon-photon energies W = 80 GeV and 160 GeV, the conventional spectrum becomes negative over finite high-pT intervals already at renormalization scale μ R = W, whereas the amplitude-level result remains non-negative. For p - p collisions at 14 TeV and P b - P b collisions at √ s NN = 5.52 TeV, Q raises the central integrated ultraperipheral rates by 11.6%–18.4%. The amplitude-level prediction reduces their renormalization-scale variation over μ R = { W /2, W, 2 W } by 36%–67% relative to conventional NLO. This numerical reduction does not extend to every differential point and does not by itself establish improved perturbative convergence. Including Q changes both the predicted integrated rates and the shapes of the differential distributions.",
+        "venue": "Chinese Physics Letters",
+        "link": "https://doi.org/10.1088/0256-307x/44/1/010201",
+        "published": "2026-11-26",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Neutron Skin": [
       {
         "first_author": "Hui Zhang",
@@ -114539,6 +114550,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Biology Quantum": [
+      {
+        "first_author": "Lea Gassab",
+        "title": "Quantum in biology, quantum for biology, and biology for quantum: mapping the evidence and the road ahead",
+        "abstract": "Quantum science and biology now intersect in three complementary directions: quantum in biology, quantum for biology, and biology for quantum. This review provides a structured narrative evidence map of that interface rather than an exhaustive catalogue or formal systematic review. For each topic, we ask what the mechanistic or technological claim is, which quantum resource is invoked, what the strongest experiments and models establish, which classical alternatives or engineering confounds remain competitive, and which tests or benchmarks would most strongly change confidence. A compact mathematical framework relates Hamiltonian couplings, environmental decoherence, barrier penetration, spin-dependent reaction yields, and matched perturbations to biological observables. The most mature quantum-in-biology cases remain mechanistically constrained tunneling in some enzymatic hydrogen-transfer reactions and radical-pair spin chemistry as a viable framework for magnetoreception, whereas several higher-visibility topics remain suggestive but unresolved under physiological conditions. In quantum for biology, the central issue is whether quantum-enabled tools improve biological inference relative to strong classical baselines under realistic calibration, dose, throughput, and uncertainty constraints. In biology for quantum, the strongest claims arise when biomolecular structure or self-assembly measurably improves fabrication, integration, or robustness in quantum devices. Summary tables in the Appendix provide a compact cross-map view of the current evidence, major confounds, and the experiments or benchmarks most likely to discriminate between competing explanations.",
+        "venue": "Advances in Physics X",
+        "link": "https://doi.org/10.1080/23746149.2026.2753868",
+        "published": "2026-11-25",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Theory Phonon Angular": [
       {
         "first_author": "Mamoru Matsuo",
@@ -114547,6 +114569,377 @@
         "venue": "Physical review. B./Physical review. B",
         "link": "https://doi.org/10.1103/8x1s-w1zt",
         "published": "2026-11-25",
+        "is_arxiv": false
+      }
+    ],
+    "Etc": [
+      {
+        "first_author": "Wenjie Wei",
+        "title": "Event-driven learning for spiking neural networks",
+        "abstract": "",
+        "venue": "Science China Information Sciences",
+        "link": "https://doi.org/10.1007/s11432-025-5176-6",
+        "published": "2026-11-24",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Bijaya Prasad Mishra",
+        "title": "मधसम नपल कङगरस",
+        "abstract": "नेपाली काङ्ग्रेसले आन्दोलनको सुरुवात मधेसबाट गरेको थियो । मधेसमा नेपाली काङ्ग्रेसले पार्टीको महाधिवेशनदेखि सशस्त्र भूमिगत आन्दोलन र सत्याग्रह गरेका छन् । राणा राजा र पञ्चायतको विरुद्धमा नेपाली काङ्ग्रेसले गरेका आन्दोलनको पलपलमा मधेस र मधेसीको साथ सहयोग रहदै आएको छ । मधेसको योगदानलाई कदर गर्दै रामनारायण मिश्र, परशुनारायण चौधरी, महेन्द्र नारायण निधी, डा. रामबरण यादवलाई काङ्ग्रेसले महामन्त्रीसम्म बनाएको थियो । विभिन्न पदाधिकारी र केन्द्रीय सदस्य भएका मधेसमूलकाहरूमा विजयकुमार गच्छदार, विमलेन्द्र निधी, महन्थ ठाकुर, चित्रलेखा यादव र सीतादेवी यादव, सूर्यनाथ दास यादव, राधाकृष्ण थारु र देवनाथदास यादव, शेख इद्रिसलगायतको नाम आउँछ । पछिल्लो समय नेपाली काङ्ग्रेसले आफ्नो विधानमा समावेशीको अवधारणा ल्याएपछि मधेसीमूल र थारुहरूबाट तोकिएकै सङ्ख्यामा केन्द्रीय सदस्यहरू भएका थिए । नेपाली काङ्ग्रेसले नेपालमा प्रजातन्त्र ल्याउनका लागि वि.सं. २००७ साल, वि.सं. २०१८ साल र वि.सं. २०३१ सालमा गरेको सशस्त्र आन्दोलनमा सहभागी भएर मधेसमूलका धेरैले शहादत प्राप्त गरेका थिए । राणाशासनविरुद्ध गिरिजाप्रसाद कोइरालाको नेतृत्वमा विराटनगरको जुल मिलमा सञ्चालन भएको मजदुर आन्दोलनलाई हौसला दिन आएका भारतीय नागरिक कुलदीप झा शहीद भएदेखि मधेसमूलका मानिसहरूले बलिदानी दिन सुरु गरेका थिए । राजा महेन्द्रलाई जनकपुरमा बम हानेका दुर्गानन्द झालाई २०२० माघ १५ गते फाँसी दिएका थिए । नेपाली काङ्ग्रेसले आह्वान गरेको जुनसुकै आन्दोलनमा मधेसमूलकाहरू सहभागी भएर सशादत प्राप्त गरेका थिए । नेपाली काङ्ग्रेसका लागि मधेसबाट धेरै शहीद भए । नेपाली काङ्ग्रेसलेसमेत मधेसीमूलका नेतालाई सांसद, मन्त्री, उपप्रधानमन्त्री र प्रथम राष्ट्रपतिसमेत बनाएको छ तर पनि मधेसका नेपाली काङ्ग्रेसका नेता, कार्यकर्ता र समर्थकहरूले मधेसले गरेको योगदानका आधारमा अवसरहरू नपाएको बताइरहेका छन् ।",
+        "venue": "Four Star Multidisciplinary Research Journal",
+        "link": "https://doi.org/10.3126/fsmrj.v1i1.87265",
+        "published": "2025-12-11",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "M. N. Hoda",
+        "title": "Editorial",
+        "abstract": "",
+        "venue": "International Journal of Information Technology",
+        "link": "https://doi.org/10.1007/s41870-025-02880-8",
+        "published": "2025-11-10",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Ole Petter Askheim",
+        "title": "Innledning",
+        "abstract": "",
+        "venue": "",
+        "link": "https://doi.org/10.23865/cdf.266.ch1",
+        "published": "2025-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Ю.И. Юдин",
+        "title": "Коррекция математической модели движения судна с помощью обученной нейросети",
+        "abstract": "Аппарат нейронных сетей используется для корректировки математической модели движения судна. Модель судна создана, т.е. традиционными средствами определены её параметры. Результаты симуляций маневрирования судна с использованием полученной модели показывают, что они не в полной мере соответствуют результатам аналогичных манёвров, выполненных при проведении натурных испытаний судна. Выполнена коррекция математической модели судна с использованием аппарата нейронных сетей. Обучающий нейронную сеть набор данных получен путём случайных вариаций параметров математической модели с последующими симуляциями маневрирования судна до получения необходимых значений параметров его поворотливости. При этом параметрами поворотливости считаются основные параметры циркуляции и манёвра «Зиг-Заг». В программной среде Statistica Neural Nets (SNN) произведено обучение нейронной сети на 500-а наборах указанных данных с использованием интеллектуального решателя проблем, встроенного в среду SNN. В процессе обучения нейронной сети входными переменными являются параметры поворотливости, полученные в результате симуляций манёвров с использованием математической модели судна, выходными – параметры модели. Обученная таким образом нейронная сеть позволяет по заданным параметрам поворотливости, полученными в процессе проведения натурных испытаний судна, определять совокупность параметров его математической модели. Если нам необходимо так скорректировать модель, чтобы она соответствовала изменившимся параметрам поворотливости, то введя их значения в качестве входных данных в уже обученную нейронную сеть, мы получим совокупность соответствующих значений параметров модели. Рассмотрена наиболее полная математическая модель в перемещениях, в которой количество параметров установлено равным 19-ти. Увеличено также число параметров поворотливости, которые используются в качестве входных переменных нейронной сети. Например, кроме значений кинематических параметров движения судна, соответствующих установившемуся периоду циркуляции (радиуса циркуляции, линейная скорости, угол дрейфа, угловая скорость), дополнительно введены значения времени в моменты поворота судна на 90, 180, 270 и 360 градусов, а также соответствующие указанным моментам времени координаты центра тяжести судна. С помощью указанных параметров циркуляции, используемых в качестве входных в нейронную сеть, после её обучения получены уточненные параметры математической модели движения судна как выходные переменные сети. Сделано ряд выводов о применимости настоящего подхода и степени его эффективности. The neural network apparatus is used to adjust the mathematical model of the vessel's movement. The ship model has been created, i.e. its parameters are determined by traditional means. The results of simulations of vessel maneuvering using the resulting model show that they do not fully correspond to the results of similar maneuvers performed during full-scale testing of the vessel. The mathematical model of the vessel was corrected using neural networks. The dataset training the neural network was obtained by random variations of the parameters of the mathematical model, followed by simulations of the vessel’s maneuvering until the required values ​​of its agility parameters are obtained. In this case, the parameters of agility are considered to be the main parameters of circulation and the “Zig-Zag” maneuver. In the Statistica Neural Nets (SNN) software environment, a neural network was trained on 500 sets of specified data using an intelligent problem solver built into the SNN environment. In the process of training a neural network, the input variables are the agility parameters obtained as a result of maneuver simulations using a mathematical model of the vessel, and the output variables are the model parameters. A neural network trained in this way makes it possible to determine the set of parameters of its mathematical model based on the given parameters of agility obtained during full-scale testing of the vessel. If we need to adjust the model so that it corresponds to the changed agility parameters, then by entering their values as input data into an already trained neural network, we will obtain a set of corresponding values of the model parameters. The most complete mathematical model in displacements is considered, in which the number of parameters is set to 19. The number of agility parameters that are used as input variables to the neural network has also been increased. For example, in addition to the values of the kinematic parameters of the vessel’s movement corresponding to the steady-state period of circulation (circulation radius, linear speed, drift angle, angular velocity), the time values at the moments of the ship’s turn by 90, 180, 270 and 360 degrees, as well as those corresponding to the specified moments, are additionally entered time coordinates of the vessel's center of gravity. Using the specified circulation parameters used as input to the neural network, after training it, refined parameters of the mathematical model of the vessel's movement were obtained as output variables of the network. A number of conclusions have been made about the applicability of this approach and the degree of its effectiveness.",
+        "venue": "МОРСКИЕ ИНТЕЛЛЕКТУАЛЬНЫЕ ТЕХНОЛОГИИ",
+        "link": "https://doi.org/10.37220/mit.2024.66.4.003",
+        "published": "2024-11-27",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Анисимова Э.С.",
+        "title": "Разработка и исследование программной системы биометрической аутентификации пользователя по динамике рукописной подписи с использованием нечетких признаков",
+        "abstract": "Сложность надежной биометрической аутентификации пользователя по динамике рукописных подписей обусловлена их высокой внутриклассовой вариативностью, связанной с изменениями физического и эмоционального состояния человека, а также условий написания. Существующие подходы не всегда обеспечивают достаточную точность и устойчивость к этим вариациям. Данная работа посвящена исследованию и разработке программной системы биометрической аутентификации, использующей аппарат теории нечетких множеств для повышения надежности распознавания. В работе предложена оригинальная признаковая модель динамической рукописной подписи, включающая набор статических и динамических признаков, в том числе нечеткие, учитывающие неопределенность и вариативность почерка. В качестве эталона подписи используется совокупность функций принадлежности, построенных на основе компонентов признаковой модели. Предложена архитектура системы распознавания, состоящая из подсистем обучения, создания модели тестовой подписи и принятия решения о подлинности. Разработана программная система, реализующая предложенный подход, с использованием математического пакета SciLab и языка программирования C++. Система предоставляет функционал регистрации пользователей и формирования обучающей выборки на основе подписей, введенных с помощью графического планшета, а также распознавание тестовых подписей. Экспериментальное исследование проведено на базе коллекции подписей MCYT Signature 100. В ходе исследования экспериментально определено оптимальное значение степени компактности кластера для построения функций принадлежности признаков, минимизирующее коэффициент равного уровня ошибок. Результаты экспериментов демонстрируют снижение коэффициента равного уровня ошибок по сравнению с известными методами, что свидетельствует об эффективности предложенного подхода. Применение нечетких признаков способствует повышению устойчивости системы к вариациям в подписях и, как следствие, повышению надежности биометрической аутентификации в различных приложениях, требующих подтверждения личности. Результаты исследования могут быть использованы для повышения безопасности систем аутентификации и защиты конфиденциальной информации. The complexity of reliable biometric user authentication based on the dynamics of handwritten signatures is due to their high intra-class variability associated with changes in the physical and emotional state of a person, as well as writing conditions. Existing approaches do not always provide sufficient accuracy and resistance to these variations. This work is devoted to the study and development of a software system for biometric authentication using the apparatus of fuzzy set theory to improve the reliability of recognition. In this work, we proposed an original feature model of a dynamic handwritten signature, including a set of static and dynamic features, including fuzzy ones, taking into account the uncertainty and variability of handwriting. As a signature standard, we used a set of membership functions built on the basis of the components of the feature model. We proposed an architecture of the recognition system consisting of training subsystems, creating a test signature model, and making a decision on authenticity. We developed a software system that implements the proposed approach using the SciLab mathematical package and the C++ programming language. The system provides the functionality of user registration and formation of a training sample based on signatures entered using a graphic tablet, as well as recognition of test signatures. We conducted an experimental study based on the MCYT Signature 100 signature collection. During the study, we experimentally determined the optimal value of the cluster compactness degree for constructing feature membership functions that minimizes the equal error rate coefficient. The experimental results demonstrate a decrease in the equal error rate coefficient compared to known methods, which indicates the effectiveness of the proposed approach. The use of fuzzy features helps to increase the system's resistance to variations in signatures and, as a result, increase the reliability of biometric authentication in various applications that require identity verification. The results of the study can be used to improve the security of authentication systems and protect confidential information.",
+        "venue": "Modelirovanie, optimizaciâ i informacionnye tehnologii.",
+        "link": "https://doi.org/10.26102/2310-6018/2024.47.4.027",
+        "published": "2024-10-08",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Silje Haugen Warberg",
+        "title": "Følelsesfremmede",
+        "abstract": "",
+        "venue": "",
+        "link": "https://doi.org/10.62342/sap.oa.2020",
+        "published": "2024-09-10",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Shuaijie Shen",
+        "title": "Evolutionary spiking neural networks: a survey",
+        "abstract": "",
+        "venue": "Journal of Membrane Computing",
+        "link": "https://doi.org/10.1007/s41965-024-00156-x",
+        "published": "2024-06-17",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Alexander Rast",
+        "title": "Efficient learning in spiking neural networks",
+        "abstract": "",
+        "venue": "Neurocomputing",
+        "link": "https://doi.org/10.1016/j.neucom.2024.127962",
+        "published": "2024-06-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Rasha Karakchi",
+        "title": "Towards a Scalable Spiking Neural Network",
+        "abstract": "",
+        "venue": "Lecture notes in networks and systems",
+        "link": "https://doi.org/10.1007/978-3-031-56950-0_44",
+        "published": "2024-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "А.А. Белоусов",
+        "title": "Применения нейроморфных систем (спайковых нейронных систем) при инкриминировании уголовно – правовых норм",
+        "abstract": "В настоящее время в научной среде наблюдается рост внимания к искусственному интеллекту в силу того, что он может значительно упростить жизнь людей, выполняя при этом все рутинные задачи. Данную технологию и работу ИИ в этом направлении уже было рассмотрено многими учеными в области уголовного права, в связи с чем авторами было принято решение провести исследование о возможности применения нейроморфных систем в данной отрасли. Для того, чтобы полноценно провести данное исследование необходимо было разобраться с тем, что является спайковой сетью, почему ее называют еще нейроморфной сетью; далее следовало бы рассмотреть процесс генерации спайка, поскольку это в дальнейшем поможет при ответе на вопрос о применении данной системы в лечении зависимостей у людей; также из-за значительного числа камер в городах было предпринято рассмотреть возможность спайковых сетей при раскрытии преступлений и инкриминировании уголовно – правовых норм, используя данные полученные с камер видеонаблюдения и т.д.",
+        "venue": "ТЕНДЕНЦИИ РАЗВИТИЯ НАУКИ И ОБРАЗОВАНИЯ",
+        "link": "https://doi.org/10.18411/trnio-01-2024-271",
+        "published": "2024-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Тетяна Решетняк",
+        "title": "ДІАГНОСТИКА ФІНАНСОВОГО СТАНУ МАШИНОБУДІВНОГО ПІДПРИЄМСТВА НА ОСНОВІ ВИКОРИСТАННЯ НЕЙРОМЕРЕЖЕВОГО МОДЕЛЮВАННЯ",
+        "abstract": "Метою роботи є проведення діагностики рівня фінансового стану машинобудівного підприємства за допомогою застосування нейромережевого підходу та надання прогнозу його рівня на майбутнє. У статті підкреслено важливість проведення діагностики фінансового стану підприємств України в сучасних умовах. Розглянуто методи традиційного фінансового аналізу. Підкреслено необхідність використання моделювання для підвищення якості й точності аналізу. Проведено аналіз існуючих моделей оцінки фінансового стану та банкрутства підприємств. Розглянуті різні типи моделей, що були розроблені вітчизняними й закордонними авторами: моделі, побудовані на основі багатофакторного дискримінантного аналізу, на базі методів нечіткої логіки та інші. Обґрунтовано використання нейромережевого моделювання для оцінки фінансового стану. Побудовано нейромережеву модель діагностики фінансового стану на основі фінансових даних машинобудівного підприємства. Для скорочення простору вхідних даних було запропоновано використання методу «центру тяжіння», за допомогою якого кількість вхідних змінних моделі було зменшено до п’яти. За допомогою потужного інструменту проведення нейромережевого моделювання (SSN) була побудована модель на базі багатошарового персептрону. Нейромережа була навчена методом Back Propagation. За допомогою моделі зроблено оцінку фінансового стану машинобудівного підприємства ПрАТ НКМЗ на 10 майбутніх періодів. Запропонований метод діагностики фінансового стану дозволить керівництву машинобудівного підприємства передбачити настання кризового стану та розробити план фінансового оздоровлення.",
+        "venue": "Financial and credit activity problems of theory and practice",
+        "link": "https://doi.org/10.55643/fcaptp.6.53.2023.4224",
+        "published": "2023-12-30",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Alessandro Bile",
+        "title": "Solitonic Neural Networks",
+        "abstract": "",
+        "venue": "Machine intelligence for materials science",
+        "link": "https://doi.org/10.1007/978-3-031-48655-5",
+        "published": "2023-12-21",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "G. William Chapman",
+        "title": "Predictive learning by a burst-dependent learning rule",
+        "abstract": "",
+        "venue": "Neurobiology of Learning and Memory",
+        "link": "https://doi.org/10.1016/j.nlm.2023.107826",
+        "published": "2023-09-09",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "П.П. ТРОХИМЧУК",
+        "title": "ДЕЯКІ ПИТАННЯ СИНТЕЗУ В КІБЕРНЕТИЦІ ТА ІНФОРМАТИЦI",
+        "abstract": "Проаналізовано проблему синтезу в інформатиці, зокрема в кібернетиці, штучному інтелекті та системному аналізі. Обговорюються основні методи реалізації цієї проблеми. Представлено шляхи пошуку універсального методу створення універсальної синтетичної науки. Як приклад такого універсального методу наведено поліметричний аналіз. Представлено короткий класифікаційний метод синтезу. Основними методами синтезу є дедуктивний, дедуктивно-індуктивний, індуктивний і прагматичний. Аналізуються перспективи подальшого розвитку цього дослідження, в тому числі застосування поліметричного методу для вирішення основних проблем інформатики. Дедуктивні методи використовуються для створення узагальнюючих теорій або теорій всього. Для створення цих теорій було сформульовано шість критеріїв. Дедуктивно-індуктивний метод – чотири правила висновку Ньютона у фізиці. Цей метод дозволяє створювати класичну механіку, логічні типи Б. Рассела та ін. Індуктивні методи використовують для отримання індуктивних узагальнених законів як теорема Шеннона. Прагматичні методи використовують для створення систем, необхідних для перерозв'язання конкретних завдань, наприклад, створення якогось блоку для вирішення конкретної практичної задачі. Цей метод часто використовується в техніці або в сфері людської діяльності, де вже є багато розробок і їх часто потрібно поєднувати з розробками в інших суміжних галузях. У програмуванні прикладом прагматичного синтезу є мова програмування Python, яка включає елементи попередніх мов програмування. Межі між цими чотирма видами синтезу іноді досить умовні. Сучасним прикладом дедуктивно-індуктивного синтезу є концепція сильного штучного інтелекту Владислава Дорофєєва. Сама кібернетика також є синтезом різних наук. Але синтез у сенсі Джорджа індуктивний, а в сенсі поліметричного аналізу – дедуктивний.",
+        "venue": "Applied Questions of Mathematical Modeling",
+        "link": "https://doi.org/10.32782/mathematical-modelling/2022-5-2-10",
+        "published": "2023-06-09",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Saad Mofleh Hammoud Sweileh",
+        "title": "دور أنظمة الذكاء الاصطناعي في مكافحة الشائعات الإلكترونية",
+        "abstract": "تتطلب مكافحة الشائعات عبر الإنترنت تكاتف الجهود وتحمل الأطراف المختلفة مسئولياتها في إطار من مفاهيم التصحيح السريع والانفتاح والتواصل التي ترسخ بيئة أقل قابلية لانتشار الشائعات والأخبار المزيفة وجرائم التزييف العميق؛ حيث أدَّت الطبيعة المنتشرة في كل مكان لمنصات التواصل الاجتماعي إلى وجود كمية كبيرة من بيانات الوسائط المتعددة، وصولاً إلى 4.9 مليارات مستخدم حول العالم، ومن خلال استخدام تقنيات الذكاء الاصطناعي يتم التلاعب بالوعي العام والترويج لأفكار ومعلومات مزيفة، وجاءت أهمية البحث في التعرف على مصادر الحروب النفسية والشائعات عبر بيئة الإنترنت والفضاء الإلكتروني وآليات عملها في نشر الأخبار السيئة والإضرار بالمجتمعات ومخاطر الكتائب الإلكترونية، وتم الاستعانة بالمنهج الوصفي التحليلي لعلاج مشكلة الشائعات الإلكترونية، وتوصلت النتائج إلى أن الشائعات والأكاذيب تمثل إحدى أدوات حروب الجيل الخامس عبر منصات التواصل الاجتماعي، وأصبحت في منزلة معلوماتية قوية ومؤثرة، وأصبحت وسيلة الاتصال المؤثرة في الأحداث اليومية، ولديها مخاطر على الأمن القومي، وجاءت أهم التوصيات باستخدام تطبيقات الذكاء الاصطناعي في تطوير مكافحة نشر الشائعات ومواجهة البوستات والمنشورات السيئة باستخدام (التعلم الآلي، والشبكات العصبية، والخوارزميات، وتحليل المعلومات)، وكذا تطوير إستراتيجيات أجهزة الإعلام الأمني بالجهاز الأمني ودعم إستراتيجيات الوعى ضد المخاطر داخل المجتمعات",
+        "venue": "ARAB JOURNAL FOR SECURITY STUDIES",
+        "link": "https://doi.org/10.26735/qfpp7610",
+        "published": "2023-05-29",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Limiao Ning",
+        "title": "Event-driven spiking neural networks with spike-based learning",
+        "abstract": "",
+        "venue": "Memetic Computing",
+        "link": "https://doi.org/10.1007/s12293-023-00391-2",
+        "published": "2023-05-18",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "С. О. Сідченко",
+        "title": "Основні тренди інформаційної кампанії Російської Федерації проти України на початку 2023 року",
+        "abstract": "У статті висвітлені основні тренди інформаційної кампанії Російської Федерації (РФ) проти України з початку 2023 року, зміни в цілях, пріоритетах та наративах російської пропаганди, пов’язані з новим етапом війни. Відмічається, що інформаційна кампанія РФ проти України втратила цілісний характер та почала проводитися шляхом різноспрямованих інформаційних (психологічних) операцій відповідно до поточної ситуації. Головним трендом інформаційної кампанії РФ проти України з початку 2023 року став новий великий наступ на Україну і підготовка населення РФ до довготривалої війни. Одним із завдань, що вирішуються в ході даного етапу інформаційної кампанії РФ, є інформаційне забезпечення проведення другої хвилі мобілізації як складової нового вирішального наступу. Іншим трендом інформаційної кампанії РФ проти України є дискредитація вищого військово-політичного керівництва України з метою посіяти невпевненість в оборонних можливостях нашої держави. У статті проаналізовані ставлення громадян РФ та України до СРСР та підтримка населенням РФ війни в Україні і російської влади за результатами опитування “Левада-центру”. Відмічається, що для дискредитації Збройних Сил (ЗС) України та блокування поставок зброї українським військам Росія активно використовує іноземних агентів впливу у Європі. Наведені приклади маніпуляцій цільовою аудиторією і розповсюдження фейкової інформації щодо значного перебільшення втрат особового складу і озброєння ЗС України. Наведені фейкові дані низки інтернет-видань, що демонструють зменшені у 5,4–6,2 рази втрати російських збройних сил. Відмічається активізація в інформаційному просторі України різноманітних астрологів, тарологів та інших подібних фахівців, які формують хибне уявлення щодо реального перебігу подій на полі бою і наближення військової поразки РФ. Відмічається, що РФ проводить інформаційну (психологічну) операцію, спрямовану проти українських біженців, які шукають захисту в Європі. Проаналізовані дані щодо дестабілізації РФ суспільно-політичної обстановки в Молдові. Представлені інформаційні заходи в РФ з нагоди річниці вторгнення до України.",
+        "venue": "Наука і техніка Повітряних Сил Збройних Сил України",
+        "link": "https://doi.org/10.30748/nitps.2023.50.13",
+        "published": "2023-05-12",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Zexiang Yi",
+        "title": "Learning rules in spiking neural networks: A survey",
+        "abstract": "",
+        "venue": "Neurocomputing",
+        "link": "https://doi.org/10.1016/j.neucom.2023.02.026",
+        "published": "2023-02-16",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Lazaros Iliadis",
+        "title": "Artificial Neural Networks and Machine Learning – ICANN 2023",
+        "abstract": "",
+        "venue": "Lecture notes in computer science",
+        "link": "https://doi.org/10.1007/978-3-031-44198-1",
+        "published": "2023-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "陈蓓 Chen Bei",
+        "title": "光学神经网络及其应用",
+        "abstract": "由于光传输具备高通量、低延迟、低能耗等优势，光学神经网络有望应对目前人工智能技术发展中所面临的能耗和计算效率的挑战，成为近年来学术界和工业界的研究热点。光学神经网络的目标在于用光子作为物理载体构建人工神经网络算法中的基本计算单元，从而实现高性能的新型计算架构，并将其应用于实际问题的解决。本综述介绍了光学神经网络中关键光子器件的工作原理和特点、系统架构特征与应用场景。在跟踪大量国内外研究进展后，进一步分析了光学神经网在系统实现上所面临的挑战及发展趋势。",
+        "venue": "Laser & Optoelectronics Progress",
+        "link": "https://doi.org/10.3788/lop222304",
+        "published": "2023-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Mirto M. Gasparinatou",
+        "title": "Spiking Neural Networks and Mathematical Models",
+        "abstract": "",
+        "venue": "Advances in experimental medicine and biology",
+        "link": "https://doi.org/10.1007/978-3-031-31982-2_8",
+        "published": "2023-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Институт лингвистических исследований РАН",
+        "title": "Дифференцированное падежное маркирование объекта в ягнобском языке",
+        "abstract": "- ,",
+        "venue": "",
+        "link": "https://doi.org/10.37892/978-5-6049527-2-6-24",
+        "published": "2023-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Xinjie Li",
+        "title": "Learning High-Performance Spiking Neural Networks with Multi-Compartment Spiking Neurons",
+        "abstract": "",
+        "venue": "Lecture notes in computer science",
+        "link": "https://doi.org/10.1007/978-3-031-46308-2_8",
+        "published": "2023-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Xiaoling Luo",
+        "title": "Temporal-Sequential Learning with Columnar-Structured Spiking Neural Networks",
+        "abstract": "",
+        "venue": "Communications in computer and information science",
+        "link": "https://doi.org/10.1007/978-981-99-1639-9_13",
+        "published": "2023-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Zhuoer Li",
+        "title": "Efficiency analysis of artificial vs. Spiking Neural Networks on FPGAs",
+        "abstract": "",
+        "venue": "Journal of Systems Architecture",
+        "link": "https://doi.org/10.1016/j.sysarc.2022.102765",
+        "published": "2022-10-21",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Е.В. Пальчевский",
+        "title": "Прогнозирование на основе искусственной нейронной сети второго поколения для поддержки принятия решений в особо значимых ситуациях",
+        "abstract": "",
+        "venue": "Международный журнал Программные продукты и системы",
+        "link": "https://doi.org/10.15827/0236-235x.139.384-395",
+        "published": "2022-09-23",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Saeed AL-MARRI",
+        "title": "أثر الشهرة في صحة نسبة الكتب إلى مصنفيها (دراسة حديثية تطبيقية)",
+        "abstract": "تناول البحث في مبحث تنظيري معنى الشهرة في اللغة والاصطلاح، وكونها تقتضي الصحة إلى ما وقعت الشهرة عنه، سواء كان ذلك قولا أو رواية أو مصنفًا، وأن ما لم يشتهر من ذلك لا يحكم عليه بصحة أو عدمها إلا بما يحقق ذلك من القرائن. ثم أشار البحث إلى أثر الشهرة في تصحيح الروايات عامل مهم في بيان أثر الشهرة في صحة نسبة الكتب إلى مصنفيها، مع بيان مظاهر الشهرة التي يستدل بها على شهرة الكتاب عن مؤلفه، والدواعي التي يلزم معها تلك الشهرة. وقد ذكر البحث من تلك المظاهر رواية جماعة للكتاب عن مؤلفه، وتصريح المؤلف نفسه بكتابه، ونسبة الكتاب إليه من قبل القريبين من عصره، ونحو ذلك. كما أشار البحث إلى أن دواعي الاشتهار وأنها تتوقف على عاملين رئيسيين: هما مكانة الكاتب وأهمية الكتاب، وذكر في هذا الصدد مثالين. ثم تناول البحث في مبحث تطبيقي ستة أمثلة من القرون الثلاثة الأولى، في كل قرن كتابان ينسبان إلى شخص واحدٍ أحدهما تُثبِتُ شهرتُه صحةَ نسبته إلى مصنِفِه، والآخر تنفي عدم شهرته تلك النسبة، ومن تلك الكتب التي نفت الشهرة صحة نسبتها رسالة في المواعظ تنسب للإمام مالك، وكتاب الرد على الزنادقة والجهمية المنسوب للإمام أحمد.",
+        "venue": "Tasavvur / Tekirdağ İlahiyat Dergisi",
+        "link": "https://doi.org/10.47424/tasavvur.1095512",
+        "published": "2022-06-29",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Mohsen Imani",
+        "title": "Hyperdimensional neural computation",
+        "abstract": "",
+        "venue": "Biophysical Journal",
+        "link": "https://doi.org/10.1016/j.bpj.2021.11.1400",
+        "published": "2022-02-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Yufei Guo",
+        "title": "Real Spike: Learning Real-Valued Spikes for Spiking Neural Networks",
+        "abstract": "",
+        "venue": "Lecture notes in computer science",
+        "link": "https://doi.org/10.1007/978-3-031-19775-8_4",
+        "published": "2022-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "عبد الحميد عبد الله الإدريسي",
+        "title": "في مفهوم «الاجتهاد المقاصدي» .. محاولة في إعادة التأصيل",
+        "abstract": "سعت هذه الدراسة إلى محاولة تبيّن حقيقة مفهوم الاجتهاد المقاصدي، تحصيلا وتأصيلا، متوسلة في ذلك بما ناسب من مناهج الاستقراء، والنقد، والاستنباط، والتركيب، وغيرها، فخرج العمل في المجمل على شطرين: الأول: في حاضر المصطلح وتاريخه، كان الكشف فيه -ابتداء- عن مجمل التقسيمات التي وضعها الأصوليون للاجتهاد، تفسيرا لبعض أسباب غياب المصطلح وتجليات حضوره لديهم، ثم البحث في استعمال المصطلح في الدراسات المعاصرة وعرض ما رافقه من تسميات قريبة أو مشابهة، وبعد ذلك استعرضت الدراسة جملة من التعريفات التي قدمها الدارسون المعاصرون مشفوعة بما سمح به المجال من نظر نقدي فاحص، على وجهي التفصيل والإجمال، ثم توج جميع ذلك ببيان طبيعة الاجتهاد المقاصدي مقارنة بالاجتهاد القياسي. وفي الشطر الثاني عمل البحث على اجتراح محاولته الخاصة في التأصيل المعرفي للمفهوم وإعادة رسم معالمه الكلية بشكل لم يتوله شيء من الدراسات السابقة القريبة منه، مستعينا في تحقيق ذلك بما عهد في الممارسة المعرفية الإسلامية من تركيب منهجي متكامل (نموذج) دأبوا على اعتماده فيما يبتغون من حسن تصور المعارف المختلفة وما لها من فروع أو أجزاء مما عرف عندهم باسم (مبادئ العلوم)، من الحد والموضوع والواضع والثمرة والنسبة والأركان والمسائل والمسالك والأدوات وغيرها. وفي خضم ذلك كله كان خلص البحث إلى جملة من المسلمات بنى عليها أيضا أثناء ذلك، من أبرزها التمييز والفصل -في الوظيفة وفي التصور- بين الاجتهاد المقاصدي ومقاصد الشريعة، مما كان له آثار ونتائج فارقة في تكييف جملة من المفاهيم والأدوات الأصولية المتداخلة. الكلمات المفتاحية: مفهوم الاجتهاد المقاصدي .. مقاصد الشريعة .. التأصيل المعرفي .. تعريف الاجتهاد المقاصدي",
+        "venue": "مجلة الشريعة والدراسات الإسلامية.",
+        "link": "https://doi.org/10.34120/jsis.v37i129.2925",
+        "published": "2022-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Dan F. M. Goodman",
+        "title": "Brian Spiking Neural Network Simulator",
+        "abstract": "",
+        "venue": "Encyclopedia of Computational Neuroscience",
+        "link": "https://doi.org/10.1007/978-1-0716-1006-0_253",
+        "published": "2022-01-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Биљана Стаменковић",
+        "title": "МОДИФИКАЦИЈА ЛИЧНИХ ИМЕНА СТРАНОГ ПОРЕКЛА У СРПСКОМ ЈЕЗИКУ",
+        "abstract": "Модификација личних имена страног порекла у српском језику",
+        "venue": "ГОДИШЊАК ЗА СРПСКИ ЈЕЗИК",
+        "link": "https://doi.org/10.46630/gsrj.19.2021.20",
+        "published": "2021-12-15",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Юлия В. Свиткевич",
+        "title": "Современное научное руководство в университетах: взаимодействие субъектов процесса, детерминанты эффективности результатов",
+        "abstract": "Автор рассматривает современное научное руководство в университетах и совместную научно-исследовательскую деятельность научного руководителя и руководимого. Специфичной детерминантой эффективности результатов научно-исследовательской деятельности выступает система взаимодействия субъектов научного руководства. Во «Введении» актуальность исследования обуславливается неспособностью современного научного образования покрыть все потребности 21 века. Новизной выступает рассмотрение системы взаимоотношений между научным руководителем и руководимым в процессе научно-исследовательской деятельности, описание видов взаимодействия и их влияния на эффективность научного руководства. В «Теоретическом обосновании» автором рассматриваются исследования, описывающие влияние стиля руководства и значимость научного руководства в формировании профессиональной идентичности, интереса к науке, личности в целом. Описываются результаты эмпирических наблюдений за взаимодействием научных руководителей и руководимых. Автор предлагает 4 модели взаимоотношений: «малыш», «лентяй или невежа», «некто», «партнёр». Представлена выраженность основных компонентов взаимодействия субъектов научного руководства в каждой из моделей. В исследовании делается акцент на формирование научного мышления как значимую детерминанту эффективности результатов научно-исследовательской деятельности. Рассматриваются исследовательские умения и навыки, формирующиеся с научным мышлением, и развивающие личность студента, помогающие в академической, повседневной жизни. Предлагается наставничество в качестве одной из основных форм научно-исследовательской деятельности. В «Обсуждении результатов» автор рекомендует сделать акцент в определении научного руководства на то, что субъектами, влияющими друг на друга, являются оба участника процесса. Автор подчеркивает, что в современном мире существует необходимость модернизации научного руководства. Приводятся выводы исследования. Автором подчеркивается важность дальнейших исследований по теме научного руководства. Представленные в статье рассуждения могут помочь научным руководителям оптимизировать совместную научно-исследовательскую деятельность.",
+        "venue": "Северо-Кавказский психологический вестник",
+        "link": "https://doi.org/10.21702/ncpb.2021.3.3",
+        "published": "2021-09-30",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Myoung Won Cho",
+        "title": "Supervised learning in a spiking neural network",
+        "abstract": "",
+        "venue": "Journal of the Korean Physical Society",
+        "link": "https://doi.org/10.1007/s40042-021-00254-4",
+        "published": "2021-07-20",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Elishai Ezra Tsur",
+        "title": "Learning spiking neural networks",
+        "abstract": "",
+        "venue": "",
+        "link": "https://doi.org/10.1201/9781003143499-17",
+        "published": "2021-07-19",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Inna Zhulkovska",
+        "title": "СУЧАСНІ МЕТОДИ ВИЯВЛЕННЯ ШКІДЛИВИХ ПРОГРАМ",
+        "abstract": "Виявлення та класифікація шкідливих програм стала однією з найважливіших проблеми в галузі кібербезпеки. Існує достатньо методик виявлення невідомого шкідливого програмного забезпечення, кожна з яких має свої переваги, недоліки та особливості використання.&#x0D; В роботі виконано дослідження сигнатурного та евристичного методів виявлення шкідливого програмного забезпечення. Окремий аналіз присвячений застосуванню методів машинного навчання для класифікації шкідливих програм. Досліджено різні техніки машинного навчання для класифікації та виявлення зразків шкідливих програм та їх відповідних класів, їх фільтрації. Показано корисність графічної візуалізації байтів для виявлення шаблонів проектування програмного забезпечення для подальшої автоматизації виявлення вірусів. Виконано порівняльну характеристику сучасних, головним чином, евристичних методів виявлення шкідливого програмного забезпечення та систематизовано за значеннями точності пошуку.&#x0D; Оскільки на даний момент не існує ефективної методики виявлення невідомого шкідливого програмного забезпечення, тому для проведення ефективного пошуку і знищення шкідливих програм потрібно комбінувати всі сучасні методи, способи і засоби, враховуючи всі особливості їх використання.",
+        "venue": "Математичне моделювання",
+        "link": "https://doi.org/10.31319/2519-8106.1(44)2021.235922",
+        "published": "2021-07-01",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Mehterhan FURKANİ",
+        "title": "علماء الفقه الحنفي الذين نشؤوا في أفغانستان",
+        "abstract": "بعد قَبُول دين الإسلام في المنطقة التي تعرف اليوم بأفغانستان، حدث هناك تطور كبير في علوم الفقه، كما وقع مثله في العلوم الدينية الأخرى، ونشأ هناك العديد من كبار العلماء في مجال الفقه .نظرا إلى الاختلاف المذهبي بين العلماء الذين ظهروا في تلك الفترة، يتبين لنا أن هناك العديد من المذاهب، ومع ذلك، عندما يؤخذ في عين الاعتبار من حيث انتشاره وتأثيره، فمن الواضح أن المذهب الحنفي في الصدارة وبالتالي فإن علماء الفقه الحنفي هم الأغلبية.&#x0D; سنتناول في هذا البحث المعلومات الببليوغرافية عن العلماء الأحناف الذين نشأوا في مناطق داخل حدود أفغانستان، وخاصة مدن التي أصبحت مراكز علمية في الفترات الأولى مثل بلخ وهَرَات وغَزْنَة. وهدفنا هو إظهار أهمية هذه المنطقة من جانب مساهمتها في الفقه.",
+        "venue": "Mütefekkir",
+        "link": "https://doi.org/10.30523/mutefekkir.849996",
+        "published": "2020-12-31",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Kanat Khismatovich Rakhimzhanov",
+        "title": "Метафорическо-метонимическая интерпретация сердца в казахском и тувинском языках: взаимодействие языка, анатомии и культуры",
+        "abstract": "В статье исследуется метафорическая и метонимическая интерпретация понятия жүрек / чүрек — сердце в казахском и тувинском языках. Установлен набор содержательных параметров их концептуализации, по которым проведено сопоставление. Большая часть параметров говорит об универсальном характере когнитивного осмысления анатомического понятия в разных языках и культурах: жүрек / чүрек представляется сосудом для эмоций; местом обитания постоянных человеческих качеств; ему приписываются определенные цвета, не связанные с реальным цветом внутреннего органа; способность перемещаться внутри тела и быть сделанным из разных материалов. В некоторых параметрах проявляется сходство казахского и тувинского языков, обусловленное генетической общностью тюркской культуры. Идиомы сопоставляемых языков демонстрируют своеобразие концептуализации представлений о жүрек / чүрек.",
+        "venue": "The New Research of Tuva",
+        "link": "https://doi.org/10.25178/nit.2020.4.18",
+        "published": "2020-12-06",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Natalia V. ANDREEVA",
+        "title": "МУЛЬТИМОДАЛЬНЫЕ НЕЙРОМОРФНЫЕ МОДУЛИ НА ОСНОВЕ МНОГОУРОВНЕВОЙ МЕМРИСТОРНОЙ ЛОГИКИ",
+        "abstract": "Рассматриваются вопросы адаптации мемристивных устройств с многоуровневым переключением сопротивления для использования в искусственных нейронных сетях в качестве электронных эквивалентов синапсов.",
+        "venue": "ELECTRONICS Science Technology Business",
+        "link": "https://doi.org/10.22184/1992-4178.2020.200.9.72.82",
+        "published": "2020-11-11",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Ismaeel Khaleel Mohammed",
+        "title": "سؤالات الترمذي لشيخه الدارمي - جمعا ودراسة",
+        "abstract": "فهذا ملخص بحثي (سؤالات الترمذي لشيخه الدارمي جمعا ودراسة) جمعت فيه تلك السؤالات فبلغت ثمانية وهي غاية في الاهمية لان فيها علما قد لا يكون في غيرها، اضف الى ذلك اهمية ومكانة الامامين الترمذي وشيخه الدارمي. فوجدها تنقسم في جملتها الى قسمين منها ما يتعلق بالرواة كما في الحديث الثاني والرابع ومنها ما يتعلق بالصناعة الحديثية كالحديث الاول والثالث والخامس والسادس والسابع والثامن، وعلى هذه الثمانية الاحاديث انقسم البحث بعد التمهيد والمقدمة ثم الخاتمة والمصادر، وقد ذكرت الحديث او الرواية التي فيها السؤال وقمت بتخريجها من دواوين السنة، وذكرت الحكم عليها من خلال دراسة اسانيدها ومن ثم مناقشة تلك المسائل وذكر اقوال العلماء وبينت الراجح منها والله اسأل ان ينفعني وينفع بعملي هذا.",
+        "venue": "Journal of Tikrit University for Humanities",
+        "link": "https://doi.org/10.25130/jtuh.27.7.2020.03",
+        "published": "2020-09-26",
         "is_arxiv": false
       }
     ],
@@ -114614,6 +115007,15 @@
         "link": "https://doi.org/10.1103/nxdr-1l99",
         "published": "2026-11-20",
         "is_arxiv": false
+      },
+      {
+        "first_author": "Yan-ru Bao",
+        "title": "Impact on Final-State Bulk Observables in Heavy-Ion Collisions from an Extended MC Glauber Model of Quantum Rotors",
+        "abstract": "Nuclear structure is closely connected to anisotropic flow in central heavy-ion collisions (HICs), so flow observables provide important probes for constraining nuclear deformation. Conventional Monte Carlo (MC) models typically describe deformed nuclei as classical rotors with definite orientations, whereas the ground states of even--even nuclei with $J=0$ are rotationally invariant. Motivated by the importance of rotational symmetry restoration, we systematically investigate symmetric collisions involving the representative even--even nuclei $^{20}\\mathrm{Ne}$, $^{28}\\mathrm{Si}$, $^{96}\\mathrm{Ru}$, and $^{238}\\mathrm{U}$ using an extended MC Glauber model that incorporates quantum superposition of nuclear orientations. In the final state, the quantum treatment suppresses elliptic flow $v_2\\{2\\}$, with the strongest effect observed in ultra-central Ne+Ne collisions. Quantum superposition further induces system-dependent changes in normalized symmetric cumulants and shifts the Pearson correlation between $v_2^2$ and $[p_T]$ toward the corresponding near-spherical reference values. Moreover, the quantum treatment modifies cross-system flow ratios and the U+U/Au+Au covariance ratio used experimentally to constrain nuclear deformation parameters. Our results suggest that the quantum-rotor treatment may affect the interpretation of nuclear structure information inffered from heavy-ion collision final-state observables.",
+        "venue": "arXiv",
+        "link": "https://doi.org/10.48550/arxiv.2611.02507",
+        "published": "2026-11-02",
+        "is_arxiv": true
       },
       {
         "first_author": "Neelkamal Mallick",
@@ -114788,7 +115190,7 @@
       {
         "first_author": "Antonio Fieramosca",
         "title": "Fully integrated perovskite active polaritonic circuits",
-        "abstract": "Photonic integrated circuits are emerging as a key technology for compact, analogue and energy-efficient optical information processing1. Yet, their practical implementation remains limited by the intrinsically weak optical nonlinearities of conventional materials, which demand high power and large device footprints to achieve substantial nonlinear responses2. Exciton-polaritons, hybrid light-matter excitations of semiconducting materials, offer a promising route to overcome these limitations by combining strong optical nonlinearities with the high speed and scalability typical of photonic platforms3-5. However, despite their potential, fully integrated on-chip polaritonic systems simultaneously delivering room-temperature waveguide lasing, controllable optical routing and amplification have remained elusive. Here we demonstrate a fully integrated perovskite polaritonic circuit that brings these functionalities together in a single-step-grown platform. We realize precise and scalable polariton circuits with integrated gratings that act as both couplers and reflectors, enabling in-plane Fabry-Pérot cavities. These structures support robust in-plane polariton lasing with coherent guided emission at a geometry-defined wavelength, optical amplification of propagating polaritons and nonlinear optical phase control exceeding π, all within the same on-chip architecture. Our results establish perovskite polariton circuits as a scalable platform for active and interferometric integrated photonics.",
+        "abstract": "Photonic integrated circuits are emerging as a key technology for compact, analogue and energy-efficient optical information processing 1. Yet, their practical implementation remains limited by the intrinsically weak optical nonlinearities of conventional materials, which demand high power and large device footprints to achieve substantial nonlinear responses 2. Exciton–polaritons, hybrid light–matter excitations of semiconducting materials, offer a promising route to overcome these limitations by combining strong optical nonlinearities with the high speed and scalability typical of photonic platforms 3–5. However, despite their potential, fully integrated on-chip polaritonic systems simultaneously delivering room-temperature waveguide lasing, controllable optical routing and amplification have remained elusive. Here we demonstrate a fully integrated perovskite polaritonic circuit that brings these functionalities together in a single-step-grown platform. We realize precise and scalable polariton circuits with integrated gratings that act as both couplers and reflectors, enabling in-plane Fabry–Pérot cavities. These structures support robust in-plane polariton lasing with coherent guided emission at a geometry-defined wavelength, optical amplification of propagating polaritons and nonlinear optical phase control exceeding π, all within the same on-chip architecture. Our results establish perovskite polariton circuits as a scalable platform for active and interferometric integrated photonics.",
         "venue": "Nature",
         "link": "https://doi.org/10.1038/s41586-026-11299-5",
         "published": "2026-11-18",
@@ -114822,6 +115224,17 @@
         "abstract": "This paper identifies a firm-level Productivity J-curve induced by intangible investment. Using novel microdata on business-to-business transactions for Belgian firms, we construct a comprehensive measure of intangibles covering software, R&D, design, training, and organizational capital. Because these investments are expensed instead of capitalized, conventional TFP measures misclassify them as intermediate inputs, overstating inputs relative to output. Exploiting their lumpy timing in a difference-in-differences event study, we show that TFP is underestimated by about 1.7%–3.0% over seven years. Intangible investment spikes are followed by higher profits and lower marginal costs, indicating that the J-curve reflects mismeasured, rather than absent, returns to intangible investment. Linking intangible capital to systematic mismeasurement provides new evidence on the productivity slowdown and highlights intangibles as a source of downward measurement bias.",
         "venue": "Research Policy",
         "link": "https://doi.org/10.1016/j.respol.2026.105663",
+        "published": "2026-11-17",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Brain Module Module": [
+      {
+        "first_author": "Mia-Katrin Kvalsund",
+        "title": "The generalist brain module: Module repetition in neural networks in light of the minicolumn hypothesis",
+        "abstract": "Modularity in neural networks is a term with multiple interpretations. On the one hand, modularity clearly defines a structural property characterized by sparseness and clustering of neurons. On the other hand, the term modularity in the literature often does not specify function specificity and instead works with field-specific assumptions. Therefore, this narrative review details the underrepresented dichotomy between single-function and multi-function modules as it emerged through cognitive science and bled its way into modern machine learning. Specifically, this review focuses on the generalist module. We define the generalist module as being a structural module that has been trained to perform in multiple roles, thus generalizing to many inputs. Then, we tie this module historically, structurally, and functionally to the minicolumn, a structure in the brain that repeats to form the neocortex. By gathering works consistent with this phenomenon and describing its properties, we detail a module that is capable of many collective intelligence benefits: generalization, scalability, and adaptability-a module that can challenge longstanding problems in AI today such as energy efficiency. However, while promising empirical results suggest such systems can generalize to out-of-distribution problems, theoretical results are still lacking. With this review, we hope to connect unfamiliar communities and bodies of literature to facilitate future work toward adaptable, green, and general AI.",
+        "venue": "Neural Networks",
+        "link": "https://doi.org/10.1016/j.neunet.2026.109928",
         "published": "2026-11-17",
         "is_arxiv": false
       }
@@ -114876,35 +115289,6 @@
         "venue": "The European Physical Journal C",
         "link": "https://doi.org/10.1140/epjc/s10052-026-16630-y",
         "published": "2026-11-13",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Tabular Data": [
-      {
-        "first_author": "Tianyu Wang",
-        "title": "Rethinking Distribution Shifts: Empirical Analysis and Modeling for Tabular Data",
-        "abstract": "Different distribution shifts require different interventions, and algorithms must be grounded in the specific shifts they address. However, methodological development for robust algorithms typically relies on structural assumptions that lack empirical validation. Advocating for an empirically grounded data-driven approach to algorithm development, we build an empirical testbed comprising natural shifts across 8 tabular data sets, 172 distribution pairs over 45 methods, and 90,000 method configurations encompassing empirical risk minimization and distributionally robust optimization (DRO) methods. We find that Y|X-shifts are most prevalent in our testbed, in stark contrast to the heavy focus on X (covariate)-shifts in the machine learning literature, and that the performance of robust algorithms is no better than that of vanilla methods. To understand why, we conduct an in-depth empirical analysis of DRO methods and find that underlooked implementation details—such as the choice of underlying model class (e.g., LightGBM) and hyperparameter selection—have a bigger impact on performance than the ambiguity set or its radius. We illustrate via case studies how a data-driven understanding of distribution shifts can provide a new approach to algorithm development. This paper was accepted by Wolfram Wiesemann, data science. Supplemental Material: The online appendix and data files are available at https://doi.org/10.1287/mnsc.2024.08298 .",
-        "venue": "Management Science",
-        "link": "https://doi.org/10.1287/mnsc.2024.08298",
-        "published": "2026-11-13",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Adaleta Gicić",
-        "title": "Time Sequence Deep Learning Model for Ubiquitous Tabular Data with Unique 3D Tensors Manipulation",
-        "abstract": "Although deep learning (DL) algorithms have been proved to be effective in diverse research domains, their application in developing models for tabular data remains limited. Models trained on tabular data demonstrate higher efficacy using traditional machine learning models than DL models, which are largely attributed to the size and structure of tabular datasets and the specific application contexts in which they are utilized. Thus, the primary objective of this paper is to propose a method to use the supremacy of Stacked Bidirectional LSTM (Long Short-Term Memory) deep learning algorithms in pattern discovery incorporating tabular data with customized 3D tensor modeling in feeding neural networks. Our findings are empirically validated using six diverse, publicly available datasets each varying in size and learning objectives. This paper proves that the proposed model based on time-sequence DL algorithms, which were generally described as inadequate when dealing with tabular data, yields satisfactory results and competes effectively with other algorithms specifically designed for tabular data. An additional benefit of this approach is its ability to preserve simplicity while ensuring fast model training also with large datasets. Even with extremely small datasets, models can be applied to achieve exceptional predictive results and fully utilize their capacity.",
-        "venue": "Entropy",
-        "link": "https://doi.org/10.3390/e26090783",
-        "published": "2024-09-12",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Md Atik Ahamed",
-        "title": "MambaTab: A Plug-and-Play Model for Learning Tabular Data",
-        "abstract": "Despite the prevalence of images and texts in machine learning, tabular data remains widely used across various domains. Existing deep learning models, such as convolutional neural networks and transformers, perform well however demand extensive preprocessing and tuning limiting accessibility and scalability. This work introduces an innovative approach based on a structured state-space model (SSM), MambaTab, for tabular data. SSMs have strong capabilities for efficiently extracting effective representations from data with long-range dependencies. MambaTab leverages Mamba, an emerging SSM variant, for end-to-end supervised learning on tables. Compared to state-of-the-art baselines, MambaTab delivers superior performance while requiring significantly fewer parameters, as empirically validated on diverse benchmark datasets. MambaTab's efficiency, scalability, generalizability, and predictive gains signify it as a lightweight, \"plug-and-play\" solution for diverse tabular data with promise for enabling wider practical applications.",
-        "venue": "",
-        "link": "https://doi.org/10.1109/mipr62202.2024.00065",
-        "published": "2024-08-07",
         "is_arxiv": false
       }
     ],
@@ -119478,6 +119862,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Gluon Saturation": [
+      {
+        "first_author": "Farid Salazar",
+        "title": "Probing gluon saturation with forward heavy-flavor correlations in proton-nucleus collisions",
+        "abstract": "We investigate heavy-flavor azimuthal correlations as probes of gluon saturation in high-energy $p$+$p$ and $p$+Pb collisions within the Color Glass Condensate effective theory. Heavy flavor has several advantages: heavy-quark production is especially sensitive to the small-$x$ gluon distribution of the target, while the quark mass suppresses collinear radiation. Further, the heavy meson carries a large fraction of the momentum of its parent quark, so that the meson pair follows the partonic kinematics more closely than for light hadrons. We present the first calculation of heavy-meson pair correlations over the full azimuthal range that combines small-$x$ evolution from an initial condition constrained by HERA data with Sudakov resummation near the back-to-back limit. It provides a good description of the $D$-$\\bar D$ and $b$-hadron pair correlations measured by LHCb. In contrast to the light-flavor case, we predict, in addition to a suppression of the away-side yield in $p$+Pb relative to $p$+$p$ collisions by about $15\\%$, a broadening of the peak by approximately $10\\%$ to $25\\%$ for Gaussian fits near $ΔΦ=π$, which makes heavy-flavor correlations a promising observable in the search for gluon saturation.",
+        "venue": "arXiv",
+        "link": "https://doi.org/10.48550/arxiv.2611.15897",
+        "published": "2026-11-11",
+        "is_arxiv": true
+      }
+    ],
     "Topic: Recent Standard": [
       {
         "first_author": "Gabriele Chiodini",
@@ -120168,6 +120563,17 @@
         "is_arxiv": true
       }
     ],
+    "Topic: Nonlinear Charge Transport": [
+      {
+        "first_author": "Jonas Kareem",
+        "title": "Space‐Charge‐Driven Nonlinear Charge Transport in Silicon Reconfigurable Nonlinear‐Processing Units",
+        "abstract": "Reconfigurable nonlinear-processing units (RNPUs) are multi-terminal electronic devices that act as computational primitives, exploiting intrinsic nonlinear charge transport combined with electrostatic tunability. Silicon-based realizations provide a scalable and technologically relevant platform toward unconventional computing hardware, yet the physical origin of their room-temperature nonlinearity has remained unresolved. Here, we demonstrate room-temperature operation in both boron- and arsenic-doped silicon RNPUs and show, using temperature- and length-dependent measurements supported by TCAD simulations, that charge transport is governed by space-charge effects. Interface trap states strongly suppress the equilibrium carrier density, while the functional nonlinearity arises from the competition between injected carriers and ionized dopants. The resulting transport evolves from Ohmic to strongly nonlinear and space-charge-limited current regimes, as evidenced by voltage and length scaling. The opposite-polarity background doping is shown to control the onset and strength of the nonlinearity, producing behavior beyond the quadratic dependence of the classical Mott-Gurney law. Agreement between experiment and simulation supports that the spatial distribution of injected carriers and fixed charge governs the electric-field profile and device response. These results establish a space-charge-based framework for RNPUs that does not require disorder or hopping transport, and provide design guidelines for scalable, CMOS-compatible nonlinear computing hardware.",
+        "venue": "Advanced Science",
+        "link": "https://doi.org/10.1002/advs.78644",
+        "published": "2026-11-09",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Spin Hydrodynamic Attractor": [
       {
         "first_author": "Qi Zhou",
@@ -120221,6 +120627,17 @@
         "is_arxiv": true
       }
     ],
+    "Topic: Enough Mlps Also": [
+      {
+        "first_author": "Anastasis Kratsios",
+        "title": "Is in-context universality enough? MLPs are also universal in-context",
+        "abstract": "",
+        "venue": "Neural Networks",
+        "link": "https://doi.org/10.1016/j.neunet.2026.109858",
+        "published": "2026-11-05",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Flow Mesons High": [
       {
         "first_author": "Guangyu Zheng",
@@ -120241,6 +120658,28 @@
         "link": "https://doi.org/10.1038/s43588-026-01075-w",
         "published": "2026-11-05",
         "is_arxiv": false
+      }
+    ],
+    "Topic: Global Sensitivity": [
+      {
+        "first_author": "T. Duguet",
+        "title": "Linking chiral nuclear forces to light-ion collisions: a global sensitivity analysis",
+        "abstract": "Ultrarelativistic $^{16}$O+$^{16}$O and $^{20}$Ne+$^{20}$Ne collisions recently performed at the Large Hadron Collider have imaged quadrupole and octupole correlations between nucleons through the collective flow of emitted hadrons. We establish a quantitative link between these correlations and the low-energy constants (LECs) that enter chiral inter-nucleon interactions. Emulators built using the subspace-projected coupled-cluster method enable a global sensitivity analysis of the ground-state quadrupole mean-square eccentricity, revealing that quadrupole correlations respond linearly and additively to all 16 LECs at next-to-next-to-leading order in the chiral expansion. The sensitivities differ markedly in $^{16}$O and $^{20}$Ne, and are complementary to those of the binding energy and charge radius, the bulk observables to which nuclear interactions are typically calibrated. In particular, $^{20}$Ne collisions dominantly probe the spin-orbit part of two-nucleon interactions. Soft-particle correlations in light-ion collisions thus constitute a new type of data to study nuclear forces and their emergence from quantum chromodynamics.",
+        "venue": "arXiv",
+        "link": "https://doi.org/10.48550/arxiv.2611.08122",
+        "published": "2026-11-05",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Colour Glass Condensate": [
+      {
+        "first_author": "Edmond Iancu",
+        "title": "The Colour Glass Condensate",
+        "abstract": "We present a comprehensive introduction to the Colour Glass Condensate (CGC) effective theory, a first-principles framework for hadronic interactions in high-energy Quantum Chromodynamics (QCD) at large parton densities. The focus is on the underlying physical picture and associated emergent phenomena, such as gluon saturation, transverse momentum broadening, and geometric scaling. We introduce the key components of the CGC formalism: the semiclassical approximation for dense gluon systems at saturation, the nonlinear JIMWLK equation governing the energy evolution of multi-gluon correlations, and its mean-field approximation, the BK equation. The formalism is illustrated through applications to selected \"dilute-dense\" processes, namely high-energy electron-nucleus and proton-nucleus collisions. Finally, we briefly discuss advanced topics including higher-order radiative corrections, the Langevin formulation of the JIMWLK equation, and the emergence of transverse-momentum-dependent (TMD) factorisation from the CGC effective theory.",
+        "venue": "arXiv",
+        "link": "https://doi.org/10.48550/arxiv.2611.07842",
+        "published": "2026-11-05",
+        "is_arxiv": true
       }
     ],
     "Topic: Cbm Physics Program": [
@@ -122192,6 +122631,17 @@
         "is_arxiv": false
       }
     ],
+    "Topic: Triaxial Shapes Angular": [
+      {
+        "first_author": "Hadi Mehrabpour",
+        "title": "Triaxial shapes and the angular structure of nuclear three-body correlations",
+        "abstract": "Relativistic nuclear collisions have emerged as a new tool for probing many-body correlations of nucleons in the ground states of atomic nuclei. Here, we investigate the connection between three-nucleon correlations inside nuclei and three-particle correlations measured in collider final states. We work within a classical rigid-rotor picture of the colliding ions, whereby correlations in the lab frame arise solely from the averaging over orientations of an intrinsic-frame nucleon density with a triaxial quadrupole deformation, characterized by Bohr parameters $β_2$ and $γ$. With a Gaussian Ansatz for the density, we derive the leading-order form of the resulting two- and three-body nucleon distributions and perform a detailed analysis of their harmonic structure. With this, we provide an analytical understanding of empirical results linking shape parameters to final-state observables, notably, the fact that the covariance of the squared elliptic flow ($v_2^2$) with the mean transverse momentum ($[p_T]$), as well as the skewness of $[p_T]$ fluctuations, are to leading order proportional to $β_2^3 \\cos(3γ)$. This elucidates the connection between three-nucleon densities, nuclear triaxiality, and three-particle correlations in high-energy nuclear collisions.",
+        "venue": "Physics Letters B",
+        "link": "https://doi.org/10.1016/j.physletb.2026.141213",
+        "published": "2026-11-01",
+        "is_arxiv": false
+      }
+    ],
     "Topic: Cell Types Adult": [
       {
         "first_author": "Andrew W. Kraft",
@@ -122199,17 +122649,6 @@
         "abstract": "The human striatum governs diverse motor, cognitive, and affective behaviors yet lacks the obvious cytoarchitectural boundaries defining functional territories elsewhere in the brain. Using Slide-tags single-nucleus spatial transcriptomics, we profiled 1.1 million cells across 19 postmortem donors to uncover the striatum's spatial organization. These data revealed a consistent subdivision of the striatum into six zones, each defined by molecularly distinct populations of spiny projection neurons (SPNs) and featuring spatially coordinated neuron-astrocyte interaction networks. To determine their structural relevance, we generated a companion mouse spatial atlas that identified four homologous zones that aligned with territories defined by brain-wide afferent projections. Finally, imputing zonal identities onto a 131-donor single-nucleus RNA sequencing (snRNA-seq) cohort revealed that dorsal zones exhibit the greatest age-related transcriptional change and that the expression differences defining zonation attenuate with age. This resource establishes a conserved mesoscale spatial framework for the mammalian striatum, linking single-cell molecular identity to structural connectomics and aging.",
         "venue": "Cell",
         "link": "https://doi.org/10.1016/j.cell.2026.10.029",
-        "published": "2026-11-01",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Enough Mlps Also": [
-      {
-        "first_author": "Anastasis Kratsios",
-        "title": "Is In-Context Universality Enough? MLPs are Also Universal In-Context",
-        "abstract": "",
-        "venue": "Neural Networks",
-        "link": "https://doi.org/10.1016/j.neunet.2026.109858",
         "published": "2026-11-01",
         "is_arxiv": false
       }
@@ -122864,37 +123303,6 @@
         "is_arxiv": false
       }
     ],
-    "Topic: Ensuremath Ensuremath": [
-      {
-        "first_author": "Xu-Hua Tian",
-        "title": "Probing neutron skin through event-by-event pion asymmetry in heavy-ion collisions",
-        "abstract": "In this work, we propose a novel approach for probing the neutron skin thickness of gold (Au) by analyzing the event-by-event distribution of ${\\ensuremath{\\pi}}^{\\ensuremath{-}}$ and ${\\ensuremath{\\pi}}^{+}$ yield differences. This is achieved through SMASH simulations of ultraperipheral $\\mathrm{Au}+\\mathrm{Au}$ collisions at $\\sqrt{{s}_{NN}}=3\\phantom{\\rule{0.28em}{0ex}}\\mathrm{GeV}$. Our results demonstrate that the mean value of $\\mathrm{\\ensuremath{\\Delta}}{n}_{\\ensuremath{\\pi}}={n}_{{\\ensuremath{\\pi}}^{\\ensuremath{-}}}\\ensuremath{-}{n}_{{\\ensuremath{\\pi}}^{+}}$, along with the Pearson correlation and mutual information between $({\\ensuremath{\\pi}}^{\\ensuremath{-}}+{\\ensuremath{\\pi}}^{+})$ and $({\\ensuremath{\\pi}}^{\\ensuremath{-}}\\ensuremath{-}{\\ensuremath{\\pi}}^{+})$, all scale linearly with the neutron skin thickness. Moreover, the slope of the line connecting two distinct $\\mathrm{\\ensuremath{\\Delta}}{n}_{\\ensuremath{\\pi}}$ values in the event-by-event distribution also exhibits a linear dependence on the neutron skin thickness. The most sensitive $\\mathrm{\\ensuremath{\\Delta}}{n}_{\\ensuremath{\\pi}}$ pairs are identified as $(\\ensuremath{-}2,\\ensuremath{-}1)$, $(\\ensuremath{-}1,1)$, $(0,1)$, and $(0,2)$. These findings establish a new pathway for determining the neutron skin thickness. Finally, by comparing SMASH, JAM, and ultrarelativistic quantum molecular dynamics simulations under identical initial conditions, we observed a certain degree of model dependence in the outcomes, yet the overall trends remained consistent. However, by extracting slopes from multiple $\\mathrm{\\ensuremath{\\Delta}}{n}_{\\ensuremath{\\pi}}$ pairs in experimental event-by-event data and inferring the corresponding neutron skin thickness, one can assess which model better aligns with the true physical value.",
-        "venue": "Physical Review C",
-        "link": "https://doi.org/10.1103/bw3p-lpg6",
-        "published": "2026-10-28",
-        "is_arxiv": false
-      }
-    ],
-    "Topic: Pb-Pb Collisions": [
-      {
-        "first_author": "Giorgio Alberto Lucia",
-        "title": "Search for 4Li‾ from p‾+3He‾ femtoscopy in Pb-Pb collisions at sNN=5.36 TeV with ALICE",
-        "abstract": "In these proceedings, the search for 4 Li ‾ in Pb-Pb collisions with ALICE is presented. The particle is reconstructed via its two-body decay channel 4 Li ‾ → p ‾ + 3 He ‾ , using femtoscopic correlations. A dedicated analysis procedure has been developed to subtract the correlated and uncorrelated p ‾ + 3 He ‾ combinatorial background. The production yield of 4 Li ‾ is compared with that of 4 He ‾ . Owing to the presence of several 4 Li resonances and their spin degeneracy, the production of 4 Li ‾ is expected to be enhanced with respect to the compact 4 He ‾ , making this new measurement a sensitive probe for testing nucleosynthesis models in high-energy hadronic collisions.",
-        "venue": "Journal of subatomic particles and cosmology.",
-        "link": "https://doi.org/10.1016/j.jspc.2026.100592",
-        "published": "2026-10-28",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Haifa I. Alrebdi",
-        "title": "Exploring Thermalization and Multi-Freeze-Out Effects in Pb-Pb collisions Based on Tsallis pT Distributions",
-        "abstract": "This study investigates transverse-momentum (pT) distributions of pi-, pi+, K-, K+, p, pbar, K0s, and Lambda in several centrality classes of Pb-Pb collisions at sqrt(sNN) = 2.76 TeV. The measured spectra are analyzed with the Tsallis non-extensive distribution, from which the effective temperature T, non-extensive parameter q, and the mean transverse momentum mean_pT are extracted for each particle species and centrality interval. To disentangle thermal and collective effects, the mean kinetic freeze-out temperature T0 is obtained from the intercept of the T-versus-mass relation, while the average transverse flow velocity betaT is extracted from the slope of mean_pT versus the mean moving mass for pions, kaons, and protons. The results show that T increases and q decreases with increasing centrality, indicating a hotter and more equilibrated system in central collisions. A clear mass dependence of T supports a multi-freeze-out scenario, with heavier particles decoupling earlier. Both T0 and betaT rise from peripheral to mid-central collisions before saturating toward central events, which may suggest the onset of collective behavior or changes in freeze-out dynamics. These observations provide new insights into the thermal and dynamical properties of the medium created in heavy-ion collisions at the LHC.",
-        "venue": "Chinese Physics C 50(4) 1-16 (2026)",
-        "link": "https://arxiv.org/abs/2602.02679v1",
-        "published": "2026-02-02T19:01:11Z",
-        "is_arxiv": true
-      }
-    ],
     "Topic: World Modeling Visual": [
       {
         "first_author": "Shuhan Ye",
@@ -123076,6 +123484,66 @@
         "venue": "arXiv (Cornell University)",
         "link": "https://doi.org/10.48550/arxiv.2301.11163",
         "published": "2023-01-26",
+        "is_arxiv": true
+      }
+    ],
+    "Topic: Tabular Data": [
+      {
+        "first_author": "Tianyu Wang",
+        "title": "Rethinking Distribution Shifts: Empirical Analysis and Modeling for Tabular Data",
+        "abstract": "Different distribution shifts require different interventions, and algorithms must be grounded in the specific shifts they address. However, methodological development for robust algorithms typically relies on structural assumptions that lack empirical validation. Advocating for an empirically grounded data-driven approach to algorithm development, we build an empirical testbed comprising natural shifts across 8 tabular data sets, 172 distribution pairs over 45 methods, and 90,000 method configurations encompassing empirical risk minimization and distributionally robust optimization (DRO) methods. We find that Y|X-shifts are most prevalent in our testbed, in stark contrast to the heavy focus on X (covariate)-shifts in the machine learning literature, and that the performance of robust algorithms is no better than that of vanilla methods. To understand why, we conduct an in-depth empirical analysis of DRO methods and find that underlooked implementation details—such as the choice of underlying model class (e.g., LightGBM) and hyperparameter selection—have a bigger impact on performance than the ambiguity set or its radius. We illustrate via case studies how a data-driven understanding of distribution shifts can provide a new approach to algorithm development. This paper was accepted by Wolfram Wiesemann, data science. Supplemental Material: The online appendix and data files are available at https://doi.org/10.1287/mnsc.2024.08298 .",
+        "venue": "Management Science",
+        "link": "https://doi.org/10.1287/mnsc.2024.08298",
+        "published": "2026-11-13",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Adaleta Gicić",
+        "title": "Time Sequence Deep Learning Model for Ubiquitous Tabular Data with Unique 3D Tensors Manipulation",
+        "abstract": "Although deep learning (DL) algorithms have been proved to be effective in diverse research domains, their application in developing models for tabular data remains limited. Models trained on tabular data demonstrate higher efficacy using traditional machine learning models than DL models, which are largely attributed to the size and structure of tabular datasets and the specific application contexts in which they are utilized. Thus, the primary objective of this paper is to propose a method to use the supremacy of Stacked Bidirectional LSTM (Long Short-Term Memory) deep learning algorithms in pattern discovery incorporating tabular data with customized 3D tensor modeling in feeding neural networks. Our findings are empirically validated using six diverse, publicly available datasets each varying in size and learning objectives. This paper proves that the proposed model based on time-sequence DL algorithms, which were generally described as inadequate when dealing with tabular data, yields satisfactory results and competes effectively with other algorithms specifically designed for tabular data. An additional benefit of this approach is its ability to preserve simplicity while ensuring fast model training also with large datasets. Even with extremely small datasets, models can be applied to achieve exceptional predictive results and fully utilize their capacity.",
+        "venue": "Entropy",
+        "link": "https://doi.org/10.3390/e26090783",
+        "published": "2024-09-12",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Md Atik Ahamed",
+        "title": "MambaTab: A Plug-and-Play Model for Learning Tabular Data",
+        "abstract": "Despite the prevalence of images and texts in machine learning, tabular data remains widely used across various domains. Existing deep learning models, such as convolutional neural networks and transformers, perform well however demand extensive preprocessing and tuning limiting accessibility and scalability. This work introduces an innovative approach based on a structured state-space model (SSM), MambaTab, for tabular data. SSMs have strong capabilities for efficiently extracting effective representations from data with long-range dependencies. MambaTab leverages Mamba, an emerging SSM variant, for end-to-end supervised learning on tables. Compared to state-of-the-art baselines, MambaTab delivers superior performance while requiring significantly fewer parameters, as empirically validated on diverse benchmark datasets. MambaTab's efficiency, scalability, generalizability, and predictive gains signify it as a lightweight, \"plug-and-play\" solution for diverse tabular data with promise for enabling wider practical applications.",
+        "venue": "",
+        "link": "https://doi.org/10.1109/mipr62202.2024.00065",
+        "published": "2024-08-07",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Ensuremath Ensuremath": [
+      {
+        "first_author": "Xu-Hua Tian",
+        "title": "Probing neutron skin through event-by-event pion asymmetry in heavy-ion collisions",
+        "abstract": "In this work, we propose a novel approach for probing the neutron skin thickness of gold (Au) by analyzing the event-by-event distribution of ${\\ensuremath{\\pi}}^{\\ensuremath{-}}$ and ${\\ensuremath{\\pi}}^{+}$ yield differences. This is achieved through SMASH simulations of ultraperipheral $\\mathrm{Au}+\\mathrm{Au}$ collisions at $\\sqrt{{s}_{NN}}=3\\phantom{\\rule{0.28em}{0ex}}\\mathrm{GeV}$. Our results demonstrate that the mean value of $\\mathrm{\\ensuremath{\\Delta}}{n}_{\\ensuremath{\\pi}}={n}_{{\\ensuremath{\\pi}}^{\\ensuremath{-}}}\\ensuremath{-}{n}_{{\\ensuremath{\\pi}}^{+}}$, along with the Pearson correlation and mutual information between $({\\ensuremath{\\pi}}^{\\ensuremath{-}}+{\\ensuremath{\\pi}}^{+})$ and $({\\ensuremath{\\pi}}^{\\ensuremath{-}}\\ensuremath{-}{\\ensuremath{\\pi}}^{+})$, all scale linearly with the neutron skin thickness. Moreover, the slope of the line connecting two distinct $\\mathrm{\\ensuremath{\\Delta}}{n}_{\\ensuremath{\\pi}}$ values in the event-by-event distribution also exhibits a linear dependence on the neutron skin thickness. The most sensitive $\\mathrm{\\ensuremath{\\Delta}}{n}_{\\ensuremath{\\pi}}$ pairs are identified as $(\\ensuremath{-}2,\\ensuremath{-}1)$, $(\\ensuremath{-}1,1)$, $(0,1)$, and $(0,2)$. These findings establish a new pathway for determining the neutron skin thickness. Finally, by comparing SMASH, JAM, and ultrarelativistic quantum molecular dynamics simulations under identical initial conditions, we observed a certain degree of model dependence in the outcomes, yet the overall trends remained consistent. However, by extracting slopes from multiple $\\mathrm{\\ensuremath{\\Delta}}{n}_{\\ensuremath{\\pi}}$ pairs in experimental event-by-event data and inferring the corresponding neutron skin thickness, one can assess which model better aligns with the true physical value.",
+        "venue": "Physical Review C",
+        "link": "https://doi.org/10.1103/bw3p-lpg6",
+        "published": "2026-10-28",
+        "is_arxiv": false
+      }
+    ],
+    "Topic: Pb-Pb Collisions": [
+      {
+        "first_author": "Giorgio Alberto Lucia",
+        "title": "Search for 4Li‾ from p‾+3He‾ femtoscopy in Pb-Pb collisions at sNN=5.36 TeV with ALICE",
+        "abstract": "In these proceedings, the search for 4 Li ‾ in Pb-Pb collisions with ALICE is presented. The particle is reconstructed via its two-body decay channel 4 Li ‾ → p ‾ + 3 He ‾ , using femtoscopic correlations. A dedicated analysis procedure has been developed to subtract the correlated and uncorrelated p ‾ + 3 He ‾ combinatorial background. The production yield of 4 Li ‾ is compared with that of 4 He ‾ . Owing to the presence of several 4 Li resonances and their spin degeneracy, the production of 4 Li ‾ is expected to be enhanced with respect to the compact 4 He ‾ , making this new measurement a sensitive probe for testing nucleosynthesis models in high-energy hadronic collisions.",
+        "venue": "Journal of subatomic particles and cosmology.",
+        "link": "https://doi.org/10.1016/j.jspc.2026.100592",
+        "published": "2026-10-28",
+        "is_arxiv": false
+      },
+      {
+        "first_author": "Haifa I. Alrebdi",
+        "title": "Exploring Thermalization and Multi-Freeze-Out Effects in Pb-Pb collisions Based on Tsallis pT Distributions",
+        "abstract": "This study investigates transverse-momentum (pT) distributions of pi-, pi+, K-, K+, p, pbar, K0s, and Lambda in several centrality classes of Pb-Pb collisions at sqrt(sNN) = 2.76 TeV. The measured spectra are analyzed with the Tsallis non-extensive distribution, from which the effective temperature T, non-extensive parameter q, and the mean transverse momentum mean_pT are extracted for each particle species and centrality interval. To disentangle thermal and collective effects, the mean kinetic freeze-out temperature T0 is obtained from the intercept of the T-versus-mass relation, while the average transverse flow velocity betaT is extracted from the slope of mean_pT versus the mean moving mass for pions, kaons, and protons. The results show that T increases and q decreases with increasing centrality, indicating a hotter and more equilibrated system in central collisions. A clear mass dependence of T supports a multi-freeze-out scenario, with heavier particles decoupling earlier. Both T0 and betaT rise from peripheral to mid-central collisions before saturating toward central events, which may suggest the onset of collective behavior or changes in freeze-out dynamics. These observations provide new insights into the thermal and dynamical properties of the medium created in heavy-ion collisions at the LHC.",
+        "venue": "Chinese Physics C 50(4) 1-16 (2026)",
+        "link": "https://arxiv.org/abs/2602.02679v1",
+        "published": "2026-02-02T19:01:11Z",
         "is_arxiv": true
       }
     ],
@@ -127892,368 +128360,6 @@
         "venue": "Chinese Optics Letters",
         "link": "https://doi.org/10.3788/col202624.011407",
         "published": "2025-12-12",
-        "is_arxiv": false
-      }
-    ],
-    "Etc": [
-      {
-        "first_author": "Bijaya Prasad Mishra",
-        "title": "मधसम नपल कङगरस",
-        "abstract": "नेपाली काङ्ग्रेसले आन्दोलनको सुरुवात मधेसबाट गरेको थियो । मधेसमा नेपाली काङ्ग्रेसले पार्टीको महाधिवेशनदेखि सशस्त्र भूमिगत आन्दोलन र सत्याग्रह गरेका छन् । राणा राजा र पञ्चायतको विरुद्धमा नेपाली काङ्ग्रेसले गरेका आन्दोलनको पलपलमा मधेस र मधेसीको साथ सहयोग रहदै आएको छ । मधेसको योगदानलाई कदर गर्दै रामनारायण मिश्र, परशुनारायण चौधरी, महेन्द्र नारायण निधी, डा. रामबरण यादवलाई काङ्ग्रेसले महामन्त्रीसम्म बनाएको थियो । विभिन्न पदाधिकारी र केन्द्रीय सदस्य भएका मधेसमूलकाहरूमा विजयकुमार गच्छदार, विमलेन्द्र निधी, महन्थ ठाकुर, चित्रलेखा यादव र सीतादेवी यादव, सूर्यनाथ दास यादव, राधाकृष्ण थारु र देवनाथदास यादव, शेख इद्रिसलगायतको नाम आउँछ । पछिल्लो समय नेपाली काङ्ग्रेसले आफ्नो विधानमा समावेशीको अवधारणा ल्याएपछि मधेसीमूल र थारुहरूबाट तोकिएकै सङ्ख्यामा केन्द्रीय सदस्यहरू भएका थिए । नेपाली काङ्ग्रेसले नेपालमा प्रजातन्त्र ल्याउनका लागि वि.सं. २००७ साल, वि.सं. २०१८ साल र वि.सं. २०३१ सालमा गरेको सशस्त्र आन्दोलनमा सहभागी भएर मधेसमूलका धेरैले शहादत प्राप्त गरेका थिए । राणाशासनविरुद्ध गिरिजाप्रसाद कोइरालाको नेतृत्वमा विराटनगरको जुल मिलमा सञ्चालन भएको मजदुर आन्दोलनलाई हौसला दिन आएका भारतीय नागरिक कुलदीप झा शहीद भएदेखि मधेसमूलका मानिसहरूले बलिदानी दिन सुरु गरेका थिए । राजा महेन्द्रलाई जनकपुरमा बम हानेका दुर्गानन्द झालाई २०२० माघ १५ गते फाँसी दिएका थिए । नेपाली काङ्ग्रेसले आह्वान गरेको जुनसुकै आन्दोलनमा मधेसमूलकाहरू सहभागी भएर सशादत प्राप्त गरेका थिए । नेपाली काङ्ग्रेसका लागि मधेसबाट धेरै शहीद भए । नेपाली काङ्ग्रेसलेसमेत मधेसीमूलका नेतालाई सांसद, मन्त्री, उपप्रधानमन्त्री र प्रथम राष्ट्रपतिसमेत बनाएको छ तर पनि मधेसका नेपाली काङ्ग्रेसका नेता, कार्यकर्ता र समर्थकहरूले मधेसले गरेको योगदानका आधारमा अवसरहरू नपाएको बताइरहेका छन् ।",
-        "venue": "Four Star Multidisciplinary Research Journal",
-        "link": "https://doi.org/10.3126/fsmrj.v1i1.87265",
-        "published": "2025-12-11",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "M. N. Hoda",
-        "title": "Editorial",
-        "abstract": "",
-        "venue": "International Journal of Information Technology",
-        "link": "https://doi.org/10.1007/s41870-025-02880-8",
-        "published": "2025-11-10",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Ole Petter Askheim",
-        "title": "Innledning",
-        "abstract": "",
-        "venue": "",
-        "link": "https://doi.org/10.23865/cdf.266.ch1",
-        "published": "2025-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Ю.И. Юдин",
-        "title": "Коррекция математической модели движения судна с помощью обученной нейросети",
-        "abstract": "Аппарат нейронных сетей используется для корректировки математической модели движения судна. Модель судна создана, т.е. традиционными средствами определены её параметры. Результаты симуляций маневрирования судна с использованием полученной модели показывают, что они не в полной мере соответствуют результатам аналогичных манёвров, выполненных при проведении натурных испытаний судна. Выполнена коррекция математической модели судна с использованием аппарата нейронных сетей. Обучающий нейронную сеть набор данных получен путём случайных вариаций параметров математической модели с последующими симуляциями маневрирования судна до получения необходимых значений параметров его поворотливости. При этом параметрами поворотливости считаются основные параметры циркуляции и манёвра «Зиг-Заг». В программной среде Statistica Neural Nets (SNN) произведено обучение нейронной сети на 500-а наборах указанных данных с использованием интеллектуального решателя проблем, встроенного в среду SNN. В процессе обучения нейронной сети входными переменными являются параметры поворотливости, полученные в результате симуляций манёвров с использованием математической модели судна, выходными – параметры модели. Обученная таким образом нейронная сеть позволяет по заданным параметрам поворотливости, полученными в процессе проведения натурных испытаний судна, определять совокупность параметров его математической модели. Если нам необходимо так скорректировать модель, чтобы она соответствовала изменившимся параметрам поворотливости, то введя их значения в качестве входных данных в уже обученную нейронную сеть, мы получим совокупность соответствующих значений параметров модели. Рассмотрена наиболее полная математическая модель в перемещениях, в которой количество параметров установлено равным 19-ти. Увеличено также число параметров поворотливости, которые используются в качестве входных переменных нейронной сети. Например, кроме значений кинематических параметров движения судна, соответствующих установившемуся периоду циркуляции (радиуса циркуляции, линейная скорости, угол дрейфа, угловая скорость), дополнительно введены значения времени в моменты поворота судна на 90, 180, 270 и 360 градусов, а также соответствующие указанным моментам времени координаты центра тяжести судна. С помощью указанных параметров циркуляции, используемых в качестве входных в нейронную сеть, после её обучения получены уточненные параметры математической модели движения судна как выходные переменные сети. Сделано ряд выводов о применимости настоящего подхода и степени его эффективности. The neural network apparatus is used to adjust the mathematical model of the vessel's movement. The ship model has been created, i.e. its parameters are determined by traditional means. The results of simulations of vessel maneuvering using the resulting model show that they do not fully correspond to the results of similar maneuvers performed during full-scale testing of the vessel. The mathematical model of the vessel was corrected using neural networks. The dataset training the neural network was obtained by random variations of the parameters of the mathematical model, followed by simulations of the vessel’s maneuvering until the required values ​​of its agility parameters are obtained. In this case, the parameters of agility are considered to be the main parameters of circulation and the “Zig-Zag” maneuver. In the Statistica Neural Nets (SNN) software environment, a neural network was trained on 500 sets of specified data using an intelligent problem solver built into the SNN environment. In the process of training a neural network, the input variables are the agility parameters obtained as a result of maneuver simulations using a mathematical model of the vessel, and the output variables are the model parameters. A neural network trained in this way makes it possible to determine the set of parameters of its mathematical model based on the given parameters of agility obtained during full-scale testing of the vessel. If we need to adjust the model so that it corresponds to the changed agility parameters, then by entering their values as input data into an already trained neural network, we will obtain a set of corresponding values of the model parameters. The most complete mathematical model in displacements is considered, in which the number of parameters is set to 19. The number of agility parameters that are used as input variables to the neural network has also been increased. For example, in addition to the values of the kinematic parameters of the vessel’s movement corresponding to the steady-state period of circulation (circulation radius, linear speed, drift angle, angular velocity), the time values at the moments of the ship’s turn by 90, 180, 270 and 360 degrees, as well as those corresponding to the specified moments, are additionally entered time coordinates of the vessel's center of gravity. Using the specified circulation parameters used as input to the neural network, after training it, refined parameters of the mathematical model of the vessel's movement were obtained as output variables of the network. A number of conclusions have been made about the applicability of this approach and the degree of its effectiveness.",
-        "venue": "МОРСКИЕ ИНТЕЛЛЕКТУАЛЬНЫЕ ТЕХНОЛОГИИ",
-        "link": "https://doi.org/10.37220/mit.2024.66.4.003",
-        "published": "2024-11-27",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Анисимова Э.С.",
-        "title": "Разработка и исследование программной системы биометрической аутентификации пользователя по динамике рукописной подписи с использованием нечетких признаков",
-        "abstract": "Сложность надежной биометрической аутентификации пользователя по динамике рукописных подписей обусловлена их высокой внутриклассовой вариативностью, связанной с изменениями физического и эмоционального состояния человека, а также условий написания. Существующие подходы не всегда обеспечивают достаточную точность и устойчивость к этим вариациям. Данная работа посвящена исследованию и разработке программной системы биометрической аутентификации, использующей аппарат теории нечетких множеств для повышения надежности распознавания. В работе предложена оригинальная признаковая модель динамической рукописной подписи, включающая набор статических и динамических признаков, в том числе нечеткие, учитывающие неопределенность и вариативность почерка. В качестве эталона подписи используется совокупность функций принадлежности, построенных на основе компонентов признаковой модели. Предложена архитектура системы распознавания, состоящая из подсистем обучения, создания модели тестовой подписи и принятия решения о подлинности. Разработана программная система, реализующая предложенный подход, с использованием математического пакета SciLab и языка программирования C++. Система предоставляет функционал регистрации пользователей и формирования обучающей выборки на основе подписей, введенных с помощью графического планшета, а также распознавание тестовых подписей. Экспериментальное исследование проведено на базе коллекции подписей MCYT Signature 100. В ходе исследования экспериментально определено оптимальное значение степени компактности кластера для построения функций принадлежности признаков, минимизирующее коэффициент равного уровня ошибок. Результаты экспериментов демонстрируют снижение коэффициента равного уровня ошибок по сравнению с известными методами, что свидетельствует об эффективности предложенного подхода. Применение нечетких признаков способствует повышению устойчивости системы к вариациям в подписях и, как следствие, повышению надежности биометрической аутентификации в различных приложениях, требующих подтверждения личности. Результаты исследования могут быть использованы для повышения безопасности систем аутентификации и защиты конфиденциальной информации. The complexity of reliable biometric user authentication based on the dynamics of handwritten signatures is due to their high intra-class variability associated with changes in the physical and emotional state of a person, as well as writing conditions. Existing approaches do not always provide sufficient accuracy and resistance to these variations. This work is devoted to the study and development of a software system for biometric authentication using the apparatus of fuzzy set theory to improve the reliability of recognition. In this work, we proposed an original feature model of a dynamic handwritten signature, including a set of static and dynamic features, including fuzzy ones, taking into account the uncertainty and variability of handwriting. As a signature standard, we used a set of membership functions built on the basis of the components of the feature model. We proposed an architecture of the recognition system consisting of training subsystems, creating a test signature model, and making a decision on authenticity. We developed a software system that implements the proposed approach using the SciLab mathematical package and the C++ programming language. The system provides the functionality of user registration and formation of a training sample based on signatures entered using a graphic tablet, as well as recognition of test signatures. We conducted an experimental study based on the MCYT Signature 100 signature collection. During the study, we experimentally determined the optimal value of the cluster compactness degree for constructing feature membership functions that minimizes the equal error rate coefficient. The experimental results demonstrate a decrease in the equal error rate coefficient compared to known methods, which indicates the effectiveness of the proposed approach. The use of fuzzy features helps to increase the system's resistance to variations in signatures and, as a result, increase the reliability of biometric authentication in various applications that require identity verification. The results of the study can be used to improve the security of authentication systems and protect confidential information.",
-        "venue": "Modelirovanie, optimizaciâ i informacionnye tehnologii.",
-        "link": "https://doi.org/10.26102/2310-6018/2024.47.4.027",
-        "published": "2024-10-08",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Silje Haugen Warberg",
-        "title": "Følelsesfremmede",
-        "abstract": "",
-        "venue": "",
-        "link": "https://doi.org/10.62342/sap.oa.2020",
-        "published": "2024-09-10",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Shuaijie Shen",
-        "title": "Evolutionary spiking neural networks: a survey",
-        "abstract": "",
-        "venue": "Journal of Membrane Computing",
-        "link": "https://doi.org/10.1007/s41965-024-00156-x",
-        "published": "2024-06-17",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Alexander Rast",
-        "title": "Efficient learning in spiking neural networks",
-        "abstract": "",
-        "venue": "Neurocomputing",
-        "link": "https://doi.org/10.1016/j.neucom.2024.127962",
-        "published": "2024-06-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Rasha Karakchi",
-        "title": "Towards a Scalable Spiking Neural Network",
-        "abstract": "",
-        "venue": "Lecture notes in networks and systems",
-        "link": "https://doi.org/10.1007/978-3-031-56950-0_44",
-        "published": "2024-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "А.А. Белоусов",
-        "title": "Применения нейроморфных систем (спайковых нейронных систем) при инкриминировании уголовно – правовых норм",
-        "abstract": "В настоящее время в научной среде наблюдается рост внимания к искусственному интеллекту в силу того, что он может значительно упростить жизнь людей, выполняя при этом все рутинные задачи. Данную технологию и работу ИИ в этом направлении уже было рассмотрено многими учеными в области уголовного права, в связи с чем авторами было принято решение провести исследование о возможности применения нейроморфных систем в данной отрасли. Для того, чтобы полноценно провести данное исследование необходимо было разобраться с тем, что является спайковой сетью, почему ее называют еще нейроморфной сетью; далее следовало бы рассмотреть процесс генерации спайка, поскольку это в дальнейшем поможет при ответе на вопрос о применении данной системы в лечении зависимостей у людей; также из-за значительного числа камер в городах было предпринято рассмотреть возможность спайковых сетей при раскрытии преступлений и инкриминировании уголовно – правовых норм, используя данные полученные с камер видеонаблюдения и т.д.",
-        "venue": "ТЕНДЕНЦИИ РАЗВИТИЯ НАУКИ И ОБРАЗОВАНИЯ",
-        "link": "https://doi.org/10.18411/trnio-01-2024-271",
-        "published": "2024-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Тетяна Решетняк",
-        "title": "ДІАГНОСТИКА ФІНАНСОВОГО СТАНУ МАШИНОБУДІВНОГО ПІДПРИЄМСТВА НА ОСНОВІ ВИКОРИСТАННЯ НЕЙРОМЕРЕЖЕВОГО МОДЕЛЮВАННЯ",
-        "abstract": "Метою роботи є проведення діагностики рівня фінансового стану машинобудівного підприємства за допомогою застосування нейромережевого підходу та надання прогнозу його рівня на майбутнє. У статті підкреслено важливість проведення діагностики фінансового стану підприємств України в сучасних умовах. Розглянуто методи традиційного фінансового аналізу. Підкреслено необхідність використання моделювання для підвищення якості й точності аналізу. Проведено аналіз існуючих моделей оцінки фінансового стану та банкрутства підприємств. Розглянуті різні типи моделей, що були розроблені вітчизняними й закордонними авторами: моделі, побудовані на основі багатофакторного дискримінантного аналізу, на базі методів нечіткої логіки та інші. Обґрунтовано використання нейромережевого моделювання для оцінки фінансового стану. Побудовано нейромережеву модель діагностики фінансового стану на основі фінансових даних машинобудівного підприємства. Для скорочення простору вхідних даних було запропоновано використання методу «центру тяжіння», за допомогою якого кількість вхідних змінних моделі було зменшено до п’яти. За допомогою потужного інструменту проведення нейромережевого моделювання (SSN) була побудована модель на базі багатошарового персептрону. Нейромережа була навчена методом Back Propagation. За допомогою моделі зроблено оцінку фінансового стану машинобудівного підприємства ПрАТ НКМЗ на 10 майбутніх періодів. Запропонований метод діагностики фінансового стану дозволить керівництву машинобудівного підприємства передбачити настання кризового стану та розробити план фінансового оздоровлення.",
-        "venue": "Financial and credit activity problems of theory and practice",
-        "link": "https://doi.org/10.55643/fcaptp.6.53.2023.4224",
-        "published": "2023-12-30",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Alessandro Bile",
-        "title": "Solitonic Neural Networks",
-        "abstract": "",
-        "venue": "Machine intelligence for materials science",
-        "link": "https://doi.org/10.1007/978-3-031-48655-5",
-        "published": "2023-12-21",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "G. William Chapman",
-        "title": "Predictive learning by a burst-dependent learning rule",
-        "abstract": "",
-        "venue": "Neurobiology of Learning and Memory",
-        "link": "https://doi.org/10.1016/j.nlm.2023.107826",
-        "published": "2023-09-09",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "П.П. ТРОХИМЧУК",
-        "title": "ДЕЯКІ ПИТАННЯ СИНТЕЗУ В КІБЕРНЕТИЦІ ТА ІНФОРМАТИЦI",
-        "abstract": "Проаналізовано проблему синтезу в інформатиці, зокрема в кібернетиці, штучному інтелекті та системному аналізі. Обговорюються основні методи реалізації цієї проблеми. Представлено шляхи пошуку універсального методу створення універсальної синтетичної науки. Як приклад такого універсального методу наведено поліметричний аналіз. Представлено короткий класифікаційний метод синтезу. Основними методами синтезу є дедуктивний, дедуктивно-індуктивний, індуктивний і прагматичний. Аналізуються перспективи подальшого розвитку цього дослідження, в тому числі застосування поліметричного методу для вирішення основних проблем інформатики. Дедуктивні методи використовуються для створення узагальнюючих теорій або теорій всього. Для створення цих теорій було сформульовано шість критеріїв. Дедуктивно-індуктивний метод – чотири правила висновку Ньютона у фізиці. Цей метод дозволяє створювати класичну механіку, логічні типи Б. Рассела та ін. Індуктивні методи використовують для отримання індуктивних узагальнених законів як теорема Шеннона. Прагматичні методи використовують для створення систем, необхідних для перерозв'язання конкретних завдань, наприклад, створення якогось блоку для вирішення конкретної практичної задачі. Цей метод часто використовується в техніці або в сфері людської діяльності, де вже є багато розробок і їх часто потрібно поєднувати з розробками в інших суміжних галузях. У програмуванні прикладом прагматичного синтезу є мова програмування Python, яка включає елементи попередніх мов програмування. Межі між цими чотирма видами синтезу іноді досить умовні. Сучасним прикладом дедуктивно-індуктивного синтезу є концепція сильного штучного інтелекту Владислава Дорофєєва. Сама кібернетика також є синтезом різних наук. Але синтез у сенсі Джорджа індуктивний, а в сенсі поліметричного аналізу – дедуктивний.",
-        "venue": "Applied Questions of Mathematical Modeling",
-        "link": "https://doi.org/10.32782/mathematical-modelling/2022-5-2-10",
-        "published": "2023-06-09",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Saad Mofleh Hammoud Sweileh",
-        "title": "دور أنظمة الذكاء الاصطناعي في مكافحة الشائعات الإلكترونية",
-        "abstract": "تتطلب مكافحة الشائعات عبر الإنترنت تكاتف الجهود وتحمل الأطراف المختلفة مسئولياتها في إطار من مفاهيم التصحيح السريع والانفتاح والتواصل التي ترسخ بيئة أقل قابلية لانتشار الشائعات والأخبار المزيفة وجرائم التزييف العميق؛ حيث أدَّت الطبيعة المنتشرة في كل مكان لمنصات التواصل الاجتماعي إلى وجود كمية كبيرة من بيانات الوسائط المتعددة، وصولاً إلى 4.9 مليارات مستخدم حول العالم، ومن خلال استخدام تقنيات الذكاء الاصطناعي يتم التلاعب بالوعي العام والترويج لأفكار ومعلومات مزيفة، وجاءت أهمية البحث في التعرف على مصادر الحروب النفسية والشائعات عبر بيئة الإنترنت والفضاء الإلكتروني وآليات عملها في نشر الأخبار السيئة والإضرار بالمجتمعات ومخاطر الكتائب الإلكترونية، وتم الاستعانة بالمنهج الوصفي التحليلي لعلاج مشكلة الشائعات الإلكترونية، وتوصلت النتائج إلى أن الشائعات والأكاذيب تمثل إحدى أدوات حروب الجيل الخامس عبر منصات التواصل الاجتماعي، وأصبحت في منزلة معلوماتية قوية ومؤثرة، وأصبحت وسيلة الاتصال المؤثرة في الأحداث اليومية، ولديها مخاطر على الأمن القومي، وجاءت أهم التوصيات باستخدام تطبيقات الذكاء الاصطناعي في تطوير مكافحة نشر الشائعات ومواجهة البوستات والمنشورات السيئة باستخدام (التعلم الآلي، والشبكات العصبية، والخوارزميات، وتحليل المعلومات)، وكذا تطوير إستراتيجيات أجهزة الإعلام الأمني بالجهاز الأمني ودعم إستراتيجيات الوعى ضد المخاطر داخل المجتمعات",
-        "venue": "ARAB JOURNAL FOR SECURITY STUDIES",
-        "link": "https://doi.org/10.26735/qfpp7610",
-        "published": "2023-05-29",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Limiao Ning",
-        "title": "Event-driven spiking neural networks with spike-based learning",
-        "abstract": "",
-        "venue": "Memetic Computing",
-        "link": "https://doi.org/10.1007/s12293-023-00391-2",
-        "published": "2023-05-18",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "С. О. Сідченко",
-        "title": "Основні тренди інформаційної кампанії Російської Федерації проти України на початку 2023 року",
-        "abstract": "У статті висвітлені основні тренди інформаційної кампанії Російської Федерації (РФ) проти України з початку 2023 року, зміни в цілях, пріоритетах та наративах російської пропаганди, пов’язані з новим етапом війни. Відмічається, що інформаційна кампанія РФ проти України втратила цілісний характер та почала проводитися шляхом різноспрямованих інформаційних (психологічних) операцій відповідно до поточної ситуації. Головним трендом інформаційної кампанії РФ проти України з початку 2023 року став новий великий наступ на Україну і підготовка населення РФ до довготривалої війни. Одним із завдань, що вирішуються в ході даного етапу інформаційної кампанії РФ, є інформаційне забезпечення проведення другої хвилі мобілізації як складової нового вирішального наступу. Іншим трендом інформаційної кампанії РФ проти України є дискредитація вищого військово-політичного керівництва України з метою посіяти невпевненість в оборонних можливостях нашої держави. У статті проаналізовані ставлення громадян РФ та України до СРСР та підтримка населенням РФ війни в Україні і російської влади за результатами опитування “Левада-центру”. Відмічається, що для дискредитації Збройних Сил (ЗС) України та блокування поставок зброї українським військам Росія активно використовує іноземних агентів впливу у Європі. Наведені приклади маніпуляцій цільовою аудиторією і розповсюдження фейкової інформації щодо значного перебільшення втрат особового складу і озброєння ЗС України. Наведені фейкові дані низки інтернет-видань, що демонструють зменшені у 5,4–6,2 рази втрати російських збройних сил. Відмічається активізація в інформаційному просторі України різноманітних астрологів, тарологів та інших подібних фахівців, які формують хибне уявлення щодо реального перебігу подій на полі бою і наближення військової поразки РФ. Відмічається, що РФ проводить інформаційну (психологічну) операцію, спрямовану проти українських біженців, які шукають захисту в Європі. Проаналізовані дані щодо дестабілізації РФ суспільно-політичної обстановки в Молдові. Представлені інформаційні заходи в РФ з нагоди річниці вторгнення до України.",
-        "venue": "Наука і техніка Повітряних Сил Збройних Сил України",
-        "link": "https://doi.org/10.30748/nitps.2023.50.13",
-        "published": "2023-05-12",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Zexiang Yi",
-        "title": "Learning rules in spiking neural networks: A survey",
-        "abstract": "",
-        "venue": "Neurocomputing",
-        "link": "https://doi.org/10.1016/j.neucom.2023.02.026",
-        "published": "2023-02-16",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Lazaros Iliadis",
-        "title": "Artificial Neural Networks and Machine Learning – ICANN 2023",
-        "abstract": "",
-        "venue": "Lecture notes in computer science",
-        "link": "https://doi.org/10.1007/978-3-031-44198-1",
-        "published": "2023-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "陈蓓 Chen Bei",
-        "title": "光学神经网络及其应用",
-        "abstract": "由于光传输具备高通量、低延迟、低能耗等优势，光学神经网络有望应对目前人工智能技术发展中所面临的能耗和计算效率的挑战，成为近年来学术界和工业界的研究热点。光学神经网络的目标在于用光子作为物理载体构建人工神经网络算法中的基本计算单元，从而实现高性能的新型计算架构，并将其应用于实际问题的解决。本综述介绍了光学神经网络中关键光子器件的工作原理和特点、系统架构特征与应用场景。在跟踪大量国内外研究进展后，进一步分析了光学神经网在系统实现上所面临的挑战及发展趋势。",
-        "venue": "Laser & Optoelectronics Progress",
-        "link": "https://doi.org/10.3788/lop222304",
-        "published": "2023-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Mirto M. Gasparinatou",
-        "title": "Spiking Neural Networks and Mathematical Models",
-        "abstract": "",
-        "venue": "Advances in experimental medicine and biology",
-        "link": "https://doi.org/10.1007/978-3-031-31982-2_8",
-        "published": "2023-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Институт лингвистических исследований РАН",
-        "title": "Дифференцированное падежное маркирование объекта в ягнобском языке",
-        "abstract": "- ,",
-        "venue": "",
-        "link": "https://doi.org/10.37892/978-5-6049527-2-6-24",
-        "published": "2023-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Xinjie Li",
-        "title": "Learning High-Performance Spiking Neural Networks with Multi-Compartment Spiking Neurons",
-        "abstract": "",
-        "venue": "Lecture notes in computer science",
-        "link": "https://doi.org/10.1007/978-3-031-46308-2_8",
-        "published": "2023-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Xiaoling Luo",
-        "title": "Temporal-Sequential Learning with Columnar-Structured Spiking Neural Networks",
-        "abstract": "",
-        "venue": "Communications in computer and information science",
-        "link": "https://doi.org/10.1007/978-981-99-1639-9_13",
-        "published": "2023-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Zhuoer Li",
-        "title": "Efficiency analysis of artificial vs. Spiking Neural Networks on FPGAs",
-        "abstract": "",
-        "venue": "Journal of Systems Architecture",
-        "link": "https://doi.org/10.1016/j.sysarc.2022.102765",
-        "published": "2022-10-21",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Е.В. Пальчевский",
-        "title": "Прогнозирование на основе искусственной нейронной сети второго поколения для поддержки принятия решений в особо значимых ситуациях",
-        "abstract": "",
-        "venue": "Международный журнал Программные продукты и системы",
-        "link": "https://doi.org/10.15827/0236-235x.139.384-395",
-        "published": "2022-09-23",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Saeed AL-MARRI",
-        "title": "أثر الشهرة في صحة نسبة الكتب إلى مصنفيها (دراسة حديثية تطبيقية)",
-        "abstract": "تناول البحث في مبحث تنظيري معنى الشهرة في اللغة والاصطلاح، وكونها تقتضي الصحة إلى ما وقعت الشهرة عنه، سواء كان ذلك قولا أو رواية أو مصنفًا، وأن ما لم يشتهر من ذلك لا يحكم عليه بصحة أو عدمها إلا بما يحقق ذلك من القرائن. ثم أشار البحث إلى أثر الشهرة في تصحيح الروايات عامل مهم في بيان أثر الشهرة في صحة نسبة الكتب إلى مصنفيها، مع بيان مظاهر الشهرة التي يستدل بها على شهرة الكتاب عن مؤلفه، والدواعي التي يلزم معها تلك الشهرة. وقد ذكر البحث من تلك المظاهر رواية جماعة للكتاب عن مؤلفه، وتصريح المؤلف نفسه بكتابه، ونسبة الكتاب إليه من قبل القريبين من عصره، ونحو ذلك. كما أشار البحث إلى أن دواعي الاشتهار وأنها تتوقف على عاملين رئيسيين: هما مكانة الكاتب وأهمية الكتاب، وذكر في هذا الصدد مثالين. ثم تناول البحث في مبحث تطبيقي ستة أمثلة من القرون الثلاثة الأولى، في كل قرن كتابان ينسبان إلى شخص واحدٍ أحدهما تُثبِتُ شهرتُه صحةَ نسبته إلى مصنِفِه، والآخر تنفي عدم شهرته تلك النسبة، ومن تلك الكتب التي نفت الشهرة صحة نسبتها رسالة في المواعظ تنسب للإمام مالك، وكتاب الرد على الزنادقة والجهمية المنسوب للإمام أحمد.",
-        "venue": "Tasavvur / Tekirdağ İlahiyat Dergisi",
-        "link": "https://doi.org/10.47424/tasavvur.1095512",
-        "published": "2022-06-29",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Mohsen Imani",
-        "title": "Hyperdimensional neural computation",
-        "abstract": "",
-        "venue": "Biophysical Journal",
-        "link": "https://doi.org/10.1016/j.bpj.2021.11.1400",
-        "published": "2022-02-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Yufei Guo",
-        "title": "Real Spike: Learning Real-Valued Spikes for Spiking Neural Networks",
-        "abstract": "",
-        "venue": "Lecture notes in computer science",
-        "link": "https://doi.org/10.1007/978-3-031-19775-8_4",
-        "published": "2022-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "عبد الحميد عبد الله الإدريسي",
-        "title": "في مفهوم «الاجتهاد المقاصدي» .. محاولة في إعادة التأصيل",
-        "abstract": "سعت هذه الدراسة إلى محاولة تبيّن حقيقة مفهوم الاجتهاد المقاصدي، تحصيلا وتأصيلا، متوسلة في ذلك بما ناسب من مناهج الاستقراء، والنقد، والاستنباط، والتركيب، وغيرها، فخرج العمل في المجمل على شطرين: الأول: في حاضر المصطلح وتاريخه، كان الكشف فيه -ابتداء- عن مجمل التقسيمات التي وضعها الأصوليون للاجتهاد، تفسيرا لبعض أسباب غياب المصطلح وتجليات حضوره لديهم، ثم البحث في استعمال المصطلح في الدراسات المعاصرة وعرض ما رافقه من تسميات قريبة أو مشابهة، وبعد ذلك استعرضت الدراسة جملة من التعريفات التي قدمها الدارسون المعاصرون مشفوعة بما سمح به المجال من نظر نقدي فاحص، على وجهي التفصيل والإجمال، ثم توج جميع ذلك ببيان طبيعة الاجتهاد المقاصدي مقارنة بالاجتهاد القياسي. وفي الشطر الثاني عمل البحث على اجتراح محاولته الخاصة في التأصيل المعرفي للمفهوم وإعادة رسم معالمه الكلية بشكل لم يتوله شيء من الدراسات السابقة القريبة منه، مستعينا في تحقيق ذلك بما عهد في الممارسة المعرفية الإسلامية من تركيب منهجي متكامل (نموذج) دأبوا على اعتماده فيما يبتغون من حسن تصور المعارف المختلفة وما لها من فروع أو أجزاء مما عرف عندهم باسم (مبادئ العلوم)، من الحد والموضوع والواضع والثمرة والنسبة والأركان والمسائل والمسالك والأدوات وغيرها. وفي خضم ذلك كله كان خلص البحث إلى جملة من المسلمات بنى عليها أيضا أثناء ذلك، من أبرزها التمييز والفصل -في الوظيفة وفي التصور- بين الاجتهاد المقاصدي ومقاصد الشريعة، مما كان له آثار ونتائج فارقة في تكييف جملة من المفاهيم والأدوات الأصولية المتداخلة. الكلمات المفتاحية: مفهوم الاجتهاد المقاصدي .. مقاصد الشريعة .. التأصيل المعرفي .. تعريف الاجتهاد المقاصدي",
-        "venue": "مجلة الشريعة والدراسات الإسلامية.",
-        "link": "https://doi.org/10.34120/jsis.v37i129.2925",
-        "published": "2022-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Dan F. M. Goodman",
-        "title": "Brian Spiking Neural Network Simulator",
-        "abstract": "",
-        "venue": "Encyclopedia of Computational Neuroscience",
-        "link": "https://doi.org/10.1007/978-1-0716-1006-0_253",
-        "published": "2022-01-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Биљана Стаменковић",
-        "title": "МОДИФИКАЦИЈА ЛИЧНИХ ИМЕНА СТРАНОГ ПОРЕКЛА У СРПСКОМ ЈЕЗИКУ",
-        "abstract": "Модификација личних имена страног порекла у српском језику",
-        "venue": "ГОДИШЊАК ЗА СРПСКИ ЈЕЗИК",
-        "link": "https://doi.org/10.46630/gsrj.19.2021.20",
-        "published": "2021-12-15",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Юлия В. Свиткевич",
-        "title": "Современное научное руководство в университетах: взаимодействие субъектов процесса, детерминанты эффективности результатов",
-        "abstract": "Автор рассматривает современное научное руководство в университетах и совместную научно-исследовательскую деятельность научного руководителя и руководимого. Специфичной детерминантой эффективности результатов научно-исследовательской деятельности выступает система взаимодействия субъектов научного руководства. Во «Введении» актуальность исследования обуславливается неспособностью современного научного образования покрыть все потребности 21 века. Новизной выступает рассмотрение системы взаимоотношений между научным руководителем и руководимым в процессе научно-исследовательской деятельности, описание видов взаимодействия и их влияния на эффективность научного руководства. В «Теоретическом обосновании» автором рассматриваются исследования, описывающие влияние стиля руководства и значимость научного руководства в формировании профессиональной идентичности, интереса к науке, личности в целом. Описываются результаты эмпирических наблюдений за взаимодействием научных руководителей и руководимых. Автор предлагает 4 модели взаимоотношений: «малыш», «лентяй или невежа», «некто», «партнёр». Представлена выраженность основных компонентов взаимодействия субъектов научного руководства в каждой из моделей. В исследовании делается акцент на формирование научного мышления как значимую детерминанту эффективности результатов научно-исследовательской деятельности. Рассматриваются исследовательские умения и навыки, формирующиеся с научным мышлением, и развивающие личность студента, помогающие в академической, повседневной жизни. Предлагается наставничество в качестве одной из основных форм научно-исследовательской деятельности. В «Обсуждении результатов» автор рекомендует сделать акцент в определении научного руководства на то, что субъектами, влияющими друг на друга, являются оба участника процесса. Автор подчеркивает, что в современном мире существует необходимость модернизации научного руководства. Приводятся выводы исследования. Автором подчеркивается важность дальнейших исследований по теме научного руководства. Представленные в статье рассуждения могут помочь научным руководителям оптимизировать совместную научно-исследовательскую деятельность.",
-        "venue": "Северо-Кавказский психологический вестник",
-        "link": "https://doi.org/10.21702/ncpb.2021.3.3",
-        "published": "2021-09-30",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Myoung Won Cho",
-        "title": "Supervised learning in a spiking neural network",
-        "abstract": "",
-        "venue": "Journal of the Korean Physical Society",
-        "link": "https://doi.org/10.1007/s40042-021-00254-4",
-        "published": "2021-07-20",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Elishai Ezra Tsur",
-        "title": "Learning spiking neural networks",
-        "abstract": "",
-        "venue": "",
-        "link": "https://doi.org/10.1201/9781003143499-17",
-        "published": "2021-07-19",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Inna Zhulkovska",
-        "title": "СУЧАСНІ МЕТОДИ ВИЯВЛЕННЯ ШКІДЛИВИХ ПРОГРАМ",
-        "abstract": "Виявлення та класифікація шкідливих програм стала однією з найважливіших проблеми в галузі кібербезпеки. Існує достатньо методик виявлення невідомого шкідливого програмного забезпечення, кожна з яких має свої переваги, недоліки та особливості використання.&#x0D; В роботі виконано дослідження сигнатурного та евристичного методів виявлення шкідливого програмного забезпечення. Окремий аналіз присвячений застосуванню методів машинного навчання для класифікації шкідливих програм. Досліджено різні техніки машинного навчання для класифікації та виявлення зразків шкідливих програм та їх відповідних класів, їх фільтрації. Показано корисність графічної візуалізації байтів для виявлення шаблонів проектування програмного забезпечення для подальшої автоматизації виявлення вірусів. Виконано порівняльну характеристику сучасних, головним чином, евристичних методів виявлення шкідливого програмного забезпечення та систематизовано за значеннями точності пошуку.&#x0D; Оскільки на даний момент не існує ефективної методики виявлення невідомого шкідливого програмного забезпечення, тому для проведення ефективного пошуку і знищення шкідливих програм потрібно комбінувати всі сучасні методи, способи і засоби, враховуючи всі особливості їх використання.",
-        "venue": "Математичне моделювання",
-        "link": "https://doi.org/10.31319/2519-8106.1(44)2021.235922",
-        "published": "2021-07-01",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Mehterhan FURKANİ",
-        "title": "علماء الفقه الحنفي الذين نشؤوا في أفغانستان",
-        "abstract": "بعد قَبُول دين الإسلام في المنطقة التي تعرف اليوم بأفغانستان، حدث هناك تطور كبير في علوم الفقه، كما وقع مثله في العلوم الدينية الأخرى، ونشأ هناك العديد من كبار العلماء في مجال الفقه .نظرا إلى الاختلاف المذهبي بين العلماء الذين ظهروا في تلك الفترة، يتبين لنا أن هناك العديد من المذاهب، ومع ذلك، عندما يؤخذ في عين الاعتبار من حيث انتشاره وتأثيره، فمن الواضح أن المذهب الحنفي في الصدارة وبالتالي فإن علماء الفقه الحنفي هم الأغلبية.&#x0D; سنتناول في هذا البحث المعلومات الببليوغرافية عن العلماء الأحناف الذين نشأوا في مناطق داخل حدود أفغانستان، وخاصة مدن التي أصبحت مراكز علمية في الفترات الأولى مثل بلخ وهَرَات وغَزْنَة. وهدفنا هو إظهار أهمية هذه المنطقة من جانب مساهمتها في الفقه.",
-        "venue": "Mütefekkir",
-        "link": "https://doi.org/10.30523/mutefekkir.849996",
-        "published": "2020-12-31",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Kanat Khismatovich Rakhimzhanov",
-        "title": "Метафорическо-метонимическая интерпретация сердца в казахском и тувинском языках: взаимодействие языка, анатомии и культуры",
-        "abstract": "В статье исследуется метафорическая и метонимическая интерпретация понятия жүрек / чүрек — сердце в казахском и тувинском языках. Установлен набор содержательных параметров их концептуализации, по которым проведено сопоставление. Большая часть параметров говорит об универсальном характере когнитивного осмысления анатомического понятия в разных языках и культурах: жүрек / чүрек представляется сосудом для эмоций; местом обитания постоянных человеческих качеств; ему приписываются определенные цвета, не связанные с реальным цветом внутреннего органа; способность перемещаться внутри тела и быть сделанным из разных материалов. В некоторых параметрах проявляется сходство казахского и тувинского языков, обусловленное генетической общностью тюркской культуры. Идиомы сопоставляемых языков демонстрируют своеобразие концептуализации представлений о жүрек / чүрек.",
-        "venue": "The New Research of Tuva",
-        "link": "https://doi.org/10.25178/nit.2020.4.18",
-        "published": "2020-12-06",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Natalia V. ANDREEVA",
-        "title": "МУЛЬТИМОДАЛЬНЫЕ НЕЙРОМОРФНЫЕ МОДУЛИ НА ОСНОВЕ МНОГОУРОВНЕВОЙ МЕМРИСТОРНОЙ ЛОГИКИ",
-        "abstract": "Рассматриваются вопросы адаптации мемристивных устройств с многоуровневым переключением сопротивления для использования в искусственных нейронных сетях в качестве электронных эквивалентов синапсов.",
-        "venue": "ELECTRONICS Science Technology Business",
-        "link": "https://doi.org/10.22184/1992-4178.2020.200.9.72.82",
-        "published": "2020-11-11",
-        "is_arxiv": false
-      },
-      {
-        "first_author": "Ismaeel Khaleel Mohammed",
-        "title": "سؤالات الترمذي لشيخه الدارمي - جمعا ودراسة",
-        "abstract": "فهذا ملخص بحثي (سؤالات الترمذي لشيخه الدارمي جمعا ودراسة) جمعت فيه تلك السؤالات فبلغت ثمانية وهي غاية في الاهمية لان فيها علما قد لا يكون في غيرها، اضف الى ذلك اهمية ومكانة الامامين الترمذي وشيخه الدارمي. فوجدها تنقسم في جملتها الى قسمين منها ما يتعلق بالرواة كما في الحديث الثاني والرابع ومنها ما يتعلق بالصناعة الحديثية كالحديث الاول والثالث والخامس والسادس والسابع والثامن، وعلى هذه الثمانية الاحاديث انقسم البحث بعد التمهيد والمقدمة ثم الخاتمة والمصادر، وقد ذكرت الحديث او الرواية التي فيها السؤال وقمت بتخريجها من دواوين السنة، وذكرت الحكم عليها من خلال دراسة اسانيدها ومن ثم مناقشة تلك المسائل وذكر اقوال العلماء وبينت الراجح منها والله اسأل ان ينفعني وينفع بعملي هذا.",
-        "venue": "Journal of Tikrit University for Humanities",
-        "link": "https://doi.org/10.25130/jtuh.27.7.2020.03",
-        "published": "2020-09-26",
         "is_arxiv": false
       }
     ],
